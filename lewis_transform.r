@@ -25,7 +25,7 @@ colnames(df) <- convert2DwC(colnames(df)) # convert to DarwinCore terms
 
 # clean up
 # define function: remove '\xa0' chars and non-conforming punctuation
-phrase_clean <- function(x) gsub("[^[:alnum:][:blank:]&,()]", "", x)
+phrase_clean <- function(x) gsub("[^[:alnum:][:blank:]&,()];", "", x)
 space_clean <- function(x) gsub("  ", " ", x)
 
 # remove remove '\xa0' chars
@@ -60,7 +60,7 @@ for(i in 1:nrow(df)){
                                        is.na(df$author[i]), NA, # if both author and year are blank, insert NA
   ifelse(is.na(df$namePublishedInYear[i]),df$author[i], # if author is not blank but year is, insert author
          ifelse(is.na(df$author[i]), df$namePublishedInYear[i], # if author is blank, but year is not, insert year
-         paste(df$author, df$namePublishedInYear, sep = ', ')) # if both author and year are NOT blank merge and insert
+         paste(df$author[i], df$namePublishedInYear[i], sep = ', ')) # if both author and year are NOT blank merge and insert
          )
   )
 }
@@ -129,18 +129,81 @@ for(i in 1:nrow(df)){
 }
 
 
-
-# Extract synonym list
-df_synonym <- df
-
 # define function: name length
 name_length <- function(x) ifelse(!is.na(x), length(unlist(strsplit(x, ' '))), 0)
 # define function: is not in
 '%!in%' <- function(x,y)!('%in%'(x,y))
 
-df_synonym <- df_synonym[which(lapply(df_synonym$`synonym(s)`, name_length) != 0), ] # keep only rows with synonyms
+df_synonym <- df[which(lapply(df$`synonym(s)`, name_length) != 0), ] # extract rows with synonyms
 
 # melt multiple synonyms
-test <- data.frame(do.call('rbind', strsplit(as.character(df_synonym$`synonym(s)`),';',fixed=TRUE)))
-df_synonym <- cbind(df_synonym, test)
-test <- df_synonym
+synonym_all <- subset(df_synonym, select = c(scientificName, `synonym(s)`))
+
+colno <- max(lengths(strsplit(synonym_all$`synonym(s)`, ';')))
+setDT(synonym_all)[, paste0("syn", 1:colno) := tstrsplit(`synonym(s)`, ";")]
+
+synonyms <- synonym_all[, c("scientificName", "syn1")]
+colnames(synonyms)<- c("acceptedName","scientificName")
+
+# get second set of synonyms
+synonyms_append <- synonym_all[, c("scientificName", "syn2")]
+colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
+synonyms_append <- synonyms_append[!is.na(synonyms_append$scientificName), ] # remove rows with no synonym
+synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
+
+
+# get third set of synonyms
+synonyms_append <- synonym_all[, c("scientificName", "syn3")]
+synonyms_append <- synonyms_append[!is.na(synonyms_append$syn3), ] # remove rows with no synonym
+colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
+synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
+
+# get fourth set of synonyms
+synonyms_append <- synonym_all[, c("scientificName", "syn4")]
+synonyms_append <- synonyms_append[!is.na(synonyms_append$syn4), ] # remove rows with no synonym
+colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
+synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
+
+# get fifth set of synonyms
+synonyms_append <- synonym_all[, c("scientificName", "syn5")]
+synonyms_append <- synonyms_append[!is.na(synonyms_append$syn5), ] # remove rows with no synonym
+colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
+synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
+
+# get sixth set of synonyms
+synonyms_append <- synonym_all[, c("scientificName", "syn6")]
+synonyms_append <- synonyms_append[!is.na(synonyms_append$syn6), ] # remove rows with no synonym
+colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
+synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
+
+# get eighth set of synonyms
+synonyms_append <- synonym_all[, c("scientificName", "syn8")]
+synonyms_append <- synonyms_append[!is.na(synonyms_append$syn8), ] # remove rows with no synonym
+colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
+synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
+
+# get tenth set of synonyms
+synonyms_append <- synonym_all[, c("scientificName", "syn10")]
+synonyms_append <- synonyms_append[!is.na(synonyms_append$syn10), ] # remove rows with no synonym
+colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
+synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
+
+# get eleventh set of synonyms
+synonyms_append <- synonym_all[, c("scientificName", "syn11")]
+synonyms_append <- synonyms_append[!is.na(synonyms_append$syn11), ] # remove rows with no synonym
+colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
+synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
+
+# get twelevth set of synonyms
+synonyms_append <- synonym_all[, c("scientificName", "syn12")]
+synonyms_append <- synonyms_append[!is.na(synonyms_append$syn12), ] # remove rows with no synonym
+colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
+synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
+
+# get thirteenth set of synonyms
+synonyms_append <- synonym_all[, c("scientificName", "syn13")]
+synonyms_append <- synonyms_append[!is.na(synonyms_append$syn13), ] # remove rows with no synonym
+colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
+synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
+
+
