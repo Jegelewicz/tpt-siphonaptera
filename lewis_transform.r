@@ -137,16 +137,16 @@ name_length <- function(x) ifelse(!is.na(x), length(unlist(strsplit(x, ' '))), 0
 df_synonym <- df[which(lapply(df$`synonym(s)`, name_length) != 0), ] # extract rows with synonyms
 
 # melt multiple synonyms
-synonym_all <- subset(df_synonym, select = c(scientificName, `synonym(s)`))
+synonym_all <- subset(df_synonym, select = c(scientificName, `synonym(s)`)) # get all rows that include a synonym
 
-colno <- max(lengths(strsplit(synonym_all$`synonym(s)`, ';')))
-setDT(synonym_all)[, paste0("syn", 1:colno) := tstrsplit(`synonym(s)`, ";")]
+colno <- max(lengths(strsplit(synonym_all$`synonym(s)`, ';'))) # get max number of synonyms for any given accepted name
+setDT(synonym_all)[, paste0("syn", 1:colno) := tstrsplit(`synonym(s)`, ";")] # parse out synonyms into separate columns
 
-synonyms <- synonym_all[, c("scientificName", "syn1")]
-colnames(synonyms)<- c("acceptedName","scientificName")
+synonyms <- synonym_all[, c("scientificName", "syn1")] # get all "first" synonyms
+colnames(synonyms)<- c("acceptedName","scientificName") # reanme column headers
 
 # get second set of synonyms
-synonyms_append <- synonym_all[, c("scientificName", "syn2")]
+synonyms_append <- synonym_all[, c("scientificName", "syn2")] # get all "second" synonyms
 colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
 synonyms_append <- synonyms_append[!is.na(synonyms_append$scientificName), ] # remove rows with no synonym
 synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
@@ -206,4 +206,36 @@ synonyms_append <- synonyms_append[!is.na(synonyms_append$syn13), ] # remove row
 colnames(synonyms_append)<- c("acceptedName","scientificName") # change column names to DwC
 synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
 
+# Get the parenthesis and what is inside
+synonyms$taxonRemarks <- gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", synonyms$scientificName, perl=T) # get things in parenthesis for review
+synonyms$taxonRemarks[ synonyms$taxonRemarks == "" ] <- NA
+review <- synonyms[which(!is.na(synonyms$taxonRemarks)), ]
+synonyms <- synonyms[which(is.na(synonyms$taxonRemarks)), ]
+review$scientificName <- gsub("\\([^()]*\\)", "", review$scientificName) # get things outside parenthesis for review
 
+# write and review taxonRemarks then add back to synonyms
+
+# melt scientific name of synonyms
+synonyms <- melt_scientificname(synonyms, 
+                    sciname="scientificName", 
+                    genus="genus",
+                    subgenus="subgenus", 
+                    species="specificEpithet", 
+                    subspecies="infraspecificEpithet",
+                    author="scientificNameAuthorship")
+
+
+df <- rbindlist(list(df, synonyms), fill = TRUE)
+df$syn1 <- NULL
+df$syn2 <- NULL
+df$syn3 <- NULL
+df$syn4 <- NULL
+df$syn5 <- NULL
+df$syn6 <- NULL
+df$syn7 <- NULL
+df$syn8 <- NULL
+df$syn9 <- NULL
+df$syn10 <- NULL
+df$syn11 <- NULL
+df$syn12 <- NULL
+df$syn13 <- NULL

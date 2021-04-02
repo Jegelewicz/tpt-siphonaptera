@@ -8,3 +8,13 @@ for(i in 1:nrow(synonym_all)){
     # nothing to do here
   }
 }
+
+# right function
+right = function (string, char) {
+  substr(string,nchar(string)-(char-1),nchar(string))
+}
+
+# left function
+left = function (string,char) {
+  substr(string,1,char)
+}
