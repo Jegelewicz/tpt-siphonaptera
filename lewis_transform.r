@@ -6,27 +6,49 @@ library(taxotools)
 
 # define function: name length
 name_length <- function(x) ifelse(!is.na(x), length(unlist(strsplit(x, ' '))), 0)
+
 # define function: is not in
 '%!in%' <- function(x,y)!('%in%'(x,y))
+
+# define right function
+right = function (string, char) {
+  substr(string,(char+1),nchar(string))
+}
+
+# define left function
+left = function (string,char) {
+  substr(string,1,char)
+}
 
 # read in file
 Lewis_World_Species_List_1_APR_2021 <- read_excel("input/Lewis World Species List 1 APR 2021.xlsx")
 df <- Lewis_World_Species_List_1_APR_2021 # change filename for ease of use
 df <- df[-which(apply(df,1,function(x)all(is.na(x)))),] # remove empty rows
+tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
+tpt_dwc_template[] <- lapply(tpt_dwc_template, as.character) # set all columns in template to character
 
 # transform column headers
 colnames(df) <- tolower(colnames(df)) # lower case column names
 
-# define DarwinCore conversion function
+# define DwC conversion
 convert2DwC <- function(df_colname) {
   x <- gsub('.*subspecies.*','infraspecificEpithet',df_colname)
   x <- gsub('.*rank.*','taxonRank',x)
   x <- gsub('.*author.*','author',x)
   x <- gsub('.*year.*','namePublishedInYear',x)
   x
-} # this needs work
+}
 
 colnames(df) <- convert2DwC(colnames(df)) # convert to DarwinCore terms
+
+df <- rbindlist(list(df, tpt_dwc_template), fill = TRUE) # add all DwC columns
+
+df$TPTID <- seq.int(nrow(df)) # add numeric ID for each name
+
+df$kingdom <- "Animalia" # add kingdom
+df$phylum <- "Arthropoda" # add phylum
+df$class <- "Insecta" # add class
+df$order <- "Siphonaptera" # add order
 
 # clean up
 # define function: remove '\xa0' chars and non-conforming punctuation
@@ -48,15 +70,17 @@ setDT(df)
 cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
 df[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
 
-
 # split specificEpithet when it has two terms
 multi_epithet <- df[which(lapply(df$species, name_length) > 1),] # extract rows with a multi-name specifies
 df <- df[which(lapply(df$species, name_length) <= 1),] # extract rows with a multi-name specifies
-split_epithet <- data.frame(do.call('rbind', strsplit(as.character(multi_epithet$species),' ',fixed=TRUE))) # split two terms in species into two columns
-colnames(split_epithet)<- c("specificEpithet","infraspecificEpithet") # rename column headers
-multi_epithet <- cbind(multi_epithet, split_epithet) # add columns to multi_epithet
-df$specificEpithet <- df$species # add specificEpithet column to df and import species
-df$infraspecificEpithet <- NA # add infraspecificEpithet column to df
+
+for(i in 1:nrow(multi_epithet)){
+  multi_epithet$specificEpithet[i] <- left(multi_epithet$species[i], unlist(gregexpr(pattern = " ", multi_epithet$species[i]))) # place first term in specificEpithet
+  multi_epithet$infraspecificEpithet[i] <- right(multi_epithet$species[i], unlist(gregexpr(pattern = " ", multi_epithet$species[i]))) # place second term in infraspecificEpithet
+}
+
+df$specificEpithet <- df$species # place single term species names in specificEpithet
+
 df <- rbind(df,multi_epithet) # return subspecies to working file
 
 # create scientificNameAuthorship which meets DarwinCore standard for ICZN
@@ -132,7 +156,6 @@ if(nrow(review_canonical) == 0){
 }
 
 # cast scientific name
-df$scientificName <- NA # create column for scientificName
 df$scientificName[i] <- for(i in 1:nrow(df)){
     if(!is.na(df$genus[i])){
       scn <- df$genus[i]
@@ -156,79 +179,25 @@ df$scientificName[i] <- for(i in 1:nrow(df)){
 df_synonym <- df[which(lapply(df$`synonym(s)`, name_length) != 0), ] # extract rows with synonyms
 
 # melt multiple synonyms
-synonym_all <- subset(df_synonym, select = c(scientificName, `synonym(s)`)) # get all rows that include a synonym
+# synonym_all <- subset(df_synonym, select = c(scientificName, `synonym(s)`)) # get all rows that include a synonym
+colno <- max(lengths(strsplit(df_synonym$`synonym(s)`, '; '))) # get max number of synonyms for any given accepted name
+setDT(df_synonym)[, paste0("syn", 1:colno) := tstrsplit(`synonym(s)`, ";")] # parse out synonyms into separate columns
+df_synonym$acceptedNameUsage <- df_synonym$scientificName
+df_synonym$scientificName <- df_synonym$syn1
+synonyms <- df_synonym
 
-colno <- max(lengths(strsplit(synonym_all$`synonym(s)`, '; '))) # get max number of synonyms for any given accepted name
-setDT(synonym_all)[, paste0("syn", 1:colno) := tstrsplit(`synonym(s)`, "; ")] # parse out synonyms into separate columns
+for (i in 2:colno){
+  syn <- paste('syn', i, sep="")
+  synonyms_append <- df_synonym[which(!is.na(df_synonym[[syn]]))] # get next set of synonyms
+  synonyms_append$scientificName <- synonyms_append[[syn]] # move synonyms to scientific name
+  synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
+}
 
-synonyms <- synonym_all[, c("scientificName", "syn1")] # get all "first" synonyms
-colnames(synonyms)<- c("acceptedNameUsage","scientificName") # rename column headers
-
-# get second set of synonyms
-synonyms_append <- synonym_all[, c("scientificName", "syn2")] # get all "second" synonyms
-colnames(synonyms_append)<- c("acceptedNameUsage","scientificName") # change column names to DwC
-synonyms_append <- synonyms_append[!is.na(synonyms_append$scientificName), ] # remove rows with no synonym
-synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
-
-# get third set of synonyms
-synonyms_append <- synonym_all[, c("scientificName", "syn3")]
-synonyms_append <- synonyms_append[!is.na(synonyms_append$syn3), ] # remove rows with no synonym
-colnames(synonyms_append)<- c("acceptedNameUsage","scientificName") # change column names to DwC
-synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
-
-# get fourth set of synonyms
-synonyms_append <- synonym_all[, c("scientificName", "syn4")]
-synonyms_append <- synonyms_append[!is.na(synonyms_append$syn4), ] # remove rows with no synonym
-colnames(synonyms_append)<- c("acceptedNameUsage","scientificName") # change column names to DwC
-synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
-
-# get fifth set of synonyms
-synonyms_append <- synonym_all[, c("scientificName", "syn5")]
-synonyms_append <- synonyms_append[!is.na(synonyms_append$syn5), ] # remove rows with no synonym
-colnames(synonyms_append)<- c("acceptedNameUsage","scientificName") # change column names to DwC
-synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
-
-# get sixth set of synonyms
-synonyms_append <- synonym_all[, c("scientificName", "syn6")]
-synonyms_append <- synonyms_append[!is.na(synonyms_append$syn6), ] # remove rows with no synonym
-colnames(synonyms_append)<- c("acceptedNameUsage","scientificName") # change column names to DwC
-synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
-
-# get eighth set of synonyms
-synonyms_append <- synonym_all[, c("scientificName", "syn8")]
-synonyms_append <- synonyms_append[!is.na(synonyms_append$syn8), ] # remove rows with no synonym
-colnames(synonyms_append)<- c("acceptedNameUsage","scientificName") # change column names to DwC
-synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
-
-# get tenth set of synonyms
-synonyms_append <- synonym_all[, c("scientificName", "syn10")]
-synonyms_append <- synonyms_append[!is.na(synonyms_append$syn10), ] # remove rows with no synonym
-colnames(synonyms_append)<- c("acceptedNameUsage","scientificName") # change column names to DwC
-synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
-
-# get eleventh set of synonyms
-synonyms_append <- synonym_all[, c("scientificName", "syn11")]
-synonyms_append <- synonyms_append[!is.na(synonyms_append$syn11), ] # remove rows with no synonym
-colnames(synonyms_append)<- c("acceptedNameUsage","scientificName") # change column names to DwC
-synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
-
-# get twelevth set of synonyms
-synonyms_append <- synonym_all[, c("scientificName", "syn12")]
-synonyms_append <- synonyms_append[!is.na(synonyms_append$syn12), ] # remove rows with no synonym
-colnames(synonyms_append)<- c("acceptedNameUsage","scientificName") # change column names to DwC
-synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
-
-# get thirteenth set of synonyms
-synonyms_append <- synonym_all[, c("scientificName", "syn13")]
-synonyms_append <- synonyms_append[!is.na(synonyms_append$syn13), ] # remove rows with no synonym
-colnames(synonyms_append)<- c("acceptedNameUsage","scientificName") # change column names to DwC
-synonyms <- rbind(synonyms, synonyms_append) # combine with synonyms
-
-# Get the parenthesis and what is inside
+# Get the parenthesis in scientificName and what is inside
 synonyms$taxonRemarks <- gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", synonyms$scientificName, perl=T) # get things in parenthesis for review
-synonyms$taxonRemarks[ synonyms$taxonRemarks == "" ] <- NA
-review_synonyms <- synonyms[which(!is.na(synonyms$taxonRemarks)), ]
-synonyms <- synonyms[which(is.na(synonyms$taxonRemarks)), ]
+synonyms$taxonRemarks[ synonyms$taxonRemarks == "" ] <- NA # set all blank remarks to NA
+review_synonyms <- synonyms[which(!is.na(synonyms$taxonRemarks)), ] # extract synonyms with taxonRemarks
+synonyms <- synonyms[which(is.na(synonyms$taxonRemarks)), ] # leave only NA taxonRemarks in synonyms
 review_synonyms$scientificName <- gsub("\\([^()]*\\)", "", review_synonyms$scientificName) # get things outside parenthesis for review
 
 # write and review taxonRemarks then add back to synonyms
@@ -267,16 +236,13 @@ synonyms <- cast_canonical(synonyms,
                      species = "specificEpithet",
                      subspecies = "infraspecificEpithet")
 
+for (i in 1:colno){
+  syn <- paste('syn', i, sep="")
+  synonyms[[syn]] <- NULL # remove parsed columns from synonyms
+}
+
 df <- rbindlist(list(df, synonyms), fill = TRUE) # combine synonyms with accepted names in working file
 
-
-df$TPTdataset <- "Lewis" # add dataset identifier
-df$TPTID <- seq.int(nrow(df)) # add numeric ID for each name
-
-df$kingdom <- "Animalia" # add kingdom
-df$phylum <- "Arthropoda" # add phylum
-df$class <- "Insecta" # add class
-df$order <- "Siphonaptera" # add order
 Lewis_non_dwc <- subset(df, select = c(TPTdataset, TPTID, species, author, `synonym(s)`)) # get all rows that are not DwC
 # remove non Dwc columns from working file
 df$species <- NULL
