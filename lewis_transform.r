@@ -12,12 +12,12 @@ name_length <- function(x) ifelse(!is.na(x), length(unlist(strsplit(x, ' '))), 0
 
 # define right function
 right = function (string, char) {
-  substr(string,(char+1),nchar(string))
+  substr(string,(char + 1),nchar(string))
 }
 
 # define left function
 left = function (string,char) {
-  substr(string,1,char)
+  substr(string,1,char - 1)
 }
 
 # read in file
@@ -163,6 +163,7 @@ if(nrow(review_canonical) == 0){
 } else{
   stop('Open the review_canonical file in the output folder, make adjustments as appropriate and save the revised file to input as reviewed_canonical.xlsx before proceeding')
 }
+
 # after review add back cleaned up names
 review_canonical <- reviewed_canonical <- read_excel("input/reviewed_canonical.xlsx") # read in cleaned review file
 higher_taxa <- rbind(higher_taxa, reviewed_canonical) # add reviewed higher_taxa back to the working file
@@ -255,6 +256,7 @@ synonyms <- melt_scientificname(synonyms,
                     author="scientificNameAuthorship")
 
 synonyms$scientificNameAuthorship <- lapply(synonyms$scientificNameAuthorship, trimws) # trim space left at beginning of scientifcNameAuthorship by function
+synonyms$scientificNameAuthorship <- vapply(synonyms$scientificNameAuthorship, paste, collapse = ", ", character(1L)) # set scientific authorship to character
 
 # cast canonicalName for synonyms
 synonyms <- cast_canonical(synonyms,
