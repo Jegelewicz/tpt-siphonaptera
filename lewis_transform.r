@@ -24,6 +24,7 @@ left = function (string,char) {
 Lewis_World_Species_List_1_APR_2021 <- read_excel("input/Lewis World Species List 1 APR 2021.xlsx")
 df <- Lewis_World_Species_List_1_APR_2021 # change filename for ease of use
 df <- df[-which(apply(df,1,function(x)all(is.na(x)))),] # remove empty rows
+original_rows <- nrow(df)
 tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
 tpt_dwc_template[] <- lapply(tpt_dwc_template, as.character) # set all columns in template to character
 
@@ -43,6 +44,7 @@ colnames(df) <- convert2DwC(colnames(df)) # convert to DarwinCore terms
 
 df <- rbindlist(list(df, tpt_dwc_template), fill = TRUE) # add all DwC columns
 
+df$TPTdataset <- "Lewis" # add dataset name
 df$TPTID <- seq.int(nrow(df)) # add numeric ID for each name
 
 df$kingdom <- "Animalia" # add kingdom
@@ -78,6 +80,17 @@ for(i in 1:nrow(multi_epithet)){
   multi_epithet$specificEpithet[i] <- left(multi_epithet$species[i], unlist(gregexpr(pattern = " ", multi_epithet$species[i]))) # place first term in specificEpithet
   multi_epithet$infraspecificEpithet[i] <- right(multi_epithet$species[i], unlist(gregexpr(pattern = " ", multi_epithet$species[i]))) # place second term in infraspecificEpithet
 }
+
+# strip spaces from ends of strings
+setDT(multi_epithet)
+cols_to_be_rectified <- names(multi_epithet)[vapply(multi_epithet, is.character, logical(1))]
+multi_epithet[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
+
+# strip double spaces
+setDT(multi_epithet)
+cols_to_be_rectified <- names(multi_epithet)[vapply(multi_epithet, is.character, logical(1))]
+multi_epithet[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
+
 
 df$specificEpithet <- df$species # place single term species names in specificEpithet
 
@@ -149,11 +162,12 @@ if(nrow(review_canonical) == 0){
   df <- rbind(higher_taxa, df) # add higher taxa back to df for remainder of de-duplication
 } else{
   stop('Open the review_canonical file in the output folder, make adjustments as appropriate and save the revised file to input as reviewed_canonical.xlsx before proceeding')
-  review_canonical <- reviewed_canonical <- read_excel("input/reviewed_canonical.xlsx") # read in cleaned review file
-  higher_taxa <- rbind(higher_taxa, review_canonical) # add reviewed higher_taxa back to the working file
-  df <- rbind(higher_taxa, df) # add higher taxa back to df for remainder of de-duplication
-  
 }
+# after review add back cleaned up names
+review_canonical <- reviewed_canonical <- read_excel("input/reviewed_canonical.xlsx") # read in cleaned review file
+higher_taxa <- rbind(higher_taxa, reviewed_canonical) # add reviewed higher_taxa back to the working file
+df <- rbind(higher_taxa, df) # add higher taxa back to df for remainder of de-duplication
+
 
 # cast scientific name
 df$scientificName[i] <- for(i in 1:nrow(df)){
@@ -182,10 +196,23 @@ df_synonym <- df[which(lapply(df$`synonym(s)`, name_length) != 0), ] # extract r
 # synonym_all <- subset(df_synonym, select = c(scientificName, `synonym(s)`)) # get all rows that include a synonym
 colno <- max(lengths(strsplit(df_synonym$`synonym(s)`, '; '))) # get max number of synonyms for any given accepted name
 setDT(df_synonym)[, paste0("syn", 1:colno) := tstrsplit(`synonym(s)`, ";")] # parse out synonyms into separate columns
-df_synonym$acceptedNameUsage <- df_synonym$scientificName
-df_synonym$scientificName <- df_synonym$syn1
-synonyms <- df_synonym
 
+# strip spaces from ends of strings
+setDT(df_synonym)
+cols_to_be_rectified <- names(df_synonym)[vapply(df_synonym, is.character, logical(1))]
+df_synonym[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
+
+# strip double spaces
+setDT(df_synonym)
+cols_to_be_rectified <- names(df_synonym)[vapply(df_synonym, is.character, logical(1))]
+df_synonym[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
+
+
+df_synonym$acceptedNameUsage <- df_synonym$scientificName # copy accepted scientific name to accepted name column
+df_synonym$scientificName <- df_synonym$syn1 # move synonym name to scientific name column
+synonyms <- df_synonym # create synonyms data frame
+
+# get synonyms from columns syn2-last
 for (i in 2:colno){
   syn <- paste('syn', i, sep="")
   synonyms_append <- df_synonym[which(!is.na(df_synonym[[syn]]))] # get next set of synonyms
@@ -241,16 +268,56 @@ for (i in 1:colno){
   synonyms[[syn]] <- NULL # remove parsed columns from synonyms
 }
 
+# Add TPTdataset and identifiers to synonyms
+synonyms$TPTdataset <- "Lewis" # add TPT dataset = Lewis
+synonyms$acceptedNameUsageID <- synonyms$TPTID # copy ID to accepted ID column
+synonyms$TPTID <- seq.int(original_rows + 1, original_rows + nrow(synonyms)) # add numeric ID for each synonym name
+
 df <- rbindlist(list(df, synonyms), fill = TRUE) # combine synonyms with accepted names in working file
 
-Lewis_non_dwc <- subset(df, select = c(TPTdataset, TPTID, species, author, `synonym(s)`)) # get all rows that are not DwC
+Lewis_non_dwc <- subset(df, select = c(TPTdataset, TPTID, species, author, `synonym(s)`)) # get all columns that are not DwC
 # remove non Dwc columns from working file
 df$species <- NULL
 df$author <- NULL
 df$`synonym(s)` <- NULL
 # order column names
 #df[,c(1,2,3,4)]. Note the first comma means keep all the rows, and the 1,2,3,4 refers to the columns.
-df <- df[,c("TPTdataset", "TPTID", "scientificName", "acceptedNameUsage", "namePublishedInYear", "kingdom",	"phylum",	"class", "order", "family",	"genus", "subgenus", "specificEpithet", "infraspecificEpithet",	"scientificNameAuthorship",	"taxonomicStatus", "nomenclaturalStatus",	"taxonRemarks", "canonicalName"
+df <- df[,c("TPTdataset", 
+            "TPTID", 
+            "taxonID", 
+            "scientificNameID", 
+            "acceptedNameUsageID", 
+            "parentNameUsageID", 
+            "originalNameUsageID", 
+            "nameAccordingToID", 
+            "namePublishedInID", 
+            "taxonConceptID", 
+            "scientificName", 
+            "acceptedNameUsage", 
+            "parentNameUsage", 
+            "originalNameUsage", 
+            "nameAccordingTo", 
+            "namePublishedIn", 
+            "namePublishedInYear", 
+            "higherClassification", 
+            "kingdom",	
+            "phylum",	
+            "class", 
+            "order", 
+            "family",	
+            "genus", 
+            "subgenus", 
+            "specificEpithet", 
+            "infraspecificEpithet",
+            "taxonRank", 
+            "verbatimTaxonRank", 
+            "scientificNameAuthorship",	
+            "vernacularName", 
+            "nomenclaturalCode", 
+            "taxonomicStatus", 
+            "nomenclaturalStatus",	
+            "taxonRemarks", 
+            "canonicalName"
 )]
 
 # review for duplicates
