@@ -21,9 +21,9 @@ left = function (string,char) {
 }
 
 # read in file
-Lewis_World_Species_List_1_APR_2021 <- read_excel("input/Lewis World Species List 1 APR 2021.xlsx")
-df <- Lewis_World_Species_List_1_APR_2021 # change filename for ease of use
-df <- df[-which(apply(df,1,function(x)all(is.na(x)))),] # remove empty rows
+Lewis_World_Species_List <- read_excel("input/Lewis World Species List 6 APR 2021.xlsx")
+df <- Lewis_World_Species_List # change filename for ease of use
+# df <- df[-which(apply(df,1,function(x)all(is.na(x)))),] # remove empty rows
 original_rows <- nrow(df)
 tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
 tpt_dwc_template[] <- lapply(tpt_dwc_template, as.character) # set all columns in template to character
@@ -51,6 +51,8 @@ df$kingdom <- "Animalia" # add kingdom
 df$phylum <- "Arthropoda" # add phylum
 df$class <- "Insecta" # add class
 df$order <- "Siphonaptera" # add order
+
+is.na(df$subfamily) <- df$subfamily == "NONE" # remove "NONE" from subfamily
 
 # clean up
 # define function: remove '\xa0' chars and non-conforming punctuation
@@ -162,13 +164,12 @@ if(nrow(review_canonical) == 0){
   df <- rbind(higher_taxa, df) # add higher taxa back to df for remainder of de-duplication
 } else{
   stop('Open the review_canonical file in the output folder, make adjustments as appropriate and save the revised file to input as reviewed_canonical.xlsx before proceeding')
+
+  # after review add back cleaned up names
+  reviewed_canonical <- read_excel("input/reviewed_canonical.xlsx") # read in cleaned review file
+  higher_taxa <- rbind(higher_taxa, reviewed_canonical) # add reviewed higher_taxa back to the working file
+  df <- rbind(higher_taxa, df) # add higher taxa back to df for remainder of de-duplication
 }
-
-# after review add back cleaned up names
-review_canonical <- reviewed_canonical <- read_excel("input/reviewed_canonical.xlsx") # read in cleaned review file
-higher_taxa <- rbind(higher_taxa, reviewed_canonical) # add reviewed higher_taxa back to the working file
-df <- rbind(higher_taxa, df) # add higher taxa back to df for remainder of de-duplication
-
 
 # cast scientific name
 df$scientificName[i] <- for(i in 1:nrow(df)){
@@ -278,7 +279,7 @@ synonyms$TPTID <- seq.int(original_rows + 1, original_rows + nrow(synonyms)) # a
 df <- rbindlist(list(df, synonyms), fill = TRUE) # combine synonyms with accepted names in working file
 
 Lewis_non_dwc <- subset(df, select = c(TPTdataset, TPTID, species, author, `synonym(s)`)) # get all columns that are not DwC
-# remove non Dwc columns from working file
+# remove non DwC columns from working file
 df$species <- NULL
 df$author <- NULL
 df$`synonym(s)` <- NULL
@@ -307,6 +308,7 @@ df <- df[,c("TPTdataset",
             "class", 
             "order", 
             "family",	
+            "subfamily", 
             "genus", 
             "subgenus", 
             "specificEpithet", 
