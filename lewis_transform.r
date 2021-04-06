@@ -3,6 +3,7 @@ library(readxl)
 library(data.table)
 library(stringi)
 library(taxotools)
+library(dplyr)
 
 # define function: name length
 name_length <- function(x) ifelse(!is.na(x), length(unlist(strsplit(x, ' '))), 0)
@@ -122,14 +123,14 @@ df <- df[which(lapply(df$canonicalName, name_length) == 0),] # retain only rows 
 higher_taxa <- df[which(lapply(df$infraspecificEpithet, name_length) == 0 & lapply(df$specificEpithet, name_length) == 0),]
 df <- df[which(lapply(df$infraspecificEpithet, name_length) != 0 | lapply(df$specificEpithet, name_length) != 0),]
 
-# generate canonical name for genus and below
+# generate canonical name for species and below
 df <- cast_canonical(df,
                      canonical="canonicalName", 
                      genus = "genus", 
                      species = "specificEpithet",
                      subspecies = "infraspecificEpithet")
 
-# generate taxonRank for genus and below
+# generate taxonRank for species and below
 for(i in 1:nrow(df)){
   df$taxonRank[i] <- 
     ifelse(!is.na(df$infraspecificEpithet[i]), "subspecies",
@@ -137,11 +138,33 @@ for(i in 1:nrow(df)){
                   "review"))
 }
 
+# cast scientific name for species and below
+df$scientificName[i] <- for(i in 1:nrow(df)){
+  if(!is.na(df$genus[i])){
+    scn <- df$genus[i]
+  }
+  if(!is.na(df$subgenus[i])){
+    scn <- paste(scn," (",df$subgenus[i],")",sep = "")
+  }
+  if(!is.na(df$specificEpithet[i])){
+    scn <- paste(scn,df$specificEpithet[i], sep = " ")
+  }
+  if(!is.na(df$infraspecificEpithet[i])){
+    scn <- paste(scn,df$infraspecificEpithet[i], sep = " ")
+  }
+  if(!is.na(df$scientificNameAuthorship[i])){
+    scn <- paste(scn,trimws(df$scientificNameAuthorship[i]), sep = " ")
+  }
+  df$scientificName[i] <- scn
+}
+
 # canonical names for taxa ranked subgenus and above - get the lowest ranking term and put it here!
 for(i in 1:nrow(higher_taxa)){
   higher_taxa$canonicalName[i] <- ifelse(!is.na(higher_taxa$genus[i]), paste(higher_taxa$genus[i]),
                                          ifelse(!is.na(higher_taxa$subgenus[i]), paste(higher_taxa$subgenus[i]),
-                                               ifelse(!is.na(higher_taxa$family[i]), paste(higher_taxa$family[i]), "review")))
+                                               ifelse(!is.na(higher_taxa$family[i]), paste(higher_taxa$family[i]),
+                                                      ifelse(!is.na(higher_taxa$subfamily[i]), paste(higher_taxa$subfamily[i]),
+                                                             "review"))))
 }
 
 # generate taxonRank for genus and above
@@ -150,8 +173,12 @@ for(i in 1:nrow(higher_taxa)){
   ifelse(!is.na(higher_taxa$genus[i]), "genus",
      ifelse(!is.na(higher_taxa$subgenus[i]), "subgenus",
          ifelse(!is.na(higher_taxa$family[i]), "family",
-                "review")))
+                ifelse(!is.na(higher_taxa$subfamily[i]), "subfamily",
+                "review"))))
 }
+
+# cast scientific name for genus and above
+higher_taxa$scientificName <- ifelse(is.na(higher_taxa$scientificNameAuthorship), higher_taxa$canonicalName, paste(higher_taxa$canonicalName, higher_taxa$scientificNameAuthorship, sep = " "))
 
 # Extract rows from higher taxa that need review
 flag <- c('review')
@@ -170,27 +197,6 @@ if(nrow(review_canonical) == 0){
   higher_taxa <- rbind(higher_taxa, reviewed_canonical) # add reviewed higher_taxa back to the working file
   df <- rbind(higher_taxa, df) # add higher taxa back to df for remainder of de-duplication
 }
-
-# cast scientific name
-df$scientificName[i] <- for(i in 1:nrow(df)){
-    if(!is.na(df$genus[i])){
-      scn <- df$genus[i]
-    }
-    if(!is.na(df$subgenus[i])){
-      scn <- paste(scn," (",df$subgenus[i],")",sep = "")
-    }
-    if(!is.na(df$specificEpithet[i])){
-      scn <- paste(scn,df$specificEpithet[i], sep = " ")
-    }
-    if(!is.na(df$infraspecificEpithet[i])){
-      scn <- paste(scn,df$infraspecificEpithet[i], sep = " ")
-    }
-    if(!is.na(df$scientificNameAuthorship[i])){
-      scn <- paste(scn,trimws(df$scientificNameAuthorship[i]), sep = " ")
-    }
-    df$scientificName[i] <- scn
-}
-
 
 df_synonym <- df[which(lapply(df$`synonym(s)`, name_length) != 0), ] # extract rows with synonyms
 
@@ -325,14 +331,11 @@ df <- df[,c("TPTdataset",
 )]
 
 # review for duplicates
-# Review for internal duplication
-df$dupe <- c(ifelse(duplicated(df$canonicalName, fromLast = TRUE)  | duplicated(df$canonicalName),
-                                           "dupe", NA)) # Flag internal dupes
-review_dups <- df[which(grepl('dupe',df$dupe) == TRUE), ] # extract dupes to review file
-df <- df[which(grepl('dupe',df$dupe) == FALSE), ] # remove dupes from working file
+dupe <- df[,c('canonicalName','taxonRank')] # select columns to check duplicates
+review_dups <- df[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),]
+df <- anti_join(df, review_dupes, by = "TPTID") # remove duplicate rows from working file
 
 # write and review taxonRemarks then add back to duplicates
-review_dups <- apply(review_dups,2,as.character)
 write.csv(review_dups,"~/GitHub/tpt-siphonaptera/output/review_duplicates.csv", row.names = FALSE) # these need review
 print("after review of duplicates, save return file to ~/GitHub/tpt-siphonaptera/input/reviewed_duplicates.xlsx")
 
