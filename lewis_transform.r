@@ -160,8 +160,8 @@ df$scientificName[i] <- for(i in 1:nrow(df)){
 
 # canonical names for taxa ranked subgenus and above - get the lowest ranking term and put it here!
 for(i in 1:nrow(higher_taxa)){
-  higher_taxa$canonicalName[i] <- ifelse(!is.na(higher_taxa$genus[i]), paste(higher_taxa$genus[i]),
-                                         ifelse(!is.na(higher_taxa$subgenus[i]), paste(higher_taxa$subgenus[i]),
+  higher_taxa$canonicalName[i] <- ifelse(!is.na(higher_taxa$subgenus[i]), paste(higher_taxa$subgenus[i]),
+                                         ifelse(!is.na(higher_taxa$genus[i]), paste(higher_taxa$genus[i]),
                                                ifelse(!is.na(higher_taxa$family[i]), paste(higher_taxa$family[i]),
                                                       ifelse(!is.na(higher_taxa$subfamily[i]), paste(higher_taxa$subfamily[i]),
                                                              "review"))))
@@ -170,8 +170,8 @@ for(i in 1:nrow(higher_taxa)){
 # generate taxonRank for genus and above
 for(i in 1:nrow(higher_taxa)){
   higher_taxa$taxonRank[i] <- 
-  ifelse(!is.na(higher_taxa$genus[i]), "genus",
-     ifelse(!is.na(higher_taxa$subgenus[i]), "subgenus",
+  ifelse(!is.na(higher_taxa$subgenus[i]), "subgenus",
+     ifelse(!is.na(higher_taxa$genus[i]), "genus",
          ifelse(!is.na(higher_taxa$family[i]), "family",
                 ifelse(!is.na(higher_taxa$subfamily[i]), "subfamily",
                 "review"))))
@@ -333,7 +333,7 @@ df <- df[,c("TPTdataset",
 # review for duplicates
 dupe <- df[,c('canonicalName','taxonRank')] # select columns to check duplicates
 review_dups <- df[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),]
-df <- anti_join(df, review_dupes, by = "TPTID") # remove duplicate rows from working file
+df <- anti_join(df, review_dups, by = "TPTID") # remove duplicate rows from working file
 
 # write and review taxonRemarks then add back to duplicates
 write.csv(review_dups,"~/GitHub/tpt-siphonaptera/output/review_duplicates.csv", row.names = FALSE) # these need review
