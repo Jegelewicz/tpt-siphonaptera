@@ -1,3 +1,5 @@
+df <- Siphonaptera
+
 # check Levenshtein's Distance (e.g., misspellings) [may need to do before canonical name generation]
 # Watch for: Ornithodoros vunkeri; Ornithodoros yukeri; Ornithodoros yunkeri
 library(stringdist)
