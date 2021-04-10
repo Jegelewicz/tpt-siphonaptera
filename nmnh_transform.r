@@ -13,13 +13,14 @@ name_length <- function(x) ifelse(!is.na(x), length(unlist(strsplit(x, ' '))), 0
 
 # define right function
 right = function (string, char) {
-  substr(string,(char + 1),nchar(string))
+  substr(string,(unlist(lapply(gregexpr(pattern = char, string), min)) + 1),nchar(string))
 }
 
 # define left function
 left = function (string,char) {
-  substr(string,1,char - 1)
+  substr(string,1,unlist(lapply(gregexpr(pattern = char, string), min)))
 }
+
 
 # read in file
 NMNH_Siphonaptera <- read_excel("~/GitHub/tpt-siphonaptera/input/NMNH_siphonaptera.xlsx", )
@@ -51,7 +52,7 @@ df$TPTID <- seq.int(nrow(df)) # add numeric ID for each name
 
 # clean up
 # define function: remove '\xa0' chars and non-conforming punctuation
-phrase_clean <- function(x) gsub("[^[:alnum:][:blank:]&,()];", "", x)
+phrase_clean <- function(x) gsub("[\xA0]", "", x)
 space_clean <- function(x) gsub("  ", " ", x)
 
 # remove remove '\xa0' chars
