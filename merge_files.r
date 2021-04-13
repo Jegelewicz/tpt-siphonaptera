@@ -13,7 +13,7 @@ FMNH_in_NMNH <- FMNH_Siphonaptera[FMNH_Siphonaptera$canonicalName %in% NMNH_Siph
 
 FMNH_not_in_NMNH <- FMNH_Siphonaptera[FMNH_Siphonaptera$canonicalName %!in% NMNH_Siphonaptera$canonicalName,] # get all rows in FMNH that does not match a canonical name in Lewis
 
-merged_siphonaptera <- rbindlist(list(NMNH_Siphonaptera, FMNH_not_in_NMNH), fill = TRUE) # add FMNH terms not in Lewis to working file
+merged_siphonaptera <- rbindlist(list(NMNH_Siphonaptera, FMNH_not_in_NMNH), fill = TRUE) # add FMNH terms not in NMNH to NMNH
 
 # compare to Lewis list
 Lewis_Siphonaptera <- read.csv("~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.csv", na = "NA") # read in cleaned Lewis review file
@@ -26,7 +26,7 @@ Lewis_in_merged <- Lewis_Siphonaptera[Lewis_Siphonaptera$canonicalName %in% merg
 
 Lewis_not_in_merged <- Lewis_Siphonaptera[Lewis_Siphonaptera$canonicalName %!in% merged_siphonaptera$canonicalName,] # get all rows in merged that do not match a canonical name in Lewis
 
-merged_siphonaptera <- rbindlist(list(Lewis_Siphonaptera, merged_not_in_Lewis), fill = TRUE) # add FMNH terms not in Lewis to working file
+merged_siphonaptera <- rbindlist(list(Lewis_Siphonaptera, merged_not_in_Lewis), fill = TRUE) # add NMNH terms not in Lewis to Lewis
 merged_siphonaptera$taxonID <- paste(merged_siphonaptera$TPTdataset, merged_siphonaptera$TPTID, sep = '')
 
 write.csv(merged_siphonaptera,"~/GitHub/tpt-siphonaptera/output/merged_siphonaptera.csv", row.names = FALSE) # merged file
