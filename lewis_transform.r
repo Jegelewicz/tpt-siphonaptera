@@ -75,6 +75,11 @@ setDT(df)
 cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
 df[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
 
+# deal with parenthesis in species
+df$taxonRemarks <- gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", df$species, perl=T) # put things in parentheses in taxonRemark
+df$taxonRemarks[ df$taxonRemarks == "" ] <- NA # set all blank taxonRemark to NA
+df$species <- gsub("\\([^()]*\\)", "", df$species) # get things outside parenthesis for species
+
 # split specificEpithet when it has two terms
 multi_epithet <- df[which(lapply(df$species, name_length) > 1),] # extract rows with a multi-name specifies
 df <- df[which(lapply(df$species, name_length) <= 1),] # extract rows with a multi-name specifies
@@ -300,11 +305,8 @@ higher_taxa$scientificNameAuthorship <- right(higher_taxa$scientificName," ")
 synonyms <- rbind(synonyms, higher_taxa) # add higher taxa synonyms back to synonyms file
 
 # flag synonyms that need review
-# synonyms$taxonRemarks <- gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", synonyms$scientificName, perl=T) # get things in parenthesis for review
-# synonyms$taxonRemarks[ synonyms$taxonRemarks == "" ] <- NA # set all blank remarks to NA
 review_synonyms <- synonyms[which(!is.na(synonyms$taxonRemarks)), ] # extract synonyms with taxonRemarks
 synonyms <- synonyms[which(is.na(synonyms$taxonRemarks)), ] # leave only NA taxonRemarks in synonyms
-# review_synonyms$scientificName <- gsub("\\([^()]*\\)", "", review_synonyms$scientificName) # get things outside parenthesis for review
 
 # strip spaces from ends of strings
 setDT(synonyms)
@@ -317,35 +319,38 @@ Lewis_review <- rbind(review_canonical, review_synonyms) # combine synonyms for 
 
 df <- rbindlist(list(df, synonyms), fill = TRUE) # combine synonyms with accepted names in working file
 
-# review for duplicates
-dupe <- df[,c('canonicalName','taxonRank')] # select columns to check duplicates
-review_dups <- df[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),] # create duplicates data frame
-review_dups$reason <- "duplicate canonical name" # add reason for removal from working file
-df <- anti_join(df,review_dups, by = c("canonicalName", "taxonRank")) # remove duplicate rows from working file
-Lewis_review <- rbind(Lewis_review, review_dups) # add removed duplicates to review file 
-
-# sanity check
-ifelse(nrow(df) + nrow(Lewis_review) == Lewis_original_rows + Lewis_synonym_rows, 
-       "Its all here", 
-       "oops")
-
-# write and review Lewis_removed then add back to duplicates
+# write and review Lewis_review then add back to working file
 write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.csv", row.names = FALSE) # Lewis no dups
 write.csv(Lewis_review,"~/GitHub/tpt-siphonaptera/output/Lewis_review.csv", row.names = FALSE) # these need review
 print("after review of removed rows, save return file to ~/GitHub/tpt-siphonaptera/input/Lewis_reviewed.xlsx and any remaining rows to ~/GitHub/tpt-siphonaptera/output/Lewis_need_expert_review.xlsx")
 
-df <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_Siphonaptera.xlsx") # read in cleaned names
-Lewis_review <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_reviewed.xlsx") # read in rows reviewed
+df <- read_excel("~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.xlsx") # read in cleaned names
+Lewis_reviewed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_reviewed.xlsx") # read in rows reviewed
 Lewis_removed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_removed.xlsx") # read in rows not reviewed
 
-df <- rbind(df, Lewis_reviewed) # return kept rows
+df <- rbind(df, Lewis_reviewed) # return corrected reviewed rows
 
 # review for duplicates
-dupe <- df[,c('canonicalName','taxonRank')] # select columns to check duplicates
+dupe <- df[,c('canonicalName')] # select columns to check duplicates
 review_dups <- df[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),] # create duplicates data frame
 review_dups$reason <- "duplicate canonical name" # add reason for removal from working file
 df <- anti_join(df,review_dups, by = c("canonicalName", "taxonRank")) # remove duplicate rows from working file
-Lewis_removed <- rbind(Lewis_removed, review_dups) # add removed duplicates to review file 
+
+# sanity check
+ifelse(nrow(df) + nrow(review_dups) == Lewis_original_rows + Lewis_synonym_rows, 
+       "Its all here", 
+       "oops")
+
+# write and review Lewis_removed then add back to duplicates
+write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.csv", row.names = FALSE) # Lewis no dups
+write.csv(review_dups,"~/GitHub/tpt-siphonaptera/output/Lewis_duplicates.csv", row.names = FALSE) # these need review
+print("after review of duplicate rows, save return file to ~/GitHub/tpt-siphonaptera/input/Lewis_dup_return.xlsx and any remaining rows to ~/GitHub/tpt-siphonaptera/output/Lewis_need_expert_review.xlsx")
+
+df <- read.csv("~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.xlsx") # read in cleaned names
+Lewis_review <- read_excel("~/GitHub/tpt-siphonaptera/input/reviewed_duplicates.xlsx") # read in rows reviewed
+Lewis_removed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_removed.xlsx") # read in rows not reviewed
+
+df <- rbind(df, Lewis_review) # return kept rows
 
 # sanity check
 ifelse(nrow(df) + nrow(Lewis_removed) == Lewis_original_rows + Lewis_synonym_rows, 
@@ -354,32 +359,7 @@ ifelse(nrow(df) + nrow(Lewis_removed) == Lewis_original_rows + Lewis_synonym_row
 
 # write and review Lewis_removed then add back to duplicates
 write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.csv", row.names = FALSE) # Lewis no dups
-write.csv(Lewis_removed,"~/GitHub/tpt-siphonaptera/output/Lewis_review2.csv", row.names = FALSE) # these need review
-print("after review of removed rows, save return file to ~/GitHub/tpt-siphonaptera/input/Lewis_reviewed2.xlsx and any remaining rows to ~/GitHub/tpt-siphonaptera/output/Lewis_need_expert_review.xlsx")
-
-df <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_Siphonaptera.xlsx") # read in cleaned names
-Lewis_reviewed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_reviewed2.xlsx") # read in cleaned duplicates
-Lewis_removed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_removed.xlsx") # read in rows not reviewed
-
-df <- rbind(df, Lewis_reviewed) # return kept rows
-
-# review for duplicates
-dupe <- df[,c('canonicalName','taxonRank')] # select columns to check duplicates
-review_dups <- df[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),] # create duplicates data frame
-review_dups$reason <- "duplicate canonical name" # add reason for removal from working file
-df <- anti_join(df,review_dups, by = c("canonicalName", "taxonRank")) # remove duplicate rows from working file
-Lewis_removed <- rbind(Lewis_removed, review_dups) # add removed duplicates to review file 
-
-# sanity check
-ifelse(nrow(df) + nrow(Lewis_removed) == Lewis_original_rows + Lewis_synonym_rows, 
-       "Its all here", 
-       "oops")
-
-# write and review Lewis_removed then add back to duplicates
-write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.csv", row.names = FALSE) # Lewis no dups
-write.csv(Lewis_removed,"~/GitHub/tpt-siphonaptera/output/Lewis_review2.csv", row.names = FALSE) # these need review
-print("after review of removed rows, save return file to ~/GitHub/tpt-siphonaptera/input/Lewis_reviewed2.xlsx and any remaining rows to ~/GitHub/tpt-siphonaptera/output/Lewis_need_expert_review.xlsx")
-
+write.csv(Lewis_removed,"~/GitHub/tpt-siphonaptera/output/Lewis_removed.csv", row.names = FALSE) # these need review
 
 # Do this after final review...
 Lewis_non_dwc <- subset(df, select = c(TPTdataset, TPTID, species, author, `synonym(s)`)) # get all columns that are not DwC
@@ -427,6 +407,6 @@ df <- df[,c("TPTdataset",
             "nomenclaturalStatus",
             "taxonRemarks"
 )]
-# 
-# write.csv(Lewis_non_dwc,"~/GitHub/tpt-siphonaptera/output/Lewis_non_DwC.csv", row.names = FALSE) # removed fields
-# write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_DwC.csv", row.names = FALSE) # ready for analysis
+ 
+write.csv(Lewis_non_dwc,"~/GitHub/tpt-siphonaptera/output/Lewis_non_DwC.csv", row.names = FALSE) # removed fields
+write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_DwC.csv", row.names = FALSE) # ready for analysis

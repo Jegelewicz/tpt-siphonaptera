@@ -231,7 +231,7 @@ df <- df[,c("TPTdataset",
 )]
 
 # review for duplicates
-dupe <- df[,c('canonicalName','taxonRank')] # select columns to check duplicates
+dupe <- df[,c('canonicalName')] # select columns to check duplicates
 review_dups <- df[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),]
 df <- anti_join(df, review_dups, by = "TPTID") # remove duplicate rows from working file
 
@@ -239,7 +239,7 @@ df <- anti_join(df, review_dups, by = "TPTID") # remove duplicate rows from work
 write.csv(review_dups,"~/GitHub/tpt-siphonaptera/output/NMNH_review_duplicates.csv", row.names = FALSE) # these need review
 print("after review of duplicates, save return file to ~/GitHub/tpt-siphonaptera/input/reviewed_duplicates.xlsx")
 
-reviewed_duplicates <- read_excel("input/reviewed_duplicates.xlsx") # read in cleaned duplicates
+reviewed_duplicates <- read_excel("input/NMNH_reviewed_duplicates.xlsx") # read in cleaned duplicates
 df <- rbind(df, reviewed_duplicates)
 
 write.csv(NMNH_non_dwc,"~/GitHub/tpt-siphonaptera/output/NMNH_non_DwC.csv", row.names = FALSE) # removed fields

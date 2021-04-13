@@ -1,4 +1,10 @@
-df <- Siphonaptera
+merged_siphonaptera <- read.csv("~/GitHub/tpt-siphonaptera/output/merged_siphonaptera.csv") # read in file
+df <- merged_siphonaptera # change file name
+
+df$dupe_dataset <- c(ifelse(duplicated(df$canonicalName, fromLast = TRUE)  | duplicated(df$canonicalName),
+                                           "dupe", NA)) # Flag internal dupes
+dupes_review <- df[which(grepl('dupe',df$dupe_dataset) == TRUE), ] # remove duplicates
+df <- df[which(grepl('dupe',df$dupe_dataset) == FALSE), ] # leave no dulicates
 
 # check Levenshtein's Distance (e.g., misspellings) [may need to do before canonical name generation]
 # Watch for: Ornithodoros vunkeri; Ornithodoros yukeri; Ornithodoros yunkeri
