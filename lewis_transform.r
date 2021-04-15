@@ -55,6 +55,11 @@ df$order <- "Siphonaptera" # add order
 
 is.na(df$subfamily) <- df$subfamily == "NONE" # remove "NONE" from subfamily
 
+# deal with parenthesis in species
+df$taxonRemarks <- gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", df$species, perl=T) # put things in parentheses in taxonRemark
+df$taxonRemarks[ df$taxonRemarks == "" ] <- NA # set all blank taxonRemark to NA
+df$species <- gsub("\\([^()]*\\)", "", df$species) # get things outside parenthesis for species
+
 # clean up
 # define function: remove '\xa0' chars and non-conforming punctuation
 phrase_clean <- function(x) gsub("[\xA0]", "", x)
@@ -74,11 +79,6 @@ df[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectifi
 setDT(df)
 cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
 df[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
-
-# deal with parenthesis in species
-df$taxonRemarks <- gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", df$species, perl=T) # put things in parentheses in taxonRemark
-df$taxonRemarks[ df$taxonRemarks == "" ] <- NA # set all blank taxonRemark to NA
-df$species <- gsub("\\([^()]*\\)", "", df$species) # get things outside parenthesis for species
 
 # split specificEpithet when it has two terms
 multi_epithet <- df[which(lapply(df$species, name_length) > 1),] # extract rows with a multi-name specifies
