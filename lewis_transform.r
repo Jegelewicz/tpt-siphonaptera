@@ -22,7 +22,7 @@ left = function (string,char) {
 }
 
 # read in file
-Lewis_World_Species_List <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 6 APR 2021.xlsx")
+Lewis_World_Species_List <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 19 APR 2021.xlsx")
 df <- Lewis_World_Species_List # change filename for ease of use
 # df <- df[-which(apply(df,1,function(x)all(is.na(x)))),] # remove empty rows
 Lewis_original_rows <- nrow(df)
