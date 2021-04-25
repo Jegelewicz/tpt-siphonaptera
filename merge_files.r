@@ -42,6 +42,10 @@ GBIF_Siphonaptera <- read_excel("~/GitHub/tpt-siphonaptera/input/GBIF_Siphonapte
 dupe <- GBIF_Siphonaptera[,c('canonicalName')] # select columns to check duplicates
 GBIF_dups <- GBIF_Siphonaptera[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),] # create duplicates data frame
 GBIF_Siphonaptera <- anti_join(GBIF_Siphonaptera,GBIF_dups, by = c("canonicalName", "taxonRank")) # remove duplicate rows from working file
+write.csv(GBIF_dups, "~/GitHub/tpt-siphonaptera/output/GBIF_duplicates.csv") # write out GBIF dupes for review
+
+GBIF_dups <- read_excel("~/GitHub/tpt-siphonaptera/input/GBIF_dupe_reviewed.xlsx") # read in GBIF duplicates to return
+GBIF_Siphonaptera <- rbind(GBIF_Siphonaptera, GBIF_dups)
 
 merged_in_GBIF <- merged_siphonaptera[merged_siphonaptera$canonicalName %in% GBIF_Siphonaptera$canonicalName,] # get all rows in merged with canonical name that matches a row in GBIF
 
@@ -49,8 +53,10 @@ merged_not_in_GBIF <- merged_siphonaptera[merged_siphonaptera$canonicalName %!in
 write.csv(merged_not_in_GBIF, "~/GitHub/tpt-siphonaptera/output/not_in_GBIF_siphonaptera.csv", row.names = FALSE) # names need review)
 
 GBIF_in_merged <- GBIF_Siphonaptera[GBIF_Siphonaptera$canonicalName %in% merged_siphonaptera$canonicalName,] # get all rows in GBIF with canonical name that matches a row in merged
+write.csv(GBIF_in_merged, "~/GitHub/tpt-siphonaptera/output/GBIF_in_siphonaptera.csv", row.names = FALSE) # names in GBIF
 
 GBIF_not_in_merged <- GBIF_Siphonaptera[GBIF_Siphonaptera$canonicalName %!in% merged_siphonaptera$canonicalName,] # get all rows in GBIF that do not match a canonical name in merged
 write.csv(GBIF_not_in_merged, "~/GitHub/tpt-siphonaptera/output/GBIF_not_in_siphonaptera.csv", row.names = FALSE) # names need review)
 
 Siphonaptera <- rbindlist(list(GBIF_in_merged, merged_not_in_GBIF), fill = TRUE) # add GBIF names not in merged to merged
+write.csv(Siphonaptera, "~/GitHub/tpt-siphonaptera/output/TPT_Siphonaptera.csv", row.names = FALSE) # names list
