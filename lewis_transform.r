@@ -61,9 +61,13 @@ df$order <- "Siphonaptera" # add order
 is.na(df$subfamily) <- df$subfamily == "NONE" # remove "NONE" from subfamily
 
 # deal with parenthesis in species
-df$taxonRemarks <- gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", df$species, perl=T) # put things in parentheses in taxonRemark
+df$taxonRemarks <- inparens(df$species)# for species column put things in parentheses in taxonRemark
 df$taxonRemarks[ df$taxonRemarks == "" ] <- NA # set all blank taxonRemark to NA
-df$species <- gsub("\\([^()]*\\)", "", df$species) # get things outside parenthesis for species
+df$species <- outparens(df$species)# get things outside parenthesis for species
+
+
+# df <- char_fun(df,phrase_clean)
+
 
 # clean up
 # define function: remove '\xa0' chars and non-conforming punctuation
@@ -237,8 +241,12 @@ df <- rbind(higher_taxa, df) # add higher taxa back to df for remainder of de-du
 df_synonym <- df[which(lapply(df$`synonym(s)`, name_length) != 0), ] # extract rows with synonyms
 
 # melt multiple synonyms
-colno <- max(lengths(strsplit(df_synonym$`synonym(s)`, '; '))) # get max number of synonyms for any given accepted name
-setDT(df_synonym)[, paste0("syn", 1:colno) := tstrsplit(`synonym(s)`, ";")] # parse out synonyms into separate columns
+df_synonym <- text_to_columns(df_synonym,
+                              df_synonym$`synonym(s)`,
+                              data = "df_synonym",
+                              column = "`synonym(s)`",
+                              separator = ";",
+                              new_col_name_prefix = "syn")
 
 # strip spaces from ends of strings
 setDT(df_synonym)
