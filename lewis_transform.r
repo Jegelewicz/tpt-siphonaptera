@@ -1,26 +1,3 @@
-# add libraries
-library(readxl)
-library(data.table)
-library(stringi)
-library(taxotools)
-library(dplyr)
-
-# define function: name length
-name_length <- function(x) ifelse(!is.na(x), length(unlist(strsplit(x, ' '))), 0)
-
-# define function: is not in
-'%!in%' <- function(x,y)!('%in%'(x,y))
-
-# define right function
-right = function (string, char) {
-  substr(string,(unlist(lapply(gregexpr(pattern = char, string), min)) + 1),nchar(string))
-}
-
-# define left function
-left = function (string,char) {
-  substr(string,1,unlist(lapply(gregexpr(pattern = char, string), min)))
-}
-
 # read in file
 Lewis_World_Species_List <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 22 APR 2021.xlsx")
 df <- Lewis_World_Species_List # change filename for ease of use
@@ -31,26 +8,16 @@ tpt_dwc_template[] <- lapply(tpt_dwc_template, as.character) # set all columns i
 # transform column headers
 colnames(df) <- tolower(colnames(df)) # lower case column names
 
-# define DwC conversion
-convert2DwC <- function(df_colname) {
-  x <- gsub('.*subspecies.*','infraspecificEpithet',df_colname)
-  x <- gsub('.*rank.*','taxonRank',x)
-  x <- gsub('.*author.*','author',x)
-  x <- gsub('.*year.*','namePublishedInYear',x)
-  x
-}
-
 colnames(df) <- convert2DwC(colnames(df)) # convert to DarwinCore terms
 
 df <- rbindlist(list(df, tpt_dwc_template), fill = TRUE) # add all DwC columns
 
-df$TPTdataset <- "Lewis" # add dataset name
+df$source <- "Lewis" # add dataset name
 
 no_name <- df[which(lapply(df$author, name_length) == 0),] # extract rows with no author
 df <- df[which(lapply(df$author, name_length) != 0),] # remove rows with no author
 Lewis_original_rows <- nrow(df) # number of accepted names
-df$TPTID <- seq.int(nrow(df)) # add numeric ID for each name
-df$taxonID <- paste(df$TPTdataset, df$TPTID, sep = "") # combine TPTdataset and TPTID to form taxonID
+df$taxonID <- seq.int(nrow(df)) # add numeric ID for each name
 df <- rbind(df, no_name) # add back rows with no author
 
 df$kingdom <- "Animalia" # add kingdom
@@ -66,28 +33,29 @@ df$taxonRemarks[ df$taxonRemarks == "" ] <- NA # set all blank taxonRemark to NA
 df$species <- outparens(df$species)# get things outside parenthesis for species
 
 
-# df <- char_fun(df,phrase_clean)
+df <- char_fun(df,phrase_clean)
+df <- char_fun(df,trimws)
+df <- char_fun(df,space_clean)
 
-
-# clean up
-# define function: remove '\xa0' chars and non-conforming punctuation
-phrase_clean <- function(x) gsub("[\xA0]", "", x)
-space_clean <- function(x) gsub("  ", " ", x)
-
-# remove remove '\xa0' chars
-setDT(df)
-cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-df[,c(cols_to_be_rectified) := lapply(.SD, phrase_clean), .SDcols = cols_to_be_rectified]
-
-# strip spaces from ends of strings
-setDT(df)
-cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-df[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
-
-# strip double spaces
-setDT(df)
-cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-df[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
+# # clean up
+# # define function: remove '\xa0' chars and non-conforming punctuation
+# phrase_clean <- function(x) gsub("[\xA0]", "", x)
+# space_clean <- function(x) gsub("  ", " ", x)
+# 
+# # remove remove '\xa0' chars
+# setDT(df)
+# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
+# df[,c(cols_to_be_rectified) := lapply(.SD, phrase_clean), .SDcols = cols_to_be_rectified]
+# 
+# # strip spaces from ends of strings
+# setDT(df)
+# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
+# df[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
+# 
+# # strip double spaces
+# setDT(df)
+# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
+# df[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
 
 # split specificEpithet when it has two terms
 multi_epithet <- df[which(lapply(df$species, name_length) > 1),] # extract rows with a multi-name specifies
@@ -98,15 +66,18 @@ for(i in 1:nrow(multi_epithet)){
   multi_epithet$infraspecificEpithet[i] <- right(multi_epithet$species[i], " ") # place second term in infraspecificEpithet
 }
 
-# strip spaces from ends of strings
-setDT(multi_epithet)
-cols_to_be_rectified <- names(multi_epithet)[vapply(multi_epithet, is.character, logical(1))]
-multi_epithet[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
+df <- char_fun(df,trimws)# strip spaces from ends of strings
+df <- char_fun(df,space_clean)# strip double spaces
 
-# strip double spaces
-setDT(multi_epithet)
-cols_to_be_rectified <- names(multi_epithet)[vapply(multi_epithet, is.character, logical(1))]
-multi_epithet[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
+# # strip spaces from ends of strings
+# setDT(multi_epithet)
+# cols_to_be_rectified <- names(multi_epithet)[vapply(multi_epithet, is.character, logical(1))]
+# multi_epithet[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
+# 
+# # strip double spaces
+# setDT(multi_epithet)
+# cols_to_be_rectified <- names(multi_epithet)[vapply(multi_epithet, is.character, logical(1))]
+# multi_epithet[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
 
 df$specificEpithet <- df$species # place single term species names in specificEpithet
 
@@ -130,8 +101,8 @@ df$scientificNameAuthorship <- fixAuth(df$scientificNameAuthorship) # apply fix
 df$canonicalName <- NA # create column for canonicalName
 
 # extract higher taxa for next set of review
-higher_taxa <- df[which(lapply(df$infraspecificEpithet, name_length) == 0 & lapply(df$specificEpithet, name_length) == 0),] # create dataframe of higher taxa
-df <- df[which(lapply(df$infraspecificEpithet, name_length) != 0 | lapply(df$specificEpithet, name_length) != 0),] # remove higher taxa from working file
+higher_taxa <- higher_taxa_epithet(df,df$specificEpithet,df$infraspecificEpithet) # create dataframe of higher taxa
+df <- species_epithet(df,df$infraspecificEpithet, df$specificEpithet) # remove higher taxa from working file
 
 # generate canonical name for species and below
 df <- cast_canonical(df,
@@ -248,15 +219,18 @@ df_synonym <- text_to_columns(df_synonym,
                               separator = ";",
                               new_col_name_prefix = "syn")
 
-# strip spaces from ends of strings
-setDT(df_synonym)
-cols_to_be_rectified <- names(df_synonym)[vapply(df_synonym, is.character, logical(1))]
-df_synonym[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
+df <- char_fun(df,trimws)# strip spaces from ends of strings
+df <- char_fun(df,space_clean)# strip double spaces
 
-# strip double spaces
-setDT(df_synonym)
-cols_to_be_rectified <- names(df_synonym)[vapply(df_synonym, is.character, logical(1))]
-df_synonym[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
+# # strip spaces from ends of strings
+# setDT(df_synonym)
+# cols_to_be_rectified <- names(df_synonym)[vapply(df_synonym, is.character, logical(1))]
+# df_synonym[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
+# 
+# # strip double spaces
+# setDT(df_synonym)
+# cols_to_be_rectified <- names(df_synonym)[vapply(df_synonym, is.character, logical(1))]
+# df_synonym[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
 
 df_synonym$acceptedNameUsage <- ifelse(df_synonym$scientificName == "review", NA, df_synonym$scientificName) # copy accepted scientific name to accepted name column
 df_synonym$scientificName <- df_synonym$syn1 # move synonym name to scientific name column
@@ -265,6 +239,7 @@ df_synonym$specificEpithet <- NA # clear specific names of accepted name classif
 synonyms <- df_synonym # create synonyms data frame
 
 # get synonyms from columns syn2-last
+colno <- max(lengths(strsplit(df_synonym$`synonym(s)`, ";"))) # get max number of terms for any value in the column to be split
 for (i in 2:colno){
   syn <- paste('syn', i, sep="")
   synonyms_append <- df_synonym[which(!is.na(df_synonym[[syn]]))] # get next set of synonyms
@@ -276,18 +251,12 @@ Lewis_synonym_rows <- nrow(synonyms)
 
 # Add TPTdataset and identifiers to synonyms
 synonyms$acceptedNameUsageID <- synonyms$taxonID # copy ID to accepted ID column
-synonyms$TPTID <- seq.int(Lewis_original_rows + 1, Lewis_original_rows + nrow(synonyms)) # add numeric ID for each synonym name
-synonyms$taxonID <- paste(synonyms$TPTdataset, synonyms$TPTID, sep = "")
+synonyms$taxonID <- seq.int(Lewis_original_rows + 1, Lewis_original_rows + nrow(synonyms)) # add numeric ID for each synonym name
 
 # deal with parenthesis in synonym scientificName
-synonyms$taxonRemarks <- gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", synonyms$scientificName, perl=T) # pu things in parentheses in taxonRemark
+synonyms$taxonRemarks <- inparens(synonyms$taxonRemarks) # put things in parentheses in taxonRemark
 synonyms$taxonRemarks[ synonyms$taxonRemarks == "" ] <- NA # set all blank taxonRemark to NA
-synonyms$scientificName <- gsub("\\([^()]*\\)", "", synonyms$scientificName) # get things outside parenthesis for scientificName
-
-# strip spaces from ends of strings
-setDT(synonyms)
-cols_to_be_rectified <- names(synonyms)[vapply(synonyms, is.character, logical(1))]
-synonyms[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
+synonyms$scientificName <- outparens(synonyms$scientificName) # get things outside parenthesis for scientificName
 
 # remove parsed columns from synonyms
 for (i in 1:colno){
@@ -299,8 +268,8 @@ synonyms$taxonomicStatus <- "synonym" # add taxonomicStatus of "synonym" to all 
 df$taxonomicStatus <- "accepted" # add taxonomicStatus of "accepted" to all non-synonym names
 
 # extract higher taxa for next set of review
-higher_taxa <- synonyms[which(synonyms$taxonRank == "genus"),]
-synonyms <- synonyms[which(synonyms$taxonRank != "genus"),]
+higher_taxa <- higher_taxa_rank(synonyms,synonyms$taxonRank) # create higher taxa data frame
+synonyms <- species_rank(synonyms,synonyms$taxonRank) # remove higher taxa from working synonym file
 
 # melt scientific name of synonyms
 synonyms <- melt_scientificname(synonyms, 
@@ -361,11 +330,6 @@ synonyms <- rbind(synonyms, higher_taxa) # add higher taxa synonyms back to syno
 review_synonyms <- synonyms[which(!is.na(synonyms$taxonRemarks)), ] # extract synonyms with taxonRemarks
 synonyms <- synonyms[which(is.na(synonyms$taxonRemarks)), ] # leave only NA taxonRemarks in synonyms
 
-# strip spaces from ends of strings
-setDT(synonyms)
-cols_to_be_rectified <- names(synonyms)[vapply(synonyms, is.character, logical(1))]
-synonyms[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
-
 review_synonyms$reason <- "review taxon remark"
 
 # Lewis_review <- rbind(review_canonical, review_synonyms) # combine synonyms for review with canonical names for review
@@ -375,50 +339,55 @@ df <- rbindlist(list(df, synonyms), fill = TRUE) # combine synonyms with accepte
 no_name <- df[which(lapply(df$author, name_length) == 0),] # extract rows with no author
 df <- df[which(lapply(df$author, name_length) != 0),] # remove rows with no author
 
-# write and review Lewis_review then add back to working file
-write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.csv", row.names = FALSE) # Lewis no dups
-write.csv(review_synonyms,"~/GitHub/tpt-siphonaptera/output/Lewis_review.csv", row.names = FALSE) # these need review
-print("after review of removed rows, save return file to ~/GitHub/tpt-siphonaptera/input/Lewis_reviewed.xlsx and any remaining rows to ~/GitHub/tpt-siphonaptera/output/Lewis_need_expert_review.xlsx")
-
-df <- read_excel("~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.xlsx") # read in cleaned names
+# write and review "no_name"
+write.csv(no_name,"~/GitHub/tpt-siphonaptera/output/Lewis_name review.csv", row.names = FALSE) # Lewis no dups
 Lewis_reviewed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_reviewed.xlsx") # read in rows reviewed
-Lewis_removed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_removed.xlsx") # read in rows not reviewed
-
 df <- rbind(df, Lewis_reviewed) # return corrected reviewed rows
 
-# review for duplicates
-dupe <- df[,c('canonicalName')] # select columns to check duplicates
-review_dups <- df[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),] # create duplicates data frame
-review_dups$reason <- "duplicate canonical name" # add reason for removal from working file
-df <- anti_join(df,review_dups, by = c("canonicalName", "taxonRank")) # remove duplicate rows from working file
+# write and review Lewis_review then add back to working file
+# write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.csv", row.names = FALSE) # Lewis no dups
+# write.csv(review_synonyms,"~/GitHub/tpt-siphonaptera/output/Lewis_review.csv", row.names = FALSE) # these need review
+# print("after review of removed rows, save return file to ~/GitHub/tpt-siphonaptera/input/Lewis_reviewed.xlsx and any remaining rows to ~/GitHub/tpt-siphonaptera/output/Lewis_need_expert_review.xlsx")
+# 
+# df <- read_excel("~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.xlsx") # read in cleaned names
+# Lewis_reviewed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_reviewed.xlsx") # read in rows reviewed
+# Lewis_removed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_removed.xlsx") # read in rows not reviewed
+# 
+# df <- rbind(df, Lewis_reviewed) # return corrected reviewed rows
+# 
+# # review for duplicates
+# dupe <- df[,c('canonicalName')] # select columns to check duplicates
+# review_dups <- df[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),] # create duplicates data frame
+# review_dups$reason <- "duplicate canonical name" # add reason for removal from working file
+# df <- anti_join(df,review_dups, by = c("canonicalName", "taxonRank")) # remove duplicate rows from working file
 
-# sanity check
-ifelse(nrow(df) + nrow(review_dups) == Lewis_original_rows + Lewis_synonym_rows, 
-       "Its all here", 
-       "oops")
+# # sanity check
+# ifelse(nrow(df) + nrow(review_dups) == Lewis_original_rows + Lewis_synonym_rows, 
+#        "Its all here", 
+#        "oops")
 
-# write and review Lewis_removed then add back to duplicates
-write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.csv", row.names = FALSE) # Lewis no dups
-write.csv(review_dups,"~/GitHub/tpt-siphonaptera/output/Lewis_duplicates.csv", row.names = FALSE) # these need review
-print("after review of duplicate rows, save return file to ~/GitHub/tpt-siphonaptera/input/Lewis_dup_return.xlsx and any remaining rows to ~/GitHub/tpt-siphonaptera/output/Lewis_need_expert_review.xlsx")
-
-df <- read.csv("~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.xlsx") # read in cleaned names
-Lewis_review <- read_excel("~/GitHub/tpt-siphonaptera/input/reviewed_duplicates.xlsx") # read in rows reviewed
-Lewis_removed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_removed.xlsx") # read in rows not reviewed
-
-df <- rbind(df, Lewis_review) # return kept rows
-
-# sanity check
-ifelse(nrow(df) + nrow(Lewis_removed) == Lewis_original_rows + Lewis_synonym_rows, 
-       "Its all here", 
-       "oops")
-
-# write and review Lewis_removed then add back to duplicates
-write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.csv", row.names = FALSE) # Lewis no dups
-write.csv(Lewis_removed,"~/GitHub/tpt-siphonaptera/output/Lewis_removed.csv", row.names = FALSE) # these need review
+# # write and review Lewis_removed then add back to duplicates
+# write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.csv", row.names = FALSE) # Lewis no dups
+# write.csv(review_dups,"~/GitHub/tpt-siphonaptera/output/Lewis_duplicates.csv", row.names = FALSE) # these need review
+# print("after review of duplicate rows, save return file to ~/GitHub/tpt-siphonaptera/input/Lewis_dup_return.xlsx and any remaining rows to ~/GitHub/tpt-siphonaptera/output/Lewis_need_expert_review.xlsx")
+# 
+# df <- read.csv("~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.xlsx") # read in cleaned names
+# Lewis_review <- read_excel("~/GitHub/tpt-siphonaptera/input/reviewed_duplicates.xlsx") # read in rows reviewed
+# Lewis_removed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_removed.xlsx") # read in rows not reviewed
+# 
+# df <- rbind(df, Lewis_review) # return kept rows
+# 
+# # sanity check
+# ifelse(nrow(df) + nrow(Lewis_removed) == Lewis_original_rows + Lewis_synonym_rows, 
+#        "Its all here", 
+#        "oops")
+# 
+# # write and review Lewis_removed then add back to duplicates
+# write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_Siphonaptera.csv", row.names = FALSE) # Lewis no dups
+# write.csv(Lewis_removed,"~/GitHub/tpt-siphonaptera/output/Lewis_removed.csv", row.names = FALSE) # these need review
 
 # Do this after final review...
-Lewis_non_dwc <- subset(df, select = c(TPTdataset, TPTID, species, author, `synonym(s)`)) # get all columns that are not DwC
+Lewis_non_dwc <- subset(df, select = c(source, taxonID, species, author, `synonym(s)`)) # get all columns that are not DwC
 # remove non DwC columns from working file
 df$species <- NULL
 df$author <- NULL
@@ -426,8 +395,7 @@ df$`synonym(s)` <- NULL
 
 # order column names
 # df[,c(1,2,3,4)]. Note the first comma means keep all the rows, and the 1,2,3,4 refers to the columns.
-df <- df[,c("TPTdataset",
-            "TPTID",
+df <- df[,c("source",
             "taxonID",
             "scientificNameID",
             "acceptedNameUsageID",
@@ -461,7 +429,8 @@ df <- df[,c("TPTdataset",
             "nomenclaturalCode",
             "taxonomicStatus",
             "nomenclaturalStatus",
-            "taxonRemarks"
+            "taxonRemarks",
+            "canonicalName"
 )]
  
 write.csv(Lewis_non_dwc,"~/GitHub/tpt-siphonaptera/output/Lewis_non_DwC.csv", row.names = FALSE) # removed fields

@@ -1,27 +1,3 @@
-# Load libraries
-library(readxl)
-library(data.table)
-library(stringi)
-library(taxotools)
-library(dplyr)
-
-# define function: name length
-name_length <- function(x) ifelse(!is.na(x), length(unlist(strsplit(x, ' '))), 0)
-
-# define function: is not in
-'%!in%' <- function(x,y)!('%in%'(x,y))
-
-# define right function
-right = function (string, char) {
-  substr(string,(unlist(lapply(gregexpr(pattern = char, string), min)) + 1),nchar(string))
-}
-
-# define left function
-left = function (string,char) {
-  substr(string,1,unlist(lapply(gregexpr(pattern = char, string), min)))
-}
-
-
 # read in file
 NMNH_Siphonaptera <- read_excel("~/GitHub/tpt-siphonaptera/input/NMNH_siphonaptera.xlsx", )
 df <- NMNH_Siphonaptera # change filename for ease of use
@@ -33,42 +9,31 @@ tpt_dwc_template[] <- lapply(tpt_dwc_template, as.character) # set all columns i
 # transform column headers
 colnames(df) <- tolower(colnames(df)) # lower case column names
 
-# define DwC conversion
-convert2DwC <- function(df_colname) {
-  x <- gsub('.*subspecies.*','infraspecificEpithet',df_colname)
-  x <- gsub('.*rank.*','taxonRank',x)
-  x <- gsub('.*author.*','author',x)
-  x <- gsub('.*year.*','namePublishedInYear',x)
-  x <- gsub('.*scientific.*','scientificName',x)
-  x
-}
-
 colnames(df) <- convert2DwC(colnames(df)) # convert to DarwinCore terms
 
 df <- rbindlist(list(df, tpt_dwc_template), fill = TRUE) # add all DwC columns
 
-df$TPTdataset <- "NMNH" # add dataset name
-df$TPTID <- seq.int(nrow(df)) # add numeric ID for each name
+df$source <- "NMNH" # add dataset name
+df$taxonID <- seq.int(nrow(df)) # add numeric ID for each name
 
-# clean up
-# define function: remove '\xa0' chars and non-conforming punctuation
-phrase_clean <- function(x) gsub("[\xA0]", "", x)
-space_clean <- function(x) gsub("  ", " ", x)
+df <- char_fun(df,phrase_clean)
+df <- char_fun(df,trimws)
+df <- char_fun(df,space_clean)
 
-# remove remove '\xa0' chars
-setDT(df)
-cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-df[,c(cols_to_be_rectified) := lapply(.SD, phrase_clean), .SDcols = cols_to_be_rectified]
-
-# strip spaces from ends of strings
-setDT(df)
-cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-df[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
-
-# strip double spaces
-setDT(df)
-cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-df[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
+# # remove remove '\xa0' chars
+# setDT(df)
+# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
+# df[,c(cols_to_be_rectified) := lapply(.SD, phrase_clean), .SDcols = cols_to_be_rectified]
+# 
+# # strip spaces from ends of strings
+# setDT(df)
+# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
+# df[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
+# 
+# # strip double spaces
+# setDT(df)
+# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
+# df[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
 
 # melt scientific name
 df <- melt_scientificname(df, 
@@ -83,7 +48,7 @@ df$scientificNameAuthorship <- lapply(df$scientificNameAuthorship, trimws) # tri
 df$scientificNameAuthorship <- vapply(df$scientificNameAuthorship, paste, collapse = ", ", character(1L)) # set scientific authorship to character
 
 # remove parentheses from subgenera
-df$subgenus <- gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", df$subgenus, perl=T) # get things in parenthesis for review
+df$subgenus <- inparens(df$subgenus) # get things in parenthesis for review
 
 # extract sp's in specificEpithet and infraspecificEpithet
 sp_wildcards <- c('sp', 'sp.', 'spp', 'spp.', 'sp.nov.', 'sp nov', 'sp. nov.', 
@@ -101,9 +66,9 @@ df_review <- rbind(removed_sp, removed_spp) # add extracted records to df_review
 df <- df[which(df$specificEpithet %!in% sp_wildcards), ] # remove extracted spcificEpithet records from df
 df <- df[which(df$infraspecificEpithet %!in% sp_wildcards), ] # remove extracted infraspecificEpithet records from df
 
-write.csv(df_review,"~/GitHub/tpt-siphonaptera/output/taxa_need_review.csv", row.names = FALSE) # these need review
+write.csv(df_review,"~/GitHub/tpt-siphonaptera/output/NMNH_need_review.csv", row.names = FALSE) # these need review
 
-df_review <- read_excel("~/GitHub/tpt-siphonaptera/input/taxa_reviewed.xlsx", na = "NA")
+df_review <- read_excel("~/GitHub/tpt-siphonaptera/input/NMNH_reviewed1.xlsx", na = "NA")
 
 df <- rbind(df, df_review) # add cleaned reviewed taxa back to working file
 
@@ -111,8 +76,8 @@ df$kingdom <- "Animalia" # add kingdom
 df$phylum <- "Arthropoda" # add phylum
 
 # extract higher taxa for next set of review
-higher_taxa <- df[which(lapply(df$infraspecificEpithet, name_length) == 0 & lapply(df$specificEpithet, name_length) == 0),]
-df <- df[which(lapply(df$infraspecificEpithet, name_length) != 0 | lapply(df$specificEpithet, name_length) != 0),]
+higher_taxa <- higher_taxa_epithet(df,df$specificEpithet,df$infraspecificEpithet) # create dataframe of higher taxa
+df <- species_epithet(df,df$infraspecificEpithet, df$specificEpithet) # remove higher taxa from working file
 
 # generate canonical name for species and below
 df <- cast_canonical(df,
@@ -148,14 +113,14 @@ for(i in 1:nrow(higher_taxa)){
                                 "review"))))
 }
 
-# Review higher taxa
-write.csv(higher_taxa,"~/GitHub/tpt-siphonaptera/output/review_canonical.csv", row.names = FALSE) # these need review
-
-# after review add back cleaned up names
-higher_taxa <- read_excel("input/reviewed_canonical_nmnh.xlsx", na = "NA") # read in cleaned review file
+# # Review higher taxa
+# write.csv(higher_taxa,"~/GitHub/tpt-siphonaptera/output/NMNH_review_canonical.csv", row.names = FALSE) # these need review
+# 
+# # after review add back cleaned up names
+# higher_taxa <- read_excel("input/reviewed_canonical_nmnh.xlsx", na = "NA") # read in cleaned review file
 df <- rbind(higher_taxa, df) # add higher taxa back to df for remainder of de-duplication
 
-NMNH_non_dwc <- subset(df, select = c(TPTdataset, TPTID, `catalog number`, catalog, barcode, `type status`, `type citation`, `other identifications`, `sex and stage`, preparation, bioregion, distribution, country, `province/state`, `district/county`, `precise locality`, `elevation (m)`, `centroid latitude`, `centroid longitude`, `field number`, `collector(s)`, `collecting date`, `specimen count`, `record status`, `genetic sample type`, `biorepository number`, `bold id`, `genbank numbers`, `preservation method`, `embargo?`, `depleted?`, `record last modified`, ezid)) # get all columns that are not DwC
+NMNH_non_dwc <- subset(df, select = c(source,taxonID,`catalog number`, catalog, barcode, `type status`, `type citation`, `other identifications`, `sex and stage`, preparation, bioregion, distribution, country, `province/state`, `district/county`, `precise locality`, `elevation (m)`, `centroid latitude`, `centroid longitude`, `field number`, `collector(s)`, `collecting date`, `specimen count`, `record status`, `genetic sample type`, `biorepository number`, `bold id`, `genbank numbers`, `preservation method`, `embargo?`, `depleted?`, `record last modified`, ezid)) # get all columns that are not DwC
 
 # remove non DwC columns from working file
 df$`catalog number` <- NULL
@@ -192,8 +157,7 @@ df$ezid <- NULL
 
 # order column names
 #df[,c(1,2,3,4)]. Note the first comma means keep all the rows, and the 1,2,3,4 refers to the columns.
-df <- df[,c("TPTdataset", 
-            "TPTID", 
+df <- df[,c("source",
             "taxonID", 
             "scientificNameID", 
             "acceptedNameUsageID", 
@@ -230,17 +194,17 @@ df <- df[,c("TPTdataset",
             "canonicalName"
 )]
 
-# review for duplicates
-dupe <- df[,c('canonicalName')] # select columns to check duplicates
-review_dups <- df[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),]
-df <- anti_join(df, review_dups, by = "TPTID") # remove duplicate rows from working file
-
-# write and review duplicates
-write.csv(review_dups,"~/GitHub/tpt-siphonaptera/output/NMNH_review_duplicates.csv", row.names = FALSE) # these need review
-print("after review of duplicates, save return file to ~/GitHub/tpt-siphonaptera/input/reviewed_duplicates.xlsx")
-
-reviewed_duplicates <- read_excel("input/NMNH_reviewed_duplicates.xlsx") # read in cleaned duplicates
-df <- rbind(df, reviewed_duplicates)
+# # review for duplicates
+# dupe <- df[,c('canonicalName')] # select columns to check duplicates
+# review_dups <- df[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),]
+# df <- anti_join(df, review_dups, by = "TPTID") # remove duplicate rows from working file
+# 
+# # write and review duplicates
+# write.csv(review_dups,"~/GitHub/tpt-siphonaptera/output/NMNH_review_duplicates.csv", row.names = FALSE) # these need review
+# print("after review of duplicates, save return file to ~/GitHub/tpt-siphonaptera/input/reviewed_duplicates.xlsx")
+# 
+# reviewed_duplicates <- read_excel("input/NMNH_reviewed_duplicates.xlsx") # read in cleaned duplicates
+# df <- rbind(df, reviewed_duplicates)
 
 write.csv(NMNH_non_dwc,"~/GitHub/tpt-siphonaptera/output/NMNH_non_DwC.csv", row.names = FALSE) # removed fields
 write.csv(df,"~/GitHub/tpt-siphonaptera/output/NMNH_DwC.csv", row.names = FALSE) # ready for analysis

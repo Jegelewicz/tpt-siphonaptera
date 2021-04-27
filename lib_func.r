@@ -28,7 +28,7 @@ left = function (string,char) {
 # define function: text to columns
 text_to_columns <- function(dat, col, data="", column="", separator="", new_col_name_prefix="") { # dat is the data frame to operate on and col is the name of the column to be split
   colno <- max(lengths(strsplit(col, separator))) # get max number of terms for any value in the column to be split
-  setDT(dat)[, paste0(new_col_name_prefix, 1:colno) := tstrsplit(col, separator)] # parse out terms into separate columns with column names prefixed with new_col_name_prefix plus consecutive numbers from 1
+  setDT(dat)[, paste0(new_col_name_prefix, 1:colno) := tstrsplit(col, separator)] # parse out terms into separate columns with column names prefixed with new_col_name_prefix plus consecutive numbers from 1 through colno
 }
 
 # function: remove '\xa0' chars
@@ -52,3 +52,39 @@ char_fun <- function(x,y){ # x = dataframe, y = function to apply
   x[,c(cols_to_be_rectified) := lapply(.SD, y), .SDcols = cols_to_be_rectified]
 }
 
+# define DwC conversion
+convert2DwC <- function(df_colname) {
+  x <- gsub('.*subspecies.*','infraspecificEpithet',df_colname)
+  x <- gsub('.*rank.*','taxonRank',x)
+  x <- gsub('.*author.*','author',x)
+  x <- gsub('.*year.*','namePublishedInYear',x)
+  x <- gsub('.*scientific.*','scientificName',x)
+  x
+}
+
+# define function: get higher taxa with epithets
+higher_taxa_epithet <- function(dat, sp, spp){ # data is data frame, sp is column where species is given, spp is column where subspecies is given
+  dat[which(lapply(sp, name_length) == 0 & 
+              lapply(spp, name_length) == 0),] # keep names where species and subspecies are blank
+}
+
+# define function: get higher taxa with rank
+higher_taxa_rank <- function(dat, rank){ # dat is data frame, rank is column where taxon rank is given
+  dat[which(rank != "species" & # remove taxa ranked species
+              rank != "subspecies"),] # remove taxa ranked subspecies
+}
+
+# define function: get species with epithet
+species_epithet <- function(dat, sp, spp){ # data is data frame, sp is column where species is given, spp is column where subspecies is given
+  dat[which(lapply(spp, name_length) != 0 | # keep taxa with a subspecies name
+              lapply(sp, name_length) != 0),] # keep taxa with a species name
+}
+
+# define function: get species with rank
+species_rank <- function(dat, col){ # data is dataframe, col is column where rank is given
+  df <- df[which(lapply(df$infraspecificEpithet, name_length) != 0 | lapply(df$specificEpithet, name_length) != 0),] # remove higher taxa from working file
+  dat[which(col == "species" | # keep taxa with rank species
+            col == "subspecies"),] # keep taxa ranked subspecies
+}
+
+  
