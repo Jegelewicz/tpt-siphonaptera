@@ -6,6 +6,7 @@ library(data.table)
 library(stringi)
 library(taxotools)
 library(dplyr)
+library(plyr)
 
 # functions
 

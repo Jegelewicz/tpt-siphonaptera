@@ -40,3 +40,12 @@ write.csv(df,"~/GitHub/tpt-siphonaptera/output/taxo_Siphonaptera.csv", row.names
 # if ugh, find the problem
 CoL_not_in_taxo <- CoL[CoL$taxonID %!in% CoL_taxo$id,] # get all rows in CoL that do not match an id in taxo
 problems <- CoL_not_in_taxo[CoL_not_in_taxo$taxonID %!in% CoL_ht$taxonID,] # get all rows in above that do not match an id in CoL_ht
+
+# Flea_merge
+Flea_m1 <- merge_lists(Lewis_taxo, CoL_taxo) # master is Lewis, merging with CoL
+Flea_mast1 <- rbind.fill(Lewis_taxo,Flea_m1$addlist,Flea_m1$noaddlist)
+Flea_mast1_1 <- cast_cs_field(Flea_mast1,"canonical","source")
+Flea_m2 <- merge_lists(Flea_mast1,NMNH_taxo) # merge NMNH with working master
+Flea_mast2 <- rbind.fill(Flea_mast1,Flea_m2$addlist,Lice_m2$noaddlist)
+Flea_m3 <-  merge_lists(Flea_mast2,FMNH_taxo) # merge FMNH with working master
+Flea_mast3 <- rbind.fill(Flea_mast2,Flea_m3$addlist,Lice_m3$noaddlist)
