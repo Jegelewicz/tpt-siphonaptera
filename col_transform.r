@@ -22,6 +22,16 @@ df$kingdom <- "Animalia" # add kingdom
 df$phylum <- "Arthropoda" # add phylum
 df$class <- "Insecta" # add class
 df$order <- "Siphonaptera" # add order
+df$genus <- ifelse(df$taxonRank == "genus", df$scientificName, df$genus)
+
+# # add family to each row
+# families <- df[which(df$taxonRank == "family"),]
+# 
+# df$family <- ifelse(df$taxonRank == "family", df$scientificName,
+#                     ifelse(df$taxonRank == "genus", df$parentNameUsageID, NA)
+#                     )
+# 
+# largetable <- data.frame(family = as.character(sample(unique(df$family), 1000, replace = TRUE)), stringsAsFactors = FALSE)
 
 df <- char_fun(df,phrase_clean) # remove xa0 characters
 df <- char_fun(df,trimws) # trim whitespace

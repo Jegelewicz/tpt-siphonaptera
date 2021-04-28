@@ -2,24 +2,41 @@
 
 # read in files
 NMNH <- read.csv("~/GitHub/tpt-siphonaptera/output/NMNH_DwC.csv", na = "NA") # read in cleaned NMNH review file # NMNH higher taxa
-NMNH_species <- species(NMNH, NMNH$taxonRank) # NMNH species taxa
-NMNH_species$taxonomicStatus <- NULL
-NMNH_taxo <- DwC2taxo(NMNH_species, source = "NMNH") # transform to taxotool format
+NMNH$taxonomicStatus <- NULL
+# NMNH$taxonomicStatus <- ifelse(is.na(NMNH$taxonomicStatus),"undefined",NMNH$taxonomicStatus) # fill in taxonomic status
+NMNH_ht <- higher_taxa_rank(NMNH, NMNH$taxonRank) # NMNH higher taxa
+# NMNH_species <- species_rank(NMNH, NMNH$taxonRank) # NMNH species taxa
+NMNH_taxo <- DwC2taxo(NMNH, source = "NMNH") # transform to taxotool format
 
 FMNH <- read.csv("~/GitHub/tpt-siphonaptera/output/FMNH_DwC.csv", na = "NA") # read in cleaned FMNH review file
-FMNH_ht <- higer_taxa(FMNH, FMNH$taxonRank) # FMNH higher taxa
-FMNH_species <- species(FMNH, FMNH$taxonRank) # FMNH species taxa
-FMNH_species$taxonomicStatus <- NULL
-FMNH_taxo <- DwC2taxo(FMNH_species, source = "FMNH")
+FMNH$taxonomicStatus <- NULL
+#FMNH$taxonomicStatus <- ifelse(is.na(FMNH$taxonomicStatus),"undefined",FMNH$taxonomicStatus) # fill in taxonomic status
+FMNH_ht <- higher_taxa_rank(FMNH, FMNH$taxonRank) # FMNH higher taxa
+# FMNH_species <- species_rank(FMNH, FMNH$taxonRank) # FMNH species taxa
+FMNH_taxo <- DwC2taxo(FMNH, source = "FMNH")
 
 Lewis <- read.csv("~/GitHub/tpt-siphonaptera/output/Lewis_DwC.csv", na = "NA") # read in cleaned Lewis review file
-Lewis_ht <- higer_taxa(Lewis, Lewis$taxonRank) # FMNH higher taxa
-Lewis_species <- species(Lewis, Lewis$taxonRank) # FMNH species taxa
-Lewis_taxo <- DwC2taxo(Lewis_species, source = "Lewis")
+Lewis_ht <- higher_taxa_rank(Lewis, Lewis$taxonRank) # FMNH higher taxa
+# Lewis_species <- species_rank(Lewis, Lewis$taxonRank) # FMNH species taxa
+Lewis_taxo <- DwC2taxo(Lewis, source = "Lewis")
 
 CoL <- read.csv("~/GitHub/tpt-siphonaptera/output/CoL_DwC.csv", na = "NA") # read in cleaned Lewis review file
-CoL_ht <- higer_taxa(CoL, CoL$taxonRank) # CoL higher taxa
-CoL_species <- species(CoL, CoL$taxonRank) # CoL species taxa
-Col_taxo <- DwC2taxo(CoL_DwC, source = "CoL")
+CoL$taxonomicStatus <- ifelse(CoL$taxonomicStatus == "ambiguous_synonym", "synonym", CoL$taxonomicStatus) # replace non-conforming status
+CoL_ht <- higher_taxa_rank(CoL, CoL$taxonRank) # CoL higher taxa
+# CoL_species <- species_rank(CoL, CoL$taxonRank) # CoL species taxa
+CoL_taxo <- DwC2taxo(CoL, source = "CoL")
 
 taxo_siphonaptera <- rbindlist(list(NMNH_taxo, FMNH_taxo, Lewis_taxo, CoL_taxo), fill = TRUE) # combine all taxo files
+siphonaptera_ht <- rbindlist(list(NMNH_ht, FMNH_ht, Lewis_ht, CoL_ht), fill = TRUE) # combine all ht files
+
+#sanity check
+original <- nrow(CoL) + nrow(Lewis) + nrow(FMNH) + nrow(NMNH)
+final <- nrow(taxo_siphonaptera) + nrow(siphonaptera_ht)
+ifelse(original == final, print("yay"),print("ugh"))
+
+# if yay write out the taxo file
+write.csv(df,"~/GitHub/tpt-siphonaptera/output/taxo_Siphonaptera.csv", row.names = FALSE) # taxo file
+
+# if ugh, find the problem
+CoL_not_in_taxo <- CoL[CoL$taxonID %!in% CoL_taxo$id,] # get all rows in CoL that do not match an id in taxo
+problems <- CoL_not_in_taxo[CoL_not_in_taxo$taxonID %!in% CoL_ht$taxonID,] # get all rows in above that do not match an id in CoL_ht
