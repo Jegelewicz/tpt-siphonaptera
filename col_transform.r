@@ -29,19 +29,19 @@ df$family <- ifelse(df$taxonRank == "family", df$scientificName, NA) # for famil
 
 # get family names for genera
 families <- df[which(df$taxonRank == "family"),] # get the families
-df$family <- ifelse(is.na(df$family),families$scientificName[match(df$parentNameUsageID,families$taxonID)], df$family) # match parentNameUsageID to taxonID in families to get the family name
+df$family <- ifelse(is.na(df$family),vlookup(families$scientificName, df$parentNameUsageID, families$taxonID), df$family) # match parentNameUsageID to taxonID in families to get the family name
 
 # get family names for species
 genera <- df[which(df$taxonRank == "genus"),] # get the genera
-df$family <- ifelse(is.na(df$family),genera$family[match(df$parentNameUsageID,genera$taxonID)], df$family) # match parentNameUsageID to taxonID in genera to get the family name
+df$family <- ifelse(is.na(df$family),vlookup(genera$family, df$parentNameUsageID, genera$taxonID), df$family) # match parentNameUsageID to taxonID in genera to get the family name
 
 # get family names for subspecies
 species <- df[which(df$taxonRank == "species"),] # get the species
-df$family <- ifelse(is.na(df$family),species$family[match(df$parentNameUsageID,species$taxonID)], df$family) # match parentNameUsageID to taxonID in genera to get the family name
+df$family <- ifelse(is.na(df$family),vlookup(species$family, df$parentNameUsageID, species$taxonID), df$family) # match parentNameUsageID to taxonID in genera to get the family name
 
 # get family names for synonyms
 accepted <- df[which(df$taxonomicStatus == "accepted"),] # get the accepted names
-df$family <- ifelse(is.na(df$family),genera$family[match(df$genus,genera$genus)], df$family) # match parentNameUsageID to taxonID in genera to get the family name
+df$family <- ifelse(is.na(df$family),vlookup(genera$family, df$genus, genera$genus), df$family) # match parentNameUsageID to taxonID in genera to get the family name
 
 # fix known issue
 df$family <- ifelse(is.na(df$family),
