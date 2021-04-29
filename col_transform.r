@@ -24,15 +24,33 @@ df$class <- "Insecta" # add class
 df$order <- "Siphonaptera" # add order
 df$genus <- ifelse(df$taxonRank == "genus", df$scientificName, df$genus)
 
-# # add family to each row
-# families <- df[which(df$taxonRank == "family"),]
-# 
-# df$family <- ifelse(df$taxonRank == "family", df$scientificName,
-#                     ifelse(df$taxonRank == "genus", df$parentNameUsageID, NA)
-#                     )
-# 
-# largetable <- data.frame(family = as.character(sample(unique(df$family), 1000, replace = TRUE)), stringsAsFactors = FALSE)
+# get family names for families
+df$family <- ifelse(df$taxonRank == "family", df$scientificName, NA) # for families, put scientitifc name in family
 
+# get family names for genera
+families <- df[which(df$taxonRank == "family"),] # get the families
+df$family <- ifelse(is.na(df$family),families$scientificName[match(df$parentNameUsageID,families$taxonID)], df$family) # match parentNameUsageID to taxonID in families to get the family name
+
+# get family names for species
+genera <- df[which(df$taxonRank == "genus"),] # get the genera
+df$family <- ifelse(is.na(df$family),genera$family[match(df$parentNameUsageID,genera$taxonID)], df$family) # match parentNameUsageID to taxonID in genera to get the family name
+
+# get family names for subspecies
+species <- df[which(df$taxonRank == "species"),] # get the species
+df$family <- ifelse(is.na(df$family),species$family[match(df$parentNameUsageID,species$taxonID)], df$family) # match parentNameUsageID to taxonID in genera to get the family name
+
+# get family names for synonyms
+accepted <- df[which(df$taxonomicStatus == "accepted"),] # get the accepted names
+df$family <- ifelse(is.na(df$family),genera$family[match(df$genus,genera$genus)], df$family) # match parentNameUsageID to taxonID in genera to get the family name
+
+# fix known issue
+df$family <- ifelse(is.na(df$family),
+                    ifelse(df$genus == "Ceratopsyllus",
+                           "Ceratophyllidae",
+                           NA),
+                    df$family) # add family for missing genus 
+
+# clean up
 df <- char_fun(df,phrase_clean) # remove \xa0 characters
 df <- char_fun(df,trimws) # trim white space
 df <- char_fun(df,space_clean) # remove double spaces
