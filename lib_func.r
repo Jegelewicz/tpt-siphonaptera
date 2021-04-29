@@ -88,4 +88,5 @@ species_rank <- function(dat, col){ # data is dataframe, col is column where ran
             col == "subspecies"),] # keep taxa ranked subspecies
 }
 
-  
+# define function: fix cases like (Jordan & Rothschild), 1922 to (Jordan & Rothschild, 1922)
+fixAuth <- function(x) ifelse(grepl('[a-z]),',x), paste(gsub(')', '',x),')',sep=''),x)

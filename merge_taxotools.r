@@ -20,11 +20,18 @@ Lewis_ht <- higher_taxa_rank(Lewis, Lewis$taxonRank) # FMNH higher taxa
 # Lewis_species <- species_rank(Lewis, Lewis$taxonRank) # FMNH species taxa
 Lewis_taxo <- DwC2taxo(Lewis, source = "Lewis")
 
-CoL <- read.csv("~/GitHub/tpt-siphonaptera/output/CoL_DwC.csv", na = "NA") # read in cleaned Lewis review file
+CoL <- read.csv("~/GitHub/tpt-siphonaptera/output/CoL_DwC.csv", na = "NA") # read in cleaned CoL review file
 CoL$taxonomicStatus <- ifelse(CoL$taxonomicStatus == "ambiguous_synonym", "synonym", CoL$taxonomicStatus) # replace non-conforming status
 CoL_ht <- higher_taxa_rank(CoL, CoL$taxonRank) # CoL higher taxa
 # CoL_species <- species_rank(CoL, CoL$taxonRank) # CoL species taxa
 CoL_taxo <- DwC2taxo(CoL, source = "CoL")
+
+GBIF <- read_excel("~/GitHub/tpt-siphonaptera/input/GBIF_Siphonaptera.xlsx") # read in GBIF file
+GBIF$taxonomicStatus <- ifelse(GBIF$taxonomicStatus == "homotypic synonym", "homotypicSynonym",
+                               ifelse(GBIF$taxonomicStatus == "heterotypic synonym", "heterotypicSynonym", GBIF$taxonomicStatus)) # replace non-conforming status
+GBIF_ht <- higher_taxa_rank(GBIF, GBIF$taxonRank) # GBIF higher taxa
+# GBIF_species <- species_rank(GBIF, GBIF$taxonRank) # GBIF species taxa
+GBIF_taxo <- DwC2taxo(GBIF, source = "GBIF")
 
 taxo_siphonaptera <- rbindlist(list(NMNH_taxo, FMNH_taxo, Lewis_taxo, CoL_taxo), fill = TRUE) # combine all taxo files
 siphonaptera_ht <- rbindlist(list(NMNH_ht, FMNH_ht, Lewis_ht, CoL_ht), fill = TRUE) # combine all ht files
@@ -38,8 +45,8 @@ ifelse(original == final, print("yay"),print("ugh"))
 write.csv(df,"~/GitHub/tpt-siphonaptera/output/taxo_Siphonaptera.csv", row.names = FALSE) # taxo file
 
 # if ugh, find the problem
-CoL_not_in_taxo <- CoL[CoL$taxonID %!in% CoL_taxo$id,] # get all rows in CoL that do not match an id in taxo
-problems <- CoL_not_in_taxo[CoL_not_in_taxo$taxonID %!in% CoL_ht$taxonID,] # get all rows in above that do not match an id in CoL_ht
+GBIF_not_in_taxo <- GBIF[GBIF$taxonID %!in% GBIF_taxo$id,] # get all rows in CoL that do not match an id in taxo
+problems <- GBIF_not_in_taxo[GBIF_not_in_taxo$taxonID %!in% GBIF_ht$taxonID,] # get all rows in above that do not match an id in CoL_ht
 
 # Flea_merge
 Flea_m1 <- merge_lists(Lewis_taxo, CoL_taxo) # master is Lewis, merging with CoL

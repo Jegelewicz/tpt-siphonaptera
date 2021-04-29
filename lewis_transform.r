@@ -33,29 +33,9 @@ df$taxonRemarks[ df$taxonRemarks == "" ] <- NA # set all blank taxonRemark to NA
 df$species <- outparens(df$species)# get things outside parenthesis for species
 
 
-df <- char_fun(df,phrase_clean)
-df <- char_fun(df,trimws)
-df <- char_fun(df,space_clean)
-
-# # clean up
-# # define function: remove '\xa0' chars and non-conforming punctuation
-# phrase_clean <- function(x) gsub("[\xA0]", "", x)
-# space_clean <- function(x) gsub("  ", " ", x)
-# 
-# # remove remove '\xa0' chars
-# setDT(df)
-# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-# df[,c(cols_to_be_rectified) := lapply(.SD, phrase_clean), .SDcols = cols_to_be_rectified]
-# 
-# # strip spaces from ends of strings
-# setDT(df)
-# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-# df[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
-# 
-# # strip double spaces
-# setDT(df)
-# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-# df[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
+df <- char_fun(df,phrase_clean) # remove all \xa0 characters
+df <- char_fun(df,trimws) # trim white space
+df <- char_fun(df,space_clean) # replace double spaces with single space
 
 # split specificEpithet when it has two terms
 multi_epithet <- df[which(lapply(df$species, name_length) > 1),] # extract rows with a multi-name specifies
@@ -66,18 +46,8 @@ for(i in 1:nrow(multi_epithet)){
   multi_epithet$infraspecificEpithet[i] <- right(multi_epithet$species[i], " ") # place second term in infraspecificEpithet
 }
 
-df <- char_fun(df,trimws)# strip spaces from ends of strings
-df <- char_fun(df,space_clean)# strip double spaces
-
-# # strip spaces from ends of strings
-# setDT(multi_epithet)
-# cols_to_be_rectified <- names(multi_epithet)[vapply(multi_epithet, is.character, logical(1))]
-# multi_epithet[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
-# 
-# # strip double spaces
-# setDT(multi_epithet)
-# cols_to_be_rectified <- names(multi_epithet)[vapply(multi_epithet, is.character, logical(1))]
-# multi_epithet[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
+df <- char_fun(df,trimws) # strip spaces from ends of strings
+df <- char_fun(df,space_clean) # strip double spaces
 
 df$specificEpithet <- df$species # place single term species names in specificEpithet
 
@@ -94,8 +64,7 @@ for(i in 1:nrow(df)){
   )
 }
 
-fixAuth <- function(x) ifelse(grepl('[a-z]),',x), paste(gsub(')', '',x),')',sep=''),x) # define function to fix cases like: (Jordan & Rothschild), 1922
-df$scientificNameAuthorship <- fixAuth(df$scientificNameAuthorship) # apply fix
+df$scientificNameAuthorship <- fixAuth(df$scientificNameAuthorship) # apply fix for author parenthesis
 
 # cast canonical name
 df$canonicalName <- NA # create column for canonicalName
@@ -219,18 +188,8 @@ df_synonym <- text_to_columns(df_synonym,
                               separator = ";",
                               new_col_name_prefix = "syn")
 
-df <- char_fun(df,trimws)# strip spaces from ends of strings
-df <- char_fun(df,space_clean)# strip double spaces
-
-# # strip spaces from ends of strings
-# setDT(df_synonym)
-# cols_to_be_rectified <- names(df_synonym)[vapply(df_synonym, is.character, logical(1))]
-# df_synonym[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
-# 
-# # strip double spaces
-# setDT(df_synonym)
-# cols_to_be_rectified <- names(df_synonym)[vapply(df_synonym, is.character, logical(1))]
-# df_synonym[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
+df <- char_fun(df,trimws) # strip spaces from ends of strings
+df <- char_fun(df,space_clean) # strip double spaces
 
 df_synonym$acceptedNameUsage <- ifelse(df_synonym$scientificName == "review", NA, df_synonym$scientificName) # copy accepted scientific name to accepted name column
 df_synonym$scientificName <- df_synonym$syn1 # move synonym name to scientific name column

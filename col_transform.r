@@ -33,8 +33,8 @@ df$genus <- ifelse(df$taxonRank == "genus", df$scientificName, df$genus)
 # 
 # largetable <- data.frame(family = as.character(sample(unique(df$family), 1000, replace = TRUE)), stringsAsFactors = FALSE)
 
-df <- char_fun(df,phrase_clean) # remove xa0 characters
-df <- char_fun(df,trimws) # trim whitespace
+df <- char_fun(df,phrase_clean) # remove \xa0 characters
+df <- char_fun(df,trimws) # trim white space
 df <- char_fun(df,space_clean) # remove double spaces
 
 # extract higher taxa for next set of review
@@ -99,4 +99,3 @@ df <- df[,c("source",
 )]
 
 write.csv(df,"~/GitHub/tpt-siphonaptera/output/CoL_DwC.csv", row.names = FALSE) # ready for analysis
-
