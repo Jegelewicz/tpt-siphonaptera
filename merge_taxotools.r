@@ -29,9 +29,13 @@ CoL_taxo <- DwC2taxo(CoL, source = "CoL")
 GBIF <- read_excel("~/GitHub/tpt-siphonaptera/input/GBIF_Siphonaptera.xlsx") # read in GBIF file
 GBIF$taxonomicStatus <- ifelse(GBIF$taxonomicStatus == "homotypic synonym", "homotypicSynonym",
                                ifelse(GBIF$taxonomicStatus == "heterotypic synonym", "heterotypicSynonym", GBIF$taxonomicStatus)) # replace non-conforming status
+
+
+
 GBIF_ht <- higher_taxa_rank(GBIF, GBIF$taxonRank) # GBIF higher taxa
 # GBIF_species <- species_rank(GBIF, GBIF$taxonRank) # GBIF species taxa
-GBIF_taxo <- DwC2taxo(GBIF, source = "GBIF")
+GBIF <- compact_ids(GBIF,id="taxonID",accid="acceptedNameUsageID") # deal with letters and long ids
+GBIF_taxo <- DwC2taxo(GBIF, source = "GBIF") # transform to taxo format
 
 taxo_siphonaptera <- rbindlist(list(NMNH_taxo, FMNH_taxo, Lewis_taxo, CoL_taxo), fill = TRUE) # combine all taxo files
 siphonaptera_ht <- rbindlist(list(NMNH_ht, FMNH_ht, Lewis_ht, CoL_ht), fill = TRUE) # combine all ht files
