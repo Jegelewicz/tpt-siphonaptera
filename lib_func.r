@@ -131,3 +131,14 @@ compact_ids <- function(dat,id="id",accid="accid",verbose=TRUE){
   dat[,c("id","accid")] <- list(NULL)
   return(dat)
 }
+
+rename_column <- function(dat,old,new,silent=FALSE){
+  if(old %in% colnames(dat)){
+    colnames(dat)[which(names(dat) == old)] <- new
+  } else {
+    if(!silent){
+      cat(paste("\nFieldname not found...",old))
+    }
+  }
+  return(dat)
+}

@@ -20,21 +20,6 @@ df <- char_fun(df,phrase_clean)
 df <- char_fun(df,trimws)
 df <- char_fun(df,space_clean)
 
-# # remove remove '\xa0' chars
-# setDT(df)
-# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-# df[,c(cols_to_be_rectified) := lapply(.SD, phrase_clean), .SDcols = cols_to_be_rectified]
-# 
-# # strip spaces from ends of strings
-# setDT(df)
-# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-# df[,c(cols_to_be_rectified) := lapply(.SD, trimws), .SDcols = cols_to_be_rectified]
-# 
-# # strip double spaces
-# setDT(df)
-# cols_to_be_rectified <- names(df)[vapply(df, is.character, logical(1))]
-# df[,c(cols_to_be_rectified) := lapply(.SD, space_clean), .SDcols = cols_to_be_rectified]
-
 # melt scientific name
 df <- melt_scientificname(df, 
                           sciname="scientificName", 
@@ -53,7 +38,7 @@ df$subgenus <- inparens(df$subgenus) # get things in parenthesis for review
 # extract sp's in specificEpithet and infraspecificEpithet
 sp_wildcards <- c('sp', 'sp.', 'spp', 'spp.', 'sp.nov.', 'sp nov', 'sp. nov.', 
                   'prob', 'prob.', 'probably', 'unid', 'unidentified',
-                  'spnov1')
+                  'spnov1', 'group')
 variable_sp1 <- paste('sp', as.character(c(0:9)), sep='')
 variable_sp2 <- paste('sp.', as.character(c(0:9)), sep='')
 variable_sp3 <- paste('sp. ', as.character(c(0:9)), sep='')
@@ -68,7 +53,7 @@ df <- df[which(df$infraspecificEpithet %!in% sp_wildcards), ] # remove extracted
 
 write.csv(df_review,"~/GitHub/tpt-siphonaptera/output/NMNH_need_review.csv", row.names = FALSE) # these need review
 
-df_review <- read_excel("~/GitHub/tpt-siphonaptera/input/NMNH_reviewed1.xlsx", na = "NA")
+df_review <- read_excel("~/GitHub/tpt-siphonaptera/input/NMNH_reviewed.xlsx", na = "NA")
 
 df <- rbind(df, df_review) # add cleaned reviewed taxa back to working file
 
