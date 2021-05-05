@@ -66,7 +66,7 @@
 "Lewis","36","dilecta","Jordan",NA
 "Lewis","40","sinuata","Guimaráes",NA
 "Lewis","42","grodekovi","Sychevsky",NA
-"Lewis","43","thamba","(Jordan)","Ceratophyllus bakeri Wagner, 1933; Monopsyllus enderleini Wagner, 1933 (?)"
+"Lewis","43","thamba","(Jordan)","Ceratophyllus bakeri Wagner, 1933; ?Monopsyllus enderleini Wagner, 1933"
 "Lewis","44","wagneri","(Baker)","Ceratohyllus peromysci Stewart, 1928; Ceratophyllus wagneri ophidius Jordan, 1929; Ceratophyllus wagneri systaltus Jordan, 1929; Monopsyllus wagneri kylei Hubbard, 1949"
 "Lewis","45","afer","Rothschild","Stivalius cacuminis Smit, 1958"
 "Lewis","46","azevedoi","(Ribeiro)",NA
@@ -497,57 +497,57 @@
 "Lewis","716","lushuiensis","Gong & Huang",NA
 "Lewis","717","lycosius","Jordan & Rothschild",NA
 "Lewis","718","machadoi","Ribeiro",NA
-"Lewis","719","microphthalma","Beaucournu & Kock",NA
-"Lewis","720","micropus","Traub",NA
-"Lewis","721","monticola","(Kohaut)",NA
-"Lewis","722","moratus","Jordan",NA
-"Lewis","723","myodosus","Traub & Barrera",NA
-"Lewis","724","nairicus","Labunets & Avetisyan",NA
-"Lewis","725","natalensis","Marcus & DeMeillon",NA
-"Lewis","738","nigeriensis","Hastriter",NA
-"Lewis","746","nyikensis","Smit",NA
-"Lewis","747","obtusus","Jordan & Rothschild","Euctenophthalmus obtusus recurvus Peus, 1951"
-"Lewis","748","olbius","Jordan & Rothschild",NA
-"Lewis","749","ominosus","Smit",NA
-"Lewis","750","orientalis","Wagner","Euctenophthalmus orientalis kratochvili Jurik, 1955"
-"Lewis","754","parcus","Jordan",NA
-"Lewis","755","parthicus","Medvedev & Alifirenko",NA
-"Lewis","756","particularis","Berteaux",NA
-"Lewis","757","parvus","Argyropulo",NA
-"Lewis","758","peregrinus","Beaucournu & Sountsov",NA
-"Lewis","759","phyris","Jordan",NA
-"Lewis","760","pilosus","Smit",NA
-"Lewis","763","pollex","Wagner & Ioff",NA
-"Lewis","764","proboscis","Wu, Xie & Hu",NA
-"Lewis","765","prorogatus","Peus",NA
-"Lewis","766","proximus","(Wagner)",NA
-"Lewis","767","pseudagyrtes","Baker",NA
-"Lewis","768","quadratus","Liu & Wu",NA
-"Lewis","769","reconditus","Peus",NA
-"Lewis","770","reductus","Jameson & Hsieh",NA
-"Lewis","773","rostigayevi","Peus",NA
-"Lewis","774","ruris","Jordan","Ctenophthalmu ruris karamani Wagner, 1936"
-"Lewis","777","sanborni","Traub",NA
-"Lewis","790","shovi","Rostigayev",NA
-"Lewis","791","singularis","Jordan",NA
-"Lewis","792","smithersi","DeMeillon",NA
-"Lewis","796","spalacis","Jordan & Rothschild","Pulex typhlus Victor, 1840"
-"Lewis","797","spiniger","Peus",NA
-"Lewis","798","stenurus","Jordan",NA
-"Lewis","799","stirps","Beaucournu & Ohran",NA
-"Lewis","800","strigosus","Rostigayev & Solov'yeva",NA
-"Lewis","804","tecpin","Morone, Acosta & Gutierrez",NA
-"Lewis","807","tertius","Smit",NA
-"Lewis","810","tibarenus","Peus",NA
-"Lewis","811","triodontus","Rothschild",NA
-"Lewis","812","truncatus","Hastriter",NA
-"Lewis","813","turcicus","Jordan",NA
-"Lewis","818","vanhoofi","Berteaux",NA
-"Lewis","819","vanhoutteae","Beaucournu & Bereket",NA
-"Lewis","820","verutus","Smit",NA
-"Lewis","824","wladimiri","Isayeva-Gurvich",NA
-"Lewis","825","wranghami","Smit",NA
-"Lewis","826","xiei","Gong & Duan",NA
+"Lewis","719","micropus","Traub",NA
+"Lewis","720","monticola","(Kohaut)",NA
+"Lewis","721","moratus","Jordan",NA
+"Lewis","722","myodosus","Traub & Barrera",NA
+"Lewis","723","nairicus","Labunets & Avetisyan",NA
+"Lewis","724","natalensis","Marcus & DeMeillon",NA
+"Lewis","737","nigeriensis","Hastriter",NA
+"Lewis","745","nyikensis","Smit",NA
+"Lewis","746","obtusus","Jordan & Rothschild","Euctenophthalmus obtusus recurvus Peus, 1951"
+"Lewis","747","olbius","Jordan & Rothschild",NA
+"Lewis","748","ominosus","Smit",NA
+"Lewis","749","orientalis","Wagner","Euctenophthalmus orientalis kratochvili Jurik, 1955"
+"Lewis","753","parcus","Jordan",NA
+"Lewis","754","parthicus","Medvedev & Alifirenko",NA
+"Lewis","755","particularis","Berteaux",NA
+"Lewis","756","parvus","Argyropulo",NA
+"Lewis","757","peregrinus","Beaucournu & Sountsov",NA
+"Lewis","758","phyris","Jordan",NA
+"Lewis","759","pilosus","Smit",NA
+"Lewis","762","pollex","Wagner & Ioff",NA
+"Lewis","763","proboscis","Wu, Xie & Hu",NA
+"Lewis","764","prorogatus","Peus",NA
+"Lewis","765","proximus","(Wagner)",NA
+"Lewis","766","pseudagyrtes","Baker",NA
+"Lewis","767","quadratus","Liu & Wu",NA
+"Lewis","768","reconditus","Peus",NA
+"Lewis","769","reductus","Jameson & Hsieh",NA
+"Lewis","772","rostigayevi","Peus",NA
+"Lewis","773","ruris","Jordan","Ctenophthalmu ruris karamani Wagner, 1936"
+"Lewis","776","sanborni","Traub",NA
+"Lewis","789","shovi","Rostigayev",NA
+"Lewis","790","singularis","Jordan",NA
+"Lewis","791","smithersi","DeMeillon",NA
+"Lewis","795","spalacis","Jordan & Rothschild","Pulex typhlus Victor, 1840"
+"Lewis","796","spiniger","Peus",NA
+"Lewis","797","stenurus","Jordan",NA
+"Lewis","798","stirps","Beaucournu & Ohran",NA
+"Lewis","799","strigosus","Rostigayev & Solov'yeva",NA
+"Lewis","803","tecpin","Morone, Acosta & Gutierrez",NA
+"Lewis","806","tertius","Smit",NA
+"Lewis","809","tibarenus","Peus",NA
+"Lewis","810","triodontus","Rothschild",NA
+"Lewis","811","truncatus","Hastriter",NA
+"Lewis","812","turcicus","Jordan",NA
+"Lewis","817","vanhoofi","Berteaux",NA
+"Lewis","818","vanhoutteae","Beaucournu & Bereket",NA
+"Lewis","819","verutus","Smit",NA
+"Lewis","823","wladimiri","Isayeva-Gurvich",NA
+"Lewis","824","wranghami","Smit",NA
+"Lewis","825","xiei","Gong & Duan",NA
+"Lewis","826","yesarii","Keskin",NA
 "Lewis","827","yunnanus","Jordan",NA
 "Lewis","831","rigidus","Darskaya",NA
 "Lewis","832","subarmatus","(Wagner)",NA
@@ -2264,63 +2264,63 @@
 "Lewis","700","iranus persicus","Smit",NA
 "Lewis","706","kirschenblatti dombaicus","Rostigayev",NA
 "Lewis","707","kirschenblatti kirschenblatti","Argyropulo",NA
-"Lewis","726","niethammeri aspromontis","Beaucournu, Valle & Launay",NA
-"Lewis","727","niethammeri niethammeri","Beaucournu, Valle & Launay",NA
-"Lewis","728","nifetodes brelihi","Rosicky & Carnelutti",NA
-"Lewis","729","nifetodes dzukici","Brelih",NA
-"Lewis","730","nifetodes eugeniae","Wagner",NA
-"Lewis","731","nifetodes krystufeki","Brelih",NA
-"Lewis","732","nifetodes martinorum","Smit",NA
-"Lewis","733","nifetodes milenkovici","Brelih & Trilar",NA
-"Lewis","734","nifetodes nifetodes","Wagner",NA
-"Lewis","735","nifetodes petrovi","Brelih",NA
-"Lewis","736","nifetodes rosickyi","Brelih & Trilar",NA
-"Lewis","737","nifetodes tvrtkovici","Brelih",NA
-"Lewis","739","nivalis cervinus","Jordan & Rothschild",NA
-"Lewis","740","nivalis helviticus","Smit",NA
-"Lewis","741","nivalis nivalis","Rothschild",NA
-"Lewis","742","nivalis rhaeticus","Smit",NA
-"Lewis","743","nobilis dobyi","Beaucournu",NA
-"Lewis","744","nobilis nobilis","(Rothschild)","Ctenophthalmus agyrtes celticus Jordan & Rothschild, 1922"
-"Lewis","745","nobilis vulgaris","Smit",NA
-"Lewis","751","orientalis jakupicae","Brelih & Trilar",NA
-"Lewis","752","orphilus dolomiticus","Jordan","Ctenophthalmus orphilus heinrichi Peus, 1949"
-"Lewis","753","orphilus orphilus","Jordan & Rothschild","Ctenophthalmus sklainus Wagner, 1933"
-"Lewis","761","pisticus pacificus","Ioff & Scalon",NA
-"Lewis","762","pisticus pisticus","Jordan & Rothschild","Ctenophthalmus dahuricus Ioff, 1928"
-"Lewis","771","rettigi rettigi","Rothschild",NA
-"Lewis","772","rettigi smiti","Klein",NA
-"Lewis","775","russulae galloibericus","Beaucournu & Lumaret","Ctenophthalmus russulae tangerensis Hastriter & Tipton, 1975"
-"Lewis","776","russulae russulae","Jordan & Rothschild","Ctenophthalmus russulae ducis Jordan, 1929"
-"Lewis","778","savii calabricus","Beaucournu, Valle & Launay",NA
-"Lewis","779","savii matilei","Beaucournu & Grulich",NA
-"Lewis","780","savii savii","Jordan & Rothschild",NA
-"Lewis","781","secundus asiaticus","Argyropulo",NA
-"Lewis","782","secundus cilicius","Peus",NA
-"Lewis","783","secundus geminus","Peus","Ctenopththalmus congener geminus Peus, 1959"
-"Lewis","784","secundus italoscopus","Peus","Ctenopththalmus congener italoscopus Peus, 1958"
-"Lewis","785","secundus iubatus","Peus",NA
-"Lewis","786","secundus levadianus","Peus","Ctenopththalmus congener levadianus Peus, 1958"
-"Lewis","787","secundus secundus","Wagner",NA
-"Lewis","788","secundus thracius","Peus",NA
-"Lewis","789","secundus troilus","Peus","Ctenopththalmus congener troilus Peus, 1954"
-"Lewis","793","solutus nasutus","Beaucournu, Valle & Launay",NA
-"Lewis","794","solutus siculus","Peus",NA
-"Lewis","795","solutus solutus","Jordan & Rothschild","Ctenophthalmus ukrainica Yurkina, 1961"
-"Lewis","801","taiwanus taiwanus","Smit",NA
-"Lewis","802","taiwanus terrestus","Chen & Wu",NA
-"Lewis","803","taiwanus zhejiangensis","Lu & Qui",NA
-"Lewis","805","teres anatolicus","Keskin & Beaucournu",NA
-"Lewis","806","teres teres","Ioff & Argyropulo",NA
-"Lewis","808","teucqae shumeensis","Laudisoit & Beaucournu",NA
-"Lewis","809","teucqae teucqae","Laudisoit & Beaucournu",NA
-"Lewis","814","ubayensis ianlinni","Beaucournu",NA
-"Lewis","815","ubayensis ubayensis","Lumaret & Lumaret",NA
-"Lewis","816","uncinatus koshanini","Rosicky & Todorovic","Ctenophthalmus uncinatus angustus Smit & Rosicky, 1965"
-"Lewis","817","uncinatus uncinatus","(Wagner)","Ctenophthalmus tataricus Rostigayev & Shiranovich, 1964"
-"Lewis","821","wagneri krym","Ioff",NA
-"Lewis","822","wagneri schuriscus","Ioff",NA
-"Lewis","823","wagneri wagneri","Tiflov",NA
+"Lewis","725","niethammeri aspromontis","Beaucournu, Valle & Launay",NA
+"Lewis","726","niethammeri niethammeri","Beaucournu, Valle & Launay",NA
+"Lewis","727","nifetodes brelihi","Rosicky & Carnelutti",NA
+"Lewis","728","nifetodes dzukici","Brelih",NA
+"Lewis","729","nifetodes eugeniae","Wagner",NA
+"Lewis","730","nifetodes krystufeki","Brelih",NA
+"Lewis","731","nifetodes martinorum","Smit",NA
+"Lewis","732","nifetodes milenkovici","Brelih & Trilar",NA
+"Lewis","733","nifetodes nifetodes","Wagner",NA
+"Lewis","734","nifetodes petrovi","Brelih",NA
+"Lewis","735","nifetodes rosickyi","Brelih & Trilar",NA
+"Lewis","736","nifetodes tvrtkovici","Brelih",NA
+"Lewis","738","nivalis cervinus","Jordan & Rothschild",NA
+"Lewis","739","nivalis helviticus","Smit",NA
+"Lewis","740","nivalis nivalis","Rothschild",NA
+"Lewis","741","nivalis rhaeticus","Smit",NA
+"Lewis","742","nobilis dobyi","Beaucournu",NA
+"Lewis","743","nobilis nobilis","(Rothschild)","Ctenophthalmus agyrtes celticus Jordan & Rothschild, 1922"
+"Lewis","744","nobilis vulgaris","Smit",NA
+"Lewis","750","orientalis jakupicae","Brelih & Trilar",NA
+"Lewis","751","orphilus dolomiticus","Jordan","Ctenophthalmus orphilus heinrichi Peus, 1949"
+"Lewis","752","orphilus orphilus","Jordan & Rothschild","Ctenophthalmus sklainus Wagner, 1933"
+"Lewis","760","pisticus pacificus","Ioff & Scalon",NA
+"Lewis","761","pisticus pisticus","Jordan & Rothschild","Ctenophthalmus dahuricus Ioff, 1928"
+"Lewis","770","rettigi rettigi","Rothschild",NA
+"Lewis","771","rettigi smiti","Klein",NA
+"Lewis","774","russulae galloibericus","Beaucournu & Lumaret","Ctenophthalmus russulae tangerensis Hastriter & Tipton, 1975"
+"Lewis","775","russulae russulae","Jordan & Rothschild","Ctenophthalmus russulae ducis Jordan, 1929"
+"Lewis","777","savii calabricus","Beaucournu, Valle & Launay",NA
+"Lewis","778","savii matilei","Beaucournu & Grulich",NA
+"Lewis","779","savii savii","Jordan & Rothschild",NA
+"Lewis","780","secundus asiaticus","Argyropulo",NA
+"Lewis","781","secundus cilicius","Peus",NA
+"Lewis","782","secundus geminus","Peus","Ctenopththalmus congener geminus Peus, 1959"
+"Lewis","783","secundus italoscopus","Peus","Ctenopththalmus congener italoscopus Peus, 1958"
+"Lewis","784","secundus iubatus","Peus",NA
+"Lewis","785","secundus levadianus","Peus","Ctenopththalmus congener levadianus Peus, 1958"
+"Lewis","786","secundus secundus","Wagner",NA
+"Lewis","787","secundus thracius","Peus",NA
+"Lewis","788","secundus troilus","Peus","Ctenopththalmus congener troilus Peus, 1954"
+"Lewis","792","solutus nasutus","Beaucournu, Valle & Launay",NA
+"Lewis","793","solutus siculus","Peus",NA
+"Lewis","794","solutus solutus","Jordan & Rothschild","Ctenophthalmus ukrainica Yurkina, 1961"
+"Lewis","800","taiwanus taiwanus","Smit",NA
+"Lewis","801","taiwanus terrestus","Chen & Wu",NA
+"Lewis","802","taiwanus zhejiangensis","Lu & Qui",NA
+"Lewis","804","teres anatolicus","Keskin & Beaucournu",NA
+"Lewis","805","teres teres","Ioff & Argyropulo",NA
+"Lewis","807","teucqae shumeensis","Laudisoit & Beaucournu",NA
+"Lewis","808","teucqae teucqae","Laudisoit & Beaucournu",NA
+"Lewis","813","ubayensis ianlinni","Beaucournu",NA
+"Lewis","814","ubayensis ubayensis","Lumaret & Lumaret",NA
+"Lewis","815","uncinatus koshanini","Rosicky & Todorovic","Ctenophthalmus uncinatus angustus Smit & Rosicky, 1965"
+"Lewis","816","uncinatus uncinatus","(Wagner)","Ctenophthalmus tataricus Rostigayev & Shiranovich, 1964"
+"Lewis","820","wagneri krym","Ioff",NA
+"Lewis","821","wagneri schuriscus","Ioff",NA
+"Lewis","822","wagneri wagneri","Tiflov",NA
 "Lewis","829","armatus altaicus","Yu",NA
 "Lewis","830","armatus armatus","(Wagner)","Ceratophyllus terribilis Rothschild, 1903"
 "Lewis","843","grahami equatoris","Smit",NA
@@ -2735,7 +2735,7 @@
 "Lewis","2783","enderleini","(Wagner)","Gluertidos divergens Smt, 1953; Gluertidos aiyurensis Holland, 1969; Gluertidos monticola Holland, 1969"
 "Lewis","2784","pavida","(Rothschild)","Acanthopsylla incerta Holland, 1971"
 "Lewis","2785","episema","Rothschild","Acropsylla girshami Traub, 1950"
-"Lewis","2786","thamba","(Jordan)","Ceratophyllus bakeri Wagner, 1933; Monopsyllus enderleini Wagner, 1933 (?)"
+"Lewis","2786","thamba","(Jordan)","Ceratophyllus bakeri Wagner, 1933; ?Monopsyllus enderleini Wagner, 1933"
 "Lewis","2787","wagneri","(Baker)","Ceratohyllus peromysci Stewart, 1928; Ceratophyllus wagneri ophidius Jordan, 1929; Ceratophyllus wagneri systaltus Jordan, 1929; Monopsyllus wagneri kylei Hubbard, 1949"
 "Lewis","2788","afer","Rothschild","Stivalius cacuminis Smit, 1958"
 "Lewis","2789","arvicolae","(Ioff)","Amalaraeus arvicolae furkotensis Rosicky, 1955; Malaraeus penicilliger dioplesius Peus, 1958; Malaraeus arvicolae smitianus Rosicky, 1959"
@@ -3104,7 +3104,7 @@
 "Lewis","3152","cognatus spiramus","Jordan","Stivalius spiramus"
 "Lewis","3153","cheopis cheopis","(Rothschild)","Pulex murinus Tiraboschi, 1904; Xenopsylla pachyuromyidis Glinkiewicz, 1907; Pulex philippinensis Schultze & Herzog, 1904; Pulex tripolitanus Fulmek, 1909"
 "Lewis","3168","enderleini","(Wagner)","Gluertidos divergens Smt, 1953; Gluertidos aiyurensis Holland, 1969; Gluertidos monticola Holland, 1969"
-"Lewis","3169","thamba","(Jordan)","Ceratophyllus bakeri Wagner, 1933; Monopsyllus enderleini Wagner, 1933 (?)"
+"Lewis","3169","thamba","(Jordan)","Ceratophyllus bakeri Wagner, 1933; ?Monopsyllus enderleini Wagner, 1933"
 "Lewis","3170","wagneri","(Baker)","Ceratohyllus peromysci Stewart, 1928; Ceratophyllus wagneri ophidius Jordan, 1929; Ceratophyllus wagneri systaltus Jordan, 1929; Monopsyllus wagneri kylei Hubbard, 1949"
 "Lewis","3171","arvicolae","(Ioff)","Amalaraeus arvicolae furkotensis Rosicky, 1955; Malaraeus penicilliger dioplesius Peus, 1958; Malaraeus arvicolae smitianus Rosicky, 1959"
 "Lewis","3172","ciliatus","Baker","Amonopsyllus ciliatus protinus Jordan, 1929; Ceratophyllus ciliatus kincaidi Hubbard, 1940; Amonopsyllus ciliatus mononis Jordan, 1929; Ceratophyllus ciliatus protinus Hubbard, 1940; Monopsyllus ciliatus fasteni Hubbard, 1954"
@@ -3385,11 +3385,11 @@
 "Lewis","3342",NA,"Oudemans","Eptescopsylla I. Fox, 1940; Aneptescopsylla Ioff, 1953 (unrecognized subgenus); Dinycteridopsylla Ioff, 1953 (unrecognized subgenus); Hexanycteropsylla Ioff, 1953 (unrecognized subgenus)"
 "Lewis","3343",NA,"Jarocki","Dermatophilus Guérin, 1840; Dermatophylus Lucas, 1839; Psammodes Gistel 1850 (1847?); Rhynchoprion Karsten, 1864; Sarcophaga Westwood, 1840"
 "Lewis","3364",NA,"Jarocki","Dermatophilus Guérin, 1840; Dermatophylus Lucas, 1839; Psammodes Gistel 1850 (1847?); Rhynchoprion Karsten, 1864; Sarcophaga Westwood, 1840"
-"Lewis","2775","NA","NA","Amalaraeus fossoris Sutemin, 1969 (nomina ex phantasia)"
-"Lewis","2776","NA","NA","Amalaraeus sugitanii Sutemin, 1969 (nomina ex phantasia)"
-"Lewis","2777","NA","NA","Ceratophyllus sterni Curt., [1829] (cited in Dale, 1878, but no associated valid species)"
-"Lewis","2778","NA","NA","Ctenophthalmus flavus Suteminn, 1969 (nomina ex phantasia)"
-"Lewis","2779","NA","NA","Ctenophthalmus nepalensis Sutemin, 1969 (nomina ex phantasia)"
-"Lewis","2780","NA","NA","Pulex gigas Kirby, 1837 (likely a species of Hystrichopsylla)"
-"Lewis","2781","NA","NA","Pulex imperator Westwood, 1858 (non-flea)"
-"Lewis","2782","NA","NA","Pulex terrestris ferox Alpinus, 1874 (nomina ex phantasia)"
+"Lewis","2775","fossoris","NA","Amalaraeus fossoris Sutemin, 1969 (nomina ex phantasia)"
+"Lewis","2776","sugitanii","NA","Amalaraeus sugitanii Sutemin, 1969 (nomina ex phantasia)"
+"Lewis","2777","sterni","NA","Ceratophyllus sterni Curt., [1829] (cited in Dale, 1878, but no associated valid species)"
+"Lewis","2778","flavus","NA","Ctenophthalmus flavus Suteminn, 1969 (nomina ex phantasia)"
+"Lewis","2779","nepalensis","NA","Ctenophthalmus nepalensis Sutemin, 1969 (nomina ex phantasia)"
+"Lewis","2780","gigas","NA","Pulex gigas Kirby, 1837 (likely a species of Hystrichopsylla)"
+"Lewis","2781","imperator","NA","Pulex imperator Westwood, 1858 (non-flea)"
+"Lewis","2782","terrestris ferox","NA","Pulex terrestris ferox Alpinus, 1874 (nomina ex phantasia)"
