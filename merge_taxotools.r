@@ -114,7 +114,7 @@ if(original == final) { print("yay") # print yay if no rows are missing
   GBIF_not_in_taxo <- GBIF[GBIF$taxonID %!in% GBIF_taxo$id,] # get all rows in GBIF that do not match an id in taxo
   GBIF_problems <- GBIF_not_in_taxo[GBIF_not_in_taxo$taxonID %!in% GBIF_ht$taxonID,] # get all rows in above that do not match an id in GBIF_ht
   GBIF_problems$taxonomicStatus <- NULL # status is the most likely issue, so NULL it
-  GBIF_problems_taxo <- DwC2taxo(problems, source = "GBIF") # transform problems to taxo format)
+  GBIF_problems_taxo <- DwC2taxo(GBIF_problems, source = "GBIF") # transform problems to taxo format)
   GBIF_taxo <- rbind(GBIF_taxo, GBIF_problems_taxo) # return converted problems to working file
   final <- nrow(GBIF_taxo) + nrow(GBIF_ht) # recalculate number of rows in converted taxo file plus number of rows in higher taxa
   if(original == final) { print("yay") # print yay if no rows are missing
@@ -147,3 +147,7 @@ original <- nrow(CoL) + nrow(Lewis) + nrow(FMNH) + nrow(NMNH) + nrow(GBIF) # get
 final <- nrow(taxo_siphonaptera) + nrow(siphonaptera_ht) # get final number of rows in converted taxo files and add to rows in higher taxa files
 ifelse(original == final, write.csv(Flea_mast4_1,"~/GitHub/tpt-siphonaptera/output/taxo_Siphonaptera.csv", row.names = FALSE), # if no rows are missing write taxo file
  print("there are rows missing")) # if rows are missing, print error
+
+Siphonaptera_checklist <- taxo2doc(Flea_mast4_1,
+                     outformat="word_document",
+                     outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",outfile="Flea_taxolist.docx")
