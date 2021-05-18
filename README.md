@@ -17,6 +17,7 @@ File Name | Description
 Lewis World Species List MMM DD YYYY.xlsx | Lewis database as provided by Mike Hastriter at BYU
 Lewis_reviewed.xlsx | Names from Lewis_name_review output that have been corrected and are to be returned to the working file
 Lewis_removed.xlsx | Names from Lewis_name_review output that have been removed from the working file
+tpt_dwc_template.xlsx | Template (no data) for Darwin Core file
 
 #### Output
 File Name | Description 
@@ -34,6 +35,7 @@ File Name | Description
  -- | -- 
 NMNH_Siphonaptera.xlsx | Catalog of fleas from the Smithsonian
 NMNH_reviewed.xlsx | Names from NMNH_name_review output that have been corrected and are to be returned to the working file
+tpt_dwc_template.xlsx | Template (no data) for Darwin Core file
 
 #### Output
 File Name | Description 
@@ -50,6 +52,7 @@ File Name | Description
  -- | -- 
 FMNH_Siphonaptera.xlsx | List of flea names from the Field Museum
 FMNH_reviewed.xlsx | Names from NMNH_name_review output that have been corrected and are to be returned to the working file
+tpt_dwc_template.xlsx | Template (no data) for Darwin Core file
 
 #### Output
 File Name | Description 
@@ -65,6 +68,7 @@ Transforms Catalogue of Life (CoL) download to Darwin Core
 File Name | Description 
  -- | -- 
 CoL_DwC.xlsx | Flea names from Catalogue of Life download
+tpt_dwc_template.xlsx | Template (no data) for Darwin Core file
 
 #### Output
 File Name | Description 
@@ -96,6 +100,7 @@ Transforms Darwin Core files to Arctos hierarchical tool upload format (awaiting
 #### Input
 File Name | Description 
  -- | -- 
+Arctos_upload.csv | Template (no data) for Arctos upload
 
 #### Output
 File Name | Description 
