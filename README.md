@@ -3,33 +3,92 @@ Code for cleaning and merging Siphonaptera taxonomy for the Terrestrial Parasite
 
 ## Taxonomy Cleaning for Terrestrial Parasite Tracker Taxonomy
 
-The R script in this repository was designed for cleaning taxonomic classifications received from various sources for the Terrestrial Parasite Tracker Thematic Collections Netowrk (TPT) Taxonomy Reource.
+The R scripts in this repository were designed for cleaning taxonomic classifications received from various sources for the Terrestrial Parasite Tracker Thematic Collections Network (TPT) Taxonomy Reource. Specific scripts were created for transforming data from each resource as well as merging the resources for review.
 
-### Input
-Input is required to be csv and is expected to include at least the following columns:
- - kingdom
- - phylum
- - class
- - order
- - family
- - genus
- - species (specific epithet)
- - taxon Author name (may be combined with or separate from published year)
- - taxon published year
+### lib_func.r
+Loads all needed libraries and functions for other scripts. Should be run before any other scripts are run.
 
-Other information may be included in the file, including ranks between the standard ranks listed above and subspecific epithets.
-**NOTE** All taxonomy fields are expected to include a single term, "species" is really "specific epithet" and "subspecies" is really "infraspecific epithet".
+### Lewis_transform.r
+Transforms BYU Lewis list as updated provided by Mike Hastriter to Darwin Core
 
-### Output
-Running the script will produce the following outputs in csv:
+#### Input
 File Name | Description 
  -- | -- 
-taxa_no_issues | Classifications without issues in Darwin Core format 
-taxa_need_review | Classifications that need review with a comment on why they were flagged 
-duplicates | Classifications removed from the original data because they were duplicates 
-suggested_adds | A list of higher taxon names that probably need to be added because they are used by children
-higher_taxa_not_used | A list of higher taxon names that are in the file, but not used by any children, these may need to be removed, or it may indicate that names are missing from or misspelled in the original source
-similar_names | A comparative list of names that appear closely related. These should be reviewed to ensure there are no misspellings or errors that cleaning otherwise would not catch.
+Lewis World Species List MON DD YYYY.xlsx | Lewis database as provided by Mike Hastriter at BYU
+Lewis_reviewed.xlsx | Names from Lewis_name_review output that have been corrected and are to be returned to the working file
+Lewis_removed.xlsx | Names from Lewis_name_review output that have been removed from the working file
+
+#### Output
+File Name | Description 
+ -- | -- 
+Lewis_duplicates.csv | Names removed from the original data because they were duplicates 
+Lewis_name_review.csv | Names removed from the original data that need review before adding back or removing (see inputs above)
+Lewis_non_DwC.csv | Name ID plus all non Darwin Core fields from original file
+Lewis_DwC.csv | Name ID plus all applicable Darwin Core fields
+
+### NMNH_transform.r
+Transforms Smithsonian (NMNH) list of taxa to Darwin Core
+
+#### Input
+File Name | Description 
+ -- | -- 
+NMNH_Siphonaptera.xlsx | Catalog of fleas from the Smithsonian
+NMNH_reviewed.xlsx | Names from NMNH_name_review output that have been corrected and are to be returned to the working file
+
+#### Output
+File Name | Description 
+ -- | -- 
+NMNH_need_review.csv | Names removed from the original data that need review before adding back or removing (see inputs above)
+NMNH_non_DwC.csv | Name ID plus all non Darwin Core fields from original file
+NMNH_DwC.csv | Name ID plus all applicable Darwin Core fields
+
+### FMNH_transform.r
+Transforms Field Museum (FMNH) list of taxa to Darwin Core
+
+#### Input
+File Name | Description 
+ -- | -- 
+FMNH_Siphonaptera.xlsx | List of flea names from the Field Museum
+FMNH_reviewed.xlsx | Names from NMNH_name_review output that have been corrected and are to be returned to the working file
+
+#### Output
+File Name | Description 
+ -- | -- 
+FMNH_need_review.csv | Names removed from the original data that need review before adding back or removing (see inputs above)
+FMNH_non_DwC.csv | Name ID plus all non Darwin Core fields from original file
+FMNH_DwC.csv | Name ID plus all applicable Darwin Core fields
+
+### CoL_transform.r
+Transforms Catalogue of Life (CoL) download to Darwin Core
+
+#### Input
+File Name | Description 
+ -- | -- 
+CoL_DwC.xlsx | Flea names from Catalogue of Life download
+
+#### Output
+File Name | Description 
+ -- | -- 
+CoL_DwC.csv | Name ID plus all applicable Darwin Core fields
+
+### merge_taxotools.r
+Transforms Global Biodiversity Information Facility (GBIF) download and all ofther Darwin Core files to taxotools format, then merges them and generates a checklist for expert review
+
+#### Input
+File Name | Description 
+ -- | -- 
+Lewis_DwC.csv | Output of Lewis_transform.r
+NMNH_DwC.csv | Output of NMNH_transform.r
+FMNH_DwC.csv | Output of FMNH_transform.r
+CoL_DwC.csv | Output of CoL_transform.r
+GBIF_Siphonaptera.xlsx | Flea names from GBIF download (already in DwC format, but still transformed a bit in this script)
+
+#### Output
+File Name | Description 
+ -- | -- 
+problems.csv | Names that could not be merged and need review
+taxo_siphonaptera.csv | Merged list of names
+Flea_taxolist.html | Checklist of merged names for expert review
 
 ### Usage
-Information from a source may need to be run through the script multiple times. We suggest that after the first pass, all output that requires review is assessed and any necessary changes incorporated into the taxa_no_issues.csv file which should be run through the script a second time. Repeat this process until there are no longer rows in taxa_need_review.csv, or duplicates.csv and it is certain that all items in suggested_adds.csv, higher_taxa_not_used.csv and similar_names.csv are reasonable. The final product in taxa_no_issues.csv will be added to the TPT Taxonomy resource.
+Information from a source may need to be run through the appropriate script multiple times. Any change to a primary source will require re-run and a new merge.
