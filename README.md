@@ -14,7 +14,7 @@ Transforms BYU Lewis list as updated provided by Mike Hastriter to Darwin Core
 #### Input
 File Name | Description 
  -- | -- 
-Lewis World Species List MON DD YYYY.xlsx | Lewis database as provided by Mike Hastriter at BYU
+Lewis World Species List MMM DD YYYY.xlsx | Lewis database as provided by Mike Hastriter at BYU
 Lewis_reviewed.xlsx | Names from Lewis_name_review output that have been corrected and are to be returned to the working file
 Lewis_removed.xlsx | Names from Lewis_name_review output that have been removed from the working file
 
@@ -89,6 +89,17 @@ File Name | Description
 problems.csv | Names that could not be merged and need review
 taxo_siphonaptera.csv | Merged list of names
 Flea_taxolist.html | Checklist of merged names for expert review
+
+### arctos_upload_transform.r
+Transforms Darwin Core files to Arctos hierarchical tool upload format (awaiting final list to create transform)
+
+#### Input
+File Name | Description 
+ -- | -- 
+
+#### Output
+File Name | Description 
+ -- | -- 
 
 ### Usage
 Information from a source may need to be run through the appropriate script multiple times. Any change to a primary source will require re-run and a new merge.
