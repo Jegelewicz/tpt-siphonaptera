@@ -148,6 +148,10 @@ final <- nrow(taxo_siphonaptera) + nrow(siphonaptera_ht) # get final number of r
 ifelse(original == final, write.csv(Flea_mast4_1,"~/GitHub/tpt-siphonaptera/output/taxo_Siphonaptera.csv", row.names = FALSE), # if no rows are missing write taxo file
  print("there are rows missing")) # if rows are missing, print error
 
-Siphonaptera_checklist <- taxo2doc(Flea_mast4_1,
-                     outformat="word_document",
-                     outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",outfile="Flea_taxolist.docx")
+problems <- read_excel("~/GitHub/tpt-siphonaptera/input/problems_taxo.xlsx")
+taxo <- read.csv("~/GitHub/tpt-siphonaptera/output/taxo_Siphonaptera.csv", na = "NA")
+taxo2 <- rbind(taxo, problems)
+
+Siphonaptera_checklist <- taxo2doc(taxo2,
+                     outformat="html_document",
+                     outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",outfile="Flea_taxolist.html")

@@ -7,6 +7,9 @@ library(stringi)
 library(taxotools)
 library(dplyr)
 library(plyr)
+library(devtools)
+
+devtools::install_github("vijaybarve/taxotools") # install latest version of taxotools from Github
 
 # functions
 
