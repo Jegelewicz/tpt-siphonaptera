@@ -157,11 +157,16 @@ if(original == final) { write.csv(GBIF_taxo,"~/GitHub/tpt-siphonaptera/output/GB
 
 # Flea_merge
 Flea_m1 <- merge_lists(Lewis_taxo, CoL_taxo, "merged") # master is Lewis, merging with CoL
+Flea_m1_all <- rbind(Lewis_taxo, CoL_taxo)
+Flea_m1_all$unique <- paste(Flea_m1_all$source,Flea_m1_all$id,sep = "")
+Flea_m1$unique <- paste(Flea_m1$source,Flea_m1$id,sep = "")
+Flea_m1_problems <- Flea_m1_all[which(Flea_m1_all$unique %!in% Flea_m1$unique),] # get all rows in above that do not match an id in GBIF_ht
+
 Flea_m2 <- merge_lists(Flea_m1, NMNH_taxo, "merged") # merge NMNH with working master
 Flea_m3 <- merge_lists(Flea_m2,FMNH_taxo, "merged") # merge FMNH with working master
 Flea_m4 <- merge_lists(Flea_m3,GBIF_taxo, "merged") # merge GBIF with working master
 
-write.csv(Flea_m3,"~/GitHub/tpt-siphonaptera/output/Flea_m3.csv", row.names = FALSE)
+write.csv(Flea_m1,"~/GitHub/tpt-siphonaptera/output/Flea_m1.csv", row.names = FALSE)
 
 # sanity check
 taxo_siphonaptera <- rbindlist(list(NMNH_taxo, FMNH_taxo, Lewis_taxo, CoL_taxo, GBIF_taxo), fill = TRUE) # combine all taxo files
