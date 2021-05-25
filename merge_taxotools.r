@@ -11,6 +11,7 @@ original <- nrow(NMNH) # number of rows in cleaned file
 final <- nrow(NMNH_taxo) + nrow(NMNH_ht) # number of rows in converted taxo file plus number of rows in higher taxa
 if(original == final) { 
   write.csv(NMNH_taxo,"~/GitHub/tpt-siphonaptera/output/NMNH_taxo.csv", row.names = FALSE) # write out taxo file
+  print("YAY")
    } else {
        NMNH_not_in_taxo <- NMNH[NMNH$taxonID %!in% NMNH_taxo$id,] # get all rows in NMNH that do not match an id in taxo
        NMNH_problems <- NMNH_not_in_taxo[NMNH_not_in_taxo$taxonID %!in% NMNH_ht$taxonID,] # get all rows in above that do not match an id in NMNH_ht
@@ -36,6 +37,7 @@ original <- nrow(FMNH) # number of rows in cleaned file
 final <- nrow(FMNH_taxo) + nrow(FMNH_ht) # number of rows in converted taxo file plus number of rows in higher taxa
 if(original == final) { 
   write.csv(FMNH_taxo,"~/GitHub/tpt-siphonaptera/output/FMNH_taxo.csv", row.names = FALSE) # write out taxo file
+  print("YAY")
   } else {
   FMNH_not_in_taxo <- FMNH[FMNH$taxonID %!in% FMNH_taxo$id,] # get all rows in FMNH that do not match an id in taxo
   FMNH_problems <- FMNH_not_in_taxo[FMNH_not_in_taxo$taxonID %!in% FMNH_ht$taxonID,] # get all rows in above that do not match an id in FMNH_ht
@@ -58,7 +60,9 @@ Lewis_taxo <- DwC2taxo(Lewis, source = "Lewis")
 # sanity check
 original <- nrow(Lewis) # number of rows in cleaned file
 final <- nrow(Lewis_taxo) + nrow(Lewis_ht) # number of rows in converted taxo file plus number of rows in higher taxa
-if(original == final) { write.csv(Lewis_taxo,"~/GitHub/tpt-siphonaptera/output/Lewis_taxo.csv", row.names = FALSE) # write out taxo file
+if(original == final) { 
+  write.csv(Lewis_taxo,"~/GitHub/tpt-siphonaptera/output/Lewis_taxo.csv", row.names = FALSE) # write out taxo file
+  print("YAY")
 } else {
   Lewis_not_in_taxo <- Lewis[Lewis$taxonID %!in% Lewis_taxo$id,] # get all rows in Lewis that do not match an id in taxo
   Lewis_problems <- Lewis_not_in_taxo[Lewis_not_in_taxo$taxonID %!in% Lewis_ht$taxonID,] # get all rows in above that do not match an id in Lewis_ht
@@ -83,7 +87,9 @@ CoL_taxo <- DwC2taxo(CoL, source = "CoL")
 # sanity check
 original <- nrow(CoL) # number of rows in cleaned file
 final <- nrow(CoL_taxo) + nrow(CoL_ht) # number of rows in converted taxo file plus number of rows in higher taxa
-if(original == final) { write.csv(CoL_taxo,"~/GitHub/tpt-siphonaptera/output/CoL_taxo.csv", row.names = FALSE) # write out taxo file
+if(original == final) { 
+  write.csv(CoL_taxo,"~/GitHub/tpt-siphonaptera/output/CoL_taxo.csv", row.names = FALSE) # write out taxo file
+  print("YAY")
 } else {
   CoL_not_in_taxo <- CoL[CoL$taxonID %!in% CoL_taxo$id,] # get all rows in CoL that do not match an id in taxo
   CoL_problems <- CoL_not_in_taxo[CoL_not_in_taxo$taxonID %!in% CoL_ht$taxonID,] # get all rows in above that do not match an id in CoL_ht
@@ -99,54 +105,27 @@ if(original == final) { write.csv(CoL_taxo,"~/GitHub/tpt-siphonaptera/output/CoL
 }
 
 # GBIF taxo conversion
-GBIF <- read_excel("~/GitHub/tpt-siphonaptera/input/GBIF_Siphonaptera.xlsx") # read in GBIF file
+GBIF <- read.csv("~/GitHub/tpt-siphonaptera/output/GBIF_DwC.csv", na = "NA") # read in cleaned GBIF review file
 GBIF$taxonomicStatus <- ifelse(GBIF$taxonomicStatus == "homotypic synonym", "homotypicSynonym",
                                ifelse(GBIF$taxonomicStatus == "heterotypic synonym", "heterotypicSynonym", GBIF$taxonomicStatus)) # replace non-conforming status
-
-
-
 GBIF_ht <- higher_taxa_rank(GBIF, GBIF$taxonRank) # get GBIF higher taxa (DwC2taxo removes them, this is to check rows later)
-# Fix canonical names with ?
-for (i in 1:nrow(GBIF)){
-  if (GBIF$genericName[i] == "?"){
-    if (is.na(GBIF$genus[i])){
-      GBIF$canonicalName[i] <- NA
-    } else {
-      GBIF$canonicalName[i] <- paste(GBIF$genus[i],GBIF$specificEpithet[i], sep = " ")
-      GBIF$scientificName[i] <- paste(GBIF$genus[i],GBIF$specificEpithet[i], GBIF$scientificNameAuthorship[i], sep = " ")
-      GBIF$genericName[i] <- GBIF$genus[i]
-    }
-  } else {
-    GBIF$canonicalName[i] <- GBIF$canonicalName[i]
-  }
-}
-
-# Populate genus from genericName when possible
-for (i in 1:nrow(GBIF)){
-  if (is.na(GBIF$genus[i])){
-    if (is.na(GBIF$genericName[i])){
-      GBIF$genus[i] <- NA
-    } else {
-      GBIF$genus[i] <- GBIF$genericName
-    }
-  } else {
-    GBIF$genus[i] <- GBIF$genus[i]
-  }
-}
-
 GBIF_taxo <- DwC2taxo(GBIF, source = "GBIF") # transform to taxo format
+
+GBIF_not_in_taxo <- GBIF[GBIF$taxonID %!in% GBIF_taxo$id,] # get all rows in GBIF that do not match an id in taxo
+GBIF_problems <- GBIF_not_in_taxo[GBIF_not_in_taxo$taxonID %!in% GBIF_ht$taxonID,] # get all rows in above that do not match an id in GBIF_ht
+write.csv(GBIF_problems,"~/GitHub/tpt-siphonaptera/output/GBIF_problems.csv", row.names = FALSE) # status is the most likely issue, so NULL it
+
 
 # sanity check
 original <- nrow(GBIF) # number of rows in cleaned file
 final <- nrow(GBIF_taxo) + nrow(GBIF_ht) # number of rows in converted taxo file plus number of rows in higher taxa
-if(original == final) { write.csv(GBIF_taxo,"~/GitHub/tpt-siphonaptera/output/GBIF_taxo.csv", row.names = FALSE) # write out taxo file
+if(original == final) { 
+  write.csv(GBIF_taxo,"~/GitHub/tpt-siphonaptera/output/GBIF_taxo.csv", row.names = FALSE) # write out taxo file
+  print("YAY")
 } else {
-  GBIF_not_in_taxo <- GBIF[GBIF$taxonID %!in% GBIF_taxo$id,] # get all rows in GBIF that do not match an id in taxo
-  GBIF_problems <- GBIF_not_in_taxo[GBIF_not_in_taxo$taxonID %!in% GBIF_ht$taxonID,] # get all rows in above that do not match an id in GBIF_ht
-  write.csv(GBIF_problems,"~/GitHub/tpt-siphonaptera/output/GBIF_problems.csv", row.names = FALSE) # status is the most likely issue, so NULL it
-  # GBIF_fix <- read_excel("~/GitHub/tpt-siphonaptera/input/GBIF_fixes.xlsx") # read in GBIF fixes
-  # GBIF_problems_taxo <- DwC2taxo(GBIF_fix, source = "GBIF") # transform problems to taxo format)
-  # GBIF_taxo <- rbind(GBIF_taxo, GBIF_problems_taxo) # return converted problems to working file
+  GBIF_fix <- read_excel("~/GitHub/tpt-siphonaptera/input/GBIF_problems.xlsx") # read in GBIF fixes
+  GBIF_taxo <- rbind(GBIF_taxo, GBIF_fix) # return converted problems to working file
+  
   final <- nrow(GBIF_taxo) + nrow(GBIF_ht) # recalculate number of rows in converted taxo file plus number of rows in higher taxa
   if(original == final) { print("yay") # print yay if no rows are missing
   } else {
@@ -156,32 +135,89 @@ if(original == final) { write.csv(GBIF_taxo,"~/GitHub/tpt-siphonaptera/output/GB
 }
 
 # Flea_merge
-Flea_m1 <- merge_lists(Lewis_taxo, CoL_taxo, "merged") # master is Lewis, merging with CoL
-Flea_m1_all <- rbind(Lewis_taxo, CoL_taxo)
-Flea_m1_all$unique <- paste(Flea_m1_all$source,Flea_m1_all$id,sep = "")
-Flea_m1$unique <- paste(Flea_m1$source,Flea_m1$id,sep = "")
-Flea_m1_problems <- Flea_m1_all[which(Flea_m1_all$unique %!in% Flea_m1$unique),] # get all rows in above that do not match an id in GBIF_ht
-
-Flea_m2 <- merge_lists(Flea_m1, NMNH_taxo, "merged") # merge NMNH with working master
-Flea_m3 <- merge_lists(Flea_m2,FMNH_taxo, "merged") # merge FMNH with working master
-Flea_m4 <- merge_lists(Flea_m3,GBIF_taxo, "merged") # merge GBIF with working master
-
-write.csv(Flea_m1,"~/GitHub/tpt-siphonaptera/output/Flea_m1.csv", row.names = FALSE)
+Flea_m1 <- merge_lists(Lewis_taxo, CoL_taxo, "all") # master is Lewis, merging with CoL
 
 # sanity check
-taxo_siphonaptera <- rbindlist(list(NMNH_taxo, FMNH_taxo, Lewis_taxo, CoL_taxo, GBIF_taxo), fill = TRUE) # combine all taxo files
-siphonaptera_ht <- rbindlist(list(NMNH_ht, FMNH_ht, Lewis_ht, CoL_ht, GBIF_ht), fill = TRUE) # combine all ht files
-original <- nrow(CoL) + nrow(Lewis) + nrow(FMNH) + nrow(NMNH) + nrow(GBIF) # get original number of rows in cleaned files
-final <- nrow(taxo_siphonaptera) + nrow(siphonaptera_ht) # get final number of rows in converted taxo files and add to rows in higher taxa files
-ifelse(original == final, write.csv(Flea_mast4_1,"~/GitHub/tpt-siphonaptera/output/taxo_Siphonaptera.csv", row.names = FALSE), # if no rows are missing write taxo file
- print("there are rows missing")) # if rows are missing, print error
+original <- nrow(Lewis_taxo) + nrow(CoL_taxo) # number of rows in files to be merged
+final <- nrow(Flea_m1) # number of rows in merged file
+if(original == final) { 
+  print("YAY")
+} else {
+  write.csv(Flea_m1,"~/GitHub/tpt-siphonaptera/output/Flea_m1.csv", row.names = FALSE) # write out merged file
+  print("rows are missing")
+}
 
-problems <- read_excel("~/GitHub/tpt-siphonaptera/input/problems_taxo.xlsx")
-taxo <- read.csv("~/GitHub/tpt-siphonaptera/output/taxo_Siphonaptera.csv", na = "NA")
-taxo2 <- rbind(taxo, problems)
+Flea_m2 <- merge_lists(Flea_m1, NMNH_taxo, "all") # merge NMNH with working master
 
-Siphonaptera_checklist <- taxo2doc(Flea_m4,
-                     mastersource="Lewis",
-                     duplicatesyn=FALSE,
-                     outformat="html_document",
-                     outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",outfile="Flea_taxolist.html")
+# sanity check
+original <- nrow(Flea_m1) + nrow(NMNH_taxo) # number of rows in files to be merged
+final <- nrow(Flea_m2) # number of rows in merged file
+if(original == final) { 
+  print("YAY")
+} else {
+  write.csv(Flea_m2,"~/GitHub/tpt-siphonaptera/output/Flea_m2.csv", row.names = FALSE) # write out merged file
+  print("rows are missing")
+}
+
+Flea_m3 <- merge_lists(Flea_m2,FMNH_taxo, "all") # merge FMNH with working master
+
+# sanity check
+original <- nrow(Flea_m2) + nrow(FMNH_taxo) # number of rows in files to be merged
+final <- nrow(Flea_m3) # number of rows in merged file
+if(original == final) { 
+  print("YAY")
+} else {
+  write.csv(Flea_m3,"~/GitHub/tpt-siphonaptera/output/Flea_m3.csv", row.names = FALSE) # write out merged file
+  print("rows are missing")
+}
+
+Flea_m4 <- merge_lists(Flea_m3,GBIF_taxo, "all") # merge GBIF with working master
+
+# sanity check
+original <- nrow(Flea_m3) + nrow(GBIF_taxo) # number of rows in files to be merged
+final <- nrow(Flea_m4) # number of rows in merged file
+if(original == final) { 
+  print("YAY")
+} else {
+  write.csv(Flea_m4,"~/GitHub/tpt-siphonaptera/output/Flea_m4.csv", row.names = FALSE) # write out merged file
+  print("rows are missing")
+}
+
+write.csv(Flea_m4,"~/GitHub/tpt-siphonaptera/output/Flea_merged.csv", row.names = FALSE)
+
+# get non UTF8 authors
+Flea_m4_x <- Flea_m4[which(!is.na(Flea_m4$author) & is.na(iconv(Flea_m4$author, "UTF-8", "UTF-8"))),] # get all non UTF8 authors
+Flea_m4 <- Flea_m4[which(Flea_m4$id %!in% Flea_m4_x$id),] # remove rows with non UTF8 encoding in author
+write.csv(Flea_m4_x,"~/GitHub/tpt-siphonaptera/output/Flea_non_UTF8.csv", row.names = FALSE) # write out non UTF8 file for correction
+Flea_m4_1 <- read_excel("~/GitHub/tpt-siphonaptera/input/Flea_UTF8.xlsx") # read in cleaned UTF8 file
+Flea_m4 <- rbind(Flea_m4, Flea_m4_1) # return fixes for UTF8
+Flea_m4$author <- gsub("Ã¨", "e", Flea_m4$author) # catch stuff missed by above
+Flea_m4$author <- gsub("Ã¶", "o", Flea_m4$author) # catch stuff missed by above
+Flea_m4$author <- gsub("Ã¦", "ae", Flea_m4$author) # catch stuff missed by above
+Flea_m4$family <- ifelse(is.na(Flea_m4$family),"None",Flea_m4$family)
+
+# write out list as documents by family
+
+families <- unique(Flea_m4$family)
+family <- data.frame(families)
+
+for (i in 1:nrow(family)){
+     fam <- family$families[i]
+     file <- paste(fam,"_taxolist.html",sep = "")
+      Siphonaptera_checklist <- taxo2doc(Flea_m4,
+                                   family=fam,
+                                   title="TPT Flea Taxonomy",
+                                   mastersource="Lewis",
+                                   duplicatesyn=FALSE,
+                                   outformat="html_document",
+                                   outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",
+                                   outfile=file)
+}
+
+# Siphonaptera_checklist <- taxo2doc(Flea_m4,
+#                                    title="TPT Flea Taxonomy",
+#                                    mastersource="Lewis",
+#                                    duplicatesyn=FALSE,
+#                                    outformat="html_document",
+#                                    outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",
+#                                    outfile="Flea_taxolist.html")

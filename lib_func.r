@@ -1,5 +1,8 @@
 # libraries and functions used in this project
 
+library(devtools)
+devtools::install_github("vijaybarve/taxotools") # install latest version of taxotools from Github
+
 # libraries
 library(readxl)
 library(data.table)
@@ -7,8 +10,6 @@ library(stringi)
 library(dplyr)
 library(plyr)
 library(devtools)
-
-devtools::install_github("vijaybarve/taxotools") # install latest version of taxotools from Github
 library(taxotools)
 
 # functions
