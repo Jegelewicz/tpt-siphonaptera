@@ -44,3 +44,14 @@
 "Siphonaptera","Ischnopsyllidae","Pulex","vespertilionis",NA,"Bouché, 1835","species","Pulex vespertilionis","Lewis","orig",3224,799
 "Siphonaptera","Pulicidae","Pulex","hominis",NA,"Dugès, 1832","species","Pulex hominis","Lewis","orig",3230,1584
 "Siphonaptera","Ischnopsyllidae","Pulex","vespertilionis",NA,"Dugès, 1832","species","Pulex vespertilionis","Lewis","orig",3243,799
+"Siphonaptera","Rhopalopsyllidae","Ectinorus","insignis",NA,"Beaucournu & González-Acuña, 2013","species","Ectinorus insignis","GBIF","add",8437,626
+"Siphonaptera","Pulicidae","Pulex","vespertilionis",NA,"Dugès, 1832","species","Pulex vespertilionis","GBIF","add",8677,799
+"Siphonaptera","Leptopsyllidae","Leptopsylla","musculi",NA,"A.L.Dugès, 1832","species","Leptopsylla musculi","GBIF","add",9298,891
+"Siphonaptera","Leptopsyllidae","Leptopsylla","segnis",NA,"Schönherr, 1811","species","Leptopsylla segnis","GBIF","add",9303,891
+"Siphonaptera","Leptopsyllidae","Leptopsylla","musculi",NA,"(A.L.Dugès, 1832)","species","Leptopsylla musculi","GBIF","add",9304,891
+"Siphonaptera","Pygiopsyllidae","Ctenidiosomus","austrinus",NA,"López-Berrizbeitia, Hastriter & Díaz, 2015","species","Ctenidiosomus austrinus","GBIF","add",9488,358
+"Siphonaptera","Pulicidae","Ctenocephalides","felis",NA,"Bouché, 1835","species","Ctenocephalides felis","GBIF","add",9984,2116
+"Siphonaptera","Ceratophyllidae","Dasypsyllus","picaflori",NA,"Beaucournu & González-Acuña, 2016","species","Dasypsyllus picaflori","GBIF","add",11152,528
+"Siphonaptera","Ceratophyllidae","Kohlsia","misantlensis",NA,"Acosta & Salceda-Sánchez, 2019","species","Kohlsia misantlensis","GBIF","add",11485,847
+"Siphonaptera","Leptopsyllidae","Leptopsylla","spec",NA,"Schönherr, 1811","species","Leptopsylla spec","GBIF","new",11545,0
+"Siphonaptera","Pulicidae","Archaeopsylla","erinacei",NA,"Bouché, 1835","species","Archaeopsylla erinacei","GBIF","multi",10162,8797

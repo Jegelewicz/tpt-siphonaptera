@@ -252,9 +252,35 @@ df <- rbindlist(list(df, synonyms), fill = TRUE) # combine synonyms with accepte
 no_name <- df[which(lapply(df$author, name_length) == 0),] # extract rows with no author
 df <- df[which(lapply(df$author, name_length) != 0),] # remove rows with no author
 
-# write and review "no_name"
-write.csv(no_name,"~/GitHub/tpt-siphonaptera/output/Lewis_name review.csv", row.names = FALSE) # Lewis no dups
-Lewis_reviewed <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis_reviewed.xlsx") # read in rows reviewed
+# clean up or remove "no_name"
+Lewis_removed <- no_name[which(is.na(no_name$taxonID)),] # remove rows with no taxonid
+write.csv(Lewis_removed,"~/GitHub/tpt-siphonaptera/output/Lewis_removed.csv", row.names = FALSE) # write out Lewis removed
+Lewis_reviewed <- no_name[which(!is.na(no_name$taxonID)),] # names with taxonid for cleanup
+
+# melt scientific name for review items
+Lewis_reviewed <- melt_scientificname(Lewis_reviewed, 
+                                sciname="scientificName", 
+                                genus="genus",
+                                subgenus="subgenus", 
+                                species="specificEpithet", 
+                                subspecies="infraspecificEpithet",
+                                author="scientificNameAuthorship")
+
+# generate taxonRank for species and below
+for(i in 1:nrow(Lewis_reviewed)){
+  Lewis_reviewed$taxonRank[i] <- 
+    ifelse(!is.na(Lewis_reviewed$infraspecificEpithet[i]), "subspecies",
+           ifelse(!is.na(Lewis_reviewed$specificEpithet[i]), "species",
+                  "review"))
+}
+
+# cast canonical for review items
+Lewis_reviewed <- cast_canonical(Lewis_reviewed,
+                           canonical="canonicalName", 
+                           genus = "genus", 
+                           species = "specificEpithet",
+                           subspecies = "infraspecificEpithet")
+
 df <- rbind(df, Lewis_reviewed) # return corrected reviewed rows
 
 # Do this after final review...

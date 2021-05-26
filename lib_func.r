@@ -1,7 +1,8 @@
 # libraries and functions used in this project
 
+detach("package:taxotools", unload=TRUE)
 library(devtools)
-devtools::install_github("vijaybarve/taxotools") # install latest version of taxotools from Github
+devtools::install_github("vijaybarve/taxotools", force = TRUE) # install latest version of taxotools from Github
 
 # libraries
 library(readxl)
@@ -101,3 +102,7 @@ species_rank <- function(dat, col){ # data is dataframe, col is column where ran
 
 # define function: fix cases like (Jordan & Rothschild), 1922 to (Jordan & Rothschild, 1922)
 fixAuth <- function(x) ifelse(grepl('[a-z]),',x), paste(gsub(')', '',x),')',sep=''),x)
+
+toproper <- function(x) ifelse(!is.na(x),
+                               paste0(toupper(substr(x, 1, 1)),
+                                      tolower(substring(x, 2))),NA)

@@ -1,5 +1,5 @@
 # GBIF taxo conversion
-GBIF <- read_excel("~/GitHub/tpt-siphonaptera/input/GBIF_Siphonaptera.xlsx") # read in GBIF file
+GBIF <- read_excel("~/GitHub/tpt-siphonaptera/input/GBIF_Flea_new.xlsx") # read in GBIF file
 GBIF_origin <- GBIF # keep original file for sanity check
 
 # ensure no NA in taxonomicStatus
@@ -31,8 +31,8 @@ GBIF$reason <- c(ifelse(duplicated(GBIF$scientificName, fromLast = TRUE)  | dupl
                               "duplicate", NA)) # Flag internal dupes
 GBIF_dupes_review <- GBIF[which(grepl('duplicate',GBIF$reason) == TRUE), ]  # get duplicates for review
 GBIF <- GBIF[which(grepl('duplicate',GBIF$reason) == FALSE), ] # remove all dupes from working file
-GBIF_dupes_keep <- GBIF_dupes_review[which(GBIF_dupes_review$datasetID != "TPT"),]
-GBIF_dupes <- GBIF_dupes_review[which(GBIF_dupes_review$datasetID == "TPT"),]
+GBIF_dupes_keep <- GBIF_dupes_review[which(!is.na(GBIF_dupes_review$acceptedNameUsageID)),]
+GBIF_dupes <- GBIF_dupes_review[which(is.na(GBIF_dupes_review$acceptedNameUsageID)),]
 GBIF <- rbind(GBIF, GBIF_dupes_keep)
 GBIF_removed <- rbindlist(list(GBIF_dupes, GBIF_misapplied, GBIF_nodataset), fill = TRUE)
 

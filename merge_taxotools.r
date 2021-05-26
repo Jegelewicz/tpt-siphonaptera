@@ -187,15 +187,29 @@ write.csv(Flea_m4,"~/GitHub/tpt-siphonaptera/output/Flea_merged.csv", row.names 
 
 # get non UTF8 authors
 Flea_m4_x <- Flea_m4[which(!is.na(Flea_m4$author) & is.na(iconv(Flea_m4$author, "UTF-8", "UTF-8"))),] # get all non UTF8 authors
-Flea_m4 <- Flea_m4[which(Flea_m4$id %!in% Flea_m4_x$id),] # remove rows with non UTF8 encoding in author
-write.csv(Flea_m4_x,"~/GitHub/tpt-siphonaptera/output/Flea_non_UTF8.csv", row.names = FALSE) # write out non UTF8 file for correction
-Flea_m4_1 <- read_excel("~/GitHub/tpt-siphonaptera/input/Flea_UTF8.xlsx") # read in cleaned UTF8 file
-Flea_m4 <- rbind(Flea_m4, Flea_m4_1) # return fixes for UTF8
-Flea_m4$author <- gsub("Ã¨", "e", Flea_m4$author) # catch stuff missed by above
-Flea_m4$author <- gsub("Ã¶", "o", Flea_m4$author) # catch stuff missed by above
-Flea_m4$author <- gsub("Ã¦", "ae", Flea_m4$author) # catch stuff missed by above
-Flea_m4$family <- ifelse(is.na(Flea_m4$family),"None",Flea_m4$family)
 
+if (nrow(Flea_m4_x) == 0){
+  "No non UTF8 characters"
+} else{
+  Flea_m4$author <- gsub("ñ", "n", Flea_m4$author) # replace non-UTF8
+  Flea_m4$author <- gsub("á", "a", Flea_m4$author) # replace non-UTF8
+  Flea_m4$author <- gsub("é", "e", Flea_m4$author) # replace non-UTF8
+  Flea_m4$author <- gsub("ó", "o", Flea_m4$author) # replace non-UTF8
+  Flea_m4$author <- gsub("ã", "a", Flea_m4$author) # replace non-UTF8
+  Flea_m4$author <- gsub("ö", "o", Flea_m4$author) # replace non-UTF8
+  Flea_m4$author <- gsub("ü", "u", Flea_m4$author) # replace non-UTF8
+  Flea_m4$author <- gsub("è", "e", Flea_m4$author) # replace non-UTF8
+  Flea_m4$author <- gsub("í", "i", Flea_m4$author) # replace non-UTF8
+  Flea_m4$author <- gsub("Ã¨", "e", Flea_m4$author) # replace non-UTF8
+  Flea_m4$author <- gsub("Ã¶", "o", Flea_m4$author) # replace non-UTF8
+  Flea_m4$author <- gsub("Ã¦", "ae", Flea_m4$author) # replace non-UTF8
+  Flea_m4_x <- Flea_m4[which(!is.na(Flea_m4$author) & is.na(iconv(Flea_m4$author, "UTF-8", "UTF-8"))),] # get all non UTF8 authors
+  print("cleaned non-UTF8 characters, rerun if statement to make sure all were caught")
+}
+
+Flea_m4$family <- ifelse(is.na(Flea_m4$family),"None",Flea_m4$family)
+Flea_m4$family <- toproper(Flea_m4$family) # ensure all family names are proper case
+  
 # write out list as documents by family
 
 families <- unique(Flea_m4$family)
@@ -214,10 +228,10 @@ for (i in 1:nrow(family)){
                                    outfile=file)
 }
 
-# Siphonaptera_checklist <- taxo2doc(Flea_m4,
-#                                    title="TPT Flea Taxonomy",
-#                                    mastersource="Lewis",
-#                                    duplicatesyn=FALSE,
-#                                    outformat="html_document",
-#                                    outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",
-#                                    outfile="Flea_taxolist.html")
+Siphonaptera_checklist <- taxo2doc(Flea_m4,
+                                   title="TPT Flea Taxonomy",
+                                   mastersource="Lewis",
+                                   duplicatesyn=FALSE,
+                                   outformat="html_document",
+                                   outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",
+                                   outfile="Flea_taxolist.html")
