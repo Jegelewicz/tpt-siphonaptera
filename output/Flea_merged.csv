@@ -23,7 +23,7 @@
 "Siphonaptera","Pulicidae","Actenopsylla","suavis",NA,"Jordan & Rothschild, 1923","species","Actenopsylla suavis","Lewis","orig",22,0
 "Siphonaptera","Ctenophthalmidae","Adoratopsylla","bisetosa",NA,"Ewing, 1925","species","Adoratopsylla bisetosa","Lewis","orig",23,0
 "Siphonaptera","Ctenophthalmidae","Adoratopsylla","dilecta",NA,"Jordan, 1938","species","Adoratopsylla dilecta","Lewis","orig",24,0
-"Siphonaptera","Ctenophthalmidae","Adoratopsylla","sinuata",NA,"Guimaráes, 1945","species","Adoratopsylla sinuata","Lewis","orig",25,0
+"Siphonaptera","Ctenophthalmidae","Adoratopsylla","sinuata",NA,"Guimaraes, 1945","species","Adoratopsylla sinuata","Lewis","orig",25,0
 "Siphonaptera","Ceratophyllidae","Aenigmopsylla","grodekovi",NA,"Sychevsky, 1950","species","Aenigmopsylla grodekovi","Lewis","orig",26,0
 "Siphonaptera","Ceratophyllidae","Aetheca","thamba",NA,"(Jordan, 1929)","species","Aetheca thamba","Lewis","orig",27,0
 "Siphonaptera","Ceratophyllidae","Aetheca","wagneri",NA,"(Baker, 1904)","species","Aetheca wagneri","Lewis","orig",28,0
@@ -41,13 +41,13 @@
 "Siphonaptera","Stivaliidae","Afristivalius","timanus",NA,"(Jordan, 1931)","species","Afristivalius timanus","Lewis","orig",40,0
 "Siphonaptera","Stivaliidae","Afristivalius","torvus",NA,"(Rothschild, 1908)","species","Afristivalius torvus","Lewis","orig",41,0
 "Siphonaptera","Stivaliidae","Afristivalius","vancanneyti",NA,"(Berteaux, 1947)","species","Afristivalius vancanneyti","Lewis","orig",42,0
-"Siphonaptera","Ctenophthalmidae","Agastopsylla","guzmani",NA,"Beaucournu, Moreno & González-Acuña, 2011","species","Agastopsylla guzmani","Lewis","orig",43,0
+"Siphonaptera","Ctenophthalmidae","Agastopsylla","guzmani",NA,"Beaucournu, Moreno & Gonzalez-Acuna, 2011","species","Agastopsylla guzmani","Lewis","orig",43,0
 "Siphonaptera","Ctenophthalmidae","Agastopsylla","hirsutior",NA,"Traub, 1952","species","Agastopsylla hirsutior","Lewis","orig",44,0
 "Siphonaptera","Ctenophthalmidae","Agastopsylla","pearsoni",NA,"Traub, 1952","species","Agastopsylla pearsoni","Lewis","orig",45,0
 "Siphonaptera","Ischnopsyllidae","Alectopsylla","unisetosa",NA,"Mahnert, 1976","species","Alectopsylla unisetosa","Lewis","orig",46,0
 "Siphonaptera","Ischnopsyllidae","Allopsylla","alloides",NA,"(Smit, 1977)","species","Allopsylla alloides","Lewis","orig",47,0
 "Siphonaptera","Ischnopsyllidae","Allopsylla","hetera",NA,"Beaucournu & Fain, 1982","species","Allopsylla hetera","Lewis","orig",48,0
-"Siphonaptera","Ischnopsyllidae","Allopsylla","lobayensis",NA,"Beaucournu & Barrière, 2002","species","Allopsylla lobayensis","Lewis","orig",49,0
+"Siphonaptera","Ischnopsyllidae","Allopsylla","lobayensis",NA,"Beaucournu & Barriere, 2002","species","Allopsylla lobayensis","Lewis","orig",49,0
 "Siphonaptera","Ceratophyllidae","Amalaraeus","arvicolae",NA,"(Ioff, 1948)","species","Amalaraeus arvicolae","Lewis","orig",50,0
 "Siphonaptera","Ceratophyllidae","Amalaraeus","dobbsi",NA,"(Hubbard, 1940)","species","Amalaraeus dobbsi","Lewis","orig",51,0
 "Siphonaptera","Ceratophyllidae","Amalaraeus","improvisus",NA,"(Ioff, 1946)","species","Amalaraeus improvisus","Lewis","orig",52,0
@@ -356,7 +356,7 @@
 "Siphonaptera","Leptopsyllidae","Cratynius","lui",NA,"Gong & Lei, 1988","species","Cratynius lui","Lewis","orig",355,0
 "Siphonaptera","Leptopsyllidae","Cratynius","yunnanus",NA,"Li, Xao & Liao, 1980","species","Cratynius yunnanus","Lewis","orig",356,0
 "Siphonaptera","Chimaeropsyllidae","Cryptopsylla","ingrami",NA,"DeMeillon, 1938","species","Cryptopsylla ingrami","Lewis","orig",357,0
-"Siphonaptera","Stivaliidae","Ctenidiosomus","austrinus",NA,"López-Berrizbeitia, Hastriter & Díaz, 2015","species","Ctenidiosomus austrinus","Lewis","orig",358,0
+"Siphonaptera","Stivaliidae","Ctenidiosomus","austrinus",NA,"Lopez-Berrizbeitia, Hastriter & Diaz, 2015","species","Ctenidiosomus austrinus","Lewis","orig",358,0
 "Siphonaptera","Stivaliidae","Ctenidiosomus","perplexus",NA,"Tipton & Machado, 1972","species","Ctenidiosomus perplexus","Lewis","orig",359,0
 "Siphonaptera","Stivaliidae","Ctenidiosomus","rex",NA,"Johnson, 1957","species","Ctenidiosomus rex","Lewis","orig",360,0
 "Siphonaptera","Stivaliidae","Ctenidiosomus","spillmanni",NA,"Jordan, 1931","species","Ctenidiosomus spillmanni","Lewis","orig",361,0
@@ -519,20 +519,20 @@
 "Siphonaptera","Ceratophyllidae","Dactylopsylla","pentachaeta",NA,"Prince & Stark, 1951","species","Dactylopsylla pentachaeta","Lewis","orig",518,0
 "Siphonaptera","Ceratophyllidae","Dactylopsylla","percernis",NA,"Eads & Menzies, 1949","species","Dactylopsylla percernis","Lewis","orig",519,0
 "Siphonaptera","Ceratophyllidae","Dactylopsylla","stimsoni",NA,"(C. Fox, 1914)","species","Dactylopsylla stimsoni","Lewis","orig",520,0
-"Siphonaptera","Ceratophyllidae","Dasypsyllus","aedon",NA,"Beaucournu, Vergara, Balboa & González-Acuña, 2006","species","Dasypsyllus aedon","Lewis","orig",521,0
+"Siphonaptera","Ceratophyllidae","Dasypsyllus","aedon",NA,"Beaucournu, Vergara, Balboa & Gonzalez-Acuna, 2006","species","Dasypsyllus aedon","Lewis","orig",521,0
 "Siphonaptera","Ceratophyllidae","Dasypsyllus","araucanus",NA,"Jordan & Rothschild, 1920","species","Dasypsyllus araucanus","Lewis","orig",522,0
 "Siphonaptera","Ceratophyllidae","Dasypsyllus","comatus",NA,"Jordan, 1933","species","Dasypsyllus comatus","Lewis","orig",523,0
 "Siphonaptera","Ceratophyllidae","Dasypsyllus","cteniopus",NA,"(Jordan & Rothschild, 1920)","species","Dasypsyllus cteniopus","Lewis","orig",524,0
-"Siphonaptera","Ceratophyllidae","Dasypsyllus","huinayensis",NA,"Beaucournu, Ardiles & González-Acuña, 2009","species","Dasypsyllus huinayensis","Lewis","orig",525,0
+"Siphonaptera","Ceratophyllidae","Dasypsyllus","huinayensis",NA,"Beaucournu, Ardiles & Gonzalez-Acuna, 2009","species","Dasypsyllus huinayensis","Lewis","orig",525,0
 "Siphonaptera","Ceratophyllidae","Dasypsyllus","lewisi",NA,"Hastriter & Schlatter, 2006","species","Dasypsyllus lewisi","Lewis","orig",526,0
-"Siphonaptera","Ceratophyllidae","Dasypsyllus","patagonicus",NA,"Beaucournu, Muñoz-Léal & González-Acuña, 2012","species","Dasypsyllus patagonicus","Lewis","orig",527,0
-"Siphonaptera","Ceratophyllidae","Dasypsyllus","picaflori",NA,"Beaucournu, Moreno & González-Acuña, 2016","species","Dasypsyllus picaflori","Lewis","orig",528,0
+"Siphonaptera","Ceratophyllidae","Dasypsyllus","patagonicus",NA,"Beaucournu, Munoz-Leal & Gonzalez-Acuna, 2012","species","Dasypsyllus patagonicus","Lewis","orig",527,0
+"Siphonaptera","Ceratophyllidae","Dasypsyllus","picaflori",NA,"Beaucournu, Moreno & Gonzalez-Acuna, 2016","species","Dasypsyllus picaflori","Lewis","orig",528,0
 "Siphonaptera","Ceratophyllidae","Dasypsyllus","plumosissimus",NA,"Smit, 1976","species","Dasypsyllus plumosissimus","Lewis","orig",529,0
 "Siphonaptera","Ceratophyllidae","Dasypsyllus","stejnegeri",NA,"(Jordan, 1929)","species","Dasypsyllus stejnegeri","Lewis","orig",530,0
-"Siphonaptera","Ceratophyllidae","Dasypsyllus","tapaculensis",NA,"Beaucournu, Ardiles & González-Acuña, 2009","species","Dasypsyllus tapaculensis","Lewis","orig",531,0
+"Siphonaptera","Ceratophyllidae","Dasypsyllus","tapaculensis",NA,"Beaucournu, Ardiles & Gonzalez-Acuna, 2009","species","Dasypsyllus tapaculensis","Lewis","orig",531,0
 "Siphonaptera","Pulicidae","Delopsylla","crassipes",NA,"Jordan, 1926","species","Delopsylla crassipes","Lewis","orig",532,0
 "Siphonaptera","Rhopalopsyllidae","Delostichus","coxalis",NA,"(Rothschild, 1909)","species","Delostichus coxalis","Lewis","orig",533,0
-"Siphonaptera","Rhopalopsyllidae","Delostichus","degus",NA,"Beaucournu, Moreno & González-Acuña, 2011","species","Delostichus degus","Lewis","orig",534,0
+"Siphonaptera","Rhopalopsyllidae","Delostichus","degus",NA,"Beaucournu, Moreno & Gonzalez-Acuna, 2011","species","Delostichus degus","Lewis","orig",534,0
 "Siphonaptera","Rhopalopsyllidae","Delostichus","incisus",NA,"Beaucournu & Torres-Mura, 1988","species","Delostichus incisus","Lewis","orig",535,0
 "Siphonaptera","Rhopalopsyllidae","Delostichus","octomyos",NA,"Jordan, 1942","species","Delostichus octomyos","Lewis","orig",536,0
 "Siphonaptera","Rhopalopsyllidae","Delostichus","ojedai",NA,"Beaucournu & Gallardo, 2005","species","Delostichus ojedai","Lewis","orig",537,0
@@ -624,9 +624,9 @@
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","hertigi",NA,"Johnson, 1957","species","Ectinorus hertigi","Lewis","orig",623,0
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","hirsutus",NA,"Hastriter, 2009","species","Ectinorus hirsutus","Lewis","orig",624,0
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","ineptus",NA,"Johnson, 1957","species","Ectinorus ineptus","Lewis","orig",625,0
-"Siphonaptera","Rhopalopsyllidae","Ectinorus","insignis",NA,"Beaucournu & González-Acuña, 2013","species","Ectinorus insignis","Lewis","orig",626,0
+"Siphonaptera","Rhopalopsyllidae","Ectinorus","insignis",NA,"Beaucournu & Gonzalez-Acuna, 2013","species","Ectinorus insignis","Lewis","orig",626,0
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","ixanus",NA,"(Jordan, 1942)","species","Ectinorus ixanus","Lewis","orig",627,0
-"Siphonaptera","Rhopalopsyllidae","Ectinorus","lagidium",NA,"Beaucournu & González, 2005","species","Ectinorus lagidium","Lewis","orig",628,0
+"Siphonaptera","Rhopalopsyllidae","Ectinorus","lagidium",NA,"Beaucournu & Gonzalez, 2005","species","Ectinorus lagidium","Lewis","orig",628,0
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","lareschiae",NA,"Hastriter & Sage, 2009","species","Ectinorus lareschiae","Lewis","orig",629,0
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","levipes",NA,"(Jordan & Rothschild, 1923)","species","Ectinorus levipes","Lewis","orig",630,0
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","martini",NA,"Lewis, 1976","species","Ectinorus martini","Lewis","orig",631,0
@@ -732,8 +732,8 @@
 "Siphonaptera","Stivaliidae","Gryphopsylla","segregata",NA,"Beaucournu & Sountsov, 1999","species","Gryphopsylla segregata","Lewis","orig",731,0
 "Siphonaptera","Stivaliidae","Gymnomeropsylla","bunomydis",NA,"Beaucournu & Durden, 2002","species","Gymnomeropsylla bunomydis","Lewis","orig",732,0
 "Siphonaptera","Stivaliidae","Gymnomeropsylla","margaretamydis",NA,"Durden & Beaucournu, 2002","species","Gymnomeropsylla margaretamydis","Lewis","orig",733,0
-"Siphonaptera","Rhopalopsyllidae","Hectiella","lakoi",NA,"(Guimarães, 1948)","species","Hectiella lakoi","Lewis","orig",734,0
-"Siphonaptera","Rhopalopsyllidae","Hectiella","lopesi",NA,"Guimaráes & Linardi, 1993","species","Hectiella lopesi","Lewis","orig",735,0
+"Siphonaptera","Rhopalopsyllidae","Hectiella","lakoi",NA,"(Guimaraes, 1948)","species","Hectiella lakoi","Lewis","orig",734,0
+"Siphonaptera","Rhopalopsyllidae","Hectiella","lopesi",NA,"Guimaraes & Linardi, 1993","species","Hectiella lopesi","Lewis","orig",735,0
 "Siphonaptera","Rhopalopsyllidae","Hectiella","nitidus",NA,"(Johnson, 1957)","species","Hectiella nitidus","Lewis","orig",736,0
 "Siphonaptera","Tungidae","Hectopsylla","broscus",NA,"Jordan & Rothschild, 1906","species","Hectopsylla broscus","Lewis","orig",737,0
 "Siphonaptera","Tungidae","Hectopsylla","coniger",NA,"Jordan & Rothschild, 1906","species","Hectopsylla coniger","Lewis","orig",738,0
@@ -835,7 +835,7 @@
 "Siphonaptera","Ceratophyllidae","Jellisonia","wisemani",NA,"Eads, 1951","species","Jellisonia wisemani","Lewis","orig",834,0
 "Siphonaptera","Ctenophthalmidae","Jordanopsylla","allredi",NA,"Traub & Tipton, 1951","species","Jordanopsylla allredi","Lewis","orig",835,0
 "Siphonaptera","Ctenophthalmidae","Jordanopsylla","becki",NA,"Hastriter, 2000","species","Jordanopsylla becki","Lewis","orig",836,0
-"Siphonaptera","Ceratophyllidae","Kohlsia","ahuacatlan",NA,"Acosta, Salceda-Sánchez & Ponce-Ulloa, 2009","species","Kohlsia ahuacatlan","Lewis","orig",837,0
+"Siphonaptera","Ceratophyllidae","Kohlsia","ahuacatlan",NA,"Acosta, Salceda-Sanchez & Ponce-Ulloa, 2009","species","Kohlsia ahuacatlan","Lewis","orig",837,0
 "Siphonaptera","Ceratophyllidae","Kohlsia","azuerensis",NA,"Tipton & Mendez, 1966","species","Kohlsia azuerensis","Lewis","orig",838,0
 "Siphonaptera","Ceratophyllidae","Kohlsia","campaniger",NA,"(Jordan, 1931)","species","Kohlsia campaniger","Lewis","orig",839,0
 "Siphonaptera","Ceratophyllidae","Kohlsia","cora",NA,"Traub, 1950","species","Kohlsia cora","Lewis","orig",840,0
@@ -852,7 +852,7 @@
 "Siphonaptera","Ceratophyllidae","Kohlsia","traubi",NA,"Tipton & Mendez, 1961","species","Kohlsia traubi","Lewis","orig",851,0
 "Siphonaptera","Ceratophyllidae","Kohlsia","uniseta",NA,"Traub, 1950","species","Kohlsia uniseta","Lewis","orig",852,0
 "Siphonaptera","Ceratophyllidae","Kohlsia","whartoni",NA,"Traub & Johnson, 1952","species","Kohlsia whartoni","Lewis","orig",853,0
-"Siphonaptera","Ceratophyllidae","Kohlsia","zyanya",NA,"Acosta, Salceda-Sánchez & Ponce-Ulloa, 2009","species","Kohlsia zyanya","Lewis","orig",854,0
+"Siphonaptera","Ceratophyllidae","Kohlsia","zyanya",NA,"Acosta, Salceda-Sanchez & Ponce-Ulloa, 2009","species","Kohlsia zyanya","Lewis","orig",854,0
 "Siphonaptera","Ceratophyllidae","Kueichenlipsylla","atrox",NA,"(Jordan, 1925)","species","Kueichenlipsylla atrox","Lewis","orig",855,0
 "Siphonaptera","Ischnopsyllidae","Lagaropsylla","anciauxi",NA,"Smit, 1957","species","Lagaropsylla anciauxi","Lewis","orig",856,0
 "Siphonaptera","Ischnopsyllidae","Lagaropsylla","consularis",NA,"Smit, 1957","species","Lagaropsylla consularis","Lewis","orig",857,0
@@ -889,7 +889,7 @@
 "Siphonaptera","Leptopsyllidae","Leptopsylla","pavlovskii",NA,"Ioff, 1928","species","Leptopsylla pavlovskii","Lewis","orig",888,0
 "Siphonaptera","Leptopsyllidae","Leptopsylla","putoraki",NA,"Ioff, 1950","species","Leptopsylla putoraki","Lewis","orig",889,0
 "Siphonaptera","Leptopsyllidae","Leptopsylla","sciurobia",NA,"(Wagner, 1934)","species","Leptopsylla sciurobia","Lewis","orig",890,0
-"Siphonaptera","Leptopsyllidae","Leptopsylla","segnis",NA,"(Schönherr, 1811)","species","Leptopsylla segnis","Lewis","orig",891,0
+"Siphonaptera","Leptopsyllidae","Leptopsylla","segnis",NA,"(Schonherr, 1811)","species","Leptopsylla segnis","Lewis","orig",891,0
 "Siphonaptera","Leptopsyllidae","Leptopsylla","sexdentata",NA,"(Wagner, 1930)","species","Leptopsylla sexdentata","Lewis","orig",892,0
 "Siphonaptera","Leptopsyllidae","Leptopsylla","sicistae",NA,"(Tiflov & Kolpakova, 1937)","species","Leptopsylla sicistae","Lewis","orig",893,0
 "Siphonaptera","Ceratophyllidae","Libyastus","cognatus",NA,"Smit, 1958","species","Libyastus cognatus","Lewis","orig",894,0
@@ -1548,7 +1548,7 @@
 "Siphonaptera","Rhopalopsyllidae","Polygenis","caucensis",NA,"Mendez, 1977","species","Polygenis caucensis","Lewis","orig",1547,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","delpontei",NA,"Mendez, 1977","species","Polygenis delpontei","Lewis","orig",1548,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","dendrobius",NA,"(Wagner, 1939)","species","Polygenis dendrobius","Lewis","orig",1549,0
-"Siphonaptera","Rhopalopsyllidae","Polygenis","dentei",NA,"Guimaráes, 1947","species","Polygenis dentei","Lewis","orig",1550,0
+"Siphonaptera","Rhopalopsyllidae","Polygenis","dentei",NA,"Guimaraes, 1947","species","Polygenis dentei","Lewis","orig",1550,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","dunni",NA,"(Jordan & Rothschild, 1922)","species","Polygenis dunni","Lewis","orig",1551,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","floridanus",NA,"Johnson & Layne, 1961","species","Polygenis floridanus","Lewis","orig",1552,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","frustratus",NA,"Johnson, 1957","species","Polygenis frustratus","Lewis","orig",1553,0
@@ -1673,7 +1673,7 @@
 "Siphonaptera","Ischnopsyllidae","Rhinolophopsylla","traubi",NA,"Hastriter, 2009","species","Rhinolophopsylla traubi","Lewis","orig",1672,0
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","cacicus",NA,"Jordan & Rothschild, 1908","species","Rhopalopsyllus cacicus","Lewis","orig",1673,0
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","crypturi",NA,"Wagner, 1939","species","Rhopalopsyllus crypturi","Lewis","orig",1674,0
-"Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","garbei",NA,"Guimaráes, 1941","species","Rhopalopsyllus garbei","Lewis","orig",1675,0
+"Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","garbei",NA,"Guimaraes, 1941","species","Rhopalopsyllus garbei","Lewis","orig",1675,0
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","saevus",NA,"(Jordan & Rothschild, 1923)","species","Rhopalopsyllus saevus","Lewis","orig",1676,0
 "Siphonaptera","Ceratophyllidae","Rosickyiana","lunata",NA,"Jordan & Rothschild, 1920","species","Rosickyiana lunata","Lewis","orig",1677,0
 "Siphonaptera","Ceratophyllidae","Rostropsylla","daca",NA,"(Jordan & Rothschild, 1911)","species","Rostropsylla daca","Lewis","orig",1678,0
@@ -1850,12 +1850,12 @@
 "Siphonaptera","Stivaliidae","Traubia","vandeuseni",NA,"Holland, 1969","species","Traubia vandeuseni","Lewis","orig",1849,0
 "Siphonaptera","Stivaliidae","Traubia","wilhelmensis",NA,"Hastriter, 2015","species","Traubia wilhelmensis","Lewis","orig",1850,0
 "Siphonaptera","Ctenophthalmidae","Trichopsylloides","oregonensis",NA,"Ewing, 1938","species","Trichopsylloides oregonensis","Lewis","orig",1851,0
-"Siphonaptera","Ceratophyllidae","Trochilopsylla","torresmurai",NA,"Beaucournu & González-Acuña, 2010","species","Trochilopsylla torresmurai","Lewis","orig",1852,0
+"Siphonaptera","Ceratophyllidae","Trochilopsylla","torresmurai",NA,"Beaucournu & Gonzalez-Acuna, 2010","species","Trochilopsylla torresmurai","Lewis","orig",1852,0
 "Siphonaptera","Leptopsyllidae","Tsaractenus","clavator",NA,"Beaucournu & Laudisoit, 2014","species","Tsaractenus clavator","Lewis","orig",1853,0
 "Siphonaptera","Leptopsyllidae","Tsaractenus","grenieri",NA,"Klein, 1968","species","Tsaractenus grenieri","Lewis","orig",1854,0
 "Siphonaptera","Leptopsyllidae","Tsaractenus","rodhaini",NA,"Duchemin, 2003","species","Tsaractenus rodhaini","Lewis","orig",1855,0
 "Siphonaptera","Tungidae","Tunga","bondari",NA,"Wagner, 1932","species","Tunga bondari","Lewis","orig",1856,0
-"Siphonaptera","Tungidae","Tunga","bonneti",NA,"Beaucournu & González-Acuña (in Beaucournu, Mergey, Munoz-Leal & González-Acuña, 2012","species","Tunga bonneti","Lewis","orig",1857,0
+"Siphonaptera","Tungidae","Tunga","bonneti",NA,"Beaucournu & Gonzalez-Acuna (in Beaucournu, Mergey, Munoz-Leal & Gonzalez-Acuna, 2012","species","Tunga bonneti","Lewis","orig",1857,0
 "Siphonaptera","Tungidae","Tunga","bossii",NA,"Avelar, Linhares & Linardi, 2012","species","Tunga bossii","Lewis","orig",1858,0
 "Siphonaptera","Tungidae","Tunga","caecata",NA,"(Enderlein, 1901)","species","Tunga caecata","Lewis","orig",1859,0
 "Siphonaptera","Tungidae","Tunga","caecigena",NA,"Jordan & Rothschild, 1921","species","Tunga caecigena","Lewis","orig",1860,0
@@ -1982,7 +1982,7 @@
 "Siphonaptera","Ctenophthalmidae","Adoratopsylla","antiquorum","discreta","(Jordan, 1926)","subspecies","Adoratopsylla antiquorum discreta","Lewis","orig",1981,0
 "Siphonaptera","Ctenophthalmidae","Adoratopsylla","antiquorum","rara","Tipton & Machado, 1972","subspecies","Adoratopsylla antiquorum rara","Lewis","orig",1982,0
 "Siphonaptera","Ctenophthalmidae","Adoratopsylla","antiquorum","recta","Tipton & Machado, 1972","subspecies","Adoratopsylla antiquorum recta","Lewis","orig",1983,0
-"Siphonaptera","Ctenophthalmidae","Adoratopsylla","antiquorum","ronnai","Guimaráes, 1954","subspecies","Adoratopsylla antiquorum ronnai","Lewis","orig",1984,0
+"Siphonaptera","Ctenophthalmidae","Adoratopsylla","antiquorum","ronnai","Guimaraes, 1954","subspecies","Adoratopsylla antiquorum ronnai","Lewis","orig",1984,0
 "Siphonaptera","Ctenophthalmidae","Adoratopsylla","intermedia","copha","(Jordan, 1926)","subspecies","Adoratopsylla intermedia copha","Lewis","orig",1985,0
 "Siphonaptera","Ctenophthalmidae","Adoratopsylla","intermedia","intermedia","(Jordan, 1926)","subspecies","Adoratopsylla intermedia intermedia","Lewis","orig",1986,0
 "Siphonaptera","Ctenophthalmidae","Adoratopsylla","intermedia","vidua","(Jordan, 1926)","subspecies","Adoratopsylla intermedia vidua","Lewis","orig",1987,0
@@ -2049,7 +2049,7 @@
 "Siphonaptera","Ctenophthalmidae","Anomiopsyllus","nudatus","hiemalis","Eads & Menzies, 1948","subspecies","Anomiopsyllus nudatus hiemalis","Lewis","orig",2048,0
 "Siphonaptera","Ctenophthalmidae","Anomiopsyllus","nudatus","mexicanus","Holland, 1965","subspecies","Anomiopsyllus nudatus mexicanus","Lewis","orig",2049,0
 "Siphonaptera","Ctenophthalmidae","Anomiopsyllus","nudatus","nudatus","(Baker, 1898)","subspecies","Anomiopsyllus nudatus nudatus","Lewis","orig",2050,0
-"Siphonaptera","Pulicidae","Archaeopsylla","erinacei","erinacei","(Bouché), 1835","subspecies","Archaeopsylla erinacei erinacei","Lewis","orig",2051,0
+"Siphonaptera","Pulicidae","Archaeopsylla","erinacei","erinacei","(Bouche), 1835","subspecies","Archaeopsylla erinacei erinacei","Lewis","orig",2051,0
 "Siphonaptera","Pulicidae","Archaeopsylla","erinacei","maura","Jordan & Rothschild, 1912","subspecies","Archaeopsylla erinacei maura","Lewis","orig",2052,0
 "Siphonaptera","Hystrichopsyllidae","Atyphloceras","echis","echis","Jordan & Rothschild, 1915","subspecies","Atyphloceras echis echis","Lewis","orig",2053,0
 "Siphonaptera","Hystrichopsyllidae","Atyphloceras","echis","longipalpus","Stewart, 1940","subspecies","Atyphloceras echis longipalpus","Lewis","orig",2054,0
@@ -2094,7 +2094,7 @@
 "Siphonaptera","Ceratophyllidae","Citellophilus","martinoi","rotundus","Rosicky, 1956","subspecies","Citellophilus martinoi rotundus","Lewis","orig",2093,0
 "Siphonaptera","Ceratophyllidae","Citellophilus","simplex","rosickyi","Cyprich, 1989","subspecies","Citellophilus simplex rosickyi","Lewis","orig",2094,0
 "Siphonaptera","Ceratophyllidae","Citellophilus","simplex","simplex","(Wagner, 1902)","subspecies","Citellophilus simplex simplex","Lewis","orig",2095,0
-"Siphonaptera","Ceratophyllidae","Citellophilus","sungaris","lobatschevi","Cyprich, Kiefer & Krumpál, 1985","subspecies","Citellophilus sungaris lobatschevi","Lewis","orig",2096,0
+"Siphonaptera","Ceratophyllidae","Citellophilus","sungaris","lobatschevi","Cyprich, Kiefer & Krumpal, 1985","subspecies","Citellophilus sungaris lobatschevi","Lewis","orig",2096,0
 "Siphonaptera","Ceratophyllidae","Citellophilus","sungaris","sungaris","(Jordan, 1929)","subspecies","Citellophilus sungaris sungaris","Lewis","orig",2097,0
 "Siphonaptera","Ceratophyllidae","Citellophilus","tesquorum","ciscaucasicus","(Ioff, 1936)","subspecies","Citellophilus tesquorum ciscaucasicus","Lewis","orig",2098,0
 "Siphonaptera","Ceratophyllidae","Citellophilus","tesquorum","mongolicus","(Jordan & Rothschild, 1911)","subspecies","Citellophilus tesquorum mongolicus","Lewis","orig",2099,0
@@ -2114,7 +2114,7 @@
 "Siphonaptera","Ctenophthalmidae","Corrodopsylla","curvata","obtusata","(Wagner, 1929)","subspecies","Corrodopsylla curvata obtusata","Lewis","orig",2113,0
 "Siphonaptera","Stephanocircidae","Craneopsylla","minerva","minerva","(Rothschild, 1903)","subspecies","Craneopsylla minerva minerva","Lewis","orig",2114,0
 "Siphonaptera","Stephanocircidae","Craneopsylla","minerva","wolffhuegeli","(Rothschild, 1909)","subspecies","Craneopsylla minerva wolffhuegeli","Lewis","orig",2115,0
-"Siphonaptera","Pulicidae","Ctenocephalides","felis","felis","(Bouché), 1835","subspecies","Ctenocephalides felis felis","Lewis","orig",2116,0
+"Siphonaptera","Pulicidae","Ctenocephalides","felis","felis","(Bouche), 1835","subspecies","Ctenocephalides felis felis","Lewis","orig",2116,0
 "Siphonaptera","Pulicidae","Ctenocephalides","felis","strongylus","(Jordan, 1925)","subspecies","Ctenocephalides felis strongylus","Lewis","orig",2117,0
 "Siphonaptera","Ctenophthalmidae","Ctenophthalmus","agyrtes","agyrtes","(Heller, 1896)","subspecies","Ctenophthalmus agyrtes agyrtes","Lewis","orig",2118,0
 "Siphonaptera","Ctenophthalmidae","Ctenophthalmus","agyrtes","culter","Beaucournu, Valle & Launay, 1981","subspecies","Ctenophthalmus agyrtes culter","Lewis","orig",2119,0
@@ -2589,15 +2589,15 @@
 "Siphonaptera","Ceratophyllidae","Plusaetis","sibynus","jordani","(Barrera, 1955)","subspecies","Plusaetis sibynus jordani","Lewis","orig",2588,0
 "Siphonaptera","Ceratophyllidae","Plusaetis","sibynus","sibynus","(Jordan, 1925)","subspecies","Plusaetis sibynus sibynus","Lewis","orig",2589,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","axius","axius","(Jordan & Rothschild, 1923)","subspecies","Polygenis axius axius","Lewis","orig",2590,0
-"Siphonaptera","Rhopalopsyllidae","Polygenis","axius","pessoai","Guimaráes, 1956","subspecies","Polygenis axius pessoai","Lewis","orig",2591,0
-"Siphonaptera","Rhopalopsyllidae","Polygenis","axius","proximus","Guimaráes, 1948","subspecies","Polygenis axius proximus","Lewis","orig",2592,0
+"Siphonaptera","Rhopalopsyllidae","Polygenis","axius","pessoai","Guimaraes, 1956","subspecies","Polygenis axius pessoai","Lewis","orig",2591,0
+"Siphonaptera","Rhopalopsyllidae","Polygenis","axius","proximus","Guimaraes, 1948","subspecies","Polygenis axius proximus","Lewis","orig",2592,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","bohlsi","bohlsi","(Wahlgren, 1901)","subspecies","Polygenis bohlsi bohlsi","Lewis","orig",2593,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","bohlsi","jordani","(Costa Lima, 1937)","subspecies","Polygenis bohlsi jordani","Lewis","orig",2594,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","occidentalis","occidentalis","(Cunha, 1914)","subspecies","Polygenis occidentalis occidentalis","Lewis","orig",2595,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","occidentalis","steganus","(Jordan & Rothschild, 1923)","subspecies","Polygenis occidentalis steganus","Lewis","orig",2596,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","roberti","beebei","(I. Fox, 1947)","subspecies","Polygenis roberti beebei","Lewis","orig",2597,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","roberti","roberti","(Rothschild, 1905)","subspecies","Polygenis roberti roberti","Lewis","orig",2598,0
-"Siphonaptera","Rhopalopsyllidae","Polygenis","roberti","tripopsis","Guimaráes, 1948","subspecies","Polygenis roberti tripopsis","Lewis","orig",2599,0
+"Siphonaptera","Rhopalopsyllidae","Polygenis","roberti","tripopsis","Guimaraes, 1948","subspecies","Polygenis roberti tripopsis","Lewis","orig",2599,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","trapidoi","mendezi","Smit, 1987","subspecies","Polygenis trapidoi mendezi","Lewis","orig",2600,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","trapidoi","trapidoi","Mendez, 1977","subspecies","Polygenis trapidoi trapidoi","Lewis","orig",2601,0
 "Siphonaptera","Pulicidae","Procaviopsylla","spinifex","cabrali","Ribeiro, 1975","subspecies","Procaviopsylla spinifex cabrali","Lewis","orig",2602,0
@@ -2622,7 +2622,7 @@
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","australis","australis","(Rothschild, 1904)","subspecies","Rhopalopsyllus australis australis","Lewis","orig",2621,0
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","australis","mesus","Wagner, 1933","subspecies","Rhopalopsyllus australis mesus","Lewis","orig",2622,0
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","australis","tamoyus","Jordan & Rothschild, 1923","subspecies","Rhopalopsyllus australis tamoyus","Lewis","orig",2623,0
-"Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","australis","tupinquinus","Guimaráes, 1940","subspecies","Rhopalopsyllus australis tupinquinus","Lewis","orig",2624,0
+"Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","australis","tupinquinus","Guimaraes, 1940","subspecies","Rhopalopsyllus australis tupinquinus","Lewis","orig",2624,0
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","australis","tupinus","Jordan & Rothschild, 1923","subspecies","Rhopalopsyllus australis tupinus","Lewis","orig",2625,0
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","lugubris","cryptoctenes","(Enderlein, 1912)","subspecies","Rhopalopsyllus lugubris cryptoctenes","Lewis","orig",2626,0
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","lugubris","lugubris","Jordan & Rothschild, 1908","subspecies","Rhopalopsyllus lugubris lugubris","Lewis","orig",2627,0
@@ -2718,11 +2718,11 @@
 "Siphonaptera","Ctenophthalmidae","Catallagia","dacenkoi","fulleri","Holland, 1951","subspecies","Catallagia dacenkoi fulleri","Lewis","orig",2717,194
 "Siphonaptera","Ctenophthalmidae","Catallagia","moneris",NA,"Jordan, 1937","species","Catallagia moneris","Lewis","orig",2718,195
 "Siphonaptera","Ctenophthalmidae","Catallagia","sculleni","chamberlini","Hubbard, 1940","subspecies","Catallagia sculleni chamberlini","Lewis","orig",2719,203
-"Siphonaptera","Ceratophyllidae","Pulex","columbinus",NA,"Mégnin, 1880","species","Pulex columbinus","Lewis","orig",2720,219
+"Siphonaptera","Ceratophyllidae","Pulex","columbinus",NA,"Megnin, 1880","species","Pulex columbinus","Lewis","orig",2720,219
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","rileyi",NA,"Liu, 1935","species","Ceratophyllus rileyi","Lewis","orig",2721,221
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","aenas",NA,"Dale, 1878","species","Ceratophyllus aenas","Lewis","orig",2722,225
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","angulatus",NA,"Wahlgren, 1903","species","Ceratophyllus angulatus","Lewis","orig",2723,226
-"Siphonaptera","Ceratophyllidae","Pulex","hirundinis",NA,"Köhler, 1832","species","Pulex hirundinis","Lewis","orig",2724,230
+"Siphonaptera","Ceratophyllidae","Pulex","hirundinis",NA,"Kohler, 1832","species","Pulex hirundinis","Lewis","orig",2724,230
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","sternacuminatus",NA,"Brown, 1968","species","Ceratophyllus sternacuminatus","Lewis","orig",2725,231
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","niger","inflexus","Jordan, 1929","subspecies","Ceratophyllus niger inflexus","Lewis","orig",2726,237
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","breviprojectus",NA,"Liu, Wu & Wu, 1966","species","Ceratophyllus breviprojectus","Lewis","orig",2727,238
@@ -2785,7 +2785,7 @@
 "Siphonaptera","Ctenophthalmidae","Evansipsylla","thysanota",NA,"Traub, 1968","species","Evansipsylla thysanota","Lewis","orig",2784,708
 "Siphonaptera","Leptopsyllidae","Geusibia","intermedius",NA,"Liu, Tsai & Wu, 1974","species","Geusibia intermedius","Lewis","orig",2785,722
 "Siphonaptera","Tungidae","Hectopsylla","mazzai",NA,"Costa Lima, 1935","species","Hectopsylla mazzai","Lewis","orig",2786,737
-"Siphonaptera","Tungidae","Hectopsylla","pyttaci",NA,"Wolffhügel, 1916","species","Hectopsylla pyttaci","Lewis","orig",2787,746
+"Siphonaptera","Tungidae","Hectopsylla","pyttaci",NA,"Wolffhugel, 1916","species","Hectopsylla pyttaci","Lewis","orig",2787,746
 "Siphonaptera","Tungidae","Maxilliopsylla","lilloi",NA,"Schreiter & Shannon, 1927","species","Maxilliopsylla lilloi","Lewis","orig",2788,747
 "Siphonaptera","Hystrichopsyllidae","Hystrichopsylla","mammoth",NA,"Chapin, 1921","species","Hystrichopsylla mammoth","Lewis","orig",2789,780
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","teres",NA,"Jordan, 1929","species","Ischnopsyllus teres","Lewis","orig",2790,795
@@ -2801,7 +2801,7 @@
 "Siphonaptera","Ischnopsyllidae","Lagaropsylla","traubi",NA,"Klein, 1967","species","Lagaropsylla traubi","Lewis","orig",2800,860
 "Siphonaptera","Ischnopsyllidae","Lagaropsylla","setzeri",NA,"Segerman, 1970","species","Lagaropsylla setzeri","Lewis","orig",2801,861
 "Siphonaptera","Ischnopsyllidae","Lagaropsylla","mytila",NA,"Hurka, 1984","species","Lagaropsylla mytila","Lewis","orig",2802,869
-"Siphonaptera","Leptopsyllidae","Pulex","musculi",NA,"Dugès, 1832","species","Pulex musculi","Lewis","orig",2803,891
+"Siphonaptera","Leptopsyllidae","Pulex","musculi",NA,"Duges, 1832","species","Pulex musculi","Lewis","orig",2803,891
 "Siphonaptera","Ctenophthalmidae","Ceratophyllus","vicinus",NA,"Rothschild, 1905","species","Ceratophyllus vicinus","Lewis","orig",2804,913
 "Siphonaptera","Ceratophyllidae","Macrostylophora","cuiae","jiangkouensis","Li & Huang, 1979","subspecies","Macrostylophora cuiae jiangkouensis","Lewis","orig",2805,943
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","agathus",NA,"Jordan & Rothschild, 1922","species","Ceratophyllus agathus","Lewis","orig",2806,946
@@ -2843,7 +2843,7 @@
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","acutus",NA,"Baker, 1904","species","Ceratophyllus acutus","Lewis","orig",2842,1176
 "Siphonaptera","Ceratophyllidae","Nosopsyllus","utsuryoensis",NA,"Nagahana, 1954","species","Nosopsyllus utsuryoensis","Lewis","orig",2843,1178
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","eusarca","major","Rothschild, 1909","subspecies","Nycteridopsylla eusarca major","Lewis","orig",2844,1199
-"Siphonaptera","Ischnopsyllidae","Ischnopsyllus","wui",NA,"Hsü, 1935","species","Ischnopsyllus wui","Lewis","orig",2845,1200
+"Siphonaptera","Ischnopsyllidae","Ischnopsyllus","wui",NA,"Hsu, 1935","species","Ischnopsyllus wui","Lewis","orig",2845,1200
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","quadrispina",NA,"Lu & Wu, 2003","species","Nycteridopsylla quadrispina","Lewis","orig",2846,1201
 "Siphonaptera","Ischnopsyllidae","Ceratopsyllus","tetractenus",NA,"Kolenati, 1856","species","Ceratopsyllus tetractenus","Lewis","orig",2847,1208
 "Siphonaptera","Leptopsyllidae","Frontopsylla","subula",NA,"Wagner 1930","species","Frontopsylla subula","Lewis","orig",2848,1217
@@ -2880,7 +2880,7 @@
 "Siphonaptera","Ctenophthalmidae","Phalacropsylla","monticola",NA,"Augustson, 1944","species","Phalacropsylla monticola","Lewis","orig",2879,1489
 "Siphonaptera","Ctenophthalmidae","Phalacropsylla","hamata",NA,"Tipton & Mendez, 1968","species","Phalacropsylla hamata","Lewis","orig",2880,1493
 "Siphonaptera","Ceratophyllidae","Monopsyllus","exilis","kansensis","Hubbard, 1943","subspecies","Monopsyllus exilis kansensis","Lewis","orig",2881,1495
-"Siphonaptera","Rhopalopsyllidae","Polygenis","versuta",NA,"Guimarães, 1942","species","Polygenis versuta","Lewis","orig",2882,1542
+"Siphonaptera","Rhopalopsyllidae","Polygenis","versuta",NA,"Guimaraes, 1942","species","Polygenis versuta","Lewis","orig",2882,1542
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","agilis",NA,"Prado, 1933","species","Rhopalopsyllus agilis","Lewis","orig",2883,1544
 "Siphonaptera","Rhopalopsyllidae","Polygenis","breyeri",NA,"Del Ponte, 1963","species","Polygenis breyeri","Lewis","orig",2884,1546
 "Siphonaptera","Rhopalopsyllidae","Polygenis","ambersoni",NA,"Traub & Johnson, 1952","species","Polygenis ambersoni","Lewis","orig",2885,1551
@@ -2888,8 +2888,8 @@
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","sigmodoni",NA,"Stewart, 1930","species","Rhopalopsyllus sigmodoni","Lewis","orig",2887,1554
 "Siphonaptera","Rhopalopsyllidae","Polygenis","platensis","cisandinus","","subspecies","Polygenis platensis cisandinus","Lewis","orig",2888,1563
 "Siphonaptera","Rhopalopsyllidae","Polygenis","fornesi",NA,"Del Ponte, 1967","species","Polygenis fornesi","Lewis","orig",2889,1565
-"Siphonaptera","Rhopalopsyllidae","Polygenis","dentei",NA,"Guimarães, 1947","species","Polygenis dentei","Lewis","orig",2890,1566
-"Siphonaptera","Rhopalopsyllidae","Polygenis","atra",NA,"Guimaráes, 1947","species","Polygenis atra","Lewis","orig",2891,1567
+"Siphonaptera","Rhopalopsyllidae","Polygenis","dentei",NA,"Guimaraes, 1947","species","Polygenis dentei","Lewis","orig",2890,1566
+"Siphonaptera","Rhopalopsyllidae","Polygenis","atra",NA,"Guimaraes, 1947","species","Polygenis atra","Lewis","orig",2891,1567
 "Siphonaptera","Rhopalopsyllidae","Polygenis","vulcanius",NA,"Smit, 1958","species","Polygenis vulcanius","Lewis","orig",2892,1570
 "Siphonaptera","Ischnopsyllidae","Ischnopsylus","bathyllus",NA,"M. Rothschild, 1936","species","Ischnopsylus bathyllus","Lewis","orig",2893,1571
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","earinus",NA,"M. Rothschild, 1936","species","Ischnopsyllus earinus","Lewis","orig",2894,1572
@@ -2977,7 +2977,7 @@
 "Siphonaptera","Coptopsyllidae","Coptopsylla","lamellifer","fallax","Ioff & Tiflov, 1934","subspecies","Coptopsylla lamellifer fallax","Lewis","orig",2976,2102
 "Siphonaptera","Coptopsyllidae","Coptopsylla","lamellifer","immanubriata","Ioff & Tiflov, 1934","subspecies","Coptopsylla lamellifer immanubriata","Lewis","orig",2977,2106
 "Siphonaptera","Ctenophthalmidae","Doratopsylla","jellisoni",NA,"Hubbard, 1940","species","Doratopsylla jellisoni","Lewis","orig",2978,2113
-"Siphonaptera","Pulicidae","Pulex","cati",NA,"Mégnin, 1880","species","Pulex cati","Lewis","orig",2979,2116
+"Siphonaptera","Pulicidae","Pulex","cati",NA,"Megnin, 1880","species","Pulex cati","Lewis","orig",2979,2116
 "Siphonaptera","Ctenophthalmidae","Ctenophthalmus","agyrtoides",NA,"Wahlgren, 1911","species","Ctenophthalmus agyrtoides","Lewis","orig",2980,2118
 "Siphonaptera","Ctenophthalmidae","Ctenophthalmus","agyrtes","sapaudianus","Beaucournu, 1964","subspecies","Ctenophthalmus agyrtes sapaudianus","Lewis","orig",2981,2124
 "Siphonaptera","Ctenophthalmidae","Ctenophthalmus","agyrtes","noster","Ioff, 1953","subspecies","Ctenophthalmus agyrtes noster","Lewis","orig",2982,2126
@@ -3076,7 +3076,7 @@
 "Siphonaptera","Vermipsyllidae","Pulex","ursi",NA,"Rothschild, 1902","species","Pulex ursi","Lewis","orig",3075,282
 "Siphonaptera","Chimaeropsyllidae","Chiastopsylla","crassus",NA,"1940","species","Chiastopsylla crassus","Lewis","orig",3076,300
 "Siphonaptera","Ctenophthalmidae","Corypsylloides","spinata",NA,"I. Fox, 1940","species","Corypsylloides spinata","Lewis","orig",3077,350
-"Siphonaptera","Pulicidae","Pulex","canis",NA,"Dugès, 1832","species","Pulex canis","Lewis","orig",3078,365
+"Siphonaptera","Pulicidae","Pulex","canis",NA,"Duges, 1832","species","Pulex canis","Lewis","orig",3078,365
 "Siphonaptera","Pulicidae","Pulex","pullulorum",NA,"Johnson, 1890","species","Pulex pullulorum","Lewis","orig",3079,594
 "Siphonaptera","Pulicidae","Sarcopsylla","rhynchopsylla",NA,"Tiraboschi, 1904","species","Sarcopsylla rhynchopsylla","Lewis","orig",3080,599
 "Siphonaptera","Ctenophthalmidae","Neopsylla","testor",NA,"Rothschild, 1915","species","Neopsylla testor","Lewis","orig",3081,658
@@ -3089,7 +3089,7 @@
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","schmitzi",NA,"Oudemans, 1909","species","Ischnopsyllus schmitzi","Lewis","orig",3088,803
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","vasilii",NA,"Skalon","species","Ischnopsyllus vasilii","Lewis","orig",3089,808
 "Siphonaptera","Ischnopsyllidae","Ceratophyllus","jubata",NA,"Wagner, 1898","species","Ceratophyllus jubata","Lewis","orig",3090,810
-"Siphonaptera","Leptopsyllidae","Pulex","musculi",NA,"Bouché, 1835","species","Pulex musculi","Lewis","orig",3091,891
+"Siphonaptera","Leptopsyllidae","Pulex","musculi",NA,"Bouche, 1835","species","Pulex musculi","Lewis","orig",3091,891
 "Siphonaptera","Malacopsyllidae","Malacopsylla","androcli",NA,"Rothschild, 1904","species","Malacopsylla androcli","Lewis","orig",3092,963
 "Siphonaptera","Ceratophyllidae","Megabothris","obscurus",NA,"Holland, 1949","species","Megabothris obscurus","Lewis","orig",3093,990
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","microti",NA,"Nordberg, 1935","species","Ceratophyllus microti","Lewis","orig",3094,994
@@ -3114,8 +3114,8 @@
 "Siphonaptera","Ctenophthalmidae","Typhlopsylla","gracilis",NA,"Taschenberg, 1880","species","Typhlopsylla gracilis","Lewis","orig",3113,1314
 "Siphonaptera","Leptopsyllidae","Ceratophyllus","subcaecatus",NA,"Rothschild, 1912","species","Ceratophyllus subcaecatus","Lewis","orig",3114,1390
 "Siphonaptera","Ceratophyllidae","Monopsyllus","exilis","opadus","Jordan, 1938","subspecies","Monopsyllus exilis opadus","Lewis","orig",3115,1495
-"Siphonaptera","Rhopalopsyllidae","Polygenis","platensis","versutus","Guimarães, 1942","subspecies","Polygenis platensis versutus","Lewis","orig",3116,1542
-"Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","truncatus",NA,"Guimarães, 1936","species","Rhopalopsyllus truncatus","Lewis","orig",3117,1544
+"Siphonaptera","Rhopalopsyllidae","Polygenis","platensis","versutus","Guimaraes, 1942","subspecies","Polygenis platensis versutus","Lewis","orig",3116,1542
+"Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","truncatus",NA,"Guimaraes, 1936","species","Rhopalopsyllus truncatus","Lewis","orig",3117,1544
 "Siphonaptera","Rhopalopsyllidae","Polygenis","oxymycteri",NA,"Del Ponte, 1967","species","Polygenis oxymycteri","Lewis","orig",3118,1553
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","litargus","puelche","Del Ponte & Riesel, 1939","subspecies","Rhopalopsyllus litargus puelche","Lewis","orig",3119,1565
 "Siphonaptera","Ischnopsyllidae","Ceratophyllus","reductus",NA,"Rothschild, 1903","species","Ceratophyllus reductus","Lewis","orig",3120,1572
@@ -3222,13 +3222,13 @@
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","pratensis",NA,"Dale, 1878","species","Ceratophyllus pratensis","Lewis","orig",3221,225
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","palmeni",NA,"Nordberg, 1935","species","Ceratophyllus palmeni","Lewis","orig",3222,226
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","phaulius",NA,"Rothschild, 1909","species","Ceratophyllus phaulius","Lewis","orig",3223,230
-"Siphonaptera","Ischnopsyllidae","Pulex","vespertilionis",NA,"Bouché, 1835","species","Pulex vespertilionis","Lewis","orig",3224,799
+"Siphonaptera","Ischnopsyllidae","Pulex","vespertilionis",NA,"Bouche, 1835","species","Pulex vespertilionis","Lewis","orig",3224,799
 "Siphonaptera","Leptopsyllidae","Ctenophthalmus","bisbidentatus",NA,"Kolenati, 1859","species","Ctenophthalmus bisbidentatus","Lewis","orig",3225,891
 "Siphonaptera","Malacopsyllidae","Malacopsylla","grossiventris","goniata","Wagner, 1939","subspecies","Malacopsylla grossiventris goniata","Lewis","orig",3226,963
 "Siphonaptera","Ctenophthalmidae","Neopsylla","rhombosa",NA,"Chen & Wei, 1978","species","Neopsylla rhombosa","Lewis","orig",3227,1117
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","californicus",NA,"Baker, 1904","species","Ceratophyllus californicus","Lewis","orig",3228,1169
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","sucinus",NA,"Jordan & Rothschild, 1921","species","Ceratophyllus sucinus","Lewis","orig",3229,1176
-"Siphonaptera","Pulicidae","Pulex","hominis",NA,"Dugès, 1832","species","Pulex hominis","Lewis","orig",3230,1584
+"Siphonaptera","Pulicidae","Pulex","hominis",NA,"Duges, 1832","species","Pulex hominis","Lewis","orig",3230,1584
 "Siphonaptera","Ceratophyllidae","Thrassis","utahensis",NA,"Wagner, 1936","species","Thrassis utahensis","Lewis","orig",3231,1813
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","gladiolus","caducus","Jordan, 1930","subspecies","Ceratophyllus gladiolus caducus","Lewis","orig",3232,1817
 "Siphonaptera","Pulicidae","Ctenocephalus","serraticeps","murina","Tiraboschi, 1904","subspecies","Ctenocephalus serraticeps murina","Lewis","orig",3233,2116
@@ -3241,7 +3241,7 @@
 "Siphonaptera","Ceratophyllidae","Pulex","avium",NA,"Taschenberg, 1880","species","Pulex avium","Lewis","orig",3240,225
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","quebecensis",NA,"I. Fox, 1940","species","Ceratophyllus quebecensis","Lewis","orig",3241,226
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","pinnatus",NA,"Wagner, 1898","species","Ceratophyllus pinnatus","Lewis","orig",3242,230
-"Siphonaptera","Ischnopsyllidae","Pulex","vespertilionis",NA,"Dugès, 1832","species","Pulex vespertilionis","Lewis","orig",3243,799
+"Siphonaptera","Ischnopsyllidae","Pulex","vespertilionis",NA,"Duges, 1832","species","Pulex vespertilionis","Lewis","orig",3243,799
 "Siphonaptera","Leptopsyllidae","Typhlopsylla","mexicana",NA,"Baker, 1896","species","Typhlopsylla mexicana","Lewis","orig",3244,891
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","endymionis",NA,"Rothschild, 1904","species","Ceratophyllus endymionis","Lewis","orig",3245,1169
 "Siphonaptera","Pulicidae","Pulex","orientalis",NA,"Kishida 1939","species","Pulex orientalis","Lewis","orig",3246,1584
@@ -3267,27 +3267,27 @@
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","trochili",NA,"Dale, 1878","species","Ceratophyllus trochili","Lewis","orig",3266,2286
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","viscivora",NA,"Dale, 1878","species","Ceratophyllus viscivora","Lewis","orig",3267,2286
 "Siphonaptera","Ceratophyllidae","Dasypsyllus","gallinulae","zilianus","Peus, 1954","subspecies","Dasypsyllus gallinulae zilianus","Lewis","orig",3268,2286
-"Siphonaptera",NA,"Amalaraeus","fossoris",NA," Sutemin, 1969","species","Amalaraeus fossoris","Lewis","orig",3269,0
-"Siphonaptera",NA,"Amalaraeus","sugitanii",NA," Sutemin, 1969","species","Amalaraeus sugitanii","Lewis","orig",3270,0
-"Siphonaptera",NA,"Ceratophyllus","sterni",NA," Curt., [1829]","species","Ceratophyllus sterni","Lewis","orig",3271,0
-"Siphonaptera",NA,"Ctenophthalmus","flavus",NA," Suteminn, 1969","species","Ctenophthalmus flavus","Lewis","orig",3272,0
-"Siphonaptera",NA,"Ctenophthalmus","nepalensis",NA," Sutemin, 1969","species","Ctenophthalmus nepalensis","Lewis","orig",3273,0
-"Siphonaptera",NA,"Pulex","gigas",NA," Kirby, 1837","species","Pulex gigas","Lewis","orig",3274,0
-"Siphonaptera",NA,"Pulex","imperator",NA," Westwood, 1858","species","Pulex imperator","Lewis","orig",3275,0
-"Siphonaptera",NA,"Pulex","terrestris","ferox"," Alpinus, 1874","subspecies","Pulex terrestris ferox","Lewis","orig",3276,0
+"Siphonaptera","None","Amalaraeus","fossoris",NA," Sutemin, 1969","species","Amalaraeus fossoris","Lewis","orig",3269,0
+"Siphonaptera","None","Amalaraeus","sugitanii",NA," Sutemin, 1969","species","Amalaraeus sugitanii","Lewis","orig",3270,0
+"Siphonaptera","None","Ceratophyllus","sterni",NA," Curt., [1829]","species","Ceratophyllus sterni","Lewis","orig",3271,0
+"Siphonaptera","None","Ctenophthalmus","flavus",NA," Suteminn, 1969","species","Ctenophthalmus flavus","Lewis","orig",3272,0
+"Siphonaptera","None","Ctenophthalmus","nepalensis",NA," Sutemin, 1969","species","Ctenophthalmus nepalensis","Lewis","orig",3273,0
+"Siphonaptera","None","Pulex","gigas",NA," Kirby, 1837","species","Pulex gigas","Lewis","orig",3274,0
+"Siphonaptera","None","Pulex","imperator",NA," Westwood, 1858","species","Pulex imperator","Lewis","orig",3275,0
+"Siphonaptera","None","Pulex","terrestris","ferox"," Alpinus, 1874","subspecies","Pulex terrestris ferox","Lewis","orig",3276,0
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","bella",NA,NA,"species","Acanthopsylla bella","CoL","orig",3277,1
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","bisinuata",NA,NA,"species","Acanthopsylla bisinuata","CoL","orig",3278,2
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","dunneti",NA,NA,"species","Acanthopsylla dunneti","CoL","orig",3279,3
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","enderleini",NA,NA,"species","Acanthopsylla enderleini","CoL","orig",3280,4
-"Siphonaptera",NA,"Glauertidos","aiyurensis",NA,NA,"species","Glauertidos aiyurensis","CoL","orig",3281,4
-"Siphonaptera",NA,"Glauertidos","divergens",NA,NA,"species","Glauertidos divergens","CoL","orig",3282,4
-"Siphonaptera",NA,"Glauertidos","monticola",NA,NA,"species","Glauertidos monticola","CoL","orig",3283,4
+"Siphonaptera","None","Glauertidos","aiyurensis",NA,NA,"species","Glauertidos aiyurensis","CoL","orig",3281,4
+"Siphonaptera","None","Glauertidos","divergens",NA,NA,"species","Glauertidos divergens","CoL","orig",3282,4
+"Siphonaptera","None","Glauertidos","monticola",NA,NA,"species","Glauertidos monticola","CoL","orig",3283,4
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","eudromiciae",NA,NA,"species","Acanthopsylla eudromiciae","CoL","orig",3284,5
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","franklinensis",NA,NA,"species","Acanthopsylla franklinensis","CoL","orig",3285,6
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","guba",NA,NA,"species","Acanthopsylla guba","CoL","orig",3286,7
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","jordani",NA,NA,"species","Acanthopsylla jordani","CoL","orig",3287,9
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","pavida",NA,NA,"species","Acanthopsylla pavida","CoL","orig",3288,10
-"Siphonaptera",NA,"Glauertidos","incerta",NA,NA,"species","Glauertidos incerta","CoL","orig",3289,10
+"Siphonaptera","None","Glauertidos","incerta",NA,NA,"species","Glauertidos incerta","CoL","orig",3289,10
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","praxilla",NA,NA,"species","Acanthopsylla praxilla","CoL","orig",3290,11
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","rectangulata",NA,NA,"species","Acanthopsylla rectangulata","CoL","orig",3291,12
 "Siphonaptera","Pygiopsyllidae","Acanthopsylla","richardsoni",NA,NA,"species","Acanthopsylla richardsoni","CoL","orig",3292,13
@@ -3583,7 +3583,7 @@
 "Siphonaptera","Ceratophyllidae","Callopsylla","yui",NA,NA,"species","Callopsylla yui","CoL","orig",3582,185
 "Siphonaptera","Ceratophyllidae","Callopsylla","zhangi",NA,NA,"species","Callopsylla zhangi","CoL","orig",3583,186
 "Siphonaptera","Hystrichopsyllidae","Carteretta","carteri",NA,NA,"species","Carteretta carteri","CoL","orig",3584,187
-"Siphonaptera",NA,"Trirachipsylla","digitiformis",NA,NA,"species","Trirachipsylla digitiformis","CoL","orig",3585,187
+"Siphonaptera","None","Trirachipsylla","digitiformis",NA,NA,"species","Trirachipsylla digitiformis","CoL","orig",3585,187
 "Siphonaptera","Hystrichopsyllidae","Carteretta","clavata",NA,NA,"species","Carteretta clavata","CoL","orig",3586,188
 "Siphonaptera","Hystrichopsyllidae","Catallagia","arizonae",NA,NA,"species","Catallagia arizonae","CoL","orig",3587,189
 "Siphonaptera","Hystrichopsyllidae","Catallagia","borealis",NA,NA,"species","Catallagia borealis","CoL","orig",3588,190
@@ -3715,14 +3715,14 @@
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","dogieli",NA,NA,"species","Chaetopsylla dogieli","CoL","orig",3714,262
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","floridensis",NA,NA,"species","Chaetopsylla floridensis","CoL","orig",3715,263
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","globiceps",NA,NA,"species","Chaetopsylla globiceps","CoL","orig",3716,264
-"Siphonaptera",NA,"Achaetopsylla","kohauti",NA,NA,"species","Achaetopsylla kohauti","CoL","orig",3717,264
+"Siphonaptera","None","Achaetopsylla","kohauti",NA,NA,"species","Achaetopsylla kohauti","CoL","orig",3717,264
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","gracilis",NA,NA,"species","Chaetopsylla gracilis","CoL","orig",3718,265
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","hangchowensis",NA,NA,"species","Chaetopsylla hangchowensis","CoL","orig",3719,266
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","hohuana",NA,NA,"species","Chaetopsylla hohuana","CoL","orig",3720,267
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","homoea",NA,NA,"species","Chaetopsylla homoea","CoL","orig",3721,268
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","homoea","carenis",NA,"subspecies","Chaetopsylla homoea carenis","CoL","orig",3722,268
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","hyaenae",NA,NA,"species","Chaetopsylla hyaenae","CoL","orig",3723,269
-"Siphonaptera",NA,"Achaetopsylla","striatus",NA,NA,"species","Achaetopsylla striatus","CoL","orig",3724,269
+"Siphonaptera","None","Achaetopsylla","striatus",NA,NA,"species","Achaetopsylla striatus","CoL","orig",3724,269
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","jamesoni",NA,NA,"species","Chaetopsylla jamesoni","CoL","orig",3725,270
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","korobkovi",NA,NA,"species","Chaetopsylla korobkovi","CoL","orig",3726,271
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","lasia",NA,NA,"species","Chaetopsylla lasia","CoL","orig",3727,272
@@ -3730,16 +3730,16 @@
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","matina",NA,NA,"species","Chaetopsylla matina","CoL","orig",3729,274
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","media",NA,NA,"species","Chaetopsylla media","CoL","orig",3730,275
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","mikado",NA,NA,"species","Chaetopsylla mikado","CoL","orig",3731,276
-"Siphonaptera",NA,"Achaetopsylla","nocens",NA,NA,"species","Achaetopsylla nocens","CoL","orig",3732,276
+"Siphonaptera","None","Achaetopsylla","nocens",NA,NA,"species","Achaetopsylla nocens","CoL","orig",3732,276
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","mirabilis",NA,NA,"species","Chaetopsylla mirabilis","CoL","orig",3733,277
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","rothschildi",NA,NA,"species","Chaetopsylla rothschildi","CoL","orig",3734,278
-"Siphonaptera",NA,"Achaetopsylla","kakhetiana",NA,NA,"species","Achaetopsylla kakhetiana","CoL","orig",3735,278
+"Siphonaptera","None","Achaetopsylla","kakhetiana",NA,NA,"species","Achaetopsylla kakhetiana","CoL","orig",3735,278
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","setosa",NA,NA,"species","Chaetopsylla setosa","CoL","orig",3736,279
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","stewarti",NA,NA,"species","Chaetopsylla stewarti","CoL","orig",3737,280
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","trichosa",NA,NA,"species","Chaetopsylla trichosa","CoL","orig",3738,281
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","tuberculaticeps",NA,NA,"species","Chaetopsylla tuberculaticeps","CoL","orig",3739,282
-"Siphonaptera",NA,"Achaetopsylla","strandi",NA,NA,"species","Achaetopsylla strandi","CoL","orig",3740,282
-"Siphonaptera",NA,"Achaetopsylla","ursi",NA,NA,"species","Achaetopsylla ursi","CoL","orig",3741,282
+"Siphonaptera","None","Achaetopsylla","strandi",NA,NA,"species","Achaetopsylla strandi","CoL","orig",3740,282
+"Siphonaptera","None","Achaetopsylla","ursi",NA,NA,"species","Achaetopsylla ursi","CoL","orig",3741,282
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","wenxianensis",NA,NA,"species","Chaetopsylla wenxianensis","CoL","orig",3742,283
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","zhengi",NA,NA,"species","Chaetopsylla zhengi","CoL","orig",3743,284
 "Siphonaptera","Vermipsyllidae","Chaetopsylla","zibellina",NA,NA,"species","Chaetopsylla zibellina","CoL","orig",3744,285
@@ -3854,9 +3854,9 @@
 "Siphonaptera","Hystrichopsyllidae","Corrodopsylla","hamiltoni",NA,NA,"species","Corrodopsylla hamiltoni","CoL","orig",3853,348
 "Siphonaptera","Hystrichopsyllidae","Corypsylla","jordani",NA,NA,"species","Corypsylla jordani","CoL","orig",3854,349
 "Siphonaptera","Hystrichopsyllidae","Corypsylla","kohlsi",NA,NA,"species","Corypsylla kohlsi","CoL","orig",3855,350
-"Siphonaptera",NA,"Corypsylloides","spinata",NA,NA,"species","Corypsylloides spinata","CoL","orig",3856,350
+"Siphonaptera","None","Corypsylloides","spinata",NA,NA,"species","Corypsylloides spinata","CoL","orig",3856,350
 "Siphonaptera","Hystrichopsyllidae","Corypsylla","ornata",NA,NA,"species","Corypsylla ornata","CoL","orig",3857,351
-"Siphonaptera",NA,"Corypsylloides","setosifrons",NA,NA,"species","Corypsylloides setosifrons","CoL","orig",3858,351
+"Siphonaptera","None","Corypsylloides","setosifrons",NA,NA,"species","Corypsylloides setosifrons","CoL","orig",3858,351
 "Siphonaptera","Stephanocircidae","Craneopsylla","minerva","minerva",NA,"subspecies","Craneopsylla minerva minerva","CoL","orig",3859,2114
 "Siphonaptera","Stephanocircidae","Craneopsylla","minerva","wolffhuegeli",NA,"subspecies","Craneopsylla minerva wolffhuegeli","CoL","orig",3860,2115
 "Siphonaptera","Leptopsyllidae","Cratynius","audyi",NA,NA,"species","Cratynius audyi","CoL","orig",3861,352
@@ -3873,28 +3873,28 @@
 "Siphonaptera","Pulicidae","Ctenocephalides","arabicus","multispinosus",NA,"subspecies","Ctenocephalides arabicus multispinosus","CoL","orig",3872,363
 "Siphonaptera","Pulicidae","Ctenocephalides","brygooi",NA,NA,"species","Ctenocephalides brygooi","CoL","orig",3873,364
 "Siphonaptera","Pulicidae","Ctenocephalides","canis",NA,NA,"species","Ctenocephalides canis","CoL","orig",3874,365
-"Siphonaptera",NA,"Ctenocephalus","canis",NA,NA,"species","Ctenocephalus canis","CoL","orig",3875,365
-"Siphonaptera",NA,"Ctenocephalus","canis",NA,NA,"species","Ctenocephalus canis","CoL","orig",3876,365
-"Siphonaptera",NA,"Ctenocephalus","novemdentatus",NA,NA,"species","Ctenocephalus novemdentatus","CoL","orig",3877,365
+"Siphonaptera","None","Ctenocephalus","canis",NA,NA,"species","Ctenocephalus canis","CoL","orig",3875,365
+"Siphonaptera","None","Ctenocephalus","canis",NA,NA,"species","Ctenocephalus canis","CoL","orig",3876,365
+"Siphonaptera","None","Ctenocephalus","novemdentatus",NA,NA,"species","Ctenocephalus novemdentatus","CoL","orig",3877,365
 "Siphonaptera","Pulicidae","Ctenocephalides","chabaudi",NA,NA,"species","Ctenocephalides chabaudi","CoL","orig",3878,366
 "Siphonaptera","Pulicidae","Ctenocephalides","connatus",NA,NA,"species","Ctenocephalides connatus","CoL","orig",3879,367
 "Siphonaptera","Pulicidae","Ctenocephalides","crataepus",NA,NA,"species","Ctenocephalides crataepus","CoL","orig",3880,368
 "Siphonaptera","Pulicidae","Ctenocephalides","craterus",NA,NA,"species","Ctenocephalides craterus","CoL","orig",3881,369
 "Siphonaptera","Pulicidae","Ctenocephalides","felis",NA,NA,"species","Ctenocephalides felis","CoL","orig",3882,2116
-"Siphonaptera",NA,"Ctenocephalus","cati",NA,NA,"species","Ctenocephalus cati","CoL","orig",3883,2116
-"Siphonaptera",NA,"Ctenocephalus","concoloris",NA,NA,"species","Ctenocephalus concoloris","CoL","orig",3884,2116
-"Siphonaptera",NA,"Ctenocephalus","enneodus",NA,NA,"species","Ctenocephalus enneodus","CoL","orig",3885,2116
-"Siphonaptera",NA,"Ctenocephalus","murina",NA,NA,"species","Ctenocephalus murina","CoL","orig",3886,2116
-"Siphonaptera",NA,"Ctenocephalus","musculi",NA,NA,"species","Ctenocephalus musculi","CoL","orig",3887,2116
-"Siphonaptera",NA,"Ctenocephalus","nasuae",NA,NA,"species","Ctenocephalus nasuae","CoL","orig",3888,2116
-"Siphonaptera",NA,"Ctenocephalus","obscurus",NA,NA,"species","Ctenocephalus obscurus","CoL","orig",3889,2116
-"Siphonaptera",NA,"Ctenocephalus","rufulus",NA,NA,"species","Ctenocephalus rufulus","CoL","orig",3890,2116
-"Siphonaptera",NA,"Ctenocephalus","serraticeps",NA,NA,"species","Ctenocephalus serraticeps","CoL","orig",3891,2116
+"Siphonaptera","None","Ctenocephalus","cati",NA,NA,"species","Ctenocephalus cati","CoL","orig",3883,2116
+"Siphonaptera","None","Ctenocephalus","concoloris",NA,NA,"species","Ctenocephalus concoloris","CoL","orig",3884,2116
+"Siphonaptera","None","Ctenocephalus","enneodus",NA,NA,"species","Ctenocephalus enneodus","CoL","orig",3885,2116
+"Siphonaptera","None","Ctenocephalus","murina",NA,NA,"species","Ctenocephalus murina","CoL","orig",3886,2116
+"Siphonaptera","None","Ctenocephalus","musculi",NA,NA,"species","Ctenocephalus musculi","CoL","orig",3887,2116
+"Siphonaptera","None","Ctenocephalus","nasuae",NA,NA,"species","Ctenocephalus nasuae","CoL","orig",3888,2116
+"Siphonaptera","None","Ctenocephalus","obscurus",NA,NA,"species","Ctenocephalus obscurus","CoL","orig",3889,2116
+"Siphonaptera","None","Ctenocephalus","rufulus",NA,NA,"species","Ctenocephalus rufulus","CoL","orig",3890,2116
+"Siphonaptera","None","Ctenocephalus","serraticeps",NA,NA,"species","Ctenocephalus serraticeps","CoL","orig",3891,2116
 "Siphonaptera","Pulicidae","Ctenocephalides","felis","felis",NA,"subspecies","Ctenocephalides felis felis","CoL","orig",3892,2116
 "Siphonaptera","Pulicidae","Ctenocephalides","felis","strongylus",NA,"subspecies","Ctenocephalides felis strongylus","CoL","orig",3893,2117
 "Siphonaptera","Pulicidae","Ctenocephalides","grenieri",NA,NA,"species","Ctenocephalides grenieri","CoL","orig",3894,371
 "Siphonaptera","Pulicidae","Ctenocephalides","orientis",NA,NA,"species","Ctenocephalides orientis","CoL","orig",3895,372
-"Siphonaptera",NA,"Ctenocephalus","caprae",NA,NA,"species","Ctenocephalus caprae","CoL","orig",3896,372
+"Siphonaptera","None","Ctenocephalus","caprae",NA,NA,"species","Ctenocephalus caprae","CoL","orig",3896,372
 "Siphonaptera","Pulicidae","Ctenocephalides","paradoxuri",NA,NA,"species","Ctenocephalides paradoxuri","CoL","orig",3897,373
 "Siphonaptera","Pulicidae","Ctenocephalides","rosmarus",NA,NA,"species","Ctenocephalides rosmarus","CoL","orig",3898,374
 "Siphonaptera","Hystrichopsyllidae","Ctenoparia","inopinata",NA,NA,"species","Ctenoparia inopinata","CoL","orig",3899,375
@@ -4086,7 +4086,7 @@
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","hypanis","hypanis",NA,"subspecies","Ctenophthalmus hypanis hypanis","CoL","orig",4085,2219
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","hypanis","riciensis",NA,"subspecies","Ctenophthalmus hypanis riciensis","CoL","orig",4086,2220
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","inornatus",NA,NA,"species","Ctenophthalmus inornatus","CoL","orig",4087,440
-"Siphonaptera",NA,"Typhlopsylla","phrator",NA,NA,"species","Typhlopsylla phrator","CoL","orig",4088,440
+"Siphonaptera","None","Typhlopsylla","phrator",NA,NA,"species","Typhlopsylla phrator","CoL","orig",4088,440
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","intermedius",NA,NA,"species","Ctenophthalmus intermedius","CoL","orig",4089,441
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","iranus","iranus",NA,"subspecies","Ctenophthalmus iranus iranus","CoL","orig",4090,2221
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","iranus","persicus",NA,"subspecies","Ctenophthalmus iranus persicus","CoL","orig",4091,2222
@@ -4097,7 +4097,7 @@
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","laxiprojectus",NA,NA,"species","Ctenophthalmus laxiprojectus","CoL","orig",4096,447
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","leptodactylus",NA,NA,"species","Ctenophthalmus leptodactylus","CoL","orig",4097,449
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","levanticus",NA,NA,"species","Ctenophthalmus levanticus","CoL","orig",4098,450
-"Siphonaptera",NA,"Typhlopsylla","israelicus",NA,NA,"species","Typhlopsylla israelicus","CoL","orig",4099,450
+"Siphonaptera","None","Typhlopsylla","israelicus",NA,NA,"species","Typhlopsylla israelicus","CoL","orig",4099,450
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","lewisi",NA,NA,"species","Ctenophthalmus lewisi","CoL","orig",4100,451
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","longiprojiciens",NA,NA,"species","Ctenophthalmus longiprojiciens","CoL","orig",4101,452
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","luberensis",NA,NA,"species","Ctenophthalmus luberensis","CoL","orig",4102,453
@@ -4178,7 +4178,7 @@
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","solutus","solutus",NA,"subspecies","Ctenophthalmus solutus solutus","CoL","orig",4177,2267
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","solutus","ukrainica",NA,"subspecies","Ctenophthalmus solutus ukrainica","CoL","orig",4178,2267
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","spalacis",NA,NA,"species","Ctenophthalmus spalacis","CoL","orig",4179,491
-"Siphonaptera",NA,"Typhlopsylla","typhlus",NA,NA,"species","Typhlopsylla typhlus","CoL","orig",4180,491
+"Siphonaptera","None","Typhlopsylla","typhlus",NA,NA,"species","Typhlopsylla typhlus","CoL","orig",4180,491
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","spiniger",NA,NA,"species","Ctenophthalmus spiniger","CoL","orig",4181,492
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","stenurus",NA,NA,"species","Ctenophthalmus stenurus","CoL","orig",4182,493
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","stirps",NA,NA,"species","Ctenophthalmus stirps","CoL","orig",4183,494
@@ -4214,7 +4214,7 @@
 "Siphonaptera","Leptopsyllidae","Ctenophyllus","subarmatus",NA,NA,"species","Ctenophyllus subarmatus","CoL","orig",4213,511
 "Siphonaptera","Leptopsyllidae","Ctenophyllus","tarasovi",NA,NA,"species","Ctenophyllus tarasovi","CoL","orig",4214,512
 "Siphonaptera","Ceratophyllidae","Dactylopsylla","bluei",NA,NA,"species","Dactylopsylla bluei","CoL","orig",4215,514
-"Siphonaptera",NA,"Foxelloides","stimsoni",NA,NA,"species","Foxelloides stimsoni","CoL","orig",4216,514
+"Siphonaptera","None","Foxelloides","stimsoni",NA,NA,"species","Foxelloides stimsoni","CoL","orig",4216,514
 "Siphonaptera","Ceratophyllidae","Dactylopsylla","digitenua",NA,NA,"species","Dactylopsylla digitenua","CoL","orig",4217,515
 "Siphonaptera","Ceratophyllidae","Dactylopsylla","megasoma",NA,NA,"species","Dactylopsylla megasoma","CoL","orig",4218,516
 "Siphonaptera","Ceratophyllidae","Dactylopsylla","neomexicana",NA,NA,"species","Dactylopsylla neomexicana","CoL","orig",4219,517
@@ -4300,14 +4300,14 @@
 "Siphonaptera","Pulicidae","Echidnophaga","cornuta",NA,NA,"species","Echidnophaga cornuta","CoL","orig",4299,592
 "Siphonaptera","Pulicidae","Echidnophaga","eyrei",NA,NA,"species","Echidnophaga eyrei","CoL","orig",4300,593
 "Siphonaptera","Pulicidae","Echidnophaga","gallinacea",NA,NA,"species","Echidnophaga gallinacea","CoL","orig",4301,594
-"Siphonaptera",NA,"Xestopsylla","pullulorum",NA,NA,"species","Xestopsylla pullulorum","CoL","orig",4302,594
+"Siphonaptera","None","Xestopsylla","pullulorum",NA,NA,"species","Xestopsylla pullulorum","CoL","orig",4302,594
 "Siphonaptera","Pulicidae","Echidnophaga","iberica",NA,NA,"species","Echidnophaga iberica","CoL","orig",4303,595
 "Siphonaptera","Pulicidae","Echidnophaga","larina",NA,NA,"species","Echidnophaga larina","CoL","orig",4304,596
 "Siphonaptera","Pulicidae","Echidnophaga","liopus",NA,NA,"species","Echidnophaga liopus","CoL","orig",4305,597
 "Siphonaptera","Pulicidae","Echidnophaga","macronychia",NA,NA,"species","Echidnophaga macronychia","CoL","orig",4306,598
 "Siphonaptera","Pulicidae","Echidnophaga","murina",NA,NA,"species","Echidnophaga murina","CoL","orig",4307,599
-"Siphonaptera",NA,"Xestopsylla","italica",NA,NA,"species","Xestopsylla italica","CoL","orig",4308,599
-"Siphonaptera",NA,"Xestopsylla","rhynchopsylla",NA,NA,"species","Xestopsylla rhynchopsylla","CoL","orig",4309,599
+"Siphonaptera","None","Xestopsylla","italica",NA,NA,"species","Xestopsylla italica","CoL","orig",4308,599
+"Siphonaptera","None","Xestopsylla","rhynchopsylla",NA,NA,"species","Xestopsylla rhynchopsylla","CoL","orig",4309,599
 "Siphonaptera","Pulicidae","Echidnophaga","myrmecobii",NA,NA,"species","Echidnophaga myrmecobii","CoL","orig",4310,600
 "Siphonaptera","Pulicidae","Echidnophaga","ochotona",NA,NA,"species","Echidnophaga ochotona","CoL","orig",4311,601
 "Siphonaptera","Pulicidae","Echidnophaga","octotricha",NA,NA,"species","Echidnophaga octotricha","CoL","orig",4312,602
@@ -4321,7 +4321,7 @@
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","alejoi",NA,NA,"species","Ectinorus alejoi","CoL","orig",4320,609
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","barrerai",NA,NA,"species","Ectinorus barrerai","CoL","orig",4321,611
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","budini",NA,NA,"species","Ectinorus budini","CoL","orig",4322,612
-"Siphonaptera",NA,"Dysmicus","boudini",NA,NA,"species","Dysmicus boudini","CoL","orig",4323,612
+"Siphonaptera","None","Dysmicus","boudini",NA,NA,"species","Dysmicus boudini","CoL","orig",4323,612
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","chilensis",NA,NA,"species","Ectinorus chilensis","CoL","orig",4324,613
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","claviger",NA,NA,"species","Ectinorus claviger","CoL","orig",4325,614
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","cocyti",NA,NA,"species","Ectinorus cocyti","CoL","orig",4326,615
@@ -4347,7 +4347,7 @@
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","sentus",NA,NA,"species","Ectinorus sentus","CoL","orig",4346,640
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","setosicornis",NA,NA,"species","Ectinorus setosicornis","CoL","orig",4347,641
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","simonsi",NA,NA,"species","Ectinorus simonsi","CoL","orig",4348,642
-"Siphonaptera",NA,"Dysmicus","acheronis",NA,NA,"species","Dysmicus acheronis","CoL","orig",4349,642
+"Siphonaptera","None","Dysmicus","acheronis",NA,NA,"species","Dysmicus acheronis","CoL","orig",4349,642
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","splendidus",NA,NA,"species","Ectinorus splendidus","CoL","orig",4350,644
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","trionyx",NA,NA,"species","Ectinorus trionyx","CoL","orig",4351,645
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","uncinatus",NA,NA,"species","Ectinorus uncinatus","CoL","orig",4352,646
@@ -4451,7 +4451,7 @@
 "Siphonaptera","Hystrichopsyllidae","Genoneopsylla","bisinuata",NA,NA,"species","Genoneopsylla bisinuata","CoL","orig",4450,705
 "Siphonaptera","Hystrichopsyllidae","Genoneopsylla","claviprocera",NA,NA,"species","Genoneopsylla claviprocera","CoL","orig",4451,706
 "Siphonaptera","Hystrichopsyllidae","Genoneopsylla","longisetosa",NA,NA,"species","Genoneopsylla longisetosa","CoL","orig",4452,707
-"Siphonaptera",NA,"Peusipsylla","kunaveri",NA,NA,"species","Peusipsylla kunaveri","CoL","orig",4453,707
+"Siphonaptera","None","Peusipsylla","kunaveri",NA,NA,"species","Peusipsylla kunaveri","CoL","orig",4453,707
 "Siphonaptera","Hystrichopsyllidae","Genoneopsylla","thysanota",NA,NA,"species","Genoneopsylla thysanota","CoL","orig",4454,708
 "Siphonaptera","Pygiopsyllidae","Geohollandia","solida",NA,NA,"species","Geohollandia solida","CoL","orig",4455,710
 "Siphonaptera","Leptopsyllidae","Geusibia","apromina","apromina",NA,"subspecies","Geusibia apromina apromina","CoL","orig",4456,2341
@@ -4468,7 +4468,7 @@
 "Siphonaptera","Leptopsyllidae","Geusibia","quadrata",NA,NA,"species","Geusibia quadrata","CoL","orig",4467,720
 "Siphonaptera","Leptopsyllidae","Geusibia","stenosinuata",NA,NA,"species","Geusibia stenosinuata","CoL","orig",4468,721
 "Siphonaptera","Leptopsyllidae","Geusibia","torosa",NA,NA,"species","Geusibia torosa","CoL","orig",4469,722
-"Siphonaptera",NA,"Augustsonius","intermedius",NA,NA,"species","Augustsonius intermedius","CoL","orig",4470,722
+"Siphonaptera","None","Augustsonius","intermedius",NA,NA,"species","Augustsonius intermedius","CoL","orig",4470,722
 "Siphonaptera","Leptopsyllidae","Geusibia","triangularis",NA,NA,"species","Geusibia triangularis","CoL","orig",4471,723
 "Siphonaptera","Leptopsyllidae","Geusibia","yunnanensis",NA,NA,"species","Geusibia yunnanensis","CoL","orig",4472,724
 "Siphonaptera","Ceratophyllidae","Glaciopsyllus","antarcticus",NA,NA,"species","Glaciopsyllus antarcticus","CoL","orig",4473,725
@@ -4476,7 +4476,7 @@
 "Siphonaptera","Stivaliidae","Gryphopsylla","hopkinsi",NA,NA,"species","Gryphopsylla hopkinsi","CoL","orig",4475,727
 "Siphonaptera","Stivaliidae","Gryphopsylla","jacobsoni",NA,NA,"species","Gryphopsylla jacobsoni","CoL","orig",4476,728
 "Siphonaptera","Tungidae","Hectopsylla","broscus",NA,NA,"species","Hectopsylla broscus","CoL","orig",4477,737
-"Siphonaptera",NA,"Hectoropsylla","mazzai",NA,NA,"species","Hectoropsylla mazzai","CoL","orig",4478,737
+"Siphonaptera","None","Hectoropsylla","mazzai",NA,NA,"species","Hectoropsylla mazzai","CoL","orig",4478,737
 "Siphonaptera","Tungidae","Hectopsylla","coniger",NA,NA,"species","Hectopsylla coniger","CoL","orig",4479,738
 "Siphonaptera","Tungidae","Hectopsylla","cypha",NA,NA,"species","Hectopsylla cypha","CoL","orig",4480,739
 "Siphonaptera","Tungidae","Hectopsylla","eskeyi",NA,NA,"species","Hectopsylla eskeyi","CoL","orig",4481,740
@@ -4485,7 +4485,7 @@
 "Siphonaptera","Tungidae","Hectopsylla","knighti",NA,NA,"species","Hectopsylla knighti","CoL","orig",4484,743
 "Siphonaptera","Tungidae","Hectopsylla","pascuali",NA,NA,"species","Hectopsylla pascuali","CoL","orig",4485,745
 "Siphonaptera","Tungidae","Hectopsylla","psittaci",NA,NA,"species","Hectopsylla psittaci","CoL","orig",4486,746
-"Siphonaptera",NA,"Hectoropsylla","testudo",NA,NA,"species","Hectoropsylla testudo","CoL","orig",4487,746
+"Siphonaptera","None","Hectoropsylla","testudo",NA,NA,"species","Hectoropsylla testudo","CoL","orig",4487,746
 "Siphonaptera","Tungidae","Hectopsylla","stomis",NA,NA,"species","Hectopsylla stomis","CoL","orig",4488,748
 "Siphonaptera","Tungidae","Hectopsylla","suarezi",NA,NA,"species","Hectopsylla suarezi","CoL","orig",4489,749
 "Siphonaptera","Ceratophyllidae","Hollandipsylla","neali",NA,NA,"species","Hollandipsylla neali","CoL","orig",4490,750
@@ -4548,32 +4548,32 @@
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","consimilis",NA,NA,"species","Ischnopsyllus consimilis","CoL","orig",4547,793
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","delectabilis",NA,NA,"species","Ischnopsyllus delectabilis","CoL","orig",4548,794
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","dolosus",NA,NA,"species","Ischnopsyllus dolosus","CoL","orig",4549,795
-"Siphonaptera",NA,"Hirtopsylla","teres",NA,NA,"species","Hirtopsylla teres","CoL","orig",4550,795
+"Siphonaptera","None","Hirtopsylla","teres",NA,NA,"species","Hirtopsylla teres","CoL","orig",4550,795
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","elongatus",NA,NA,"species","Ischnopsyllus elongatus","CoL","orig",4551,796
-"Siphonaptera",NA,"Hirtopsylla","subobscura",NA,NA,"species","Hirtopsylla subobscura","CoL","orig",4552,796
+"Siphonaptera","None","Hirtopsylla","subobscura",NA,NA,"species","Hirtopsylla subobscura","CoL","orig",4552,796
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","emminus",NA,NA,"species","Ischnopsyllus emminus","CoL","orig",4553,797
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","hellespontius",NA,NA,"species","Ischnopsyllus hellespontius","CoL","orig",4554,798
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","hexactenus",NA,NA,"species","Ischnopsyllus hexactenus","CoL","orig",4555,799
-"Siphonaptera",NA,"Hirtopsylla","bouchei",NA,NA,"species","Hirtopsylla bouchei","CoL","orig",4556,799
-"Siphonaptera",NA,"Hirtopsylla","kolenatii",NA,NA,"species","Hirtopsylla kolenatii","CoL","orig",4557,799
+"Siphonaptera","None","Hirtopsylla","bouchei",NA,NA,"species","Hirtopsylla bouchei","CoL","orig",4556,799
+"Siphonaptera","None","Hirtopsylla","kolenatii",NA,NA,"species","Hirtopsylla kolenatii","CoL","orig",4557,799
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","hispanicus",NA,NA,"species","Ischnopsyllus hispanicus","CoL","orig",4558,800
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","indicus",NA,NA,"species","Ischnopsyllus indicus","CoL","orig",4559,801
-"Siphonaptera",NA,"Hirtopsylla","tateishii",NA,NA,"species","Hirtopsylla tateishii","CoL","orig",4560,801
+"Siphonaptera","None","Hirtopsylla","tateishii",NA,NA,"species","Hirtopsylla tateishii","CoL","orig",4560,801
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","infratentus",NA,NA,"species","Ischnopsyllus infratentus","CoL","orig",4561,802
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","intermedius",NA,NA,"species","Ischnopsyllus intermedius","CoL","orig",4562,803
-"Siphonaptera",NA,"Hirtopsylla","wagneri",NA,NA,"species","Hirtopsylla wagneri","CoL","orig",4563,803
+"Siphonaptera","None","Hirtopsylla","wagneri",NA,NA,"species","Hirtopsylla wagneri","CoL","orig",4563,803
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","schmitzi (female)",NA,NA,"species","Ischnopsyllus schmitzi (female)","CoL","orig",4564,803
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","jinciensis",NA,NA,"species","Ischnopsyllus jinciensis","CoL","orig",4565,804
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","kilitbahricus",NA,NA,"species","Ischnopsyllus kilitbahricus","CoL","orig",4566,805
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","liae",NA,NA,"species","Ischnopsyllus liae","CoL","orig",4567,806
-"Siphonaptera",NA,"Hirtopsylla","liui",NA,NA,"species","Hirtopsylla liui","CoL","orig",4568,806
+"Siphonaptera","None","Hirtopsylla","liui",NA,NA,"species","Hirtopsylla liui","CoL","orig",4568,806
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","magnabulga",NA,NA,"species","Ischnopsyllus magnabulga","CoL","orig",4569,807
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","needhami",NA,NA,"species","Ischnopsyllus needhami","CoL","orig",4570,808
-"Siphonaptera",NA,"Hirtopsylla","wassilii",NA,NA,"species","Hirtopsylla wassilii","CoL","orig",4571,808
+"Siphonaptera","None","Hirtopsylla","wassilii",NA,NA,"species","Hirtopsylla wassilii","CoL","orig",4571,808
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","obscurus",NA,NA,"species","Ischnopsyllus obscurus","CoL","orig",4572,809
-"Siphonaptera",NA,"Hirtopsylla","brachystylus",NA,NA,"species","Hirtopsylla brachystylus","CoL","orig",4573,809
+"Siphonaptera","None","Hirtopsylla","brachystylus",NA,NA,"species","Hirtopsylla brachystylus","CoL","orig",4573,809
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","octactenus",NA,NA,"species","Ischnopsyllus octactenus","CoL","orig",4574,810
-"Siphonaptera",NA,"Hirtopsylla","jubata",NA,NA,"species","Hirtopsylla jubata","CoL","orig",4575,810
+"Siphonaptera","None","Hirtopsylla","jubata",NA,NA,"species","Hirtopsylla jubata","CoL","orig",4575,810
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","octactenus","decimpilata",NA,"subspecies","Ischnopsyllus octactenus decimpilata","CoL","orig",4576,810
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","peridolius",NA,NA,"species","Ischnopsyllus peridolius","CoL","orig",4577,811
 "Siphonaptera","Ischnopsyllidae","Ischnopsyllus","petropolitanus",NA,NA,"species","Ischnopsyllus petropolitanus","CoL","orig",4578,812
@@ -4660,10 +4660,10 @@
 "Siphonaptera","Leptopsyllidae","Leptopsylla","putoraki",NA,NA,"species","Leptopsylla putoraki","CoL","orig",4659,889
 "Siphonaptera","Leptopsyllidae","Leptopsylla","sciurobia",NA,NA,"species","Leptopsylla sciurobia","CoL","orig",4660,890
 "Siphonaptera","Leptopsyllidae","Leptopsylla","segnis",NA,NA,"species","Leptopsylla segnis","CoL","orig",4661,891
-"Siphonaptera",NA,"Typhlopsylla","bisbidentatus",NA,NA,"species","Typhlopsylla bisbidentatus","CoL","orig",4662,891
-"Siphonaptera",NA,"Typhlopsylla","mexicana",NA,NA,"species","Typhlopsylla mexicana","CoL","orig",4663,891
-"Siphonaptera",NA,"Typhlopsylla","musculi",NA,NA,"species","Typhlopsylla musculi","CoL","orig",4664,891
-"Siphonaptera",NA,"Typhlopsylla","quadridentatus",NA,NA,"species","Typhlopsylla quadridentatus","CoL","orig",4665,891
+"Siphonaptera","None","Typhlopsylla","bisbidentatus",NA,NA,"species","Typhlopsylla bisbidentatus","CoL","orig",4662,891
+"Siphonaptera","None","Typhlopsylla","mexicana",NA,NA,"species","Typhlopsylla mexicana","CoL","orig",4663,891
+"Siphonaptera","None","Typhlopsylla","musculi",NA,NA,"species","Typhlopsylla musculi","CoL","orig",4664,891
+"Siphonaptera","None","Typhlopsylla","quadridentatus",NA,NA,"species","Typhlopsylla quadridentatus","CoL","orig",4665,891
 "Siphonaptera","Leptopsyllidae","Leptopsylla","sexdentata",NA,NA,"species","Leptopsylla sexdentata","CoL","orig",4666,892
 "Siphonaptera","Leptopsyllidae","Leptopsylla","sicistae",NA,NA,"species","Leptopsylla sicistae","CoL","orig",4667,893
 "Siphonaptera","Leptopsyllidae","Leptopsylla","taschenbergi","amitina",NA,"subspecies","Leptopsylla taschenbergi amitina","CoL","orig",4668,2390
@@ -4733,7 +4733,7 @@
 "Siphonaptera","Ceratophyllidae","Macrostylophora","idonea",NA,NA,"species","Macrostylophora idonea","CoL","orig",4732,942
 "Siphonaptera","Ceratophyllidae","Macrostylophora","jingdongensis",NA,NA,"species","Macrostylophora jingdongensis","CoL","orig",4733,944
 "Siphonaptera","Ceratophyllidae","Macrostylophora","levis",NA,NA,"species","Macrostylophora levis","CoL","orig",4734,946
-"Siphonaptera",NA,"Neoceratophyllus","agathus",NA,NA,"species","Neoceratophyllus agathus","CoL","orig",4735,946
+"Siphonaptera","None","Neoceratophyllus","agathus",NA,NA,"species","Neoceratophyllus agathus","CoL","orig",4735,946
 "Siphonaptera","Ceratophyllidae","Macrostylophora","liae",NA,NA,"species","Macrostylophora liae","CoL","orig",4736,947
 "Siphonaptera","Ceratophyllidae","Macrostylophora","luchunensis",NA,NA,"species","Macrostylophora luchunensis","CoL","orig",4737,948
 "Siphonaptera","Ceratophyllidae","Macrostylophora","lupata","bamana",NA,"subspecies","Macrostylophora lupata bamana","CoL","orig",4738,2410
@@ -4833,18 +4833,18 @@
 "Siphonaptera","Hystrichopsyllidae","Meringis","agilis",NA,NA,"species","Meringis agilis","CoL","orig",4832,1013
 "Siphonaptera","Hystrichopsyllidae","Meringis","altipecten",NA,NA,"species","Meringis altipecten","CoL","orig",4833,1014
 "Siphonaptera","Hystrichopsyllidae","Meringis","arachis",NA,NA,"species","Meringis arachis","CoL","orig",4834,1015
-"Siphonaptera",NA,"Atheropsylla","cochisei",NA,NA,"species","Atheropsylla cochisei","CoL","orig",4835,1015
+"Siphonaptera","None","Atheropsylla","cochisei",NA,NA,"species","Atheropsylla cochisei","CoL","orig",4835,1015
 "Siphonaptera","Hystrichopsyllidae","Meringis","bilsingi",NA,NA,"species","Meringis bilsingi","CoL","orig",4836,1016
 "Siphonaptera","Hystrichopsyllidae","Meringis","californicus",NA,NA,"species","Meringis californicus","CoL","orig",4837,1017
 "Siphonaptera","Hystrichopsyllidae","Meringis","cummingi",NA,NA,"species","Meringis cummingi","CoL","orig",4838,1018
-"Siphonaptera",NA,"Atheropsylla","bakeri",NA,NA,"species","Atheropsylla bakeri","CoL","orig",4839,1018
+"Siphonaptera","None","Atheropsylla","bakeri",NA,NA,"species","Atheropsylla bakeri","CoL","orig",4839,1018
 "Siphonaptera","Hystrichopsyllidae","Meringis","deserti",NA,NA,"species","Meringis deserti","CoL","orig",4840,1019
 "Siphonaptera","Hystrichopsyllidae","Meringis","dipodomys",NA,NA,"species","Meringis dipodomys","CoL","orig",4841,1020
 "Siphonaptera","Hystrichopsyllidae","Meringis","disparalis",NA,NA,"species","Meringis disparalis","CoL","orig",4842,1021
 "Siphonaptera","Hystrichopsyllidae","Meringis","facilis",NA,NA,"species","Meringis facilis","CoL","orig",4843,1022
 "Siphonaptera","Hystrichopsyllidae","Meringis","hubbardi",NA,NA,"species","Meringis hubbardi","CoL","orig",4844,1023
-"Siphonaptera",NA,"Atheropsylla","jewetti",NA,NA,"species","Atheropsylla jewetti","CoL","orig",4845,1023
-"Siphonaptera",NA,"Atheropsylla","walkeri",NA,NA,"species","Atheropsylla walkeri","CoL","orig",4846,1023
+"Siphonaptera","None","Atheropsylla","jewetti",NA,NA,"species","Atheropsylla jewetti","CoL","orig",4845,1023
+"Siphonaptera","None","Atheropsylla","walkeri",NA,NA,"species","Atheropsylla walkeri","CoL","orig",4846,1023
 "Siphonaptera","Hystrichopsyllidae","Meringis","jamesoni",NA,NA,"species","Meringis jamesoni","CoL","orig",4847,1024
 "Siphonaptera","Hystrichopsyllidae","Meringis","nidi",NA,NA,"species","Meringis nidi","CoL","orig",4848,1025
 "Siphonaptera","Hystrichopsyllidae","Meringis","parkeri",NA,NA,"species","Meringis parkeri","CoL","orig",4849,1026
@@ -4888,21 +4888,21 @@
 "Siphonaptera","Ischnopsyllidae","Mitchella","truncata",NA,NA,"species","Mitchella truncata","CoL","orig",4887,1049
 "Siphonaptera","Pulicidae","Moeopsylla","sjoestedti",NA,NA,"species","Moeopsylla sjoestedti","CoL","orig",4888,1050
 "Siphonaptera","Ceratophyllidae","Monopsyllus","anisus",NA,NA,"species","Monopsyllus anisus","CoL","orig",4889,1051
-"Siphonaptera",NA,"Concavopsylla","caracoi",NA,NA,"species","Concavopsylla caracoi","CoL","orig",4890,1051
-"Siphonaptera",NA,"Concavopsylla","siana",NA,NA,"species","Concavopsylla siana","CoL","orig",4891,1051
+"Siphonaptera","None","Concavopsylla","caracoi",NA,NA,"species","Concavopsylla caracoi","CoL","orig",4890,1051
+"Siphonaptera","None","Concavopsylla","siana",NA,NA,"species","Concavopsylla siana","CoL","orig",4891,1051
 "Siphonaptera","Ceratophyllidae","Monopsyllus","argus",NA,NA,"species","Monopsyllus argus","CoL","orig",4892,1052
-"Siphonaptera",NA,"Concavopsylla","momonga",NA,NA,"species","Concavopsylla momonga","CoL","orig",4893,1052
+"Siphonaptera","None","Concavopsylla","momonga",NA,NA,"species","Concavopsylla momonga","CoL","orig",4893,1052
 "Siphonaptera","Ceratophyllidae","Monopsyllus","fengi",NA,NA,"species","Monopsyllus fengi","CoL","orig",4894,1053
 "Siphonaptera","Ceratophyllidae","Monopsyllus","forficus",NA,NA,"species","Monopsyllus forficus","CoL","orig",4895,1054
 "Siphonaptera","Ceratophyllidae","Monopsyllus","hamutus",NA,NA,"species","Monopsyllus hamutus","CoL","orig",4896,1055
 "Siphonaptera","Ceratophyllidae","Monopsyllus","indages",NA,NA,"species","Monopsyllus indages","CoL","orig",4897,1056
-"Siphonaptera",NA,"Concavopsylla","pteromydis",NA,NA,"species","Concavopsylla pteromydis","CoL","orig",4898,1056
-"Siphonaptera",NA,"Concavopsylla","tamias",NA,NA,"species","Concavopsylla tamias","CoL","orig",4899,1056
+"Siphonaptera","None","Concavopsylla","pteromydis",NA,NA,"species","Concavopsylla pteromydis","CoL","orig",4898,1056
+"Siphonaptera","None","Concavopsylla","tamias",NA,NA,"species","Concavopsylla tamias","CoL","orig",4899,1056
 "Siphonaptera","Ceratophyllidae","Monopsyllus","liae",NA,NA,"species","Monopsyllus liae","CoL","orig",4900,1057
 "Siphonaptera","Ceratophyllidae","Monopsyllus","paradoxus",NA,NA,"species","Monopsyllus paradoxus","CoL","orig",4901,1058
 "Siphonaptera","Ceratophyllidae","Monopsyllus","sciurorum",NA,NA,"species","Monopsyllus sciurorum","CoL","orig",4902,2439
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","sciurorum","dryas",NA,"subspecies","Ceratophyllus sciurorum dryas","CoL","orig",4903,2439
-"Siphonaptera",NA,"Concavopsylla","palumbi",NA,NA,"species","Concavopsylla palumbi","CoL","orig",4904,2439
+"Siphonaptera","None","Concavopsylla","palumbi",NA,NA,"species","Concavopsylla palumbi","CoL","orig",4904,2439
 "Siphonaptera","Ceratophyllidae","Monopsyllus","sciurorum","asiaticus",NA,"subspecies","Monopsyllus sciurorum asiaticus","CoL","orig",4905,2438
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","sciurorum","affinis",NA,"subspecies","Ceratophyllus sciurorum affinis","CoL","orig",4906,2438
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","sciurorum","cophinus",NA,"subspecies","Ceratophyllus sciurorum cophinus","CoL","orig",4907,2438
@@ -4910,25 +4910,25 @@
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","sciurorum","bolivari",NA,"subspecies","Ceratophyllus sciurorum bolivari","CoL","orig",4909,2439
 "Siphonaptera","Ceratophyllidae","Monopsyllus","vison",NA,NA,"species","Monopsyllus vison","CoL","orig",4910,1059
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","vison","reeheri",NA,"subspecies","Ceratophyllus vison reeheri","CoL","orig",4911,1059
-"Siphonaptera",NA,"Concavopsylla","lucidus",NA,NA,"species","Concavopsylla lucidus","CoL","orig",4912,1059
+"Siphonaptera","None","Concavopsylla","lucidus",NA,NA,"species","Concavopsylla lucidus","CoL","orig",4912,1059
 "Siphonaptera","Ceratophyllidae","Monopsyllus","yamane",NA,NA,"species","Monopsyllus yamane","CoL","orig",4913,1060
 "Siphonaptera","Stivaliidae","Muesebeckella","mannae",NA,NA,"species","Muesebeckella mannae","CoL","orig",4914,1061
 "Siphonaptera","Stivaliidae","Muesebeckella","nadi",NA,NA,"species","Muesebeckella nadi","CoL","orig",4915,1062
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","borealis",NA,NA,"species","Myodopsylla borealis","CoL","orig",4916,1069
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","collinsi",NA,NA,"species","Myodopsylla collinsi","CoL","orig",4917,1070
-"Siphonaptera",NA,"Myodopsylloides","diasi",NA,NA,"species","Myodopsylloides diasi","CoL","orig",4918,1070
+"Siphonaptera","None","Myodopsylloides","diasi",NA,NA,"species","Myodopsylloides diasi","CoL","orig",4918,1070
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","gentilis",NA,NA,"species","Myodopsylla gentilis","CoL","orig",4919,1071
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","globata",NA,NA,"species","Myodopsylla globata","CoL","orig",4920,1072
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","insignis",NA,NA,"species","Myodopsylla insignis","CoL","orig",4921,1073
-"Siphonaptera",NA,"Myodopsylloides","crosbyi",NA,NA,"species","Myodopsylloides crosbyi","CoL","orig",4922,1073
-"Siphonaptera",NA,"Myodopsylloides","subulata",NA,NA,"species","Myodopsylloides subulata","CoL","orig",4923,1073
+"Siphonaptera","None","Myodopsylloides","crosbyi",NA,NA,"species","Myodopsylloides crosbyi","CoL","orig",4922,1073
+"Siphonaptera","None","Myodopsylloides","subulata",NA,NA,"species","Myodopsylloides subulata","CoL","orig",4923,1073
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","isidori",NA,NA,"species","Myodopsylla isidori","CoL","orig",4924,1074
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","nordina",NA,NA,"species","Myodopsylla nordina","CoL","orig",4925,1075
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","palposa",NA,NA,"species","Myodopsylla palposa","CoL","orig",4926,1076
-"Siphonaptera",NA,"Myodopsylloides","piercei",NA,NA,"species","Myodopsylloides piercei","CoL","orig",4927,1076
+"Siphonaptera","None","Myodopsylloides","piercei",NA,NA,"species","Myodopsylloides piercei","CoL","orig",4927,1076
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","setosa",NA,NA,"species","Myodopsylla setosa","CoL","orig",4928,1077
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","trisellis",NA,NA,"species","Myodopsylla trisellis","CoL","orig",4929,1078
-"Siphonaptera",NA,"Myodopsylloides","rossica",NA,NA,"species","Myodopsylloides rossica","CoL","orig",4930,1078
+"Siphonaptera","None","Myodopsylloides","rossica",NA,NA,"species","Myodopsylloides rossica","CoL","orig",4930,1078
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","tropica",NA,NA,"species","Myodopsylla tropica","CoL","orig",4931,1079
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","wolffsohni","salvasis",NA,"subspecies","Myodopsylla wolffsohni salvasis","CoL","orig",4932,2440
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","wolffsohni","wolffsohni",NA,"subspecies","Myodopsylla wolffsohni wolffsohni","CoL","orig",4933,2441
@@ -5144,7 +5144,7 @@
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","eusarca",NA,NA,"species","Nycteridopsylla eusarca","CoL","orig",5143,1199
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","eusarca","major",NA,"subspecies","Nycteridopsylla eusarca major","CoL","orig",5144,1199
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","galba",NA,NA,"species","Nycteridopsylla galba","CoL","orig",5145,1200
-"Siphonaptera",NA,"Typhlopsylla","wui",NA,NA,"species","Typhlopsylla wui","CoL","orig",5146,1200
+"Siphonaptera","None","Typhlopsylla","wui",NA,NA,"species","Typhlopsylla wui","CoL","orig",5146,1200
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","iae",NA,NA,"species","Nycteridopsylla iae","CoL","orig",5147,1201
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","intermedia",NA,NA,"species","Nycteridopsylla intermedia","CoL","orig",5148,1202
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","levantina",NA,NA,"species","Nycteridopsylla levantina","CoL","orig",5149,1203
@@ -5153,7 +5153,7 @@
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","nipopo",NA,NA,"species","Nycteridopsylla nipopo","CoL","orig",5152,1206
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","oligochaeta",NA,NA,"species","Nycteridopsylla oligochaeta","CoL","orig",5153,1207
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","pentactena",NA,NA,"species","Nycteridopsylla pentactena","CoL","orig",5154,1208
-"Siphonaptera",NA,"Typhlopsylla","tetractenus",NA,NA,"species","Typhlopsylla tetractenus","CoL","orig",5155,1208
+"Siphonaptera","None","Typhlopsylla","tetractenus",NA,NA,"species","Typhlopsylla tetractenus","CoL","orig",5155,1208
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","quadrispina",NA,NA,"species","Nycteridopsylla quadrispina","CoL","orig",5156,1201
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","sakagutii",NA,NA,"species","Nycteridopsylla sakagutii","CoL","orig",5157,1209
 "Siphonaptera","Ischnopsyllidae","Nycteridopsylla","singula",NA,NA,"species","Nycteridopsylla singula","CoL","orig",5158,1210
@@ -5210,17 +5210,17 @@
 "Siphonaptera","Ceratophyllidae","Orchopeas","dieteri",NA,NA,"species","Orchopeas dieteri","CoL","orig",5209,1241
 "Siphonaptera","Ceratophyllidae","Orchopeas","fulleri",NA,NA,"species","Orchopeas fulleri","CoL","orig",5210,1242
 "Siphonaptera","Ceratophyllidae","Orchopeas","howardi",NA,NA,"species","Orchopeas howardi","CoL","orig",5211,1243
-"Siphonaptera",NA,"Bakerella","gillettei",NA,NA,"species","Bakerella gillettei","CoL","orig",5212,1243
-"Siphonaptera",NA,"Bakerella","simulans",NA,NA,"species","Bakerella simulans","CoL","orig",5213,1243
-"Siphonaptera",NA,"Bakerella","wickhami",NA,NA,"species","Bakerella wickhami","CoL","orig",5214,1243
+"Siphonaptera","None","Bakerella","gillettei",NA,NA,"species","Bakerella gillettei","CoL","orig",5212,1243
+"Siphonaptera","None","Bakerella","simulans",NA,NA,"species","Bakerella simulans","CoL","orig",5213,1243
+"Siphonaptera","None","Bakerella","wickhami",NA,NA,"species","Bakerella wickhami","CoL","orig",5214,1243
 "Siphonaptera","Ceratophyllidae","Orchopeas","illinoiensis",NA,NA,"species","Orchopeas illinoiensis","CoL","orig",5215,1244
 "Siphonaptera","Ceratophyllidae","Orchopeas","latens",NA,NA,"species","Orchopeas latens","CoL","orig",5216,1246
 "Siphonaptera","Ceratophyllidae","Orchopeas","leucopus",NA,NA,"species","Orchopeas leucopus","CoL","orig",5217,1247
-"Siphonaptera",NA,"Bakerella","aeger",NA,NA,"species","Bakerella aeger","CoL","orig",5218,1247
+"Siphonaptera","None","Bakerella","aeger",NA,NA,"species","Bakerella aeger","CoL","orig",5218,1247
 "Siphonaptera","Ceratophyllidae","Orchopeas","neotomae",NA,NA,"species","Orchopeas neotomae","CoL","orig",5219,1248
 "Siphonaptera","Ceratophyllidae","Orchopeas","nepos",NA,NA,"species","Orchopeas nepos","CoL","orig",5220,1249
 "Siphonaptera","Ceratophyllidae","Orchopeas","sexdentatus",NA,NA,"species","Orchopeas sexdentatus","CoL","orig",5221,1252
-"Siphonaptera",NA,"Bakerella","reevesi",NA,NA,"species","Bakerella reevesi","CoL","orig",5222,1252
+"Siphonaptera","None","Bakerella","reevesi",NA,NA,"species","Bakerella reevesi","CoL","orig",5222,1252
 "Siphonaptera","Leptopsyllidae","Ornithophaga","anomala","anomala",NA,"subspecies","Ornithophaga anomala anomala","CoL","orig",5223,2536
 "Siphonaptera","Leptopsyllidae","Ornithophaga","anomala",NA,NA,"species","Ornithophaga anomala","CoL","orig",5224,2536
 "Siphonaptera","Leptopsyllidae","Ornithophaga","nearctica",NA,NA,"species","Ornithophaga nearctica","CoL","orig",5225,2536
@@ -5231,24 +5231,24 @@
 "Siphonaptera","Ceratophyllidae","Oropsylla","alaskensis","alaskensis",NA,"subspecies","Oropsylla alaskensis alaskensis","CoL","orig",5230,2538
 "Siphonaptera","Ceratophyllidae","Oropsylla","alaskensis","qinghaiensis",NA,"subspecies","Oropsylla alaskensis qinghaiensis","CoL","orig",5231,2539
 "Siphonaptera","Ceratophyllidae","Oropsylla","arctomys",NA,NA,"species","Oropsylla arctomys","CoL","orig",5232,1256
-"Siphonaptera",NA,"Aethopsylla","septentrionalis",NA,NA,"species","Aethopsylla septentrionalis","CoL","orig",5233,1256
+"Siphonaptera","None","Aethopsylla","septentrionalis",NA,NA,"species","Aethopsylla septentrionalis","CoL","orig",5233,1256
 "Siphonaptera","Ceratophyllidae","Oropsylla","bruneri",NA,NA,"species","Oropsylla bruneri","CoL","orig",5234,1257
-"Siphonaptera",NA,"Aethopsylla","saundersi",NA,NA,"species","Aethopsylla saundersi","CoL","orig",5235,1257
+"Siphonaptera","None","Aethopsylla","saundersi",NA,NA,"species","Aethopsylla saundersi","CoL","orig",5235,1257
 "Siphonaptera","Ceratophyllidae","Oropsylla","hirsuta",NA,NA,"species","Oropsylla hirsuta","CoL","orig",5236,1258
 "Siphonaptera","Ceratophyllidae","Oropsylla","idahoensis",NA,NA,"species","Oropsylla idahoensis","CoL","orig",5237,1259
-"Siphonaptera",NA,"Aethopsylla","bertholfi",NA,NA,"species","Aethopsylla bertholfi","CoL","orig",5238,1259
-"Siphonaptera",NA,"Aethopsylla","poeantis",NA,NA,"species","Aethopsylla poeantis","CoL","orig",5239,1259
+"Siphonaptera","None","Aethopsylla","bertholfi",NA,NA,"species","Aethopsylla bertholfi","CoL","orig",5238,1259
+"Siphonaptera","None","Aethopsylla","poeantis",NA,NA,"species","Aethopsylla poeantis","CoL","orig",5239,1259
 "Siphonaptera","Ceratophyllidae","Oropsylla","ilovaiskii",NA,NA,"species","Oropsylla ilovaiskii","CoL","orig",5240,1260
 "Siphonaptera","Ceratophyllidae","Oropsylla","labis",NA,NA,"species","Oropsylla labis","CoL","orig",5241,1261
 "Siphonaptera","Ceratophyllidae","Oropsylla","montana",NA,NA,"species","Oropsylla montana","CoL","orig",5242,1262
-"Siphonaptera",NA,"Aethopsylla","acutus",NA,NA,"species","Aethopsylla acutus","CoL","orig",5243,1262
-"Siphonaptera",NA,"Aethopsylla","hopkinsi",NA,NA,"species","Aethopsylla hopkinsi","CoL","orig",5244,1262
+"Siphonaptera","None","Aethopsylla","acutus",NA,NA,"species","Aethopsylla acutus","CoL","orig",5243,1262
+"Siphonaptera","None","Aethopsylla","hopkinsi",NA,NA,"species","Aethopsylla hopkinsi","CoL","orig",5244,1262
 "Siphonaptera","Ceratophyllidae","Oropsylla","montana","mandarina",NA,"subspecies","Oropsylla montana mandarina","CoL","orig",5245,1262
 "Siphonaptera","Ceratophyllidae","Oropsylla","oregonensis",NA,NA,"species","Oropsylla oregonensis","CoL","orig",5246,1263
 "Siphonaptera","Ceratophyllidae","Oropsylla","rupestris",NA,NA,"species","Oropsylla rupestris","CoL","orig",5247,1264
 "Siphonaptera","Ceratophyllidae","Oropsylla","silantiewi",NA,NA,"species","Oropsylla silantiewi","CoL","orig",5248,1265
-"Siphonaptera",NA,"Aethopsylla","crassus",NA,NA,"species","Aethopsylla crassus","CoL","orig",5249,1265
-"Siphonaptera",NA,"Aethopsylla","segregatus",NA,NA,"species","Aethopsylla segregatus","CoL","orig",5250,1265
+"Siphonaptera","None","Aethopsylla","crassus",NA,NA,"species","Aethopsylla crassus","CoL","orig",5249,1265
+"Siphonaptera","None","Aethopsylla","segregatus",NA,NA,"species","Aethopsylla segregatus","CoL","orig",5250,1265
 "Siphonaptera","Ceratophyllidae","Oropsylla","silantiewi","weisskei",NA,"subspecies","Oropsylla silantiewi weisskei","CoL","orig",5251,1265
 "Siphonaptera","Ceratophyllidae","Oropsylla","tapina",NA,NA,"species","Oropsylla tapina","CoL","orig",5252,1266
 "Siphonaptera","Ceratophyllidae","Oropsylla","tuberculata",NA,NA,"species","Oropsylla tuberculata","CoL","orig",5253,1267
@@ -5290,7 +5290,7 @@
 "Siphonaptera","Hystrichopsyllidae","Palaeopsylla","medimina",NA,NA,"species","Palaeopsylla medimina","CoL","orig",5289,1313
 "Siphonaptera","Hystrichopsyllidae","Palaeopsylla","minor",NA,NA,"species","Palaeopsylla minor","CoL","orig",5290,1314
 "Siphonaptera","Hystrichopsyllidae","Palaeopsylla","minor","cornubiensis",NA,"subspecies","Palaeopsylla minor cornubiensis","CoL","orig",5291,1314
-"Siphonaptera",NA,"Typhlopsylla","gracillis",NA,NA,"species","Typhlopsylla gracillis","CoL","orig",5292,1314
+"Siphonaptera","None","Typhlopsylla","gracillis",NA,NA,"species","Typhlopsylla gracillis","CoL","orig",5292,1314
 "Siphonaptera","Hystrichopsyllidae","Palaeopsylla","miranda",NA,NA,"species","Palaeopsylla miranda","CoL","orig",5293,1315
 "Siphonaptera","Hystrichopsyllidae","Palaeopsylla","miyama",NA,NA,"species","Palaeopsylla miyama","CoL","orig",5294,1316
 "Siphonaptera","Hystrichopsyllidae","Palaeopsylla","mogura",NA,NA,"species","Palaeopsylla mogura","CoL","orig",5295,1317
@@ -5762,10 +5762,10 @@
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","lutzi","cleophontis",NA,"subspecies","Rhopalopsyllus lutzi cleophontis","CoL","orig",5761,2628
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","lutzi","lutzi",NA,"subspecies","Rhopalopsyllus lutzi lutzi","CoL","orig",5762,2629
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","saevus",NA,NA,"species","Rhopalopsyllus saevus","CoL","orig",5763,1676
-"Siphonaptera",NA,"Rothschildella","coxi",NA,NA,"species","Rothschildella coxi","CoL","orig",5764,1676
+"Siphonaptera","None","Rothschildella","coxi",NA,NA,"species","Rothschildella coxi","CoL","orig",5764,1676
 "Siphonaptera","Tungidae","Rhynchopsyllus","pulex",NA,NA,"species","Rhynchopsyllus pulex","CoL","orig",5765,747
-"Siphonaptera",NA,"Maxilliopsylla","lilloi",NA,NA,"species","Maxilliopsylla lilloi","CoL","orig",5766,747
-"Siphonaptera",NA,"Maxilliopsylla","megastigmata",NA,NA,"species","Maxilliopsylla megastigmata","CoL","orig",5767,747
+"Siphonaptera","None","Maxilliopsylla","lilloi",NA,NA,"species","Maxilliopsylla lilloi","CoL","orig",5766,747
+"Siphonaptera","None","Maxilliopsylla","megastigmata",NA,NA,"species","Maxilliopsylla megastigmata","CoL","orig",5767,747
 "Siphonaptera","Ceratophyllidae","Rostropsylla","daca",NA,NA,"species","Rostropsylla daca","CoL","orig",5768,1678
 "Siphonaptera","Hystrichopsyllidae","Rothschildiana","kopsteini",NA,NA,"species","Rothschildiana kopsteini","CoL","orig",5769,1679
 "Siphonaptera","Hystrichopsyllidae","Rothschildiana","smiti",NA,NA,"species","Rothschildiana smiti","CoL","orig",5770,1680
@@ -5817,7 +5817,7 @@
 "Siphonaptera","Hystrichopsyllidae","Stenischia","wui",NA,NA,"species","Stenischia wui","CoL","orig",5816,1727
 "Siphonaptera","Hystrichopsyllidae","Stenischia","xiei",NA,NA,"species","Stenischia xiei","CoL","orig",5817,1728
 "Siphonaptera","Hystrichopsyllidae","Stenistomera","alpina",NA,NA,"species","Stenistomera alpina","CoL","orig",5818,1729
-"Siphonaptera",NA,"Miochaeta","mohavensis",NA,NA,"species","Miochaeta mohavensis","CoL","orig",5819,1729
+"Siphonaptera","None","Miochaeta","mohavensis",NA,NA,"species","Miochaeta mohavensis","CoL","orig",5819,1729
 "Siphonaptera","Hystrichopsyllidae","Stenistomera","hubbardi",NA,NA,"species","Stenistomera hubbardi","CoL","orig",5820,1730
 "Siphonaptera","Hystrichopsyllidae","Stenistomera","macrodactyla",NA,NA,"species","Stenistomera macrodactyla","CoL","orig",5821,1731
 "Siphonaptera","Hystrichopsyllidae","Stenoponia","americana",NA,NA,"species","Stenoponia americana","CoL","orig",5822,1732
@@ -5850,7 +5850,7 @@
 "Siphonaptera","Stephanocircidae","Stephanocircus","simsoni",NA,NA,"species","Stephanocircus simsoni","CoL","orig",5849,1756
 "Siphonaptera","Macropsyllidae","Stephanopsylla","thomasi",NA,NA,"species","Stephanopsylla thomasi","CoL","orig",5850,1757
 "Siphonaptera","Ischnopsyllidae","Sternopsylla","distincta",NA,NA,"species","Sternopsylla distincta","CoL","orig",5851,2646
-"Siphonaptera",NA,"Aptilopsylla","carlsbadensis",NA,NA,"species","Aptilopsylla carlsbadensis","CoL","orig",5852,2646
+"Siphonaptera","None","Aptilopsylla","carlsbadensis",NA,NA,"species","Aptilopsylla carlsbadensis","CoL","orig",5852,2646
 "Siphonaptera","Ischnopsyllidae","Sternopsylla","distincta","distincta",NA,"subspecies","Sternopsylla distincta distincta","CoL","orig",5853,2644
 "Siphonaptera","Ischnopsyllidae","Sternopsylla","distincta","speciosa",NA,"subspecies","Sternopsylla distincta speciosa","CoL","orig",5854,2645
 "Siphonaptera","Ischnopsyllidae","Sternopsylla","distincta","texana",NA,"subspecies","Sternopsylla distincta texana","CoL","orig",5855,2646
@@ -5894,8 +5894,8 @@
 "Siphonaptera","Hystrichopsyllidae","Tamiophila","grandis",NA,NA,"species","Tamiophila grandis","CoL","orig",5893,1795
 "Siphonaptera","Hystrichopsyllidae","Tamiophila","striata",NA,NA,"species","Tamiophila striata","CoL","orig",5894,1795
 "Siphonaptera","Ceratophyllidae","Tarsopsylla","octodecimdentata",NA,NA,"species","Tarsopsylla octodecimdentata","CoL","orig",5895,1796
-"Siphonaptera",NA,"Ctenonotus","jellisoni (male)",NA,NA,"species","Ctenonotus jellisoni (male)","CoL","orig",5896,1796
-"Siphonaptera",NA,"Ctenonotus","uralensis",NA,NA,"species","Ctenonotus uralensis","CoL","orig",5897,1796
+"Siphonaptera","None","Ctenonotus","jellisoni (male)",NA,NA,"species","Ctenonotus jellisoni (male)","CoL","orig",5896,1796
+"Siphonaptera","None","Ctenonotus","uralensis",NA,NA,"species","Ctenonotus uralensis","CoL","orig",5897,1796
 "Siphonaptera","Rhopalopsyllidae","Tetrapsyllus","amplus",NA,NA,"species","Tetrapsyllus amplus","CoL","orig",5898,1797
 "Siphonaptera","Rhopalopsyllidae","Tetrapsyllus","bleptus",NA,NA,"species","Tetrapsyllus bleptus","CoL","orig",5899,1798
 "Siphonaptera","Rhopalopsyllidae","Tetrapsyllus","comis",NA,NA,"species","Tetrapsyllus comis","CoL","orig",5900,1799
@@ -5917,8 +5917,8 @@
 "Siphonaptera","Ceratophyllidae","Thrassis","aridis","arcuatus",NA,"subspecies","Thrassis aridis arcuatus","CoL","orig",5916,1814
 "Siphonaptera","Ceratophyllidae","Thrassis","aridis",NA,NA,"species","Thrassis aridis","CoL","orig",5917,1814
 "Siphonaptera","Ceratophyllidae","Thrassis","arizonensis",NA,NA,"species","Thrassis arizonensis","CoL","orig",5918,1815
-"Siphonaptera",NA,"Nomadopsylla","desertorum",NA,NA,"species","Nomadopsylla desertorum","CoL","orig",5919,1815
-"Siphonaptera",NA,"Nomadopsylla","proximus",NA,NA,"species","Nomadopsylla proximus","CoL","orig",5920,1815
+"Siphonaptera","None","Nomadopsylla","desertorum",NA,NA,"species","Nomadopsylla desertorum","CoL","orig",5919,1815
+"Siphonaptera","None","Nomadopsylla","proximus",NA,NA,"species","Nomadopsylla proximus","CoL","orig",5920,1815
 "Siphonaptera","Ceratophyllidae","Thrassis","arizonensis","littoris",NA,"subspecies","Thrassis arizonensis littoris","CoL","orig",5921,1815
 "Siphonaptera","Ceratophyllidae","Thrassis","augustsoni",NA,NA,"species","Thrassis augustsoni","CoL","orig",5922,1816
 "Siphonaptera","Ceratophyllidae","Thrassis","bacchi",NA,NA,"species","Thrassis bacchi","CoL","orig",5923,1817
@@ -5931,7 +5931,7 @@
 "Siphonaptera","Ceratophyllidae","Thrassis","petiolatus",NA,NA,"species","Thrassis petiolatus","CoL","orig",5930,1821
 "Siphonaptera","Ceratophyllidae","Thrassis","spenceri","alpinus",NA,"subspecies","Thrassis spenceri alpinus","CoL","orig",5931,1822
 "Siphonaptera","Ceratophyllidae","Thrassis","spenceri",NA,NA,"species","Thrassis spenceri","CoL","orig",5932,1822
-"Siphonaptera",NA,"Nomadopsylla","fousti",NA,NA,"species","Nomadopsylla fousti","CoL","orig",5933,1822
+"Siphonaptera","None","Nomadopsylla","fousti",NA,NA,"species","Nomadopsylla fousti","CoL","orig",5933,1822
 "Siphonaptera","Ceratophyllidae","Thrassis","spenceri","vancouverensis",NA,"subspecies","Thrassis spenceri vancouverensis","CoL","orig",5934,1822
 "Siphonaptera","Ceratophyllidae","Thrassis","stanfordi",NA,NA,"species","Thrassis stanfordi","CoL","orig",5935,1823
 "Siphonaptera","Rhopalopsyllidae","Tiamastus","callens",NA,NA,"species","Tiamastus callens","CoL","orig",5936,1824
@@ -5956,17 +5956,17 @@
 "Siphonaptera","Stivaliidae","Traubia","peristigma",NA,NA,"species","Traubia peristigma","CoL","orig",5955,1845
 "Siphonaptera","Stivaliidae","Traubia","vandeuseni",NA,NA,"species","Traubia vandeuseni","CoL","orig",5956,1849
 "Siphonaptera","Hystrichopsyllidae","Trichopsylloides","oregonensis",NA,NA,"species","Trichopsylloides oregonensis","CoL","orig",5957,1851
-"Siphonaptera",NA,"Phaneris","hubbardi",NA,NA,"species","Phaneris hubbardi","CoL","orig",5958,1851
+"Siphonaptera","None","Phaneris","hubbardi",NA,NA,"species","Phaneris hubbardi","CoL","orig",5958,1851
 "Siphonaptera","Leptopsyllidae","Tsaractenus","rodhaini",NA,NA,"species","Tsaractenus rodhaini","CoL","orig",5959,1855
 "Siphonaptera","Tungidae","Tunga","bondari",NA,NA,"species","Tunga bondari","CoL","orig",5960,1856
 "Siphonaptera","Tungidae","Tunga","caecata",NA,NA,"species","Tunga caecata","CoL","orig",5961,1859
 "Siphonaptera","Tungidae","Tunga","caecigena",NA,NA,"species","Tunga caecigena","CoL","orig",5962,1860
-"Siphonaptera",NA,"Rhynchoprion","lagrangei",NA,NA,"species","Rhynchoprion lagrangei","CoL","orig",5963,1860
+"Siphonaptera","None","Rhynchoprion","lagrangei",NA,NA,"species","Rhynchoprion lagrangei","CoL","orig",5963,1860
 "Siphonaptera","Tungidae","Tunga","callida",NA,NA,"species","Tunga callida","CoL","orig",5964,1861
 "Siphonaptera","Tungidae","Tunga","libis",NA,NA,"species","Tunga libis","CoL","orig",5965,1863
 "Siphonaptera","Tungidae","Tunga","monositus",NA,NA,"species","Tunga monositus","CoL","orig",5966,1864
 "Siphonaptera","Tungidae","Tunga","penetrans",NA,NA,"species","Tunga penetrans","CoL","orig",5967,1865
-"Siphonaptera",NA,"Rhynchoprion","reptans",NA,NA,"species","Rhynchoprion reptans","CoL","orig",5968,1865
+"Siphonaptera","None","Rhynchoprion","reptans",NA,NA,"species","Rhynchoprion reptans","CoL","orig",5968,1865
 "Siphonaptera","Tungidae","Tunga","terasma",NA,NA,"species","Tunga terasma","CoL","orig",5969,1867
 "Siphonaptera","Tungidae","Tunga","travassosi",NA,NA,"species","Tunga travassosi","CoL","orig",5970,1868
 "Siphonaptera","Hystrichopsyllidae","Typhloceras","favosum","asunicum",NA,"subspecies","Typhloceras favosum asunicum","CoL","orig",5971,2657
@@ -6023,13 +6023,13 @@
 "Siphonaptera","Pulicidae","Xenopsylla","bechuanae",NA,NA,"species","Xenopsylla bechuanae","CoL","orig",6022,1900
 "Siphonaptera","Pulicidae","Xenopsylla","blanci",NA,NA,"species","Xenopsylla blanci","CoL","orig",6023,1901
 "Siphonaptera","Pulicidae","Xenopsylla","brasiliensis",NA,NA,"species","Xenopsylla brasiliensis","CoL","orig",6024,1902
-"Siphonaptera",NA,"Alaopsylla","vigetus",NA,NA,"species","Alaopsylla vigetus","CoL","orig",6025,1902
+"Siphonaptera","None","Alaopsylla","vigetus",NA,NA,"species","Alaopsylla vigetus","CoL","orig",6025,1902
 "Siphonaptera","Pulicidae","Xenopsylla","buxtoni",NA,NA,"species","Xenopsylla buxtoni","CoL","orig",6026,1903
 "Siphonaptera","Pulicidae","Xenopsylla","cheopis",NA,NA,"species","Xenopsylla cheopis","CoL","orig",6027,2676
-"Siphonaptera",NA,"Alaopsylla","murinus",NA,NA,"species","Alaopsylla murinus","CoL","orig",6028,2676
-"Siphonaptera",NA,"Alaopsylla","pachyuromyidis",NA,NA,"species","Alaopsylla pachyuromyidis","CoL","orig",6029,2676
-"Siphonaptera",NA,"Alaopsylla","philippinensis",NA,NA,"species","Alaopsylla philippinensis","CoL","orig",6030,2676
-"Siphonaptera",NA,"Alaopsylla","tripolitanus",NA,NA,"species","Alaopsylla tripolitanus","CoL","orig",6031,2676
+"Siphonaptera","None","Alaopsylla","murinus",NA,NA,"species","Alaopsylla murinus","CoL","orig",6028,2676
+"Siphonaptera","None","Alaopsylla","pachyuromyidis",NA,NA,"species","Alaopsylla pachyuromyidis","CoL","orig",6029,2676
+"Siphonaptera","None","Alaopsylla","philippinensis",NA,NA,"species","Alaopsylla philippinensis","CoL","orig",6030,2676
+"Siphonaptera","None","Alaopsylla","tripolitanus",NA,NA,"species","Alaopsylla tripolitanus","CoL","orig",6031,2676
 "Siphonaptera","Pulicidae","Xenopsylla","cheopis","cheopis",NA,"subspecies","Xenopsylla cheopis cheopis","CoL","orig",6032,2676
 "Siphonaptera","Pulicidae","Xenopsylla","conformis","conformis",NA,"subspecies","Xenopsylla conformis conformis","CoL","orig",6033,2677
 "Siphonaptera","Pulicidae","Xenopsylla","conformis","dipodis",NA,"subspecies","Xenopsylla conformis dipodis","CoL","orig",6034,2678
@@ -6046,7 +6046,7 @@
 "Siphonaptera","Pulicidae","Xenopsylla","difficilis",NA,NA,"species","Xenopsylla difficilis","CoL","orig",6045,1913
 "Siphonaptera","Pulicidae","Xenopsylla","dipodilli",NA,NA,"species","Xenopsylla dipodilli","CoL","orig",6046,1914
 "Siphonaptera","Pulicidae","Xenopsylla","eridos",NA,NA,"species","Xenopsylla eridos","CoL","orig",6047,1915
-"Siphonaptera",NA,"Alaopsylla","pasiphae",NA,NA,"species","Alaopsylla pasiphae","CoL","orig",6048,1915
+"Siphonaptera","None","Alaopsylla","pasiphae",NA,NA,"species","Alaopsylla pasiphae","CoL","orig",6048,1915
 "Siphonaptera","Pulicidae","Xenopsylla","erilli",NA,NA,"species","Xenopsylla erilli","CoL","orig",6049,1916
 "Siphonaptera","Pulicidae","Xenopsylla","frayi",NA,NA,"species","Xenopsylla frayi","CoL","orig",6050,1917
 "Siphonaptera","Pulicidae","Xenopsylla","geldenhuysi",NA,NA,"species","Xenopsylla geldenhuysi","CoL","orig",6051,1918
@@ -6065,7 +6065,7 @@
 "Siphonaptera","Pulicidae","Xenopsylla","hirtipes",NA,NA,"species","Xenopsylla hirtipes","CoL","orig",6064,1925
 "Siphonaptera","Pulicidae","Xenopsylla","humilis",NA,NA,"species","Xenopsylla humilis","CoL","orig",6065,1926
 "Siphonaptera","Pulicidae","Xenopsylla","hussaini",NA,NA,"species","Xenopsylla hussaini","CoL","orig",6066,1927
-"Siphonaptera",NA,"Alaopsylla","sewelli",NA,NA,"species","Alaopsylla sewelli","CoL","orig",6067,1927
+"Siphonaptera","None","Alaopsylla","sewelli",NA,NA,"species","Alaopsylla sewelli","CoL","orig",6067,1927
 "Siphonaptera","Pulicidae","Xenopsylla","jorgei",NA,NA,"species","Xenopsylla jorgei","CoL","orig",6068,1928
 "Siphonaptera","Pulicidae","Xenopsylla","lobengulai",NA,NA,"species","Xenopsylla lobengulai","CoL","orig",6069,1929
 "Siphonaptera","Pulicidae","Xenopsylla","magdalinae",NA,NA,"species","Xenopsylla magdalinae","CoL","orig",6070,1930
@@ -6076,7 +6076,7 @@
 "Siphonaptera","Pulicidae","Xenopsylla","nesokiae",NA,NA,"species","Xenopsylla nesokiae","CoL","orig",6075,1936
 "Siphonaptera","Pulicidae","Xenopsylla","nilotica",NA,NA,"species","Xenopsylla nilotica","CoL","orig",6076,1937
 "Siphonaptera","Pulicidae","Xenopsylla","nubica",NA,NA,"species","Xenopsylla nubica","CoL","orig",6077,1938
-"Siphonaptera",NA,"Alaopsylla","chersinus",NA,NA,"species","Alaopsylla chersinus","CoL","orig",6078,1938
+"Siphonaptera","None","Alaopsylla","chersinus",NA,NA,"species","Alaopsylla chersinus","CoL","orig",6078,1938
 "Siphonaptera","Pulicidae","Xenopsylla","nuttalli",NA,NA,"species","Xenopsylla nuttalli","CoL","orig",6079,1939
 "Siphonaptera","Pulicidae","Xenopsylla","occidentalis",NA,NA,"species","Xenopsylla occidentalis","CoL","orig",6080,1940
 "Siphonaptera","Pulicidae","Xenopsylla","papuensis",NA,NA,"species","Xenopsylla papuensis","CoL","orig",6081,1942
@@ -6100,17 +6100,17 @@
 "Siphonaptera","Pulicidae","Xenopsylla","syngenis",NA,NA,"species","Xenopsylla syngenis","CoL","orig",6099,1957
 "Siphonaptera","Pulicidae","Xenopsylla","tanganyikensis",NA,NA,"species","Xenopsylla tanganyikensis","CoL","orig",6100,1958
 "Siphonaptera","Pulicidae","Xenopsylla","taractes",NA,NA,"species","Xenopsylla taractes","CoL","orig",6101,1959
-"Siphonaptera",NA,"Alaopsylla","lybica",NA,NA,"species","Alaopsylla lybica","CoL","orig",6102,1959
+"Siphonaptera","None","Alaopsylla","lybica",NA,NA,"species","Alaopsylla lybica","CoL","orig",6102,1959
 "Siphonaptera","Pulicidae","Xenopsylla","tarimensis",NA,NA,"species","Xenopsylla tarimensis","CoL","orig",6103,1960
 "Siphonaptera","Pulicidae","Xenopsylla","torta",NA,NA,"species","Xenopsylla torta","CoL","orig",6104,1961
-"Siphonaptera",NA,"Alaopsylla","achilla",NA,NA,"species","Alaopsylla achilla","CoL","orig",6105,1961
+"Siphonaptera","None","Alaopsylla","achilla",NA,NA,"species","Alaopsylla achilla","CoL","orig",6105,1961
 "Siphonaptera","Pulicidae","Xenopsylla","trifaria",NA,NA,"species","Xenopsylla trifaria","CoL","orig",6106,1962
 "Siphonaptera","Pulicidae","Xenopsylla","trispinis","tenuis",NA,"subspecies","Xenopsylla trispinis tenuis","CoL","orig",6107,2689
 "Siphonaptera","Pulicidae","Xenopsylla","trispinis","trispinis",NA,"subspecies","Xenopsylla trispinis trispinis","CoL","orig",6108,2690
 "Siphonaptera","Pulicidae","Xenopsylla","versuta",NA,NA,"species","Xenopsylla versuta","CoL","orig",6109,1963
 "Siphonaptera","Pulicidae","Xenopsylla","vexabilis",NA,NA,"species","Xenopsylla vexabilis","CoL","orig",6110,1964
-"Siphonaptera",NA,"Alaopsylla","hawaiiensis",NA,NA,"species","Alaopsylla hawaiiensis","CoL","orig",6111,1964
-"Siphonaptera",NA,"Alaopsylla","meseris",NA,NA,"species","Alaopsylla meseris","CoL","orig",6112,1964
+"Siphonaptera","None","Alaopsylla","hawaiiensis",NA,NA,"species","Alaopsylla hawaiiensis","CoL","orig",6111,1964
+"Siphonaptera","None","Alaopsylla","meseris",NA,NA,"species","Alaopsylla meseris","CoL","orig",6112,1964
 "Siphonaptera","Pulicidae","Xenopsylla","zumpti",NA,NA,"species","Xenopsylla zumpti","CoL","orig",6113,1965
 "Siphonaptera","Xiphiopsyllidae","Xiphiopsylla","apriona",NA,NA,"species","Xiphiopsylla apriona","CoL","orig",6114,1966
 "Siphonaptera","Xiphiopsyllidae","Xiphiopsylla","daemonicola",NA,NA,"species","Xiphiopsylla daemonicola","CoL","orig",6115,1967
@@ -6130,7 +6130,7 @@
 "Siphonaptera","Hystrichopsyllidae","Adoratopsylla","antiquorum",NA,NA,"species","Adoratopsylla antiquorum","CoL","orig",6129,0
 "Siphonaptera","Hystrichopsyllidae","Adoratopsylla","cunhai",NA,NA,"species","Adoratopsylla cunhai","CoL","orig",6130,6129
 "Siphonaptera","Hystrichopsyllidae","Adoratopsylla","intermedia",NA,NA,"species","Adoratopsylla intermedia","CoL","orig",6131,0
-"Siphonaptera",NA,"Spalacopsylla","cruzi",NA,NA,"species","Spalacopsylla cruzi","CoL","orig",6132,6131
+"Siphonaptera","None","Spalacopsylla","cruzi",NA,NA,"species","Spalacopsylla cruzi","CoL","orig",6132,6131
 "Siphonaptera","Stivaliidae","Afristivalius","pirloti",NA,NA,"species","Afristivalius pirloti","CoL","orig",6133,0
 "Siphonaptera","Hystrichopsyllidae","Agastopsylla","boxi",NA,NA,"species","Agastopsylla boxi","CoL","orig",6134,0
 "Siphonaptera","Hystrichopsyllidae","Agastopsylla","nylota",NA,NA,"species","Agastopsylla nylota","CoL","orig",6135,0
@@ -6158,14 +6158,14 @@
 "Siphonaptera","Leptopsyllidae","Amphipsylla","vinogradovi",NA,NA,"species","Amphipsylla vinogradovi","CoL","orig",6157,0
 "Siphonaptera","Hystrichopsyllidae","Anomiopsyllus","falsicalifornicus",NA,NA,"species","Anomiopsyllus falsicalifornicus","CoL","orig",6158,0
 "Siphonaptera","Pulicidae","Archaeopsylla","erinacei",NA,NA,"species","Archaeopsylla erinacei","CoL","orig",6159,0
-"Siphonaptera",NA,"Metapsylla","cuspidata",NA,NA,"species","Metapsylla cuspidata","CoL","orig",6160,6159
-"Siphonaptera",NA,"Metapsylla","gliris",NA,NA,"species","Metapsylla gliris","CoL","orig",6161,6159
-"Siphonaptera",NA,"Metapsylla","metallescens",NA,NA,"species","Metapsylla metallescens","CoL","orig",6162,6159
-"Siphonaptera",NA,"Metapsylla","polymorphus",NA,NA,"species","Metapsylla polymorphus","CoL","orig",6163,6159
+"Siphonaptera","None","Metapsylla","cuspidata",NA,NA,"species","Metapsylla cuspidata","CoL","orig",6160,6159
+"Siphonaptera","None","Metapsylla","gliris",NA,NA,"species","Metapsylla gliris","CoL","orig",6161,6159
+"Siphonaptera","None","Metapsylla","metallescens",NA,NA,"species","Metapsylla metallescens","CoL","orig",6162,6159
+"Siphonaptera","None","Metapsylla","polymorphus",NA,NA,"species","Metapsylla polymorphus","CoL","orig",6163,6159
 "Siphonaptera","Hystrichopsyllidae","Atyphloceras","echis",NA,NA,"species","Atyphloceras echis","CoL","orig",6164,0
 "Siphonaptera","Hystrichopsyllidae","Atyphloceras","multidentatus",NA,NA,"species","Atyphloceras multidentatus","CoL","orig",6165,0
-"Siphonaptera",NA,"Saphiopsylla","artius",NA,NA,"species","Saphiopsylla artius","CoL","orig",6166,6165
-"Siphonaptera",NA,"Saphiopsylla","felix",NA,NA,"species","Saphiopsylla felix","CoL","orig",6167,6165
+"Siphonaptera","None","Saphiopsylla","artius",NA,NA,"species","Saphiopsylla artius","CoL","orig",6166,6165
+"Siphonaptera","None","Saphiopsylla","felix",NA,NA,"species","Saphiopsylla felix","CoL","orig",6167,6165
 "Siphonaptera","Stivaliidae","Aviostivalius","klossi","bispiniformis",NA,"subspecies","Aviostivalius klossi bispiniformis","CoL","orig",6168,0
 "Siphonaptera","Stivaliidae","Aviostivalius","klossi","klossi",NA,"subspecies","Aviostivalius klossi klossi","CoL","orig",6169,0
 "Siphonaptera","Pygiopsyllidae","Bibikovana","laciniosa",NA,NA,"species","Bibikovana laciniosa","CoL","orig",6170,0
@@ -6226,7 +6226,7 @@
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","ansorgei",NA,NA,"species","Ctenophthalmus ansorgei","CoL","orig",6225,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","apertus",NA,NA,"species","Ctenophthalmus apertus","CoL","orig",6226,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","assimilis",NA,NA,"species","Ctenophthalmus assimilis","CoL","orig",6227,0
-"Siphonaptera",NA,"Typhlopsylla","campestris",NA,NA,"species","Typhlopsylla campestris","CoL","orig",6228,6227
+"Siphonaptera","None","Typhlopsylla","campestris",NA,NA,"species","Typhlopsylla campestris","CoL","orig",6228,6227
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","audax",NA,NA,"species","Ctenophthalmus audax","CoL","orig",6229,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","baeticus",NA,NA,"species","Ctenophthalmus baeticus","CoL","orig",6230,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","bifidatus",NA,NA,"species","Ctenophthalmus bifidatus","CoL","orig",6231,0
@@ -6242,7 +6242,7 @@
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","congener","italoscopus",NA,"subspecies","Ctenophthalmus congener italoscopus","CoL","orig",6241,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","congener","levadianus",NA,"subspecies","Ctenophthalmus congener levadianus","CoL","orig",6242,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","congener",NA,NA,"species","Ctenophthalmus congener","CoL","orig",6243,0
-"Siphonaptera",NA,"Typhlopsylla","grulichi",NA,NA,"species","Typhlopsylla grulichi","CoL","orig",6244,6243
+"Siphonaptera","None","Typhlopsylla","grulichi",NA,NA,"species","Typhlopsylla grulichi","CoL","orig",6244,6243
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","congener","troilus",NA,"subspecies","Ctenophthalmus congener troilus","CoL","orig",6245,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","congeneroides",NA,NA,"species","Ctenophthalmus congeneroides","CoL","orig",6246,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","cophurus",NA,NA,"species","Ctenophthalmus cophurus","CoL","orig",6247,0
@@ -6253,8 +6253,8 @@
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","expansus","myodosus",NA,"subspecies","Ctenophthalmus expansus myodosus","CoL","orig",6252,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","gigantospalacis",NA,NA,"species","Ctenophthalmus gigantospalacis","CoL","orig",6253,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","golovi",NA,NA,"species","Ctenophthalmus golovi","CoL","orig",6254,0
-"Siphonaptera",NA,"Typhlopsylla","elegans",NA,NA,"species","Typhlopsylla elegans","CoL","orig",6255,6254
-"Siphonaptera",NA,"Typhlopsylla","saratovi",NA,NA,"species","Typhlopsylla saratovi","CoL","orig",6256,6254
+"Siphonaptera","None","Typhlopsylla","elegans",NA,NA,"species","Typhlopsylla elegans","CoL","orig",6255,6254
+"Siphonaptera","None","Typhlopsylla","saratovi",NA,NA,"species","Typhlopsylla saratovi","CoL","orig",6256,6254
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","graecus","jordanianus",NA,"subspecies","Ctenophthalmus graecus jordanianus","CoL","orig",6257,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","gratus",NA,NA,"species","Ctenophthalmus gratus","CoL","orig",6258,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","hopkinsi",NA,NA,"species","Ctenophthalmus hopkinsi","CoL","orig",6259,0
@@ -6269,9 +6269,9 @@
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","nivalis",NA,NA,"species","Ctenophthalmus nivalis","CoL","orig",6268,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","nobilis",NA,NA,"species","Ctenophthalmus nobilis","CoL","orig",6269,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","orphilus",NA,NA,"species","Ctenophthalmus orphilus","CoL","orig",6270,0
-"Siphonaptera",NA,"Typhlopsylla","sklavinus",NA,NA,"species","Typhlopsylla sklavinus","CoL","orig",6271,6270
+"Siphonaptera","None","Typhlopsylla","sklavinus",NA,NA,"species","Typhlopsylla sklavinus","CoL","orig",6271,6270
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","pisticus",NA,NA,"species","Ctenophthalmus pisticus","CoL","orig",6272,0
-"Siphonaptera",NA,"Typhlopsylla","dahuricus",NA,NA,"species","Typhlopsylla dahuricus","CoL","orig",6273,6272
+"Siphonaptera","None","Typhlopsylla","dahuricus",NA,NA,"species","Typhlopsylla dahuricus","CoL","orig",6273,6272
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","pseudagyrtes","micropus",NA,"subspecies","Ctenophthalmus pseudagyrtes micropus","CoL","orig",6274,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","pseudagyrtes","pseudagyrtes",NA,"subspecies","Ctenophthalmus pseudagyrtes pseudagyrtes","CoL","orig",6275,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","rettigi",NA,NA,"species","Ctenophthalmus rettigi","CoL","orig",6276,0
@@ -6285,7 +6285,7 @@
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","wagneri",NA,NA,"species","Ctenophthalmus wagneri","CoL","orig",6284,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","zhejiangensis",NA,NA,"species","Ctenophthalmus zhejiangensis","CoL","orig",6285,0
 "Siphonaptera","Leptopsyllidae","Ctenophyllus","armatus",NA,NA,"species","Ctenophyllus armatus","CoL","orig",6286,0
-"Siphonaptera",NA,"Ctenopsyllus","terribilis",NA,NA,"species","Ctenopsyllus terribilis","CoL","orig",6287,6286
+"Siphonaptera","None","Ctenopsyllus","terribilis",NA,NA,"species","Ctenopsyllus terribilis","CoL","orig",6287,6286
 "Siphonaptera","Ceratophyllidae","Dactylopsylla","bluei","bluei",NA,"subspecies","Dactylopsylla bluei bluei","CoL","orig",6288,0
 "Siphonaptera","Ceratophyllidae","Dactylopsylla","bluei","psila",NA,"subspecies","Dactylopsylla bluei psila","CoL","orig",6289,0
 "Siphonaptera","Ischnopsyllidae","Dampfia","grahami",NA,NA,"species","Dampfia grahami","CoL","orig",6290,0
@@ -6412,7 +6412,7 @@
 "Siphonaptera","Ceratophyllidae","Monopsyllus","indages","indages",NA,"subspecies","Monopsyllus indages indages","CoL","orig",6411,0
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","indages","lis",NA,"subspecies","Ceratophyllus indages lis","CoL","orig",6412,6411
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","wolffsohni",NA,NA,"species","Myodopsylla wolffsohni","CoL","orig",6413,0
-"Siphonaptera",NA,"Myodopsylloides","notialis",NA,NA,"species","Myodopsylloides notialis","CoL","orig",6414,6413
+"Siphonaptera","None","Myodopsylloides","notialis",NA,NA,"species","Myodopsylloides notialis","CoL","orig",6414,6413
 "Siphonaptera","Ceratophyllidae","Myoxopsylla","laverani","laverani",NA,"subspecies","Myoxopsylla laverani laverani","CoL","orig",6415,0
 "Siphonaptera","Ceratophyllidae","Myoxopsylla","laverani","traubi",NA,"subspecies","Myoxopsylla laverani traubi","CoL","orig",6416,6415
 "Siphonaptera","Ceratophyllidae","Myoxopsylla","laverani","traubi",NA,"subspecies","Myoxopsylla laverani traubi","CoL","orig",6417,0
@@ -6475,8 +6475,8 @@
 "Siphonaptera","Ceratophyllidae","Orchopeas","sexdentatus","schisintus",NA,"subspecies","Orchopeas sexdentatus schisintus","CoL","orig",6474,0
 "Siphonaptera","Ceratophyllidae","Orchopeas","sexdentatus","sexdentatus",NA,"subspecies","Orchopeas sexdentatus sexdentatus","CoL","orig",6475,0
 "Siphonaptera","Ceratophyllidae","Oropsylla","alaskensis",NA,NA,"species","Oropsylla alaskensis","CoL","orig",6476,0
-"Siphonaptera",NA,"Aethopsylla","elana",NA,NA,"species","Aethopsylla elana","CoL","orig",6477,6476
-"Siphonaptera",NA,"Aethopsylla","stejnegeri",NA,NA,"species","Aethopsylla stejnegeri","CoL","orig",6478,6476
+"Siphonaptera","None","Aethopsylla","elana",NA,NA,"species","Aethopsylla elana","CoL","orig",6477,6476
+"Siphonaptera","None","Aethopsylla","stejnegeri",NA,NA,"species","Aethopsylla stejnegeri","CoL","orig",6478,6476
 "Siphonaptera","Ceratophyllidae","Oropsylla","alaskensis","asiatica",NA,"subspecies","Oropsylla alaskensis asiatica","CoL","orig",6479,6476
 "Siphonaptera","Ceratophyllidae","Oropsylla","eatoni",NA,NA,"species","Oropsylla eatoni","CoL","orig",6480,0
 "Siphonaptera","Ceratophyllidae","Oropsylla","tuberculata","cynomuris",NA,"subspecies","Oropsylla tuberculata cynomuris","CoL","orig",6481,0
@@ -6589,9 +6589,9 @@
 "Siphonaptera","Ceratophyllidae","Thrassis","bacchi","pansus",NA,"subspecies","Thrassis bacchi pansus","CoL","orig",6588,0
 "Siphonaptera","Ceratophyllidae","Thrassis","bacchi","setosis",NA,"subspecies","Thrassis bacchi setosis","CoL","orig",6589,0
 "Siphonaptera","Ceratophyllidae","Thrassis","fotas",NA,NA,"species","Thrassis fotas","CoL","orig",6590,0
-"Siphonaptera",NA,"Nomadopsylla","brennani",NA,NA,"species","Nomadopsylla brennani","CoL","orig",6591,6590
-"Siphonaptera",NA,"Nomadopsylla","citelli",NA,NA,"species","Nomadopsylla citelli","CoL","orig",6592,6590
-"Siphonaptera",NA,"Nomadopsylla","princei",NA,NA,"species","Nomadopsylla princei","CoL","orig",6593,6590
+"Siphonaptera","None","Nomadopsylla","brennani",NA,NA,"species","Nomadopsylla brennani","CoL","orig",6591,6590
+"Siphonaptera","None","Nomadopsylla","citelli",NA,NA,"species","Nomadopsylla citelli","CoL","orig",6592,6590
+"Siphonaptera","None","Nomadopsylla","princei",NA,NA,"species","Nomadopsylla princei","CoL","orig",6593,6590
 "Siphonaptera","Ceratophyllidae","Thrassis","francisi","francisi",NA,"subspecies","Thrassis francisi francisi","CoL","orig",6594,0
 "Siphonaptera","Ceratophyllidae","Thrassis","francisi","rockwoodi",NA,"subspecies","Thrassis francisi rockwoodi","CoL","orig",6595,0
 "Siphonaptera","Ceratophyllidae","Thrassis","pandorae","jellisoni",NA,"subspecies","Thrassis pandorae jellisoni","CoL","orig",6596,0
@@ -8435,7 +8435,7 @@
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","ineptus",NA,"Johnson, 1957","species","Ectinorus ineptus","GBIF","add",8434,625
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","gallardoi",NA,"Hastriter, 2001","species","Ectinorus gallardoi","GBIF","add",8435,620
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","chilensis",NA,"Lewis, 1976","species","Ectinorus chilensis","GBIF","add",8436,613
-"Siphonaptera","Rhopalopsyllidae","Ectinorus","insignis",NA,"Beaucournu & González-Acuña, 2013","species","Ectinorus insignis","GBIF","add",8437,626
+"Siphonaptera","Rhopalopsyllidae","Ectinorus","insignis",NA,"Beaucournu & Gonzalez-Acuna, 2013","species","Ectinorus insignis","GBIF","add",8437,626
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","deplexus",NA,NA,"species","Ectinorus deplexus","GBIF","add",8438,617
 "Siphonaptera","Stivaliidae","Traubia","egregia",NA,"Smit, 1953","species","Traubia egregia","GBIF","add",8439,1841
 "Siphonaptera","Rhopalopsyllidae","Ectinorus","cocyti",NA,"(Rothschild, 1904)","species","Ectinorus cocyti","GBIF","add",8440,615
@@ -8675,7 +8675,7 @@
 "Siphonaptera","Ischnopsyllidae","Alectopsylla","unisetosa",NA,"Mahnert, 1976","species","Alectopsylla unisetosa","GBIF","add",8674,46
 "Siphonaptera","Ischnopsyllidae","Myodopsylla","gentilis",NA,"Jordan & Rothschild, 1921","species","Myodopsylla gentilis","GBIF","add",8675,1071
 "Siphonaptera","Rhopalopsyllidae","Tetrapsyllus","simulans",NA,"Jameson & Fulk, 1977","species","Tetrapsyllus simulans","GBIF","add",8676,1806
-"Siphonaptera","Pulicidae","Pulex","vespertilionis",NA,"Dugès, 1832","species","Pulex vespertilionis","GBIF","add",8677,799
+"Siphonaptera","Pulicidae","Pulex","vespertilionis",NA,"Duges, 1832","species","Pulex vespertilionis","GBIF","add",8677,799
 "Siphonaptera","Ceratophyllidae","Paraceras","pendleburyi",NA,"Jordan, 1932","species","Paraceras pendleburyi","GBIF","add",8678,1363
 "Siphonaptera","Rhopalopsyllidae","Tetrapsyllus","tristis",NA,"Johnson, 1957","species","Tetrapsyllus tristis","GBIF","add",8679,1808
 "Siphonaptera","Hystrichopsyllidae","Nearctopsylla","brevidigita",NA,"Wu Houyoung, Wang Dwenching & Liu Chiying, 1965","species","Nearctopsylla brevidigita","GBIF","add",8680,1084
@@ -9296,13 +9296,13 @@
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","agyrtoides",NA,"Wahlgren, 1911","species","Ctenophthalmus agyrtoides","GBIF","add",9295,2118
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","agyrtes",NA,"K.M.Heller, 1896","species","Ctenophthalmus agyrtes","GBIF","add",9296,2118
 "Siphonaptera","Leptopsyllidae","Leptopsylla","segnis",NA,"(Schonherr, 1811)","species","Leptopsylla segnis","GBIF","add",9297,891
-"Siphonaptera","Leptopsyllidae","Leptopsylla","musculi",NA,"A.L.Dugès, 1832","species","Leptopsylla musculi","GBIF","add",9298,891
+"Siphonaptera","Leptopsyllidae","Leptopsylla","musculi",NA,"A.L.Duges, 1832","species","Leptopsylla musculi","GBIF","add",9298,891
 "Siphonaptera","Leptopsyllidae","Leptopsylla","musculi",NA,"(Dages, 1832)","species","Leptopsylla musculi","GBIF","add",9299,891
 "Siphonaptera","Leptopsyllidae","Leptopsylla","mexicana",NA,"(Baker, 1896)","species","Leptopsylla mexicana","GBIF","add",9300,891
 "Siphonaptera","Leptopsyllidae","Leptopsylla","bisbidentatus",NA,"(Kolenati, 1856)","species","Leptopsylla bisbidentatus","GBIF","add",9301,891
 "Siphonaptera","Leptopsyllidae","Leptopsylla","quadridentatus",NA,"(Kolenati, 1859)","species","Leptopsylla quadridentatus","GBIF","add",9302,891
-"Siphonaptera","Leptopsyllidae","Leptopsylla","segnis",NA,"Schönherr, 1811","species","Leptopsylla segnis","GBIF","add",9303,891
-"Siphonaptera","Leptopsyllidae","Leptopsylla","musculi",NA,"(A.L.Dugès, 1832)","species","Leptopsylla musculi","GBIF","add",9304,891
+"Siphonaptera","Leptopsyllidae","Leptopsylla","segnis",NA,"Schonherr, 1811","species","Leptopsylla segnis","GBIF","add",9303,891
+"Siphonaptera","Leptopsyllidae","Leptopsylla","musculi",NA,"(A.L.Duges, 1832)","species","Leptopsylla musculi","GBIF","add",9304,891
 "Siphonaptera","Leptopsyllidae","Leptopsylla","segnis",NA,"(Schoenherr)","species","Leptopsylla segnis","GBIF","add",9305,891
 "Siphonaptera","Ceratophyllidae","Callopsylla","sparsilis","atallahi","(Lewis, 1971)","subspecies","Callopsylla sparsilis atallahi","GBIF","add",9306,2071
 "Siphonaptera","Ceratophyllidae","Callopsylla","atallahi",NA,"Lewis","species","Callopsylla atallahi","GBIF","add",9307,2071
@@ -9486,7 +9486,7 @@
 "Siphonaptera","Stivaliidae","Astivalius","microphthalmus",NA,"Smit, 1953","species","Astivalius microphthalmus","GBIF","add",9485,122
 "Siphonaptera","Stephanocircidae","Cleopsylla","monticola",NA,"Smit, 1953","species","Cleopsylla monticola","GBIF","add",9486,320
 "Siphonaptera","Ceratophyllidae","Jellisonia","hayesi",NA,"Traub, 1950","species","Jellisonia hayesi","GBIF","add",9487,826
-"Siphonaptera","Pygiopsyllidae","Ctenidiosomus","austrinus",NA,"López-Berrizbeitia, Hastriter & Díaz, 2015","species","Ctenidiosomus austrinus","GBIF","add",9488,358
+"Siphonaptera","Pygiopsyllidae","Ctenidiosomus","austrinus",NA,"Lopez-Berrizbeitia, Hastriter & Diaz, 2015","species","Ctenidiosomus austrinus","GBIF","add",9488,358
 "Siphonaptera","Hystrichopsyllidae","Anomiopsyllus","durangoensis",NA,"Holland, 1965","species","Anomiopsyllus durangoensis","GBIF","add",9489,96
 "Siphonaptera","Leptopsyllidae","Frontopsylla","luculenta",NA,"(Jordan & Rothschild, 1923)","species","Frontopsylla luculenta","GBIF","add",9490,689
 "Siphonaptera","Leptopsyllidae","Frontopsylla","luculenta","parilis","Jordan, 1929","subspecies","Frontopsylla luculenta parilis","GBIF","add",9491,689
@@ -9982,7 +9982,7 @@
 "Siphonaptera","Pulicidae","Ctenocephalides","musculi",NA,"(Sugimoto, 1933)","species","Ctenocephalides musculi","GBIF","add",9981,2116
 "Siphonaptera","Pulicidae","Ctenocephalides","concoloris",NA,"(Weyenbergh, 1881)","species","Ctenocephalides concoloris","GBIF","add",9982,2116
 "Siphonaptera","Pulicidae","Ctenocephalides","rufulus",NA,"(Weyenbergh, 1881)","species","Ctenocephalides rufulus","GBIF","add",9983,2116
-"Siphonaptera","Pulicidae","Ctenocephalides","felis",NA,"Bouché, 1835","species","Ctenocephalides felis","GBIF","add",9984,2116
+"Siphonaptera","Pulicidae","Ctenocephalides","felis",NA,"Bouche, 1835","species","Ctenocephalides felis","GBIF","add",9984,2116
 "Siphonaptera","Pulicidae","Ctenocephalides","obscurus",NA,"(Weyenbergh, 1881)","species","Ctenocephalides obscurus","GBIF","add",9985,2116
 "Siphonaptera","Pulicidae","Ctenocephalides","murina",NA,"(Tiraboschi, 1904)","species","Ctenocephalides murina","GBIF","add",9986,2116
 "Siphonaptera","Pulicidae","Ctenocephalides","cati",NA,"(Megnin, 1880)","species","Ctenocephalides cati","GBIF","add",9987,2116
@@ -11150,7 +11150,7 @@
 "Siphonaptera","Leptopsyllidae","Cratynius","lui",NA,"Gong Zhengda & Lei Yamin, 1988","species","Cratynius lui","GBIF","add",11149,355
 "Siphonaptera","Hystrichopsyllidae","Corrodopsylla","barrerai",NA,"Traub & Evans, 1967","species","Corrodopsylla barrerai","GBIF","add",11150,346
 "Siphonaptera","Leptopsyllidae","Cratynius","bartelsi",NA,"Jordan, 1933","species","Cratynius bartelsi","GBIF","add",11151,353
-"Siphonaptera","Ceratophyllidae","Dasypsyllus","picaflori",NA,"Beaucournu & González-Acuña, 2016","species","Dasypsyllus picaflori","GBIF","add",11152,528
+"Siphonaptera","Ceratophyllidae","Dasypsyllus","picaflori",NA,"Beaucournu & Gonzalez-Acuna, 2016","species","Dasypsyllus picaflori","GBIF","add",11152,528
 "Siphonaptera","Ceratophyllidae","Dasypsyllus","araucanus",NA,"Jordan & Rothschild, 1920","species","Dasypsyllus araucanus","GBIF","add",11153,522
 "Siphonaptera","Ceratophyllidae","Syngenopsyllus","lui",NA,"Li Kuei-chen, 1995","species","Syngenopsyllus lui","GBIF","add",11154,1783
 "Siphonaptera","Ceratophyllidae","Dasypsyllus","lasius",NA,"(Rothschild, 1909)","species","Dasypsyllus lasius","GBIF","add",11155,6304
@@ -11483,12 +11483,12 @@
 "Siphonaptera","Ceratophyllidae","Callopsylla","gemina",NA,"(Ioff, 1946)","species","Callopsylla gemina","GBIF","add",11482,167
 "Siphonaptera","Ceratophyllidae","Callopsylla","gemina",NA,"Ioff, 1946","species","Callopsylla gemina","GBIF","add",11483,167
 "Siphonaptera","Leptopsyllidae","Paractenopsyllus","raxworthyi",NA,"Duchemin & Ratovonjato, 2004","species","Paractenopsyllus raxworthyi","GBIF","add",11484,1380
-"Siphonaptera","Ceratophyllidae","Kohlsia","misantlensis",NA,"Acosta & Salceda-Sánchez, 2019","species","Kohlsia misantlensis","GBIF","add",11485,847
+"Siphonaptera","Ceratophyllidae","Kohlsia","misantlensis",NA,"Acosta & Salceda-Sanchez, 2019","species","Kohlsia misantlensis","GBIF","add",11485,847
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","anisus",NA,NA,"species","Ceratophyllus anisus","GBIF","add",11486,7569
 "Siphonaptera","Rhopalopsyllidae","Rhopalopsyllus","sigmodoni",NA,"Stewart, 1930","species","Rhopalopsyllus sigmodoni","GBIF","add",11487,1554
 "Siphonaptera","Leptopsyllidae","Leptopsylla","hamifer","longiloba","Jordan","subspecies","Leptopsylla hamifer longiloba","GBIF","add",11488,1473
 "Siphonaptera","Stephanocircidae",NA,"nungui",NA,"Schramm & Lewis","species",NA,"GBIF","add",11489,0
-"Siphonaptera",NA,"Opisocrostis","tuberculatus","cynomuris","Jellison","subspecies","Opisocrostis tuberculatus cynomuris","GBIF","add",11490,1267
+"Siphonaptera","None","Opisocrostis","tuberculatus","cynomuris","Jellison","subspecies","Opisocrostis tuberculatus cynomuris","GBIF","add",11490,1267
 "Siphonaptera","Ceratophyllidae","Oropsylla","sinensis",NA,"Liu","species","Oropsylla sinensis","GBIF","add",11491,2551
 "Siphonaptera","Ceratophyllidae","Monopsyllus","vison","reeheri","Hubbard","subspecies","Monopsyllus vison reeheri","GBIF","add",11492,1059
 "Siphonaptera","Pygiopsyllidae",NA,"maxima",NA,"Mardon","species",NA,"GBIF","add",11493,0
@@ -11506,7 +11506,7 @@
 "Siphonaptera","Leptopsyllidae","Frontopsylla","hollandi",NA,"Lewis","species","Frontopsylla hollandi","GBIF","add",11505,677
 "Siphonaptera","Hystrichopsyllidae","Meringis","walkeri",NA,"Hubbard","species","Meringis walkeri","GBIF","add",11506,1023
 "Siphonaptera","Hystrichopsyllidae","Meringis","cochisei",NA,"Hubbard","species","Meringis cochisei","GBIF","add",11507,1015
-"Siphonaptera",NA,"Micropsylla","peromyscus",NA,"Dunn & Parker","species","Micropsylla peromyscus","GBIF","add",11508,1657
+"Siphonaptera","None","Micropsylla","peromyscus",NA,"Dunn & Parker","species","Micropsylla peromyscus","GBIF","add",11508,1657
 "Siphonaptera","Hystrichopsyllidae","Meringis","dipodomys",NA,"Kohls","species","Meringis dipodomys","GBIF","add",11509,1020
 "Siphonaptera","Pygiopsyllidae","Gymnomeropsylla","bunomydis",NA,"Beaucournu & Durden","species","Gymnomeropsylla bunomydis","GBIF","add",11510,732
 "Siphonaptera","Pygiopsyllidae","Gymnomeropsylla","margaretamydis",NA,"Durden & Beaucournu","species","Gymnomeropsylla margaretamydis","GBIF","add",11511,733
@@ -11543,7 +11543,7 @@
 "Siphonaptera","Hystrichopsyllidae","Rhadinopsylla","integella","integella","Jordan & Rothschild, 1921","subspecies","Rhadinopsylla integella integella","GBIF","new",11542,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","graecus","graecus",NA,"subspecies","Ctenophthalmus graecus graecus","GBIF","new",11543,0
 "Siphonaptera","Pulicidae","Pulex","pungens",NA,"Walckenaer, 1802","species","Pulex pungens","GBIF","new",11544,0
-"Siphonaptera","Leptopsyllidae","Leptopsylla","spec",NA,"Schönherr, 1811","species","Leptopsylla spec","GBIF","new",11545,0
+"Siphonaptera","Leptopsyllidae","Leptopsylla","spec",NA,"Schonherr, 1811","species","Leptopsylla spec","GBIF","new",11545,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","bisoetodentatus",NA,NA,"species","Ctenophthalmus bisoetodentatus","GBIF","new",11546,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","formosanus",NA,"Svihla, 1942","species","Ctenophthalmus formosanus","GBIF","new",11547,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","talpae",NA,"Kolenati, 1856","species","Ctenophthalmus talpae","GBIF","new",11548,0
@@ -11572,7 +11572,7 @@
 NA,"Archipsyllidae","Eopsylla","sojanense",NA,"(Becker-Migdisova, 1962)","species","Eopsylla sojanense","GBIF","new",11571,0
 NA,"Archipsyllidae","Eopsylla","sojanense",NA,"(Becker-Migdisova, 1962)","species","Eopsylla sojanense","GBIF","new",11572,11571
 NA,"Archipsyllidae","Eopsylla","sojanensis",NA,"(Becker-Migdisova, 1962)","species","Eopsylla sojanensis","GBIF","new",11573,11571
-"Siphonaptera",NA,"Niwratia","elongata",NA,"Jell & Duncan, 1986","species","Niwratia elongata","GBIF","new",11574,0
+"Siphonaptera","None","Niwratia","elongata",NA,"Jell & Duncan, 1986","species","Niwratia elongata","GBIF","new",11574,0
 "Siphonaptera","Pulicidae","Xenopsylla","ramensis",NA,"(Rothschild, 1904)","species","Xenopsylla ramensis","GBIF","new",11575,0
 "Siphonaptera","Pulicidae","Xenopsylla","ramensis",NA,"Rothschild, 1904","species","Xenopsylla ramensis","GBIF","new",11576,11575
 "Siphonaptera","Hystrichopsyllidae","Typhloceras","favosus","rolandi","Jordan, 1938","subspecies","Typhloceras favosus rolandi","GBIF","new",11577,0
@@ -11590,15 +11590,15 @@ NA,"Archipsyllidae","Eopsylla","sojanensis",NA,"(Becker-Migdisova, 1962)","speci
 "Siphonaptera","Ceratophyllidae","Paraceras","flabellum","flabellum",NA,"subspecies","Paraceras flabellum flabellum","GBIF","new",11589,0
 "Siphonaptera","Leptopsyllidae","Amphipsylla","gongheensis",NA,NA,"species","Amphipsylla gongheensis","GBIF","new",11590,0
 "Siphonaptera","Leptopsyllidae","Geusibia","intermedia",NA,NA,"species","Geusibia intermedia","GBIF","new",11591,0
-"Siphonaptera",NA,"Opisocrostis","tuberculatus",NA,NA,"species","Opisocrostis tuberculatus","GBIF","new",11592,0
-"Siphonaptera",NA,"Opisocrostis","hirsutus",NA,"Baker","species","Opisocrostis hirsutus","GBIF","new",11593,0
+"Siphonaptera","None","Opisocrostis","tuberculatus",NA,NA,"species","Opisocrostis tuberculatus","GBIF","new",11592,0
+"Siphonaptera","None","Opisocrostis","hirsutus",NA,"Baker","species","Opisocrostis hirsutus","GBIF","new",11593,0
 "Siphonaptera","Pygiopsyllidae","Typhlopsylla","alpina",NA,"Baker","species","Typhlopsylla alpina","GBIF","new",11594,0
 "Siphonaptera","Leptopsyllidae","Odontopsyllus","wymani",NA,"Fox","species","Odontopsyllus wymani","GBIF","new",11595,0
 "Siphonaptera","Leptopsyllidae","Leptopsylla","hamifer","hamifer",NA,"subspecies","Leptopsylla hamifer hamifer","GBIF","new",11596,0
 "Siphonaptera","Hystrichopsyllidae","Adoratopsylla","rara",NA,"Tipton & Machado-Allison","species","Adoratopsylla rara","GBIF","new",11597,0
 "Siphonaptera","Leptopsyllidae","Mesopsylla","tushkan",NA,NA,"species","Mesopsylla tushkan","GBIF","new",11598,0
 "Siphonaptera","Hystrichopsyllidae","Adoratopsylla","recta",NA,"Tipton & Machado-Allison","species","Adoratopsylla recta","GBIF","new",11599,0
-"Siphonaptera",NA,"Opisocrostis","tuberculatus","tuberculatus",NA,"subspecies","Opisocrostis tuberculatus tuberculatus","GBIF","new",11600,0
+"Siphonaptera","None","Opisocrostis","tuberculatus","tuberculatus",NA,"subspecies","Opisocrostis tuberculatus tuberculatus","GBIF","new",11600,0
 "Siphonaptera","Leptopsyllidae","Mesopsylla","tushkan","propinacta","Traub & Evans","subspecies","Mesopsylla tushkan propinacta","GBIF","new",11601,0
 "Siphonaptera","Leptopsyllidae","Mesopsylla","tushkan","tushkan",NA,"subspecies","Mesopsylla tushkan tushkan","GBIF","new",11602,0
 "Siphonaptera","Hystrichopsyllidae","Rhadinopsylla","srama",NA,"Smit","species","Rhadinopsylla srama","GBIF","new",11603,0
@@ -11612,9 +11612,9 @@ NA,"Archipsyllidae","Eopsylla","sojanensis",NA,"(Becker-Migdisova, 1962)","speci
 "Siphonaptera","Ceratophyllidae","Macrostylophora","hastatus","nepali","Traub","subspecies","Macrostylophora hastatus nepali","GBIF","new",11611,0
 "Siphonaptera","Ceratophyllidae","Macrostylophora","hastatus","hastatus",NA,"subspecies","Macrostylophora hastatus hastatus","GBIF","new",11612,0
 "Siphonaptera","Ceratophyllidae","Macrostylophora","hastatus","malayensis","Traub","subspecies","Macrostylophora hastatus malayensis","GBIF","new",11613,0
-"Siphonaptera",NA,"Pleochaetoides","bullisi",NA,"Augustson","species","Pleochaetoides bullisi","GBIF","new",11614,0
-"Siphonaptera",NA,"Rectofrontia","orama",NA,"Smit","species","Rectofrontia orama","GBIF","new",11615,0
-"Siphonaptera",NA,"Rectofrontia","mexicana",NA,"Barrera, 1952","species","Rectofrontia mexicana","GBIF","new",11616,0
+"Siphonaptera","None","Pleochaetoides","bullisi",NA,"Augustson","species","Pleochaetoides bullisi","GBIF","new",11614,0
+"Siphonaptera","None","Rectofrontia","orama",NA,"Smit","species","Rectofrontia orama","GBIF","new",11615,0
+"Siphonaptera","None","Rectofrontia","mexicana",NA,"Barrera, 1952","species","Rectofrontia mexicana","GBIF","new",11616,0
 "Siphonaptera","Hystrichopsyllidae","Paraneopsylla","nepali",NA,"Lewis","species","Paraneopsylla nepali","GBIF","new",11617,0
 "Siphonaptera","Rhopalopsyllidae","Polygenis","trapidei",NA,"Mendez","species","Polygenis trapidei","GBIF","new",11618,0
 "Siphonaptera","Pygiopsyllidae","Pygiopsylla","celebensis",NA,"Ewing","species","Pygiopsylla celebensis","GBIF","new",11619,0
@@ -11639,7 +11639,7 @@ NA,"Archipsyllidae","Eopsylla","sojanensis",NA,"(Becker-Migdisova, 1962)","speci
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","heiseri",NA,"McCoy","species","Ctenophthalmus heiseri","GBIF","new",11638,0
 "Siphonaptera","Hystrichopsyllidae","Stenistomera","marodactyla",NA,"Good","species","Stenistomera marodactyla","GBIF","new",11639,0
 "Siphonaptera","Leptopsyllidae","Leptopsylla","longiloba",NA,"Jordan","species","Leptopsylla longiloba","GBIF","new",11640,0
-"Siphonaptera",NA,"Thrassoides","hoffmani",NA,"Hubbard","species","Thrassoides hoffmani","GBIF","new",11641,0
+"Siphonaptera","None","Thrassoides","hoffmani",NA,"Hubbard","species","Thrassoides hoffmani","GBIF","new",11641,0
 "Siphonaptera","Leptopsyllidae","Leptopsylla","hamifer",NA,NA,"species","Leptopsylla hamifer","GBIF","new",11642,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","libanensis",NA,"Lewis","species","Ctenophthalmus libanensis","GBIF","new",11643,0
 "Siphonaptera","Hystrichopsyllidae","Ctenophthalmus","tholatus",NA,"Traub","species","Ctenophthalmus tholatus","GBIF","new",11644,0
@@ -11658,13 +11658,13 @@ NA,"Archipsyllidae","Eopsylla","sojanensis",NA,"(Becker-Migdisova, 1962)","speci
 "Siphonaptera","Ceratophyllidae","Dactylopsylla","oregona",NA,"Hubbard","species","Dactylopsylla oregona","GBIF","new",11657,0
 "Siphonaptera","Ceratophyllidae","Dactylopsylla","psila",NA,"Prince & Stark","species","Dactylopsylla psila","GBIF","new",11658,0
 "Siphonaptera","Hystrichopsyllidae","Hystrichopsylla","sylvaticus",NA,"Campos & Stark","species","Hystrichopsylla sylvaticus","GBIF","new",11659,0
-"Siphonaptera",NA,"Megapsylla","grossiventris",NA,"Weyenbergh","species","Megapsylla grossiventris","GBIF","new",11660,0
+"Siphonaptera","None","Megapsylla","grossiventris",NA,"Weyenbergh","species","Megapsylla grossiventris","GBIF","new",11660,0
 "Siphonaptera","Hystrichopsyllidae","Callistopsyllus","deuterus",NA,"Jordan","species","Callistopsyllus deuterus","GBIF","new",11661,0
 "Siphonaptera","Hystrichopsyllidae","Conorhinopsylla","nidicoli",NA,"Jellison","species","Conorhinopsylla nidicoli","GBIF","new",11662,0
 "Siphonaptera","Stivaliidae","Orthopsylloides","owiensis",NA,"Halland","species","Orthopsylloides owiensis","GBIF","new",11663,0
 "Siphonaptera","Leptopsyllidae","Dolichopsyllus","bluei",NA,"Fox","species","Dolichopsyllus bluei","GBIF","new",11664,0
 "Siphonaptera","Ceratophyllidae","Ceratophyllus","gladiolus","gladiolus",NA,"subspecies","Ceratophyllus gladiolus gladiolus","GBIF","new",11665,0
-"Siphonaptera",NA,"Johnsonaepsylla","audyi",NA,"Traub","species","Johnsonaepsylla audyi","GBIF","new",11666,0
+"Siphonaptera","None","Johnsonaepsylla","audyi",NA,"Traub","species","Johnsonaepsylla audyi","GBIF","new",11666,0
 "Siphonaptera","Ischnopsyllidae","Ptilopsylla","dunni",NA,"Kohls","species","Ptilopsylla dunni","GBIF","new",11667,0
 "Siphonaptera","Hystrichopsyllidae","Carteretta","carteri","carteri",NA,"subspecies","Carteretta carteri carteri","GBIF","new",11668,0
 "Siphonaptera","Hystrichopsyllidae","Carteretta","carteri","clavata","Good","subspecies","Carteretta carteri clavata","GBIF","new",11669,0
@@ -11724,7 +11724,7 @@ NA,"Archipsyllidae","Eopsylla","sojanensis",NA,"(Becker-Migdisova, 1962)","speci
 "Siphonaptera","Pulicidae","Archaeopsylla","erinacei",NA,"(Bouche, 1835)","species","Archaeopsylla erinacei","GBIF","multi",8797,0
 "Siphonaptera","Pulicidae","Archaeopsylla","gliris",NA,"(Dale, 1878)","species","Archaeopsylla gliris","GBIF","multi",10160,8797
 "Siphonaptera","Pulicidae","Archaeopsylla","polymorphus",NA,"(Weiss, 1920)","species","Archaeopsylla polymorphus","GBIF","multi",10161,8797
-"Siphonaptera","Pulicidae","Archaeopsylla","erinacei",NA,"Bouché, 1835","species","Archaeopsylla erinacei","GBIF","multi",10162,8797
+"Siphonaptera","Pulicidae","Archaeopsylla","erinacei",NA,"Bouche, 1835","species","Archaeopsylla erinacei","GBIF","multi",10162,8797
 "Siphonaptera","Pulicidae","Archaeopsylla","metallescens",NA,"(Kolenati, 1856)","species","Archaeopsylla metallescens","GBIF","multi",10164,8797
 "Siphonaptera","Pulicidae","Archaeopsylla","polymorphus",NA,"Weiss, 1920","species","Archaeopsylla polymorphus","GBIF","multi",10165,8797
 "Siphonaptera","Pulicidae","Archaeopsylla","cuspidata",NA,"(Kolenati, 1863)","species","Archaeopsylla cuspidata","GBIF","multi",10167,8797

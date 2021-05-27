@@ -183,8 +183,6 @@ if(original == final) {
   print("rows are missing")
 }
 
-write.csv(Flea_m4,"~/GitHub/tpt-siphonaptera/output/Flea_merged.csv", row.names = FALSE)
-
 # get non UTF8 authors
 Flea_m4_x <- Flea_m4[which(!is.na(Flea_m4$author) & is.na(iconv(Flea_m4$author, "UTF-8", "UTF-8"))),] # get all non UTF8 authors
 
@@ -209,9 +207,10 @@ if (nrow(Flea_m4_x) == 0){
 
 Flea_m4$family <- ifelse(is.na(Flea_m4$family),"None",Flea_m4$family)
 Flea_m4$family <- toproper(Flea_m4$family) # ensure all family names are proper case
-  
-# write out list as documents by family
 
+write.csv(Flea_m4,"~/GitHub/tpt-siphonaptera/output/Flea_merged.csv", row.names = FALSE) #write out merged file
+
+# write out list as documents by family
 families <- unique(Flea_m4$family)
 family <- data.frame(families)
 
@@ -228,6 +227,7 @@ for (i in 1:nrow(family)){
                                    outfile=file)
 }
 
+# write out entire list
 Siphonaptera_checklist <- taxo2doc(Flea_m4,
                                    title="TPT Flea Taxonomy",
                                    mastersource="Lewis",
