@@ -167,7 +167,7 @@ synonyms$acceptedNameUsageID <- synonyms$taxonID # copy ID to accepted ID column
 synonyms$taxonID <- seq.int(Lewis_original_rows + 1, Lewis_original_rows + nrow(synonyms)) # add numeric ID for each synonym name
 
 # deal with parenthesis in synonym scientificName
-synonyms$taxonRemarks <- inparens(synonyms$taxonRemarks) # put things in parentheses in taxonRemark
+synonyms$taxonRemarks <- inparens(synonyms$scientifcName) # put things in parentheses in taxonRemark
 synonyms$taxonRemarks[ synonyms$taxonRemarks == "" ] <- NA # set all blank taxonRemark to NA
 synonyms$scientificName <- outparens(synonyms$scientificName) # get things outside parenthesis for scientificName
 
@@ -332,3 +332,63 @@ df <- df[,c("source",
  
 write.csv(Lewis_non_dwc,"~/GitHub/tpt-siphonaptera/output/Lewis_non_DwC.csv", row.names = FALSE) # removed fields
 write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_DwC.csv", row.names = FALSE) # ready for analysis
+
+# Fill in DwC fields
+df$nomenclaturalCode <- "ICZN" # set nomenclatural code
+df$namePublishedInYear <- right(df$scientificNameAuthorship,",") # get year from author text
+df$namePublishedInYear <- gsub("[^0-9]", "",df$namePublishedInYear) # leave only numbers
+
+# get GBIF taxonids
+# for (i in 1:nrow(df)){
+  # df$GBIFtaxonID[i] <- vlookup(GBIF$taxonID,df$canonicalName[i],GBIF$canonicalName)
+  # if (is.na(df$GBIFtaxonID[i])){
+  #   df$taxonID[i] <- paste(df$source[i],df$taxonID[i],sep = "")
+  # } else {
+  #   df$taxonID[i] <- paste("https://www.gbif.org/species/",df$GBIFtaxonID[i],sep = "")
+  # }
+# }
+
+
+
+accepted <- df
+# get accepted names for synonyms
+for (i in 1:nrow(df)){
+  df$acceptedNameUsage[i] <- vlookup(accepted$canonicalName,df$acceptedNameUsageID[i],accepted$taxonID)
+}
+
+# get parent names
+for (i in 1:nrow(df)){
+  if (df$taxonRank[i] == "genus"){
+    if (is.na(df$subfamily[i])){
+      df$parentNameUsage[i] <- df$family[i]
+    } else {
+      df$parentNameUsage[i] <- df$subfamily[i]
+    }
+  }
+}
+
+
+for (i in 1:nrow(df)){
+    if (df$taxonRank[i] == "species"){
+      if (is.na(df$subgenus[i])){
+        df$parentNameUsage[i] <- df$genus[i]
+      } else {
+        df$parentNameUsage[i] <- df$subgenus[i]
+      }
+    }
+}
+
+
+
+for (i in 1:nrow(df)){
+  if (df$taxonRank[i] == "subspecies"){
+    if (is.na(df$subgenus[i])){
+      df$parentNameUsage[i] <- paste(df$genus[i],df$specificEpithet[i], sep = " ")
+    } else {
+      subgenus <- paste("(",df$subgenus[i],")", sep = "")
+      df$parentNameUsage[i] <- paste(df$genus[i],subgenus, df$specificEpithet[i], sep = " ")
+    }
+  }
+}
+    
+

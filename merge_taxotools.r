@@ -80,8 +80,23 @@ if(original == final) {
 # CoL taxo conversion
 CoL <- read.csv("~/GitHub/tpt-siphonaptera/output/CoL_DwC.csv", na = "NA") # read in cleaned CoL review file
 CoL$taxonomicStatus <- ifelse(CoL$taxonomicStatus == "ambiguous_synonym", "synonym", CoL$taxonomicStatus) # replace non-conforming status
+# create numeric ids for taxotools
+for (i in 1:nrow(CoL)){
+  CoL$id[i] <- i
+}
+
+# create numeric accids for taxotools
+id_lookup <- CoL[ , c("taxonID", "id")] # make a lookuptable of taxonIDs and ids 
+# get the id that is equal to the accepted taxonID
+for (i in 1:nrow(CoL)){
+  if (is.na(CoL$acceptedNameUsageID[i])){
+    CoL$accid[i] <- NA
+  } else {
+    CoL$accid[i] <- vlookup(id_lookup$id, CoL$acceptedNameUsageID[i],id_lookup$taxonID)
+  }
+}
 CoL_ht <- higher_taxa_rank(CoL, CoL$taxonRank) # get CoL higher taxa (DwC2taxo removes them, this is to check rows later)
-CoL <- compact_ids(CoL,id="taxonID",accid="acceptedNameUsageID") # deal with letters and long ids
+# CoL <- compact_ids(CoL,id="taxonID",accid="acceptedNameUsageID") # deal with letters and long ids
 CoL_taxo <- DwC2taxo(CoL, source = "CoL")
 
 # sanity check
@@ -231,7 +246,7 @@ for (i in 1:nrow(family)){
 Siphonaptera_checklist <- taxo2doc(Flea_m4,
                                    title="TPT Flea Taxonomy",
                                    mastersource="Lewis",
-                                   duplicatesyn=FALSE,
+                                   duplicatesyn=TRUE,
                                    outformat="html_document",
                                    outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",
-                                   outfile="Flea_taxolist.html")
+                                   outfile="Flea_taxolist1.html")

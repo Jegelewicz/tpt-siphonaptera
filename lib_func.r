@@ -10,7 +10,6 @@ library(data.table)
 library(stringi)
 library(dplyr)
 library(plyr)
-library(devtools)
 library(taxotools)
 
 # functions
