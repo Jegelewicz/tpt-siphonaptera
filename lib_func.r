@@ -8,8 +8,8 @@ devtools::install_github("vijaybarve/taxotools", force = TRUE) # install latest 
 library(readxl)
 library(data.table)
 library(stringi)
-library(dplyr)
 library(plyr)
+library(dplyr)
 library(taxotools)
 
 # functions

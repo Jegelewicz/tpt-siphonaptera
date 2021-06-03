@@ -1,5 +1,5 @@
 # read in file
-Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 1 JUNE 2021_1.xlsx")
+Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 1 JUNE 2021.xlsx")
 df <- Lewis # change filename for ease of use
 Lewis_original_rows <- nrow(df) # get initial number of rows
 tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
@@ -165,6 +165,9 @@ review <- synonyms[which(synonyms$acceptedNameUsage == "review"),] # get review 
 synonyms <- synonyms[which(synonyms$acceptedNameUsage != "review"),] # remove review names from synonyms
 review$acceptedNameUsage <- NA
 review$taxonRank <- "species"
+review$namePublishedInYear <- right(review$scientificName,",") # get year from author text
+review$namePublishedInYear <- gsub("[^0-9]", "",review$namePublishedInYear) # leave only numbers
+
 synonyms <- rbind(synonyms,review)
 
 # extract higher taxa for next set of review
@@ -226,9 +229,26 @@ higher_taxa$scientificNameAuthorship <- right(higher_taxa$scientificName," ")
 
 synonyms <- rbind(synonyms, higher_taxa) # add higher taxa synonyms back to synonyms file
 
-# remove synonyms that need review
+# fix authorship in parens for synonyms
+for (i in 1:nrow(synonyms)){
+  if (is.na(synonyms$scientificNameAuthorship[i]) == TRUE){
+    synonyms$scientificNameAuthorship[i] <- paste("(",synonyms$taxonRemarks[i],")",sep = "")
+    synonyms$taxonRemarks[i] <- NA
+  }
+}
+
+# remove synonyms that need review and make corrections
 review_synonyms <- synonyms[which(synonyms$taxonRank == "review"), ] # extract synonyms with taxonRemarks
 synonyms <- synonyms[which(synonyms$taxonRank != "review"),] # remove review names
+review_synonyms$taxonRank <- "genus"
+# melt scientific name for review
+for(i in 1:nrow(review_synonyms)){
+  review_synonyms$genus[i] <- left(review_synonyms$scientificName[i]," ")
+  review_synonyms$specificEpithet[i] <- NULL
+  review_synonyms$infraspecificEpithet[i] <- NULL
+}
+
+synonyms <- rbind(synonyms,review_synonyms) # add reviewed back to synonyms
 
 # get accepted name ID
 for (i in 1:nrow(synonyms)){
@@ -237,8 +257,126 @@ for (i in 1:nrow(synonyms)){
 
 df <- rbind(df,synonyms) # add synonyms back to working file
 
-# check for duplicates
-df$dupe <- c(ifelse(duplicated(df$canonicalName, fromLast = TRUE)  | duplicated(df$canonicalName),
-                                           "dupe", NA)) # Flag internal dupes
-dupes_review <- df[which(grepl('dupe',df$dupe) == TRUE), ] 
+df$kingdom <- "Animalia" # add kingdom
+df$phylum <- "Arthropoda" # add phylum
+df$class <- "Insecta" # add class
+df$order <- "Siphonaptera" # add order
+df$source <- "Lewis"
 
+df$specificEpithet <- ifelse(df$taxonRank == "genus", NA, df$specificEpithet) # ensure genera don't have specific epithet
+df$infraspecificEpithet <- ifelse(df$taxonRank == "genus", NA, df$infraspecificEpithet) # ensure genera don't have infraspecific epithet
+df$scientificNameAuthorship <- ifelse(df$scientificNameAuthorship == "", NA, df$scientificNameAuthorship) # replace blank with NA
+
+# clean up taxon remarks
+df$taxonRemarks <- gsub("Female","female",df$taxonRemarks)
+df$taxonRemarks <- gsub("Male","male",df$taxonRemarks)
+df$taxonRemarks <- gsub("FOSSIL","fossil",df$taxonRemarks)
+df$taxonRemarks <- gsub("Fossil","fossil",df$taxonRemarks)
+df$taxonRemarks <- gsub("in:","in",df$taxonRemarks)
+
+# update appropriate fields for subgenera remark
+for (i in 1:nrow(df)){
+  if (grepl("subgenus",df$taxonRemarks[i]) == TRUE){ # if remarks contain subgenus
+    df$taxonRank[i] <- "subgenus" # make taxon rank subgenus
+    df$subgenus[i] <- df$canonicalName[i] # make subgenus equal to canonical
+    df$genus[i] <- df$acceptedNameUsage[i] # make genus accepted name
+  }
+}
+
+# move author names from remarks
+missing_author <- df[which(is.na(df$scientificNameAuthorship)),] # get names with missing authors
+df <- df[which(!is.na(df$scientificNameAuthorship)),] # remove names with missing authors
+missing_author$scientificNameAuthorship <- ifelse(is.na(missing_author$taxonRemarks),NA,paste("(",missing_author$taxonRemarks,")",sep = "")) # add author in parens that was removed above
+missing_author$taxonRemarks <- NA # remove author info from remark
+df <- rbind(df,missing_author) # add back fixed authors
+
+# Fill in DwC fields
+df$nomenclaturalCode <- "ICZN" # set nomenclatural code
+for(i in 1:nrow(df)){
+  if (df$taxonRank[i] == "subspecies"){
+    df$parentNameUsage[i] <- paste(df$genus[i],df$specificEpithet[i],sep = " ")
+  }else {
+    if (df$taxonRank[i] == "species"){
+      df$parentNameUsage[i] <- df$genus[i]
+    } else {
+      if (df$taxonRank[i] == "genus"){
+        ifelse(is.na(df$subfamily[i]),
+               df$parentNameUsage[i] <- df$family[i],
+               df$parentNameUsage[i] <- df$subfamily[i])
+        
+        }
+      }
+    }
+}
+
+# get parent name ID - doesn't work because duplicates
+# lookup <- df # create lookup dataframe
+# for (i in 1:nrow(df)){
+#   df$parentNameUsageID[i] <- vlookup(lookup$taxonID,df$parentNameUsage[i],lookup$canonicalName) # get parentNameID
+# }
+
+# check for problems
+df$reason <- c(ifelse(duplicated(df$canonicalName, fromLast = TRUE)  | duplicated(df$canonicalName),
+                                           "dupe", NA)) # Flag internal dupes
+dupes <- df[which(grepl('dupe',df$reason) == TRUE), ] 
+bad_year <- df[which(df$namePublishedInYear < 1700 | is.na(df$namePublishedInYear) | df$namePublishedInYear > 2100),]
+bad_year$reason <- "bad year"
+missing_author <- df[which(is.na(df$scientificNameAuthorship)),]
+missing_author$reason <- "no author"
+multi_genera <- df[which(lapply(df$genus, name_length) > 1),] # extract rows with a multi-name genus
+multi_specific <- df[which(lapply(df$specificEpithet, name_length) > 1),] # extract rows with a multi-name species
+multi_infra <- df[which(lapply(df$infraspecificEpithet, name_length) > 1),] # extract rows with a multi-name species
+review <- rbind(dupes,bad_year,missing_author,multi_genera,multi_specific,multi_infra)
+write.csv(review,"~/GitHub/tpt-siphonaptera/output/Lewis_review.csv", row.names = FALSE) # write out duplicate names for review
+
+df <- df[which(df$taxonID %!in% review$taxonID)] # no duplicates
+
+# Do this after final review...
+Lewis_non_dwc <- subset(df, select = c(source, taxonID, species, author, `synonym(s)`)) # get all columns that are not DwC
+# remove non DwC columns from working file
+df$species <- NULL
+df$author <- NULL
+df$`synonym(s)` <- NULL
+
+# order column names
+# df[,c(1,2,3,4)]. Note the first comma means keep all the rows, and the 1,2,3,4 refers to the columns.
+df <- df[,c("source",
+            "taxonID",
+            "scientificNameID",
+            "acceptedNameUsageID",
+            "parentNameUsageID",
+            "originalNameUsageID",
+            "nameAccordingToID",
+            "namePublishedInID",
+            "taxonConceptID",
+            "scientificName",
+            "acceptedNameUsage",
+            "parentNameUsage",
+            "originalNameUsage",
+            "nameAccordingTo",
+            "namePublishedIn",
+            "namePublishedInYear",
+            "higherClassification",
+            "kingdom",
+            "phylum",
+            "class",
+            "order",
+            "family",
+            "subfamily",
+            "genus",
+            "subgenus",
+            "specificEpithet",
+            "infraspecificEpithet",
+            "taxonRank",
+            "verbatimTaxonRank",
+            "scientificNameAuthorship",
+            "vernacularName",
+            "nomenclaturalCode",
+            "taxonomicStatus",
+            "nomenclaturalStatus",
+            "taxonRemarks",
+            "canonicalName"
+)]
+
+write.csv(Lewis_non_dwc,"~/GitHub/tpt-siphonaptera/output/Lewis_non_DwC.csv", row.names = FALSE) # removed fields
+write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_DwC.csv", row.names = FALSE) # ready for analysis
