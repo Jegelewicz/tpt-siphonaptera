@@ -67,7 +67,7 @@ if(original == final) {
   Lewis_not_in_taxo <- Lewis[Lewis$taxonID %!in% Lewis_taxo$id,] # get all rows in Lewis that do not match an id in taxo
   Lewis_problems <- Lewis_not_in_taxo[Lewis_not_in_taxo$taxonID %!in% Lewis_ht$taxonID,] # get all rows in above that do not match an id in Lewis_ht
   Lewis_problems$taxonomicStatus <- NULL # status is the most likely issue, so NULL it
-  Lewis_problems_taxo <- DwC2taxo(problems, source = "Lewis") # transform problems to taxo format)
+  Lewis_problems_taxo <- DwC2taxo(Lewis_problems, source = "Lewis") # transform problems to taxo format)
   Lewis_taxo <- rbind(Lewis_taxo, Lewis_problems_taxo) # return converted problems to working file
   final <- nrow(Lewis_taxo) + nrow(Lewis_ht) # recalculate number of rows in converted taxo file plus number of rows in higher taxa
   if(original == final) { print("yay") # print yay if no rows are missing
@@ -226,27 +226,27 @@ Flea_m4$family <- toproper(Flea_m4$family) # ensure all family names are proper 
 write.csv(Flea_m4,"~/GitHub/tpt-siphonaptera/output/Flea_merged.csv", row.names = FALSE) #write out merged file
 
 # write out list as documents by family
-families <- unique(Flea_m4$family)
-family <- data.frame(families)
-
-for (i in 1:nrow(family)){
-     fam <- family$families[i]
-     file <- paste(fam,"_taxolist.html",sep = "")
-      Siphonaptera_checklist <- taxo2doc(Flea_m4,
-                                   family=fam,
-                                   title="TPT Flea Taxonomy",
-                                   mastersource="Lewis",
-                                   duplicatesyn=FALSE,
-                                   outformat="html_document",
-                                   outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",
-                                   outfile=file)
-}
+# families <- unique(Flea_m4$family)
+# family <- data.frame(families)
+# 
+# for (i in 1:nrow(family)){
+#      fam <- family$families[i]
+#      file <- paste(fam,"_taxolist.html",sep = "")
+#       Siphonaptera_checklist <- taxo2doc(Flea_m4,
+#                                    family=fam,
+#                                    title="TPT Flea Taxonomy",
+#                                    mastersource="Lewis",
+#                                    duplicatesyn=FALSE,
+#                                    outformat="html_document",
+#                                    outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",
+#                                    outfile=file)
+# }
 
 # write out entire list
 Siphonaptera_checklist <- taxo2doc(Flea_m4,
                                    title="TPT Flea Taxonomy",
                                    mastersource="Lewis",
-                                   duplicatesyn=TRUE,
+                                   duplicatesyn=FALSE,
                                    outformat="html_document",
                                    outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",
                                    outfile="Flea_taxolist1.html")

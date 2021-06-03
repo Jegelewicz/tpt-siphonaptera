@@ -1,5 +1,6 @@
 # read in file
 Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 1 JUNE 2021.xlsx")
+# Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/test.xlsx")
 df <- Lewis # change filename for ease of use
 Lewis_original_rows <- nrow(df) # get initial number of rows
 tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
@@ -144,10 +145,10 @@ synonyms$scientificName <- synonyms$`synonym(s)` # move synonym to scientificNam
 synonyms$infraspecificEpithet <- NA # clear subspecifc names of accepted name classification
 synonyms$specificEpithet <- NA # clear specific names of accepted name classification
 # close unclosed parenthesis
-parens <- synonyms[which(grepl("\\(",synonyms$`synonym(s)`) == TRUE),] # get names with open parens
-no_parens <- parens[which(grepl(")",parens$`synonym(s)`) == FALSE),] # get names with unclosed parens
+parens <- synonyms[which(grepl("\\(",synonyms$scientificName) == TRUE),] # get names with open parens
+no_parens <- parens[which(grepl(")",parens$scientificName) == FALSE),] # get names with unclosed parens
 synonyms <- synonyms[which(synonyms$taxonID %!in% no_parens$taxonID),] # remove missing parens rows
-no_parens$`synonym(s)` <- paste(no_parens$`synonym(s)`,")",sep = "") #add closing synonym
+no_parens$scientificName <- paste(no_parens$scientificName,")",sep = "") #add closing synonym
 synonyms <- rbind(synonyms,no_parens) # add fixes back to synonyms
 
 Lewis_synonym_rows <- nrow(synonyms) # number of synonyms
@@ -227,6 +228,10 @@ for(i in 1:nrow(higher_taxa)){
 # generate scientificNameAuthorship for genus and above
 higher_taxa$scientificNameAuthorship <- right(higher_taxa$scientificName," ")
 
+synonyms <- char_fun(synonyms,trimws) # strip spaces from ends of strings
+synonyms <- char_fun(synonyms,space_clean) # strip double spaces
+df <- char_fun(df,phrase_clean) # remove all \xa0 characters
+
 synonyms <- rbind(synonyms, higher_taxa) # add higher taxa synonyms back to synonyms file
 
 # fix authorship in parens for synonyms
@@ -238,14 +243,14 @@ for (i in 1:nrow(synonyms)){
 }
 
 # remove synonyms that need review and make corrections
-review_synonyms <- synonyms[which(synonyms$taxonRank == "review"), ] # extract synonyms with taxonRemarks
+review_synonyms <- synonyms[which(synonyms$taxonRank == "review"),] # extract synonyms with taxonRemarks
 synonyms <- synonyms[which(synonyms$taxonRank != "review"),] # remove review names
 review_synonyms$taxonRank <- "genus"
 # melt scientific name for review
 for(i in 1:nrow(review_synonyms)){
   review_synonyms$genus[i] <- left(review_synonyms$scientificName[i]," ")
-  review_synonyms$specificEpithet[i] <- NULL
-  review_synonyms$infraspecificEpithet[i] <- NULL
+  review_synonyms$specificEpithet[i] <- NA
+  review_synonyms$infraspecificEpithet[i] <- NA
 }
 
 synonyms <- rbind(synonyms,review_synonyms) # add reviewed back to synonyms
@@ -256,6 +261,10 @@ for (i in 1:nrow(synonyms)){
 }
 
 df <- rbind(df,synonyms) # add synonyms back to working file
+
+df <- char_fun(df,trimws) # strip spaces from ends of strings
+df <- char_fun(df,space_clean) # strip double spaces
+df <- char_fun(df,phrase_clean) # remove all \xa0 characters
 
 df$kingdom <- "Animalia" # add kingdom
 df$phylum <- "Arthropoda" # add phylum
@@ -286,8 +295,17 @@ for (i in 1:nrow(df)){
 # move author names from remarks
 missing_author <- df[which(is.na(df$scientificNameAuthorship)),] # get names with missing authors
 df <- df[which(!is.na(df$scientificNameAuthorship)),] # remove names with missing authors
-missing_author$scientificNameAuthorship <- ifelse(is.na(missing_author$taxonRemarks),NA,paste("(",missing_author$taxonRemarks,")",sep = "")) # add author in parens that was removed above
-missing_author$taxonRemarks <- NA # remove author info from remark
+for (i in 1:nrow(missing_author)){
+  if (is.na(missing_author$taxonRemarks[i])){
+    NA
+  } else {
+    if (grepl("see ",missing_author$taxonRemarks[i]) == FALSE){
+      missing_author$scientificNameAuthorship[i] <- paste("(",missing_author$taxonRemarks[i],")",sep = "") # add author in parens that was removed above
+      missing_author$taxonRemarks[i] <- NA # remove author info from remark
+    }
+  }
+}
+
 df <- rbind(df,missing_author) # add back fixed authors
 
 # Fill in DwC fields
@@ -309,7 +327,14 @@ for(i in 1:nrow(df)){
     }
 }
 
-# get parent name ID - doesn't work because duplicates
+# look for missing genera
+generic_names <- df[which(!duplicated(df$genus)),] # deduplicated list by genus
+genera <- df[which(df$taxonRank == "genus"),] # all generic names in the list
+missing_genera <- generic_names[which(generic_names$genus %!in% genera$genus),] # get names used as genus but not in list
+missing_generic <- genera[which(genera$genus %!in% generic_names$genus),] # get names used as genus but not in list
+write.csv(generic_names,"~/GitHub/tpt-siphonaptera/output/Lewis_review_genera.csv", row.names = FALSE)
+
+# get parent name ID - doesn't work because some parents aren't in the file
 # lookup <- df # create lookup dataframe
 # for (i in 1:nrow(df)){
 #   df$parentNameUsageID[i] <- vlookup(lookup$taxonID,df$parentNameUsage[i],lookup$canonicalName) # get parentNameID
