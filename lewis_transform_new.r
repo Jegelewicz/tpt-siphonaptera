@@ -318,7 +318,7 @@ generic_names <- df[which(!duplicated(df$genus)),] # deduplicated list by genus
 genera <- df[which(df$taxonRank == "genus"),] # all generic names in the list
 missing_genera <- generic_names[which(generic_names$genus %!in% genera$genus),] # get names used as genus but not in list
 missing_generic <- genera[which(genera$genus %!in% generic_names$genus),] # get names used as genus but not in list
-write.csv(generic_names,"~/GitHub/tpt-siphonaptera/output/Lewis_review_genera.csv", row.names = FALSE)
+write.csv(missing_genera,"~/GitHub/tpt-siphonaptera/output/Lewis_review_genera.csv", row.names = FALSE)
 
 # get parent name ID - doesn't work because some parents aren't in the file
 # lookup <- df # create lookup dataframe
