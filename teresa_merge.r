@@ -1,49 +1,90 @@
 # Teresa's merge
-Lewis_merge <- Lewis_taxo
-Lewis_merge$merge_tag <- "orig"
 
-CoL_merge <- CoL_taxo
-for (i in 1:nrow(CoL_merge)){
-  if (CoL_merge$canonical[i] %in% Lewis_merge$canonical){
-    CoL_merge$merge_tag[i] <- "add"
-  } else {
-    CoL_merge$merge_tag[i] <- "new"
-  }
+Lewis <- read.csv("~/GitHub/tpt-siphonaptera/output/Lewis_DwC.csv", na = "NA") # read in cleaned Lewis review file
+NMNH <- read.csv("~/GitHub/tpt-siphonaptera/output/NMNH_DwC.csv", na = "NA") # read in cleaned NMNH review file
+FMNH <- read.csv("~/GitHub/tpt-siphonaptera/output/FMNH_DwC.csv", na = "NA") # read in cleaned FMNH review file
+CoL <- read.csv("~/GitHub/tpt-siphonaptera/output/CoL_DwC.csv", na = "NA") # read in cleaned CoL review file
+GBIF <- read.csv("~/GitHub/tpt-siphonaptera/output/GBIF_DwC.csv", na = "NA") # read in cleaned GBIF review file
+
+# Names in sources other than Lewis
+FMNH_not_Lewis <- FMNH[which(FMNH$canonicalName %!in% Lewis$canonicalName),]
+NMNH_not_Lewis <- NMNH[which(NMNH$canonicalName %!in% Lewis$canonicalName),]
+CoL_not_Lewis <- CoL[which(CoL$canonicalName %!in% Lewis$canonicalName),]
+GBIF_not_Lewis <- GBIF[which(GBIF$canonicalName %!in% Lewis$canonicalName),]
+
+df1 <- GBIF_not_Lewis # change dataframe name for ease of use
+
+# if canonical is in CoL, add the source
+for (i in 1:nrow(df1)){
+  if (df1$canonicalName[i] %in% CoL$canonicalName){
+    df1$source[i] <- paste(df1$source[i],"CoL", sep = ", ")
   }
 }
 
-merge <- rbind(Lewis_merge,CoL_merge)
+df2 <- CoL_not_Lewis[which(CoL_not_Lewis$canonicalName %!in% df1$canonicalName),] # if CoL canonical is not in working file, get it
+df1 <- rbind.fill(df1, df2) # add CoL not in GBIF to working file
 
-# get non UTF8 authors
-Flea_m4_x <- merge[which(!is.na(merge$author) & is.na(iconv(merge$author, "UTF-8", "UTF-8"))),] # get all non UTF8 authors
-
-if (nrow(Flea_m4_x) == 0){
-  "No non UTF8 characters"
-} else{
-  merge$author <- gsub("ñ", "n", merge$author) # replace non-UTF8
-  merge$author <- gsub("á", "a", merge$author) # replace non-UTF8
-  merge$author <- gsub("é", "e", merge$author) # replace non-UTF8
-  merge$author <- gsub("ó", "o", merge$author) # replace non-UTF8
-  merge$author <- gsub("ã", "a", merge$author) # replace non-UTF8
-  merge$author <- gsub("ö", "o", merge$author) # replace non-UTF8
-  merge$author <- gsub("ü", "u", merge$author) # replace non-UTF8
-  merge$author <- gsub("è", "e", merge$author) # replace non-UTF8
-  merge$author <- gsub("í", "i", merge$author) # replace non-UTF8
-  merge$author <- gsub("Ã¨", "e", merge$author) # replace non-UTF8
-  merge$author <- gsub("Ã¶", "o", merge$author) # replace non-UTF8
-  merge$author <- gsub("Ã¦", "ae", merge$author) # replace non-UTF8
-  Flea_m4_x <- merge[which(!is.na(merge$author) & is.na(iconv(merge$author, "UTF-8", "UTF-8"))),] # get all non UTF8 authors
-  print("cleaned non-UTF8 characters, rerun if statement to make sure all were caught")
+# if canonical is in NMNH, add the source
+for (i in 1:nrow(df1)){
+  if (df1$canonicalName[i] %in% NMNH$canonicalName){
+    df1$source[i] <- paste(df1$source[i],"NMNH", sep = ", ")
+  }
 }
 
-merge$family <- ifelse(is.na(merge$family),"None",merge$family)
-merge$family <- toproper(merge$family) # ensure all family names are proper case
+df2 <- NMNH_not_Lewis[which(NMNH_not_Lewis$canonicalName %!in% df1$canonicalName),] # if NMNH canonical is not in working file, get it
+df1 <- rbind.fill(df1, df2) # add NMNH not in GBIF to working file
 
-# write out entire list
-test_checklist <- taxo2doc(merge,
-                                   title="TPT Flea Taxonomy",
-                                   mastersource="Lewis",
-                                   duplicatesyn=TRUE,
-                                   outformat="html_document",
-                                   outdir="C:/Users/Teresa/OneDrive/Documents/GitHub/tpt-siphonaptera/output/",
-                                   outfile="taxolist_test.html")
+# if canonical is in FMNH, add the source
+for (i in 1:nrow(df1)){
+  if (df1$canonicalName[i] %in% FMNH$canonicalName){
+    df1$source[i] <- paste(df1$source[i],"FMNH", sep = ", ")
+  }
+}
+
+df2 <- FMNH_not_Lewis[which(FMNH_not_Lewis$canonicalName %!in% df1$canonicalName),] # if FMNH canonical is not in working file, get it
+df1 <- rbind.fill(df1, df2) # add FMNH not in GBIF to working file
+
+write.csv(df1,"~/GitHub/tpt-siphonaptera/output/Not in Lewis.csv", row.names = FALSE) # names not in Lewis
+
+
+# Lewis names in sources other than Lewis
+FMNH_in_Lewis <- FMNH[which(FMNH$canonicalName %in% Lewis$canonicalName),]
+NMNH_in_Lewis <- NMNH[which(NMNH$canonicalName %in% Lewis$canonicalName),]
+CoL_in_Lewis <- CoL[which(CoL$canonicalName %in% Lewis$canonicalName),]
+GBIF_in_Lewis <- GBIF[which(GBIF$canonicalName %in% Lewis$canonicalName),]
+
+df <- Lewis # change dataframe name for ease of use
+
+# if canonical is in CoL, add the source
+for (i in 1:nrow(df)){
+  if (df$canonicalName[i] %in% CoL$canonicalName){
+    df$source[i] <- paste(df$source[i],"CoL", sep = ", ")
+  }
+}
+
+# if canonical is in FMNH, add the source
+for (i in 1:nrow(df)){
+  if (df$canonicalName[i] %in% FMNH$canonicalName){
+    df$source[i] <- paste(df$source[i],"FMNH", sep = ", ")
+  }
+}
+
+# if canonical is in GBIF, add the source
+for (i in 1:nrow(df)){
+  if (df$canonicalName[i] %in% GBIF$canonicalName){
+    df$source[i] <- paste(df$source[i],"GBIF", sep = ", ")
+  }
+}
+
+# if canonical is in NMNH, add the source
+for (i in 1:nrow(df)){
+  if (df$canonicalName[i] %in% NMNH$canonicalName){
+    df$source[i] <- paste(df$source[i],"NMNH", sep = ", ")
+  }
+}
+
+write.csv(df,"~/GitHub/tpt-siphonaptera/output/in Lewis.csv", row.names = FALSE) # names in Lewis
+
+all_names <- rbind(df,df1)
+
+write.csv(all_names,"~/GitHub/tpt-siphonaptera/output/merged_names.csv", row.names = FALSE) # all names

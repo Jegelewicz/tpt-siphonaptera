@@ -1,8 +1,7 @@
 # read in file
-Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 9 JUNE 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text", "text"))
-# Lewis_genera <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Genera List 9 JUNE 2021.xlsx", col_types = c("text", "text", "text"))
-# df <- rbind.fill(Lewis, Lewis_genera) # combine species and genus files
-df <- Lewis # change dataframe name for ease of use
+Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 11 JUNE 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text"))
+Lewis_genera <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Genera List 11 JUNE 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text"))
+df <- rbind.fill(Lewis, Lewis_genera) # combine species and genus files
 Lewis_original_rows <- nrow(df) # get initial number of rows
 tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
 tpt_dwc_template[] <- lapply(tpt_dwc_template, as.character) # set all columns in template to character
@@ -18,35 +17,29 @@ df <- char_fun(df,space_clean) # replace double spaces with single space
 
 df <- rbindlist(list(df, tpt_dwc_template), fill = TRUE) # add all DwC columns
 
+df$taxonID <- seq.int(nrow(df)) # add numeric ID for each name
+
 is.na(df$subfamily) <- df$subfamily == "NONE" # remove "NONE" from subfamily
 df$family <- toproper(df$family) # ensure all family names are proper case
 
 # deal with "generic account" column
-for (i in 1:nrow(df)){
-  if (is.na(df$genus[i])){
-    df$genus[i] <- df$`generic account`[i]
-    df$`generic account`[i] <- NA
-  } else {
-    df$taxonRemarks[i] <- paste("generic account",df$`generic account`[i], sep = " ")
-    df$`generic account`[i] <- NA
-  }
-}
+# for (i in 1:nrow(df)){
+#   if (is.na(df$genus[i])){
+#     df$genus[i] <- df$`generic account`[i]
+#     df$`generic account`[i] <- NA
+#   } else {
+#     df$taxonRemarks[i] <- paste("generic account",df$`generic account`[i], sep = " ")
+#     df$`generic account`[i] <- NA
+#   }
+# }
 
 # deal with "fossil" column
-for (i in 1:nrow(df)){
-  if (!is.na(df$fossil[i])){
-    if (!is.na(df$taxonRemarks[i])){
-      df$taxonRemarks[i] <- df$fossil[i]
-    } else {
-      df$taxonRemarks[i] <- paste(df$taxonRemarks[i],df$fossil[i],sep = " | ")
-    }
-  }
-}
+df$taxonRemarks <- tolower(df$fossil)
 
 # deal with parenthesis in species
-df$taxonRemarks <- inparens(df$species)# for species column put things in parentheses in taxonRemark
-df$taxonRemarks[ df$taxonRemarks == "" ] <- NA # set all blank taxonRemark to NA
-df$species <- outparens(df$species)# get things outside parenthesis for species
+# df$taxonRemarks <- inparens(df$species)# for species column put things in parentheses in taxonRemark
+# df$taxonRemarks[ df$taxonRemarks == "" ] <- NA # set all blank taxonRemark to NA
+# df$species <- outparens(df$species)# get things outside parenthesis for species
 
 # split specificEpithet when it has two terms
 multi_epithet <- df[which(lapply(df$species, name_length) > 1),] # extract rows with a multi-name species
@@ -150,21 +143,8 @@ df <- char_fun(df,space_clean) # replace double spaces with single space
 synonyms <- df[which(!is.na(df$`synonym(s)`)),] # get all the synonyms
 df <- df[which(is.na(df$`synonym(s)`)),] # remove synonyms from working file
 
-# add synonym-less names
-# unique_syn <- synonyms[which(!duplicated(synonyms$scientificName)),] # deduplicated list by scientificName
-# unique_syn <- unique_syn[which(unique_syn$scientificName != "review"),] # remove review names
-# unique_syn$`synonym(s)` <- NA # remove synonyms to get "synonym-less name
-# df <- rbind(df, unique_syn) # add synonym-less names back to working file
-
-
-# duplicates <- df[which(duplicated(df$canonical)),] # duplicates here
-# df <- df[which(!duplicated(df$canonical)),] # deduplicated list
-
-Lewis_rows <- nrow(df) # number of accepted names
-df$taxonID <- seq.int(nrow(df)) # add numeric ID for each name
-
 # transform synonyms
-synonyms$taxonID <- seq.int(Lewis_original_rows + 1, Lewis_original_rows + nrow(synonyms)) # add numeric ID for each synonym name
+synonyms$taxonID <- seq.int(Lewis_rows + 1, Lewis_rows + nrow(synonyms)) # add numeric ID for each synonym name
 synonyms$acceptedNameUsage <- synonyms$canonicalName # create accepted name
 synonyms$scientificName <- synonyms$`synonym(s)` # move synonym to scientificName
 synonyms$infraspecificEpithet <- NA # clear subspecifc names of accepted name classification
@@ -175,11 +155,11 @@ synonyms$genus <- NA # clear genus of accepted name
 synonyms$scientificNameAuthorship <- NA # clear authorship of accepted name
 
 # close unclosed parenthesis
-parens <- synonyms[which(grepl("\\(",synonyms$scientificName) == TRUE),] # get names with open parens
-no_parens <- parens[which(grepl(")",parens$scientificName) == FALSE),] # get names with unclosed parens
-synonyms <- synonyms[which(synonyms$taxonID %!in% no_parens$taxonID),] # remove missing parens rows
-no_parens$scientificName <- paste(no_parens$scientificName,")",sep = "") #add closing synonym
-synonyms <- rbind(synonyms,no_parens) # add fixes back to synonyms
+# parens <- synonyms[which(grepl("\\(",synonyms$scientificName) == TRUE),] # get names with open parens
+# no_parens <- parens[which(grepl(")",parens$scientificName) == FALSE),] # get names with unclosed parens
+# synonyms <- synonyms[which(synonyms$taxonID %!in% no_parens$taxonID),] # remove missing parens rows
+# no_parens$scientificName <- paste(no_parens$scientificName,")",sep = "") #add closing synonym
+# synonyms <- rbind(synonyms,no_parens) # add fixes back to synonyms
 
 Lewis_synonym_rows <- nrow(synonyms) # number of synonyms
 
@@ -192,14 +172,13 @@ synonyms$taxonomicStatus <- "synonym" # add taxonomicStatus of "synonym" to all 
 df$taxonomicStatus <- "accepted" # add taxonomicStatus of "accepted" to all non-synonym names
 
 # deal with synonyms without accepted name
-review <- synonyms[which(synonyms$acceptedNameUsage == "review"),] # get review names
-synonyms <- synonyms[which(synonyms$acceptedNameUsage != "review"),] # remove review names from synonyms
-review$acceptedNameUsage <- NA
-review$taxonRank <- "species"
-review$namePublishedInYear <- right(review$scientificName,",") # get year from author text
-review$namePublishedInYear <- gsub("[^0-9]", "",review$namePublishedInYear) # leave only numbers
-
-synonyms <- rbind(synonyms,review)
+# review <- synonyms[which(synonyms$acceptedNameUsage == "review"),] # get review names
+# synonyms <- synonyms[which(synonyms$acceptedNameUsage != "review"),] # remove review names from synonyms
+# review$acceptedNameUsage <- NA
+# review$taxonRank <- "species"
+# review$namePublishedInYear <- right(review$scientificName,",") # get year from author text
+# review$namePublishedInYear <- gsub("[^0-9]", "",review$namePublishedInYear) # leave only numbers
+# synonyms <- rbind(synonyms,review)
 
 # melt scientific name of synonyms
 synonyms <- melt_scientificname(synonyms, 
@@ -233,7 +212,6 @@ synonyms <- char_fun(synonyms,space_clean) # strip double spaces
 synonyms <- char_fun(synonyms,phrase_clean) # remove all \xa0 characters
 
 # fix authorship in parens for synonyms
-synonyms1 <- synonyms
 synonyms[synonyms == "" | synonyms == " "] <- NA
 for (i in 1:nrow(synonyms)){
   if (is.na(synonyms$scientificNameAuthorship[i]) == TRUE){
@@ -247,11 +225,10 @@ synonyms$namePublishedInYear <- right(synonyms$scientificNameAuthorship,",") # g
 synonyms$namePublishedInYear <- gsub("[^0-9]", "",synonyms$namePublishedInYear) # leave only numbers
 
 # remove synonyms that need review and make corrections
-review_synonyms <- synonyms[which(synonyms$taxonRank == "review"),] # extract synonyms with taxonRemarks
-synonyms <- synonyms[which(synonyms$taxonRank != "review"),] # remove review names
-review_synonyms$taxonRank <- "genus"
-
-synonyms <- rbind(synonyms,review_synonyms) # add reviewed back to synonyms
+# review_synonyms <- synonyms[which(synonyms$taxonRank == "review"),] # extract synonyms with taxonRemarks
+# synonyms <- synonyms[which(synonyms$taxonRank != "review"),] # remove review names
+# review_synonyms$taxonRank <- "genus"
+# synonyms <- rbind(synonyms,review_synonyms) # add reviewed back to synonyms
 
 # get accepted name ID
 for (i in 1:nrow(synonyms)){
@@ -277,8 +254,6 @@ df$scientificNameAuthorship <- ifelse(df$scientificNameAuthorship == "", NA, df$
 # clean up taxon remarks
 df$taxonRemarks <- gsub("Female","female",df$taxonRemarks)
 df$taxonRemarks <- gsub("Male","male",df$taxonRemarks)
-df$taxonRemarks <- gsub("FOSSIL","fossil",df$taxonRemarks)
-df$taxonRemarks <- gsub("Fossil","fossil",df$taxonRemarks)
 df$taxonRemarks <- gsub("in:","in",df$taxonRemarks)
 
 # update appropriate fields for subgenera remark
@@ -340,16 +315,16 @@ multi_infra <- df[which(lapply(df$infraspecificEpithet, name_length) > 1),] # ex
 review <- rbind(dupes,bad_year,missing_author,multi_genera,multi_specific,multi_infra)
 write.csv(review,"~/GitHub/tpt-siphonaptera/output/Lewis_review.csv", row.names = FALSE) # write out duplicate names for review
 
-df <- df[which(df$taxonID %!in% review$taxonID)] # no review items
+# df <- df[which(df$taxonID %!in% review$taxonID)] # no review items
 
 # Do this after final review...
-Lewis_non_dwc <- subset(df, select = c(source, taxonID, `generic account`, species, author, `synonym(s)`, fossil)) # get all columns that are not DwC
+Lewis_non_dwc <- subset(df, select = c(source, taxonID, species, author, `synonym(s)`, fossil, reason)) # get all columns that are not DwC
 # remove non DwC columns from working file
 df$species <- NULL
 df$author <- NULL
 df$`synonym(s)` <- NULL
-df$`generic account` <- NULL
 df$fossil <- NULL
+df$reason <- NULL
 
 # order column names
 # df[,c(1,2,3,4)]. Note the first comma means keep all the rows, and the 1,2,3,4 refers to the columns.
@@ -390,6 +365,117 @@ df <- df[,c("source",
             "taxonRemarks",
             "canonicalName"
 )]
+
+# add family names
+families <- df[which(!duplicated(df$family)),] # deduplicated list by family
+families <- families[which(!is.na(families$family)),] # remove the NA family row
+families$canonicalName <- families$family
+families$scientificName <- families$family
+families$acceptedNameUsage <- NA
+families$parentNameUsage <- families$order
+families$namePublishedInYear <- NA
+families$subfamily <- NA
+families$genus <- NA
+families$scientificNameAuthorship <- NA
+families$subgenus <- NA
+families$specificEpithet <- NA
+families$infraspecificEpithet <- NA
+families$taxonomicStatus <- "accepted"
+families$taxonRank <- "family"
+
+# add subfamily names
+subfamilies <- df[which(!duplicated(df$subfamily)),] # deduplicated list by subfamily
+subfamilies <- subfamilies[which(!is.na(subfamilies$subfamily)),] # remove the NA subfamily row
+subfamilies$canonicalName <- subfamilies$subfamily
+subfamilies$scientificName <- subfamilies$subfamily
+subfamilies$acceptedNameUsage <- NA
+subfamilies$parentNameUsage <- subfamilies$family
+subfamilies$namePublishedInYear <- NA
+subfamilies$genus <- NA
+subfamilies$scientificNameAuthorship <- NA
+subfamilies$subgenus <- NA
+subfamilies$specificEpithet <- NA
+subfamilies$infraspecificEpithet <- NA
+subfamilies$taxonomicStatus <- "accepted"
+subfamilies$taxonRank <- "subfamily"
+
+# add order names
+orders <- df[which(!duplicated(df$order)),] # deduplicated list by order
+orders <- orders[which(!is.na(orders$order)),] # remove the NA order row
+orders$canonicalName <- orders$order
+orders$scientificName <- orders$order
+orders$acceptedNameUsage <- NA
+orders$parentNameUsage <- orders$class
+orders$namePublishedInYear <- NA
+orders$genus <- NA
+orders$scientificNameAuthorship <- NA
+orders$family <-NA
+orders$subgenus <- NA
+orders$specificEpithet <- NA
+orders$infraspecificEpithet <- NA
+orders$taxonomicStatus <- "accepted"
+orders$taxonRank <- "order"
+
+# add class names
+classes <- df[which(!duplicated(df$class)),] # deduplicated list by class
+classes <- classes[which(!is.na(classes$class)),] # remove the NA order row
+classes$canonicalName <- classes$class
+classes$scientificName <- classes$class
+classes$acceptedNameUsage <- NA
+classes$parentNameUsage <- classes$phylum
+classes$namePublishedInYear <- NA
+classes$genus <- NA
+classes$scientificNameAuthorship <- NA
+classes$order <-NA
+classes$family <-NA
+classes$subgenus <- NA
+classes$specificEpithet <- NA
+classes$infraspecificEpithet <- NA
+classes$taxonomicStatus <- "accepted"
+classes$taxonRank <- "class"
+
+# add phylums names
+phyla <- df[which(!duplicated(df$phylum)),] # deduplicated list by class
+phyla <- phyla[which(!is.na(phyla$phylum)),] # remove the NA order row
+phyla$canonicalName <- phyla$phylum
+phyla$scientificName <- phyla$phylum
+phyla$acceptedNameUsage <- NA
+phyla$parentNameUsage <- phyla$kingdom
+phyla$namePublishedInYear <- NA
+phyla$genus <- NA
+phyla$scientificNameAuthorship <- NA
+phyla$class <- NA
+phyla$order <-NA
+phyla$family <-NA
+phyla$subgenus <- NA
+phyla$specificEpithet <- NA
+phyla$infraspecificEpithet <- NA
+phyla$taxonomicStatus <- "accepted"
+phyla$taxonRank <- "phylum"
+
+# add kingdom
+kingdom <- df[which(!duplicated(df$kingdom)),] # deduplicated list by class
+kingdom <- kingdom[which(!is.na(kingdom$kingdom)),] # remove the NA order row
+kingdom$canonicalName <- kingdom$kingdom
+kingdom$scientificName <- kingdom$kingdom
+kingdom$acceptedNameUsage <- NA
+kingdom$namePublishedInYear <- NA
+kingdom$genus <- NA
+kingdom$scientificNameAuthorship <- NA
+kingdom$phylum <- NA
+kingdom$class <- NA
+kingdom$order <-NA
+kingdom$family <-NA
+kingdom$subgenus <- NA
+kingdom$specificEpithet <- NA
+kingdom$infraspecificEpithet <- NA
+kingdom$taxonomicStatus <- "accepted"
+kingdom$taxonRank <- "kingdom"
+
+higher_taxa <- rbind(kingdom, phyla, classes, orders, families, subfamilies)
+higher_taxa$taxonID <- seq.int(Lewis_original_rows + 1, Lewis_original_rows + nrow(higher_taxa)) # add numeric ID for each higher taxon name
+
+df <- rbind(df, higher_taxa)
 
 write.csv(Lewis_non_dwc,"~/GitHub/tpt-siphonaptera/output/Lewis_non_DwC.csv", row.names = FALSE) # removed fields
 write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_DwC.csv", row.names = FALSE) # ready for analysis

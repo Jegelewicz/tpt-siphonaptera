@@ -50,6 +50,23 @@ df$family <- ifelse(is.na(df$family),
                            NA),
                     df$family) # add family for missing genus 
 
+# deal with extra parenthesis in scientificName
+for (i in 1:nrow(df)){
+  if (grepl("(female)",df$scientificName[i],ignore.case = TRUE,) == TRUE){
+    df$taxonRemarks[i] <- "female" # add female to taxon remark
+    df$scientificName[i] <- gsub("\\(female)","",df$scientificName[i]) #remove female from scientificName
+    df$specificEpithet[i] <- gsub("\\(female)","",df$specificEpithet[i]) #remove female from specificEpithet
+  }
+}
+
+for (i in 1:nrow(df)){
+  if (grepl("(male)",df$scientificName[i],ignore.case = TRUE,) == TRUE){
+    df$taxonRemarks[i] <- "male" # add female to taxon remark
+    df$scientificName[i] <- gsub("\\(male)","",df$scientificName[i]) #remove male from scientificName
+    df$specificEpithet[i] <- gsub("\\(male)","",df$specificEpithet[i]) #remove male from specificEpithet
+  }
+}
+
 # clean up
 df <- char_fun(df,phrase_clean) # remove \xa0 characters
 df <- char_fun(df,trimws) # trim white space
@@ -76,6 +93,7 @@ for(i in 1:nrow(higher_taxa)){
 }
 
 df <- rbind(higher_taxa, df) # add higher taxa back to df for remainder of de-duplication
+df$subfamily <- NA # add subfamily column
 
 # order column names
 #df[,c(1,2,3,4)]. Note the first comma means keep all the rows, and the 1,2,3,4 refers to the columns.
@@ -101,6 +119,7 @@ df <- df[,c("source",
             "class", 
             "order", 
             "family",	
+            "subfamily", 
             "genus", 
             "subgenus", 
             "specificEpithet", 
