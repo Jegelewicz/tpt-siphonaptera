@@ -235,6 +235,10 @@ for (i in 1:nrow(synonyms)){
   synonyms$acceptedNameUsageID[i] <- vlookup(df$taxonID,synonyms$acceptedNameUsage[i],df$canonicalName) # get accceptedID
 }
 
+# look for missing accepted names
+accepted <- synonyms[which(!duplicated(synonyms$acceptedNameUsage)),]
+look <- synonyms[which(synonyms$acceptedNameUsage %!in% df$canonicalName),]
+
 df <- rbind(df,synonyms) # add synonyms back to working file
 
 df <- char_fun(df,trimws) # strip spaces from ends of strings

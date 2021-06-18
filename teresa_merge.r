@@ -87,4 +87,33 @@ write.csv(df,"~/GitHub/tpt-siphonaptera/output/in Lewis.csv", row.names = FALSE)
 
 all_names <- rbind(df,df1)
 
+
+
+
+
 write.csv(all_names,"~/GitHub/tpt-siphonaptera/output/merged_names.csv", row.names = FALSE) # all names
+
+# from https://stackoverflow.com/questions/26405895/how-can-i-match-fuzzy-match-strings-from-two-datasets
+  
+# library(stringdist)
+# d <- expand.grid(df1$canonicalName,df$canonicalName) # Distance matrix in long form
+# names(d) <- c("other_name","Lewis_name")
+# d$dist <- stringdist(d$other_name,d$Lewis_name, method="jw") # String edit distance (use your favorite function here)
+# 
+# # Greedy assignment heuristic (Your favorite heuristic here)
+# greedyAssign <- function(a,b,d){
+#   x <- numeric(length(a)) # assgn variable: 0 for unassigned but assignable, 
+#   # 1 for already assigned, -1 for unassigned and unassignable
+#   while(any(x==0)){
+#     min_d <- min(d[x==0]) # identify closest pair, arbitrarily selecting 1st if multiple pairs
+#     a_sel <- a[d==min_d & x==0][1] 
+#     b_sel <- b[d==min_d & a == a_sel & x==0][1] 
+#     x[a==a_sel & b == b_sel] <- 1
+#     x[x==0 & (a==a_sel|b==b_sel)] <- -1
+#   }
+#   cbind(a=a[x==1],b=b[x==1],d=d[x==1])
+# }
+# 
+# data.frame(greedyAssign(as.character(d$other_name),as.character(d$Lewis_name),d$dist))
+# 
+# test <- greedyAssign(df1,df,d)
