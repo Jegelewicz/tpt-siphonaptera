@@ -1,6 +1,6 @@
 # read in file
-Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 14 JUNE 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text"))
-Lewis_genera <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Genera List 14 JUNE 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text"))
+Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 19 JUNE 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text"))
+Lewis_genera <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Genera List 19 JUNE 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text"))
 df <- rbind.fill(Lewis, Lewis_genera) # combine species and genus files
 Lewis_original_rows <- nrow(df) # get initial number of rows
 tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
@@ -144,7 +144,7 @@ synonyms <- df[which(!is.na(df$`synonym(s)`)),] # get all the synonyms
 df <- df[which(is.na(df$`synonym(s)`)),] # remove synonyms from working file
 
 # transform synonyms
-synonyms$taxonID <- seq.int(Lewis_rows + 1, Lewis_rows + nrow(synonyms)) # add numeric ID for each synonym name
+# synonyms$taxonID <- seq.int(Lewis_rows + 1, Lewis_rows + nrow(synonyms)) # add numeric ID for each synonym name
 synonyms$acceptedNameUsage <- synonyms$canonicalName # create accepted name
 synonyms$scientificName <- synonyms$`synonym(s)` # move synonym to scientificName
 synonyms$infraspecificEpithet <- NA # clear subspecifc names of accepted name classification
