@@ -1,6 +1,6 @@
 # read in file
-Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 19 JUNE 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text"))
-Lewis_genera <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Genera List 19 JUNE 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text"))
+Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 2 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text"))
+Lewis_genera <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Genera List 2 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text"))
 df <- rbind.fill(Lewis, Lewis_genera) # combine species and genus files
 Lewis_original_rows <- nrow(df) # get initial number of rows
 tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
