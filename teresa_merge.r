@@ -89,104 +89,81 @@ write.csv(df,"~/GitHub/tpt-siphonaptera/output/in Lewis.csv", row.names = FALSE)
 GBIF_BOLD <- df1[which(startsWith(df1$scientificName, "BOLD:")),] # get the BOLD names
 df1 <- df1[which(startsWith(df1$scientificName, "BOLD:") == FALSE),] # remove BOLD names
 
-df1$suggested <- NA # initialize suggestion column
-
-# Euhoplopsyllus vs Euchoplopsyllus
-for (i in 1:nrow(df1)){
-  if (!is.na(df1$genus[i])){
-    if (df1$genus[i] == "Euchoplopsyllus"){
-      pick <- gsub("Euchoplopsyllus", "Euhoplopsyllus", df1$canonicalName[i])
-      df1$suggested[i] <- vlookup(df$canonicalName,pick,df$canonicalName)
-    }
-  }
-}
-
-# Amalareus vs Amalaraeus
-for (i in 1:nrow(df1)){
-  if (!is.na(df1$genus[i])){
-    if (df1$genus[i] == "Amalareus"){
-      pick <- gsub("Amalareus", "Amalaraeus", df1$canonicalName[i])
-      df1$suggested[i] <- vlookup(df$canonicalName,pick,df$canonicalName)
-    }
-  }
-}
-
-# match up species with subspecies
-dfsub <- df[which(df$specificEpithet == df$infraspecificEpithet),] # get the original subspecies
-dfsub$spec <- paste(dfsub$genus,dfsub$specificEpithet, sep = " ") # remove the infraspecific epithet
-
-for (i in 1:nrow(df1)){
-  if (df1$canonicalName[i] %in% dfsub$spec){
-    df1$suggested[i] <- paste(df1$genus[i],df1$specificEpithet[i],df1$specificEpithet[i], sep = " ")    
-  } else {
-    df1$suggested[i] <- NA
-  }
-}
-
-# match up subspecies with species
-for (i in 1:nrow(df1)){
-  if (is.na(df1$suggested[i])){
-    if (!is.na(df1$infraspecificEpithet[i])){
-      # if (df1$specificEpithet[i] == df1$infraspecificEpithet[i]){
-        pick <- paste(df1$genus[i],df1$infraspecificEpithet[i], sep = " ")
-        df1$suggested[i] <- vlookup(df$canonicalName,pick,df$canonicalName)
-      # }
-    }
-  }
-}
-
-# Match genera
-df2 <- df1[which(is.na(df1$suggested)),] # Get stuff without suggestions
-df1 <- df1[which(!is.na(df1$suggested)),] # remove stuff without suggestions from working file
-
-df$pick <- right(df$canonicalName," ")
-df$pickauth <- gsub("[()]","",df$scientificNameAuthorship)
-
-for (i in 1:nrow(df2)){
-    pick <- right(df2$canonicalName[i]," ")
-    pickauth <- gsub("[()]","",df2$scientificNameAuthorship[i])
-    temp <- df[which(df$pick == pick),]
-    df2$suggested[i] <- vlookup(temp$canonicalName,gsub("[()]","",df2$scientificNameAuthorship[i]),temp$pickauth)
-}
-
-df$pick <- NULL # remove temporary column
-df$pickauth <- NULL # remove temporary column
-
-df1 <- rbind(df1,df2) # return suggested names
-
-# get columns for Hastriter review
-review <- df1[c("source","family","subfamily","genus","specificEpithet","infraspecificEpithet","scientificNameAuthorship","taxonomicStatus","canonicalName","suggested")]
-review <- review[with(review, order(review$canonicalName)),]
-
-write.csv(review,"~/GitHub/tpt-siphonaptera/output/not_in_Lewis.csv", row.names = FALSE) # write out names for review
-write.csv(all_names,"~/GitHub/tpt-siphonaptera/output/merged_names.csv", row.names = FALSE) # all names
-
-
-
-
-
-
-# from https://stackoverflow.com/questions/26405895/how-can-i-match-fuzzy-match-strings-from-two-datasets
-  
-# library(stringdist)
-# d <- expand.grid(df1$canonicalName,df$canonicalName) # Distance matrix in long form
-# names(d) <- c("other_name","Lewis_name")
-# d$dist <- stringdist(d$other_name,d$Lewis_name, method="jw") # String edit distance (use your favorite function here)
+# df1$suggested <- NA # initialize suggestion column
 # 
-# # Greedy assignment heuristic (Your favorite heuristic here)
-# greedyAssign <- function(a,b,d){
-#   x <- numeric(length(a)) # assgn variable: 0 for unassigned but assignable, 
-#   # 1 for already assigned, -1 for unassigned and unassignable
-#   while(any(x==0)){
-#     min_d <- min(d[x==0]) # identify closest pair, arbitrarily selecting 1st if multiple pairs
-#     a_sel <- a[d==min_d & x==0][1] 
-#     b_sel <- b[d==min_d & a == a_sel & x==0][1] 
-#     x[a==a_sel & b == b_sel] <- 1
-#     x[x==0 & (a==a_sel|b==b_sel)] <- -1
+# # Euhoplopsyllus vs Euchoplopsyllus
+# for (i in 1:nrow(df1)){
+#   if (!is.na(df1$genus[i])){
+#     if (df1$genus[i] == "Euchoplopsyllus"){
+#       pick <- gsub("Euchoplopsyllus", "Euhoplopsyllus", df1$canonicalName[i])
+#       df1$suggested[i] <- vlookup(df$canonicalName,pick,df$canonicalName)
+#     }
 #   }
-#   cbind(a=a[x==1],b=b[x==1],d=d[x==1])
 # }
 # 
-# data.frame(greedyAssign(as.character(d$other_name),as.character(d$Lewis_name),d$dist))
+# # Amalareus vs Amalaraeus
+# for (i in 1:nrow(df1)){
+#   if (!is.na(df1$genus[i])){
+#     if (df1$genus[i] == "Amalareus"){
+#       pick <- gsub("Amalareus", "Amalaraeus", df1$canonicalName[i])
+#       df1$suggested[i] <- vlookup(df$canonicalName,pick,df$canonicalName)
+#     }
+#   }
+# }
 # 
-# test <- greedyAssign(df1,df,d)
+# # match up species with subspecies
+# dfsub <- df[which(df$specificEpithet == df$infraspecificEpithet),] # get the original subspecies
+# dfsub$spec <- paste(dfsub$genus,dfsub$specificEpithet, sep = " ") # remove the infraspecific epithet
+# 
+# for (i in 1:nrow(df1)){
+#   if (df1$canonicalName[i] %in% dfsub$spec){
+#     df1$suggested[i] <- paste(df1$genus[i],df1$specificEpithet[i],df1$specificEpithet[i], sep = " ")    
+#   } else {
+#     df1$suggested[i] <- NA
+#   }
+# }
+# 
+# # match up subspecies with species
+# for (i in 1:nrow(df1)){
+#   if (is.na(df1$suggested[i])){
+#     if (!is.na(df1$infraspecificEpithet[i])){
+#       # if (df1$specificEpithet[i] == df1$infraspecificEpithet[i]){
+#         pick <- paste(df1$genus[i],df1$infraspecificEpithet[i], sep = " ")
+#         df1$suggested[i] <- vlookup(df$canonicalName,pick,df$canonicalName)
+#       # }
+#     }
+#   }
+# }
+# 
+# # Match genera
+# df2 <- df1[which(is.na(df1$suggested)),] # Get stuff without suggestions
+# df1 <- df1[which(!is.na(df1$suggested)),] # remove stuff without suggestions from working file
+# 
+# df$pick <- right(df$canonicalName," ")
+# df$pickauth <- gsub("[()]","",df$scientificNameAuthorship)
+# 
+# for (i in 1:nrow(df2)){
+#     pick <- right(df2$canonicalName[i]," ")
+#     pickauth <- gsub("[()]","",df2$scientificNameAuthorship[i])
+#     temp <- df[which(df$pick == pick),]
+#     df2$suggested[i] <- vlookup(temp$canonicalName,gsub("[()]","",df2$scientificNameAuthorship[i]),temp$pickauth)
+# }
+# 
+# df$pick <- NULL # remove temporary column
+# df$pickauth <- NULL # remove temporary column
+# 
+# df1 <- rbind(df1,df2) # return suggested names
+
+# get columns for Hastriter review
+# review <- df1[c("source","family","subfamily","genus","specificEpithet","infraspecificEpithet","scientificNameAuthorship","taxonomicStatus","canonicalName","Hastriter_suggested","Hastriter_note")]
+# review <- review[with(review, order(review$canonicalName)),]
+
+# add Hastriter Comments to "not_in Lewis"
+Hastriter <- read_excel("~/GitHub/tpt-siphonaptera/input/Hastriter notes 2 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text"))
+df1$Hastriter_suggested <- vlookup(Hastriter$suggested_Hastriter,df1$canonicalName,Hastriter$canonicalName)
+df1$Hastriter_note <- vlookup(Hastriter$`Additional Hastriter Comments`,df1$canonicalName,Hastriter$canonicalName)
+df1$Hastriter_family <- vlookup(Hastriter$`Corrected FAMILY`,df1$canonicalName,Hastriter$canonicalName)
+
+write.csv(df1,"~/GitHub/tpt-siphonaptera/output/not_in_Lewis.csv", row.names = FALSE) # write out names for review
+# write.csv(all_names,"~/GitHub/tpt-siphonaptera/output/merged_names.csv", row.names = FALSE) # all names
+
