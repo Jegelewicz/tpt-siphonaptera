@@ -159,10 +159,10 @@ df1 <- df1[which(startsWith(df1$scientificName, "BOLD:") == FALSE),] # remove BO
 # review <- review[with(review, order(review$canonicalName)),]
 
 # add Hastriter Comments to "not_in Lewis"
-Hastriter <- read_excel("~/GitHub/tpt-siphonaptera/input/Hastriter notes 2 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text"))
-df1$Hastriter_suggested <- vlookup(Hastriter$suggested_Hastriter,df1$canonicalName,Hastriter$canonicalName)
-df1$Hastriter_note <- vlookup(Hastriter$`Additional Hastriter Comments`,df1$canonicalName,Hastriter$canonicalName)
-df1$Hastriter_family <- vlookup(Hastriter$`Corrected FAMILY`,df1$canonicalName,Hastriter$canonicalName)
+Hastriter <- read_excel("~/GitHub/tpt-siphonaptera/input/not_in_Lewis 12 July 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text","text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text", "text"))
+df1$Hastriter_suggested <- vlookup(Hastriter$Hastriter_suggested,df1$canonicalName,Hastriter$canonicalName)
+df1$Hastriter_note <- vlookup(Hastriter$Hastriter_note,df1$canonicalName,Hastriter$canonicalName)
+df1$Hastriter_family <- vlookup(Hastriter$Hastriter_family,df1$canonicalName,Hastriter$canonicalName)
 
 write.csv(df1,"~/GitHub/tpt-siphonaptera/output/not_in_Lewis.csv", row.names = FALSE) # write out names for review
 # write.csv(all_names,"~/GitHub/tpt-siphonaptera/output/merged_names.csv", row.names = FALSE) # all names

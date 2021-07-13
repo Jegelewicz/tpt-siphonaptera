@@ -1,6 +1,6 @@
 # read in file
-Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 6 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text"))
-Lewis_genera <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Genera List 6 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text"))
+Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 12 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text"))
+Lewis_genera <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Genera List 12 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text"))
 df <- rbind.fill(Lewis, Lewis_genera) # combine species and genus files
 Lewis_original_rows <- nrow(df) # get initial number of rows
 tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
@@ -483,3 +483,48 @@ df <- rbind(df, higher_taxa)
 
 write.csv(Lewis_non_dwc,"~/GitHub/tpt-siphonaptera/output/Lewis_non_DwC.csv", row.names = FALSE) # removed fields
 write.csv(df,"~/GitHub/tpt-siphonaptera/output/Lewis_DwC.csv", row.names = FALSE) # ready for analysis
+
+
+# review for classification consistency
+
+accepted <- df[which(df$taxonomicStatus == "accepted"),] # only look at accepted names
+
+# look for genera in more than one subfamily by selecting unique combinations of subfamily and genus
+df3 <- accepted %>%
+  group_by(grp = paste0(pmin(accepted$genus, accepted$subfamily), pmax(accepted$genus, accepted$subfamily))) %>%
+  slice(1) %>%
+  ungroup() %>%
+  select(-grp)
+
+df3$reason <- c(ifelse(duplicated(df3$genus, fromLast = TRUE)  | duplicated(df3$genus),
+                      "subfamily mismatch", NA)) # Flag internal dupes
+
+mismatch <- df3[which(df3$reason == "subfamily mismatch"),] # create a mismatch file
+
+# look for subfamilies in more than one family by selecting unique combinations of subfamily and genus
+df3 <- accepted %>%
+  group_by(grp = paste0(pmin(accepted$subfamily, accepted$family), pmax(accepted$subfamily, accepted$family))) %>%
+  slice(1) %>%
+  ungroup() %>%
+  select(-grp)
+
+df3$reason <- c(ifelse(duplicated(df3$subfamily, fromLast = TRUE)  | duplicated(df3$subfamily),
+                       "family mismatch", NA)) # Flag internal dupes
+
+df3 <- df3[which(df3$reason == "family mismatch"),] # keep only dupes
+mismatch <- rbind(mismatch,df3) # add family mismatch to mismatch file
+
+# look for genus in more than one family by selecting unique combinations of subfamily and genus
+df3 <- accepted %>%
+  group_by(grp = paste0(pmin(accepted$genus, accepted$family), pmax(accepted$genus, accepted$family))) %>%
+  slice(1) %>%
+  ungroup() %>%
+  select(-grp)
+
+df3$reason <- c(ifelse(duplicated(df3$genus, fromLast = TRUE)  | duplicated(df3$genus),
+                       "family mismatch", NA)) # Flag internal dupes
+
+df3 <- df3[which(df3$reason == "family mismatch"),] # keep only dupes
+mismatch <- rbind(mismatch,df3) # add family mismatch to mismatch file
+
+write.csv(mismatch,"~/GitHub/tpt-siphonaptera/output/mismatched_classifications.csv", row.names = FALSE) # names that do not all share higher classification
