@@ -55,7 +55,7 @@ write.csv(df_review,"~/GitHub/tpt-siphonaptera/output/NMNH_need_review.csv", row
 
 df_review <- read_excel("~/GitHub/tpt-siphonaptera/input/NMNH_reviewed.xlsx", na = "NA")
 
-df <- rbind(df, df_review) # add cleaned reviewed taxa back to working file
+df <- rbind.fill(df, df_review) # add cleaned reviewed taxa back to working file
 
 df$kingdom <- "Animalia" # add kingdom
 df$phylum <- "Arthropoda" # add phylum
@@ -179,17 +179,6 @@ df <- df[,c("source",
             "canonicalName"
 )]
 
-# # review for duplicates
-# dupe <- df[,c('canonicalName')] # select columns to check duplicates
-# review_dups <- df[duplicated(dupe) | duplicated(dupe, fromLast=TRUE),]
-# df <- anti_join(df, review_dups, by = "TPTID") # remove duplicate rows from working file
-# 
-# # write and review duplicates
-# write.csv(review_dups,"~/GitHub/tpt-siphonaptera/output/NMNH_review_duplicates.csv", row.names = FALSE) # these need review
-# print("after review of duplicates, save return file to ~/GitHub/tpt-siphonaptera/input/reviewed_duplicates.xlsx")
-# 
-# reviewed_duplicates <- read_excel("input/NMNH_reviewed_duplicates.xlsx") # read in cleaned duplicates
-# df <- rbind(df, reviewed_duplicates)
 
 write.csv(NMNH_non_dwc,"~/GitHub/tpt-siphonaptera/output/NMNH_non_DwC.csv", row.names = FALSE) # removed fields
 write.csv(df,"~/GitHub/tpt-siphonaptera/output/NMNH_DwC.csv", row.names = FALSE) # ready for analysis

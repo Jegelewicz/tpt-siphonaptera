@@ -83,17 +83,23 @@ df <- cast_canonical(df,
                      species = "specificEpithet",
                      subspecies = "infraspecificEpithet")
 
-# canonical names for taxa ranked subgenus and above - get the lowest ranking term and put it here!
-for(i in 1:nrow(higher_taxa)){
-  higher_taxa$canonicalName[i] <- ifelse(!is.na(higher_taxa$subgenus[i]), paste(higher_taxa$subgenus[i]),
-                                         ifelse(!is.na(higher_taxa$genus[i]), paste(higher_taxa$genus[i]),
-                                                ifelse(!is.na(higher_taxa$family[i]), paste(higher_taxa$family[i]),
-                                                       ifelse(!is.na(higher_taxa$subfamily[i]), paste(higher_taxa$subfamily[i]),
-                                                              "review"))))
-}
+# canonical names for taxa ranked genus and above - use scientific name
+higher_taxa$canonicalName <- higher_taxa$scientificName
 
 df <- rbind(higher_taxa, df) # add higher taxa back to df for remainder of de-duplication
 df$subfamily <- NA # add subfamily column
+
+# check for duplicate names 
+df$reason <- c(ifelse(duplicated(df$scientificName, fromLast = TRUE)  | duplicated(df$scientificName),
+                        "duplicate", NA)) # Flag internal dupes
+df_dupes_review <- df[which(grepl('duplicate',df$reason) == TRUE), ]  # get duplicates for review
+df <- df[which(grepl('duplicate',df$reason) == FALSE), ] # remove all dupes from working file
+df_dupes_keep <- df_dupes_review[which(!is.na(df_dupes_review$acceptedNameUsageID)),]
+df_dupes <- df_dupes_review[which(is.na(df_dupes_review$acceptedNameUsageID)),]
+df <- rbind(df, df_dupes_keep)
+
+# remove non DwC columns from working file
+df$reason <- NULL
 
 # order column names
 #df[,c(1,2,3,4)]. Note the first comma means keep all the rows, and the 1,2,3,4 refers to the columns.
@@ -135,4 +141,12 @@ df <- df[,c("source",
             "canonicalName"
 )]
 
-write.csv(df,"~/GitHub/tpt-siphonaptera/output/CoL_DwC.csv", row.names = FALSE) # ready for analysis
+# sanity check
+final <- nrow(df) + nrow(df_dupes) # number of rows in converted taxo file plus number of rows in higher taxa
+if(original_rows == final) { 
+  write.csv(df,"~/GitHub/tpt-siphonaptera/output/CoL_DwC.csv", row.names = FALSE) # ready for analysis
+  write.csv(df_dupes,"~/GitHub/tpt-siphonaptera/output/CoL_removed.csv", row.names = FALSE) # write out removed rows
+  print("YAY")
+} else {
+  print("rows are missing")
+}
