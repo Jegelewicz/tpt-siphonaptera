@@ -164,7 +164,7 @@ LewisNMNH_dupes <- LewisNMNH[which(duplicated(LewisNMNH$canonicalName, fromLast 
 LewisNMNHdupecount <- length(unique(LewisNMNH_dupes[["canonicalName"]])) # count number of unique names in dupes
 LewisFMNH_dupes <- LewisFMNH[which(duplicated(LewisFMNH$canonicalName, fromLast = TRUE)  | duplicated(LewisFMNH$canonicalName)),] # get dupes
 LewisFMNHdupecount <- length(unique(LewisFMNH_dupes[["canonicalName"]])) # count number of unique names in dupes
-
+ 
 # Get number of duplicates in not_Lewis files
 GBIF_not_Lewis_dupes <- GBIF_not_Lewis[which(duplicated(GBIF_not_Lewis$canonicalName, fromLast = TRUE)  | duplicated(GBIF_not_Lewis$canonicalName)),] # get dupes
 GBIFnotinLewisdupecount <- length(unique(GBIF_not_Lewis_dupes[["canonicalName"]])) # count number of unique names in dupes

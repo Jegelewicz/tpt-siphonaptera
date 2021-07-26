@@ -1,6 +1,6 @@
 # read in file
-Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 18 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text"))
-Lewis_genera <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Genera List 18 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text"))
+Lewis <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Species List 26 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text", "text", "text"))
+Lewis_genera <- read_excel("~/GitHub/tpt-siphonaptera/input/Lewis World Genera List 26 JULY 2021.xlsx", col_types = c("text", "text", "text", "text", "text", "text"))
 df <- rbind.fill(Lewis, Lewis_genera) # combine species and genus files
 Lewis_original_rows <- nrow(df) # get initial number of rows
 tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
@@ -294,9 +294,10 @@ df <- char_fun(df,space_clean) # strip double spaces
 df <- char_fun(df,phrase_clean) # remove all \xa0 characters
 
 generic_names <- df[which(!duplicated(df$genus)),] # deduplicated list by genus
+generic_names <- generic_names[which(generic_names$taxonomicStatus != "synonym"),]
 genera <- df[which(df$taxonRank == "genus"),] # all generic names in the list
 missing_genera <- generic_names[which(generic_names$genus %!in% genera$genus),] # get names used as genus but not in list
-missing_generic <- genera[which(genera$genus %!in% generic_names$genus),] # get names used as genus but not in list
+# missing_generic <- genera[which(genera$genus %!in% generic_names$genus),] # get names used as genus but not in list
 write.csv(missing_genera,"~/GitHub/tpt-siphonaptera/output/Lewis_review_genera.csv", row.names = FALSE)
 
 # get parent name ID - doesn't work because some parents aren't in the file
@@ -308,7 +309,8 @@ write.csv(missing_genera,"~/GitHub/tpt-siphonaptera/output/Lewis_review_genera.c
 # check for problems
 df$reason <- c(ifelse(duplicated(df$canonicalName, fromLast = TRUE)  | duplicated(df$canonicalName),
                                            "dupe", NA)) # Flag internal dupes
-dupes <- df[which(grepl('dupe',df$reason) == TRUE), ] 
+dupes <- df[which(grepl('dupe',df$reason) == TRUE), ] # get all duplicates
+dupes <- df[which(duplicated(df$scientificName, fromLast = TRUE)  | duplicated(df$scientificName)),] # only keep those with duplicated scientific names
 bad_year <- df[which(df$namePublishedInYear < 1700 | is.na(df$namePublishedInYear) | df$namePublishedInYear > 2100),]
 bad_year$reason <- "bad year"
 missing_author <- df[which(is.na(df$scientificNameAuthorship)),]
@@ -414,6 +416,7 @@ orders$namePublishedInYear <- NA
 orders$genus <- NA
 orders$scientificNameAuthorship <- NA
 orders$family <-NA
+orders$subfamily <- NA
 orders$subgenus <- NA
 orders$specificEpithet <- NA
 orders$infraspecificEpithet <- NA
@@ -432,6 +435,7 @@ classes$genus <- NA
 classes$scientificNameAuthorship <- NA
 classes$order <-NA
 classes$family <-NA
+classes$subfamily <- NA
 classes$subgenus <- NA
 classes$specificEpithet <- NA
 classes$infraspecificEpithet <- NA
@@ -451,6 +455,7 @@ phyla$scientificNameAuthorship <- NA
 phyla$class <- NA
 phyla$order <-NA
 phyla$family <-NA
+phyla$subfamily <- NA
 phyla$subgenus <- NA
 phyla$specificEpithet <- NA
 phyla$infraspecificEpithet <- NA
@@ -458,25 +463,27 @@ phyla$taxonomicStatus <- "accepted"
 phyla$taxonRank <- "phylum"
 
 # add kingdom
-kingdom <- df[which(!duplicated(df$kingdom)),] # deduplicated list by class
-kingdom <- kingdom[which(!is.na(kingdom$kingdom)),] # remove the NA order row
-kingdom$canonicalName <- kingdom$kingdom
-kingdom$scientificName <- kingdom$kingdom
-kingdom$acceptedNameUsage <- NA
-kingdom$namePublishedInYear <- NA
-kingdom$genus <- NA
-kingdom$scientificNameAuthorship <- NA
-kingdom$phylum <- NA
-kingdom$class <- NA
-kingdom$order <-NA
-kingdom$family <-NA
-kingdom$subgenus <- NA
-kingdom$specificEpithet <- NA
-kingdom$infraspecificEpithet <- NA
-kingdom$taxonomicStatus <- "accepted"
-kingdom$taxonRank <- "kingdom"
+kingdoms <- df[which(!duplicated(df$kingdom)),] # deduplicated list by class
+kingdoms <- kingdoms[which(!is.na(kingdoms$kingdom)),] # remove the NA order row
+kingdoms$canonicalName <- kingdoms$kingdom
+kingdoms$scientificName <- kingdoms$kingdom
+kingdoms$acceptedNameUsage <- NA
+kingdoms$namePublishedInYear <- NA
+kingdoms$genus <- NA
+kingdoms$scientificNameAuthorship <- NA
+kingdoms$phylum <- NA
+kingdoms$class <- NA
+kingdoms$order <-NA
+kingdoms$family <-NA
+kingdoms$subfamily <- NA
+kingdoms$subgenus <- NA
+kingdoms$specificEpithet <- NA
+kingdoms$infraspecificEpithet <- NA
+kingdoms$parentNameUsage <- NA
+kingdoms$taxonomicStatus <- "accepted"
+kingdoms$taxonRank <- "kingdom"
 
-higher_taxa <- rbind(kingdom, phyla, classes, orders, families, subfamilies)
+higher_taxa <- rbind(kingdoms, phyla, classes, orders, families, subfamilies)
 higher_taxa$taxonID <- seq.int(Lewis_original_rows + 1, Lewis_original_rows + nrow(higher_taxa)) # add numeric ID for each higher taxon name
 
 df <- rbind(df, higher_taxa)
@@ -499,9 +506,10 @@ df3 <- accepted %>%
 
 df3$reason <- c(ifelse(duplicated(df3$genus, fromLast = TRUE)  | duplicated(df3$genus),
                       "subfamily mismatch", NA)) # Flag internal dupes
-
-mismatch <- df3[which(df3$reason == "subfamily mismatch"),] # create a mismatch file
-mismatch <- mismatch[which(mismatch$genus != "none"),] # remove rows without a genus
+df3 <- df3[which(df3$reason == "subfamily mismatch"),] # get only mismatches
+df3 <- df3[which(df3$genus != "none"),] # remove rows without a genus
+mismatch <- df3 # create a mismatch file
+#mismatch <- mismatch[which(mismatch$genus != "none"),] # remove rows without a genus
 
 # look for subfamilies in more than one family by selecting unique combinations of subfamily and genus
 df3 <- accepted %>%
@@ -512,10 +520,10 @@ df3 <- accepted %>%
 
 df3$reason <- c(ifelse(duplicated(df3$subfamily, fromLast = TRUE)  | duplicated(df3$subfamily),
                        "family mismatch", NA)) # Flag internal dupes
-
 df3 <- df3[which(df3$reason == "family mismatch"),] # keep only dupes
+df3 <- df3[which(df3$subfamily != "none"),] # remove rows without a genus
 mismatch <- rbind(mismatch,df3) # add family mismatch to mismatch file
-mismatch <- mismatch[which(mismatch$subfamily != "none"),] # remove rows without a subfamily
+# mismatch <- mismatch[which(mismatch$subfamily != "none"),] # remove rows without a subfamily
 
 # look for genus in more than one family by selecting unique combinations of subfamily and genus
 df3 <- accepted %>%
@@ -528,6 +536,7 @@ df3$reason <- c(ifelse(duplicated(df3$genus, fromLast = TRUE)  | duplicated(df3$
                        "family mismatch", NA)) # Flag internal dupes
 
 df3 <- df3[which(df3$reason == "family mismatch"),] # keep only dupes
+df3 <- df3[which(df3$genus != "none"),] # remove rows without a genus
 mismatch <- rbind(mismatch,df3) # add family mismatch to mismatch file
 mismatch <- mismatch[which(mismatch$genus != "none"),] # remove rows without a genus
 
