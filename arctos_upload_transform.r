@@ -3,11 +3,23 @@
 
 # add libraries
 library(readxl)
+library(data.table)
 
-tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
-tpt_dwc_template[] <- lapply(tpt_dwc_template, as.character) # set all columns in template to character
-df <- rbindlist(list(GBIF_in_merged, tpt_dwc_template), fill = TRUE) # combine DwC file with file to transform
-df <- rbindlist(list(merged_in_GBIF, tpt_dwc_template), fill = TRUE) # combine DwC file with file to transform
+# tpt_dwc_template <- read_excel("input/tpt_dwc_template.xlsx") # read in TPT DarwinCore template
+# tpt_dwc_template[] <- lapply(tpt_dwc_template, as.character) # set all columns in template to character
+
+df <- read_excel("output/TPT_Siphonaptera_V1.xlsx", 
+                                  col_types = c("text", "numeric", "numeric", 
+                                                "numeric", "numeric", "numeric", 
+                                                "numeric", "numeric", "numeric", 
+                                                "text", "text", "text", "text", "numeric", 
+                                                "numeric", "numeric", "numeric", 
+                                                "text", "text", "text", "text", "text", 
+                                                "text", "text", "text", "text", "text", 
+                                                "text", "numeric", "text", "numeric", 
+                                                "text", "text", "text", "text", "text")) #read in DwC file to transform
+
+# df <- rbindlist(list(TPT_Siphonaptera_V1, tpt_dwc_template), fill = TRUE) # combine DwC file with file to transform
 
 names(df)[names(df) == 'canonicalName'] <- 'scientific_name' #change canonicalName to scientific_name
 
@@ -15,13 +27,13 @@ names(df)[names(df) == 'taxonRank'] <- 'name_rank' #change taxonRank to taxon_ra
 
 # get parent name if not supplied
 for(i in 1:nrow(df)){
-  df$parentNameUsage[i] <- ifelse(!is.na(df$parentNameUsage[i]), df$parentNameUsage, # use parentNameUsage is available
+  df$parentNameUsage[i] <- ifelse(!is.na(df$parentNameUsage[i]), df$parentNameUsage[i], # use parentNameUsage is available
                               ifelse(is.na(df$name_rank[i]), NA, # if both parentNameUsage and taxon_rank are blank, insert NA
-                                     ifelse(df$name_rank[i] == "subspecies", df$specificEpithet,   
-                                            ifelse(df$name_rank[i] == "species", ifelse(is.na(df$subgenus), df$genus[i], df$subgenus[i]) ,# if name rank is species and there is no subgenus, insert genus, otherwise insert genus
-                                                   ifelse(df$name_rank[i] == "subgenus", df$genus[i], # if name rank is species, insert genus is not, insert year
+                                     ifelse(df$name_rank[i] == "subspecies", df$specificEpithet[i],   
+                                            ifelse(df$name_rank[i] == "species", ifelse(is.na(df$subgenus[i]), df$genus[i], df$subgenus[i]) ,# if name rank is species and there is no subgenus, insert genus, otherwise insert genus
+                                                   ifelse(df$name_rank[i] == "subgenus", df$genus[i], # if name rank is species, insert genus
                                                           ifelse(df$name_rank[i] == "genus", df$family[i], #if name rank is genus, insert family
-                                                                 ifelse(df$name_rank[i] == "family", df$order, #if name rank is family, insert order
+                                                                 ifelse(df$name_rank[i] == "family", df$order[i], #if name rank is family, insert order
                                                                         NA)) # otherwise NA
                                                    )
                                             )
@@ -37,8 +49,8 @@ df$username <- "jegelewicz" # fill in username
 
 df$hierarchy_name <- "Siphonaptera" # fill in hierarchy name
 
-df$noclass_term_type_1 <- "author_text" # set first non classification term to author_text
 names(df)[names(df) == 'scientificNameAuthorship'] <- 'noclass_term_1' # change column with scientifcNameAuthorship to no_class_term_1
+df$noclass_term_type_1 <- ifelse(!is.na(df$noclass_term_1), 'author_text', NA) #set fourth non classification term to "author_text" if no_class_term_1 is not NA
 
 names(df)[names(df) == 'nomenclaturalCode'] <- 'noclass_term_2' # change column with nomenclaturalCode to no_class_term_2
 df$noclass_term_2 <- ifelse(is.na(df$noclass_term_2), 'ICZN', df$noclass_term_2) # set all nomenclatural code terms
@@ -56,9 +68,6 @@ df$noclass_term_5 <- ifelse(df$noclass_term_5 == 'accepted', 'valid', df$noclass
 
 names(df)[names(df) == 'acceptedNameUsage'] <- 'noclass_term_6' # change accepteNameUsage to preferred_name
 df$noclass_term_type_6 <- ifelse(!is.na(df$noclass_term_6), 'preferred_name', NA) #set fourth non classification term to preferred_name if no_class_term_6 is not NA
-
-# df$noclass_term_type_7
-# df$noclass_term_7 
 
 # order column names
 # df[,c(1,2,3,4)]. Note the first comma means keep all the rows, and the 1,2,3,4 refers to the columns.
@@ -83,3 +92,5 @@ Arctos_upload <- df[,c("username",
                        "noclass_term_6"
                        )
 ]
+
+write.csv(Arctos_upload,"~/GitHub/tpt-siphonaptera/output/Arctos_upload.csv", row.names = FALSE) # write out csv for upload
