@@ -1,8 +1,7 @@
 # libraries and functions used in this project
 
 detach("package:taxotools", unload=TRUE)
-library(devtools)
-devtools::install_github("vijaybarve/taxotools", force = TRUE) # install latest version of taxotools from Github
+library(devtools)devtools::install_github("vijaybarve/taxotools", force = TRUE) # install latest version of taxotools from Github
 
 # libraries
 library(readxl)
@@ -105,3 +104,4 @@ fixAuth <- function(x) ifelse(grepl('[a-z]),',x), paste(gsub(')', '',x),')',sep=
 toproper <- function(x) ifelse(!is.na(x),
                                paste0(toupper(substr(x, 1, 1)),
                                       tolower(substring(x, 2))),NA)
+
